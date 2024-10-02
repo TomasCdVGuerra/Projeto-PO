@@ -1,0 +1,152 @@
++---------------------+
+|        Hotel        |
++---------------------+
+|lista especies       |
+|lista habitat        |
+|lista funcionarios   |
+|lista vacinas        |
++---------------------+
+|                     |
++---------------------+
+//é a memoria
+
++---------------------+
+|       Gerente       |
++---------------------+
+|                     |
+|                     |
++---------------------+
+|                     |
++---------------------+
+
++---------------------+
+|      Especie        |
++---------------------+
+| - _id: int          |
+| - _nome: string     |
++---------------------+
+| + especie()         |
+| + especie(int, string)|
+| + obtemID(): int    |
+| + obtemNome(): string|
++---------------------+
+//Conhece todos os animais que fazem parte da espécie
+
++---------------------+
+|      Animal         |
++---------------------+
+| - _id: string        |
+| - _Nome: string      |
+| - _EstadoSaúde: string|
+| - _EstadoSaúde: string|
++---------------------+
+| + animal()          |
+| + animal(string, string, string)|
+| + obtemID(): string |
+| + obtemNome(): string|
+| + obtemEstadoSaude(): string|
+| + obtemEstadoSaude(string): void|
+| + satisfação(Animal): float|
+| + espécieIgual(Animal, Habitat): int| //Num de Animais mesma espécie
+| + espécieDiferente(Animal, Habitat): int| //Num de animais diferente espécie
+| + adequação(Animal, Habitat): int| //Usado para calcular satisfação, preset para cada par animal/habitat
++---------------------+
+//sabe a sua Espécie
+
++---------------------+
+|      Habitat        |
++---------------------+
+| - _id: string       |
+| - _Nome: string     |
+| - _area: int        |
+| - _listaAdequacao[]: Adequacao|
++---------------------+
+| + habitat()         |
+| + habitat(string, string, int)|
+| + obtemID(): string |
+| + obtemNome(): string|
+| + obterArea(Habitat): int|
+| + obterPopulacao(Habitat): int|
++---------------------+
+
++---------------------+
+|      adequacao      |
++---------------------+
+| - _habitatId: string|
+| - _especieId: string|
+| - _valorAdequacao: int|
++---------------------+
+| + adequacao(string, string, int)|
++---------------------+
+//enumeração guardado dentro do habitat (especie, adequacao) ou um hashmap
+
++---------------------+
+|      tree           |
++---------------------+
+| - _id: string       |
+| - _nome: string     |
+| - _age: int         |
+| - _tipoFolha: bool  |
+| - _estacao: string  |
+| - _cleaningDifficulty: int|
++---------------------+
+| + tree()            |
+| + tree(string, string, int, int)|
+| + obtemID(): string |
+| + obtemNome(): string|
+| + esforcoSazonal(): int|
+| + obtemIdade(): int |
+| + obtemEsforcoLimpeza(): int|
++---------------------+
+
++-----------------------------+
+|      funcionarios           |
++-----------------------------+
+| - _id: string               |
+| - _Nome: string             |
++-----------------------------+
+| + employee()                |
+| + employee(string, string)  |
+| + obtemID(): string         |
+| + obtemNome(): string       |
++-----------------------------+
+
++-----------------------------+
+|      veterinarios           |
++-----------------------------+
+| - _species: List<Species>   |
++-----------------------------+
+| + veterinarios()            |
+| + veterinarios(string, string)|
+| + desEspecie(Species): void |
+| + remEspecies(Species): void|
+| + obtemSatisfacao(): int    |
++-----------------------------+
+
++-----------------------------+
+|         tratador            |
++-----------------------------+
+| - _habitats: List<Habitat>  |
++-----------------------------+
+| + tratador()                |
+| + tratador(string, string)  |
+| + assignHabitat(Habitat): void|
+| + removeHabitat(Habitat): void|
+| + obtemSatisfacao(): int    |
+| + obtemTrabalho(): int      |
++-----------------------------+
+
++-----------------------------+
+|         vacina              |
++-----------------------------+
+| - _id: string               |
+| - _nome: string             |
+| - _listaEspecies: List<Species>|
++-----------------------------+
+| + vacina()                  |
+| + vacina(string, string)    |
+| + addEspecies(Species): void|
+| + remEspecies(Species): void|
+| + tamanhoNomes(): int       |
+| + dano(vacina, animal): int |
++-----------------------------+
