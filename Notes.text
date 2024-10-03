@@ -70,6 +70,30 @@
 +---------------------+
 
 +---------------------+
+|      Habitat        |
++---------------------+
+| - _id: string       |
+| - _Name: string     |
+| - _area: int        |
+| - _population:int
++---------------------+
+| + habitat()         |
+| + habitat(string, string, int)|
+| + getID(): string |
+| + getName(): string|
+| + getArea(Habitat): int|
+| + getPopulation(Habitat): int|
+| + getadequations(species): tuple(species,adequationValue) |
+| + calculateHabiatCleanDiff(): int |work in the habitat(h) = area ´ (h) + 3 ∗ population˜ (h) + X
+a∈trees ´ (h)
+cleaning effort
+| + addAdequation(species, int): |
+| + viewAdequation(species): |
+getAnimals:Animals[]
+getTrees():Tree[]
++---------------------+
+
++---------------------+
 |      adequacao      |
 +---------------------+
 | - _habitatId: string|
