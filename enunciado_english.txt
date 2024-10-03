@@ -1,0 +1,2199 @@
+Machine Translated by Google
+
+˜
+Projecto de Programac¸ao com Objectos 17 de
+Setembro de 2024
+´
+
+Essay on Duvidas:
+
+´
+• Consulting services: Presence and atraves do endec¸o po-tagus@disciplinas.tecnico.ulisboa.pt.
+˜
+˜
+˜
+`
+ao n ao oficialmente associadas ao corpo docente (podem colocar em causa a aprovac¸ ao˜ a disciplina).
+• Nao utilizar fonts de informac¸
+˜
+˜
+˜
+˜
+˜
+ˆ
+• Nao s ao aceites justificac¸ oes para violac¸ oes destes conselhos: quaisquer consequent encias nefastass ao da responsabilidade do aluno.
+
+˜
+˜
+Requisitos para desenvolvimento, material de apoio e actualizac¸oes do enunciado (ver informac¸ ao completa na secc¸ ao˜ [Projecto] no Fenix):
+˜
+´
+´
+
+´
+
+• O material de apoio e de uso obrigat orio en ao pode ser alterado.
+
+• Verificar atempadamente (m´ÿnimo de 48 horas antes do final de cada prazo) os requisitos exigidos pelo processo de avaliac¸ao. ˜
+
+˜
+´
+˜
+˜
+´
+Processo de avaliac¸ao (ver informac¸ ao completa nas secc¸ oes
+˜ [Projecto] e [Metodo de Avaliac¸ ao] no Fenix):
+˜
+´
+. Teste pratico:
+• Datas: Ver secc¸ao Projecto da p agina da disciplina para as 3 entregas do projecto
+´ Consultar a mesma secc¸ao˜ .
+˜
+˜
+˜
+˜
+• Nao ser ao consideradas quaisquer alterac¸ oes aos ficheiros de apoio disponibilizados: eventuais entregas dessas alterac¸ substitu´ÿdas durante avaliac¸ao oes ser automaticamente ˜
+˜
+´
+da funcionalidade do c odigo entregue.
+
+˜
+˜
+˜
+˜
+´
+´
+ao s ao aceites outras formas de entrega).
+˜
+˜
+• A Valiac¸ao does a projecto press and a compromisso de Honra de Que o trabalho foi realizado pelos alunos correspondentes ao grupo de Avaliac¸
+˜
+˜
+˜
+
+• Trabalhos nao entregues no F enix at e final do prazo t em classificac¸ ˆ ao 0 (zero) (n
+
+˜
+ao.
+
+• Fraudulent executions of project projects andao como results .
+
+˜
+
+´
+
+˜
+
+´
+
+´
+
+The objectivo and the desenvolver uma aplicac¸ ao de gest ao de um hotel veterinario. secc¸ao 1 apresentaas entidades do dom ´ÿnio da aplicac¸ao a
+
+´
+
+´
+
+desenvolver. As funcionalidades da aplicac¸ ao a desenvolver ˜
+
+˜
+
+˜
+
+˜
+
+´
+
+˜
+
+˜
+
+˜
+
+Sao descritas nas secc¸ oes 4 e 5. A secc¸ ao 2 descreve os requisitions de desenho que aplicac¸ ao desenvolvida
+deve oferecer.
+
+1 Entities of the House
+˜
+
+˜
+
+´
+
+˜
+
+´
+
+Nesta secc¸ao descrevem-se as v arias entidades que v ao ser manipuladas no contexto da aplicac¸ ao a desenvolver. Existem v arios conceitos importantes
+
+´
+
+´
+
+´
+
+neste contexto (por exemplo, hotel veterinario, esp ecie, animal, funcion ario).
+
+´
+
+´
+
+˜
+
+`
+
+Um hotel veterinary tem v arios habitats on os animais colocados a guarda do hotel s ao depois colocados. Cada animal pertence a uma especie. O hotel tem dois
+
+´
+
+´
+
+˜
+
+´
+
+tipos de funcion arios: tratadores e veterin arios. e pela limpeza dos habitats.
+
+´
+´
+
+`
+
+´
+
+aveis through distribution
+
+ˆ
+
+´
+
+´
+
+O habitat pode ainda ter arvores. Deve ser poss ´ÿvel calcular o grau de satisfac¸ao dos animais e dos funcion arios. ´
+
+´
+
+´
+
+˜
+
+´
+´
+
+´
+
+It’s the most important thing, it’s different, it’s different, it’s different, it’s different, it’s different, it’s different, it’s irrelevant. ˜
+
+´
+
+´
+
+˜
+
+Na concretizac¸ao desta aplicac¸ ao poder ˜
+
+´
+
+´
+
+˜
+
+´
+
+ario considerar outros conceitos al em dos que s ao identificados explicitamente a ser necess
+
+˜
+
+nesta secc¸ao.
+
+´
+1.1 Especies
+´
+
+´
+
+Cada animal pertence a uma dada especie. n ao existem˜
+
+˜
+´
+
+´
+
+´
+´
+
+´
+
+`
+
+´
+
+The difference between the species is the distintas com o mesmo nome) and the connotations are os animais que pertencem ecie. a esp
+
+1.2 Animais
+˜
+
+´
+
+˜
+
+´
+
+Os animais sao identifiableados por uma chave unica (cadeia de caracteres arbitrary aria definida na altura da criac¸ ao). ao sobre o seu estado de sa ude. ´
+
+´
+
+´
+
+´
+
+´
+
+˜
+
+´
+
+E poss ´ÿvel calcular on´ÿvel de satisfac¸ao de um animal. Este valor depende v arios factores.
+
+´
+
+1
+
+˜
+
+˜
+
+´
+
+Machine Translated by Google
+
+´
+
+´
+
+animais de outras especies.
+
+´
+
+˜
+
+´
+
+˜
+
+´
+
+´
+
+´
+
+os animais que la vivem.
+
+area
+´ (h)
+satisfac¸ao˜ (a) = 20 + 3 ÿ especieIgual ´ (a, h) ÿ 2 ÿ especieDiferente ´ (a, h) + + adequac¸ao˜ (a, h) populac¸ao˜ (h)
+
+´
+
+(1)
+
+´
+
+onde esp´ecieIgual(a, h) representa o numero de animais da mesma esp ecie de a presentes em h (sem contar com a),
+
+´
+
+´
+
+´
+
+´ecieDiferente(a, h) eona, populac¸˜ao(h)umero
+representa
+de animais presentes em h de especies diferentes da de esp
+
+´
+
+ˆ
+
+´
+
+o numero de animais no habitat he adequac¸˜ao(a, h) representa influencia do habitat no animal tendo em conta a esp ecie do animal. A adequac¸ao˜ e´ 20 se
+
+ˆ
+
+ˆ
+
+a influencia do habitat for positiva, ÿ20 se for negativa e 0 se an influencia for neutra (valor por omissao). ˜
+
+1.3 Habitats
+˜
+
+´
+
+Os habitats sao identificados por uma chave unica (cadeia de caracteres definida na altura do registo). Cada habitat tem um nome (cadeia de caracteres nao˜
+
+´
+
+´
+
+´
+
+´
+
+unica) e uma area (n umero inteiro). Os habitats conhecemainda as arvores e os animais presentes no habitat.
+
+˜
+
+´
+
+Os habitats podem ser mais (ou menos) adequados para determinadas especies. A adequac¸ ao tem impacto no grau de satisfac¸ ao˜
+
+˜
+
+´
+
+dos animais. Por omissao, um habitat tem um impacto neutro para cada esp ecie.
+
+´
+
+´
+
+´
+1.4 Arvores
+˜
+
+´
+
+´
+
+´
+
+´
+
+As arvores s ao identificadas por uma chave unica (cadeia de caracteres arbitr aria definida na altura da criac¸ ao). Cada ˜ arvore tem
+
+´
+
+´
+
+´
+
+Ainda nome (cadet caracteres nao˜ unica) and idade em anos (n umero inteiro). .Quando ao sincronizadas ˜
+
+˜
+
+˜
+´
+arvores est
+
+´
+˜
+˜
+´
+´
+uma arvore e criada, fica na estac¸ ao do ano em que aplicac¸ ao estiver no momento, ie, todas as nesse aspecto.
+˜
+´
+˜
+
+´
+
+´
+
+Assim, por exemplo, as arvores de folha caduca perdem as folhas principalmente durante o Outono, ficando sem folhas no Inverno. estac¸oes, mas mais durante
+
+´
+
+o Inverno.
+
+˜
+
+´
+´
+Arvore
+`
+´
+O primeiro corresponds to a different base of limpeza da arvore (designado como dificuldade de limpeza). O segundo, designado
+˜
+´
+como esforc¸o sazonal, depende da estac¸ao do ano e do tipo de arvore, como indicado na tabela seguinte:
+
+Estac¸ao˜
+
+Inverno Primavera Verao˜ Outono
+
+´
+Arvore
+Folha caduca
+
+0
+
+Folha perene
+
+5
+1
+
+twenty
+
+2
+
+11
+
+one
+
+´
+O terceiro corresponds to a um factor que cresce logaritmicamente com a idade da arvore:
+log(idade + 1) (logaritmo natural).
+´
+´
+´
+´
+Arvore ae calculado pela seguinte f ormula:
+Combinations of factors, factors that can affect your health
+(2)
+
+esforc¸o limpeza(a) = dificuldade limpeza(a) ÿ esforc¸o sazonal(a) ÿ log(idade(a) + 1)
+˜
+
+´
+
+˜
+
+As arvores envelhecem com as estac¸ oes, ie, a idade aumenta em 1 unidade (1 ano) a cada 4 estac¸ oes (note-se que o incremento nao˜ e necessariamente
+´
+ˆ
+´
+simultaneous em todas as arvores).
+
+´
+1.5 Funcionarios
+´
+
+˜
+
+´
+
+˜
+
+´
+
+Os funcionarios s ao identificados por uma chave unica (cadeia de caracteres arbitrary aria definida na altura da criac¸ ao). Os funcionarios t em um nome (cadeia
+
+´
+
+ˆ
+
+´
+
+´
+
+´
+
+de caracteresn ao˜ unica). e veterin arios. Cada tratador esta atribu ´ÿdo aum conjunto de habitats (zero ou mais). satisfac¸ao. O c alculo da satisfac¸ ao depende do
+
+´
+
+tipo de funcionario.
+
+´
+
+˜
+
+´
+
+´
+
+2
+
+`
+
+´
+
+˜
+
+´
+
+Machine Translated by Google
+˜
+
+´
+
+1.5.1 Satisfac¸ao dos Veterin arios
+
+˜
+
+´
+
+ˆ
+
+´
+
+A satisfac¸ao de um veterinary ´ve afectada positivamente pela exist encia de outros veterinary arios que sabem vacinar as v arias ´
+
+´
+
+˜
+
+´
+
+The difference between the species and the sabe vaccine is the negative value of the animais and the response to the disease (ou seja, que v sabe
+
+˜
+
+´
+
+´
+
+´
+
+vacinar).
+
+populac¸ao˜ (e)
+
+(3)
+
+´
+
+satisfac¸ao˜ (v) = 20 ÿ
+´
+eÿspecies
+
+n veterinarians (v) (e)
+
+´
+
+´
+
+onde esp´ecies(v) representa o conjunto de especies que v sabe tratar, populac¸˜ao(e) representa o numero de animais da especie ee n veterin´arios(e) representa o numero de veterin arios com a responsabilidade de vacinar a esp ecie v.
+
+´
+
+´
+
+´
+
+´
+
+˜
+1.5.2 Satisfac¸ao dos Tratadores
+˜
+
+´
+
+´
+
+A satisfac¸ao dos tratadores and affectada negativamente pelo trabalhoque lhes e atribu ´ ´ÿdo. O trabalhodependence dos varios habitats atribu´ÿdos ao tratador.
+
+˜
+
+´
+
+´
+
+´
+
+satisfac¸ao˜ (t) = 300 ÿ
+hÿhabitats(t)
+
+trabalho no habitat(h)
+
+(4)
+
+numero De tratadores do habitat(h)
+
+trabalho no habitat(h) = area´ (h) + 3 ÿ populac¸ao˜ (h) +
+
+(5)
+
+esforc¸o limpeza(a) (h)
+´
+
+aÿarvores
+
+´
+onde habitats(t) representa o conjunto de habitats sob responsabilidade de te ´arvores(h) representa o conjunto de arvores
+presente no habitat h.
+
+1.6 Vacinas
+˜
+˜
+´
+´
+Cada vacina tem um nome (cadeia de caracteres; nao˜ unica) e sabe as esp ecies a que pode ser aplicada. Cada vacina tem um
+´
+´
+´
+nome (cadeia de caracteres; nao˜ unica) Mant em ainda um registo de todas as vezes que foi administrada.
+´
+
+`
+1.6.1 Problemas associados a vaccinac¸ ao˜
+
+´
+
+´
+
+˜
+
+´
+
+O estado de saude um animal eo hist orico de eventos (inicialmente vazio) relacionados com a vacinac¸ ao do animal, entre os quais estao os danos causados
+
+˜
+
+´
+
+˜
+
+˜
+
+por m as vacinac¸ oes. O valor do dano de uma vacinac¸ ao correcta ( a esp ecie do animal est a inclu ´ÿda
+
+´
+
+´
+
+nas especies para as quais a vacina um
+
+´
+
+´
+
+´
+
+´
+
+˜
+
+´
+
+e apropriada) e igual a 0. O valor do dano causado pela ma administrac¸ ao de uma vacina va
+
+´
+
+´
+
+animal a dependence do numero de letras distintas entre o nome da esp ecie de a (esp´ecie(a)) eo nome das especies aque se destinava v (esp´ecies(v)):
+
+dano(v, a) = MAXeÿespecies ´ (v)(tamanho nomes(especie ´ (a), e) ÿ caracteres comuns(especie ´ (a), r))
+
+(6)
+
+tamanho nomes(especie1 ´ , especie2 ´ ) = max(tamanho(especie1 ´ ), tamanho(especie2 ´ ))
+ˆ
+´
+Considerate-se que os nomes aab e ba tem apenas 1 car acter distinto, sendo a ordem irrelevante. 6, sendo calculado por: max(tamanho(ave),
+˜
+´
+
+(7)
+
+em que
+
+ave
+
+tamanho(mam´ÿfero)) ÿ caracteres comuns(ave, mam´ÿfero) = 8 ÿ 2 = 6
+
+A seguinte tabela descreve os resultados associados ao dano causado pelas vacinac¸oes: ˜
+
+˜
+
+Dano
+
+´
+
+´
+
+Termo adicionar na apresentac¸ao do estado de saude
+
+NORMAL
+CONFUSAO˜
+ACIDENTE
+ERRO
+
+0 (mesma especie) 0
+
+´
+
+(especies diferentes) 1 a 4
+5 ou
+mais
+
+ˆ
+
+The results are great, the animals are the best 2 vaccinates 1 and 4 (ACIDENTE), the vaccinas are 1 and 4 (ACIDENTE), the vaccinators are 1 and 4
+
+´
+˜
+separator): ACIDENTE,ACIDENTE,ERRO,ERRO,ERRO,NORMAL (ie, concatenac¸ao ordenada por ordem de ocorr encia). ˆ
+
+(ACIDENTE), the vaccinator is the superior 5 (ERRO) and the vaccinator is the correct one, the present is the history of saude (usa-se) av´ÿrgula como
+
+3
+
+Machine Translated by Google
+
+1.7 Serialization
+´
+
+˜
+˜
+˜
+serializac¸ao Java usa as classes da package java.io, em particular, a interfacejava.io.Serializable e as classes de leitura
+java.io.ObjectInputStream e escrita java.io.ObjectOutputStream (entre outras).
+
+E poss ´ÿvel guardar e recuperar o estado actual da aplicac¸ao, preservando toda a informac¸ ao relevante do dom ´ÿnio da aplicac¸ao.A˜
+
+2 Requirements for Desenho
+O sistema a desenvolver deve seguir o princ´ÿpio de desenho aberto-fechado por forma a aumentar a extensibilidade do seu codigo. ´
+
+´
+
+´
+
+´
+
+Por exemplo, deve ser poss´ÿvel adicionar novos tipos de funcionarios com um impacto m ´ÿnimo no codigo ja existente do dom ´ÿnio
+
+da aplicac¸ao. ˜
+
+˜
+
+´
+
+´
+
+˜
+
+Aplicac¸ao de um padr ao de desenho para melhorar a legibilidade do c odigo relacionadocom o conceito arvore e permitir ao
+
+´
+
+˜
+
+It’s a great time to have
+´ a good time, no ˜matter what the event, relacionados com as well as estac¸oes do ano sem que isso implique
+˜ alterar odigo relacionado
+com arvore. The value of uma arvore, que vai depender do tipo de arvore e da estac¸ ao actual) sem comprometer a legibilidade da soluc¸ao. ˜
+
+´
+
+´
+
+˜
+
+˜
+
+´
+
+˜
+
+´
+
+˜
+
+´
+
+Aplicac¸ao de um padr ao de desenho que permita novas pol ´ÿticas de calculo da satisfac¸ ao dos funcion arios sem impactono c odigo existente. tempo de
+
+´
+´
+
+˜
+
+´
+
+˜
+
+execuc¸ ao. Quando ˜
+˜
+´
+´
+´
+e criado um funcion ario, oc alculo da satisfac¸ ao segue af ormula descrita neste enunciado.
+
+´
+
+˜
+
+˜
+
+˜
+
+Apesar de haver na especificac¸ao actual apenas um hotel, oc odigo n ao deve assumir que n ao possam vir a existir mais inst ancias ˆ
+
+ˆ
+It's simultaneous.
+
+´
+
+´
+
+˜
+
+Do your best to be a realist and a primeira entrega do projecto n ao˜ e necessary ario ter em conta estes dois requisitos. Estes dois requisitos apenas precisam de ser
+considerados na entrega final do projecto.
+
+3 Arquitectura da Aplica¸c˜ao
+˜
+˜
+camada de apresentac¸ ao (package ˜ hva.app) e as entidades relacionadas com as entidades do dom´ÿnio
+˜
+estao concretizadas na camada de dom ´ÿnio (package hva.core ).
+˜
+˜
+˜
+´
+´
+
+˜
+
+Aaplicac¸ao a desenvolver deve seguiruma arquitectura em camadas: as entidades relacionadas com interacc¸ ao com o utilizador estao concretizadas na
+
+ˆ
+
+da aplicac¸ao n ao deve haver c odigo de interacc¸ ao com o utilizador no c odigo respeitante ao dom ´ÿnio da aplicac¸ao (concretizada ˜
+
+´
+
+´
+
+na camada de dom´ÿnio).
+
+˜
+
+´
+
+Interface
+sem que isso implique alterar o codigo da camada de dom ´ÿnio. Para garantir um melhor desenho da
+˜ com o utilizador
+´
+´
+´
+aplicac¸ao toda al ogica de neg ocio deve estar concretizada no c odigo respeitante ao dom ´ÿnio da aplicac¸ao (camada ˜ core) e nao˜
+˜
+˜
+´
+´
+´
+na camada de apresentac¸ao. manter.
+˜
+´
+
+˜
+
+˜
+
+A framework of interacc¸ao com o utilizador deve ser realizada utilizando a framework of interacc¸ao com o utilizador po-uilib (dispon´ÿvel na
+
+´
+
+´
+
+˜
+
+´
+
+secc¸ao˜ Projecto da pagina da disciplina. pt.tecnico.po.ui.Menu) (fornecida pela framework), onde se deve indicar qual o conjunto de opc¸oes do menu. Cada opc¸ ao˜
+
+´
+
+˜
+
+˜
+
+´
+
+um menu (designado como comando) e concretizada por uma subclasse de pt.tecnico.uilib.menus.Command
+˜ (tambem´
+
+`
+
+fornecida pela framework) que tem a responsabilidade de suportar a funcionalidade correspondente a opc¸ ao em causa. Todos os menus suportam
+automaticamente a opc¸ao˜ Sair (fecha o menu).
+
+˜
+
+˜
+
+´
+
+˜
+
+As operac¸oes de pedido e apresentac¸ ao de informac¸ ao ao utilizador devem realizar-se atraves dos objectos form e display,
+respectivamente , presente em cada comando. interfaces ja definidas na camada de apresentac¸ ao do ˜
+
+´
+
+´
+
+˜
+
+ˆ
+
+ario criar pelo menos mais uma inst ancia de
+
+´
+
+˜
+
+´
+
+˜
+
+´
+
+˜
+
+Esqueleto da aplicac¸ao fornecido (ver secc¸ ao 3.1). ˜
+
+˜
+
+˜
+
+˜
+
+It’s a good idea to be in control of your situation. It’s the best time to do it. deve instanciar uma excepc¸ ao˜
+
+´
+
+˜
+
+e
+
+´
+
+˜
+
+˜
+
+˜
+
+Lanc¸a-la de seguida. Estas excepc¸oes serao depois tratadas automaticamente pela classe
+
+Menu.
+
+3.1 Esqueleto da Aplicac¸ao˜
+´
+
+˜
+
+´
+
+˜
+
+˜
+
+It's a great experience, it's a great deal, it's a greatdeal, it's a great deal, it'sa great deal . da cadeira.O esqueleto inclui
+
+´
+
+´
+
+4
+
+Machine Translated by Google
+˜
+
+´
+
+a class hva.app.App, que representa o ponto de entrada da aplicac¸ao a desenvolver e os v arios comandos e menus da aplicac¸ ao˜
+
+˜
+
+˜
+
+´
+
+ao completemente finalizados, outros (a grande maioria) est ao˜
+
+a desenvolver (descritos na secc¸ao 4). Alguns dos comandos ja est
+
+ˆ
+Parcial concretizados and tem ser alterados por forma a suportarem a funcionalidade descrita neste enunciado. Cada menu respectivos
+˜
+comandos estao definidos num subpackage de hva.app. Por exemplo, o menu principal e respectivos comandos
+˜
+´
+ESTAO definidos em hva.app.main. Cada menu esta completamente concretizado ea grande maioria dos comandos apenas tem o esqueleto da classe ee
+´
+´
+´
+´
+necessario acres centar c odigo por forma a que o comando tenha a funcionalidade necess aria.
+
+´
+Cada subpackage relacionado com um menu contem ainda as interfaces Message, Prompt (definem as mensagens a utilizar
+˜
+´
+It ’s the best way to use your product .
+Nao˜ podem ser definidas novas
+˜
+˜
+ao.
+Mensagens. Potenciais omissoes development ser esclarecidas com o corpo docente antes de qualquer concretizac¸
+˜
+O esqueleto inclui ainda algumas classes do dom´ÿnio da aplicac¸ao (presents no package hva.core) parcialmente concretizadas.
+˜
+˜
+´
+´
+´
+Sera ainda necessity ario concretizar novas entidades do dom
+´ÿnio da aplicac¸ao e finalizar as que j a estao parcialmente fornecidas por
+Forma a terum conjunto de entidades que oferecem a funcionalidade do dom´ÿnio da aplicac¸ao a desenvolver. ˜
+˜
+˜
+´
+´
+Finale, as excepc¸oes a lanc¸ar nos v arios comandos ja est aplicac¸ao. Estas excepc¸
+ao definidas no package hva.app.exception do esqueleto da
+˜
+˜
+´
+oes
+˜ nao˜ podem ser alteradas e apenas devem ser utilizadas no codigo de interacc¸ ao com o utilizador pela razao indicada
+˜
+˜
+´
+anteriormente.
+˜
+˜
+´
+oes an omalasque possamcontecer no
+mas podem (e devem) ser acres centadas novas excepc¸oes para representationar outras situac¸ contexto
+das entidades do dom´ÿnio.
+
+4 Intera¸c˜ao com o utilizador
+´
+˜
+`
+antes de proceder a sua validac¸ ao (except onde indicado).
+˜
+˜
+´
+Aaplicac¸ao permit gerir informac¸ ao sobre as v arias entidades do modelo. in ´ÿcio, aplicac¸ao est a vazia, mas pode ser carregada uma base de dados textual
+˜
+˜
+˜
+´
+´
+ˆ
+´
+com conceitospre-definidos. Neste caso, aplicac¸a com estado referente as`
+˜
+´
+´
+ao comec¸ar
+˜
+´
+entidades que foram carregadas no aplicac¸ao. Deve ser poss ´ÿvel registar, visualizar, e operar sobre as varias entidades do dom´ÿnio. diferentes entidades geridas
+˜
+´
+´
+pela aplicac¸ A presentac¸ao de listas (eg, animais, funcion arios, etc.) faz-se por ordem crescente da respectiva chave, excepto em caso de indicac¸ao em contrao.
+˜
+´
+ario. A ordem das chaves alfanum ericas deve ser lexicogr afica (UTF-8), nao havendo distinc¸ao entre maiusculas and min usculas.
+˜
+˜
+˜
+´
+´
+´
+´
+´
+˜
+
+Esta secc¸ao descreve a funcionalidade maxima da interface com o utilizador.
+
+˜
+
+˜
+
+Para cada interacc¸ao com o utilizador que exista no contexto de um comando em que ario utilizar uma mensagem espec ´ÿfica e´
+
+˜
+
+´
+
+´
+
+´
+
+´
+
+´
+´
+e necess
+
+Indicado qual eom etododa interface avel por devolver
+pode ser
+a mensage
+pedido aoem
+utilizador
+quest prompt
+um ou ou
+mais
+Message que e response No context um comando
+
+˜
+ao.
+´
+
+identificadores de objectos do dom´ÿnio necessarios para a realizac¸ao da funcionalidade do comando em causa.
+
+˜
+
+˜
+The difference between the person and the person is the object of the conhecido:
+˜
+
+Entidade
+Animal
+´
+Especie
+´
+Funcionario
+Habitat
+´
+Arvore
+Vacina
+
+˜
+˜
+´
+ao em contr
+
+Pedido a apresentar
+
+˜
+Excepc¸ao a lanc¸ar se desconhecido
+
+hva.app.animal.Prompt.animalKey()
+
+UnknownAnimalKeyException
+
+hva.app.animal.Prompt.speciesKey()
+
+UnknownSpeciesKeyException
+
+hva.app.employee.Prompt.employeeKey() UnknownEmployeeKeyException
+
+˜
+
+hva.app.habitat.Prompt.habitatKey()
+
+UnknownHabitatKeyException
+
+hva.app.habitat.Prompt.treeKey()
+
+UnknownTreeKeyException
+
+hva.app.vaccine.Prompt.vaccineKey()
+
+UnknownVaccineKeyException
+
+˜
+
+˜
+
+´
+
+Note-se que estas excepc¸oes n ao devem ser utilizadas no c odigo do dom ´ÿnio da aplicac¸ao como explicado em 3. Alguns casos particulares podem usar
+
+˜
+
+pedidos espec´ÿficos nao apresentados nesta tabela.
+
+4.1 Menu Principal
+˜
+˜
+As acc¸oes deste menu permitem gerir a salvaguarda do estado da aplicac¸ ao, abrir submenus e aceder a alguma informac¸ ao global. ˜
+´
+´
+´
+A list of completa ea seguinte: Ver Estado
+Criar, de
+Abrir,
+Satisfac¸ao˜
+Guardar, ,Avanc¸ar
+Gestao˜ ciclo biologico das Gestao de arvores ,
+˜
+˜
+˜
+´
+´
+e Consultas .
+de Animais, the funniest things to do as
+, Vacinas Gestao de Habitats
+,
+˜
+`
+´
+mensagens de alogo para este menu est ao definidos em hva.app.main.Prompt e hva.app.main.Message.
+
+˜
+Estes comandos estao concretizadas (nalguns casos parcialmente) nas seguintes classes do package hva.app.main:
+DoNewFile,
+DoOpenFile, DoSaveFile, DoAdvanceSeason, DoShowGlobalSatisfaction, DoOpenAnimalsMenu, DoOpenEmployeesMenu,
+DoOpenHabitatsMenu, DoOpenVaccinesMenu e DoOpenLookupsMenu.
+
+5
+
+Machine Translated by Google
+
+4.1.1 Salvaguarda do estado actual
+˜
+
+˜
+
+´
+
+Inicialmente, aplicac¸ao a vazia ou tem apenas informac¸ ao sobre as entidades que foram carregados no arranque via ficheiro textual (ver 5). ao) Pode ser guar-
+
+˜
+
+´
+
+˜
+
+´
+
+dado para posterior recuperac¸ao (via serializac¸ao Java: ˜ java.io.Serializable). Na leitura e escrita do estado da aplicac¸ao,˜
+
+˜
+
+˜
+´
+Devem ser tratadas as excepc¸oes associadas. A funcionalidade ea seguinte:
+˜
+˜
+˜
+´
+´
+Criar – Cria uma nova aplicac¸ao vazia: a aplicac¸ ao n ao fica associada a nenhum ficheiro ( e anonima).
+˜
+Abrir – Carrega os dados de uma sessao anterior a partir um ficheiro previamente guardado (ficando este ficheiro associado aplicac¸
+˜
+˜
+`
+ao, para futuras operac¸ oes de salvaguarda). devolvida por Prompt.openFile ()).
+˜
+
+˜
+
+lanc¸ada a excepc¸ao˜ FileOpenFailedException. A execuc¸ao bem sucedida desta opc¸ ao substitui toda a informac¸ ao˜
+
+relevante da aplicac¸ao. ˜
+
+˜
+˜
+Guardar – Guarda o estado actual da aplicac¸ao no ficheiro associado . aplicac¸aoassoci- ˜
+
+˜
+
+˜
+˜
+˜
+´
+´
+ada a este ficheiro. Nao˜ e executada nenhuma acc¸ao se nao existirem alterac¸ oes desde a ultima salvaguarda.
+˜
+˜
+oes n ao guardadas ˜
+Apenas existe um hotel na aplicac¸ao em cada momento. Quando se abandona um hotel com modificac¸
+˜
+´
+(porque se cria ou abre outro), deve perguntar-se se quer guardar a informac¸ao actual antes de o abandonar, atrav es de Prompt.saveBeforeExit() (a resposta
+´
+´
+e obtida invocando om etodo readBoolean() ou Form.confirm () da framework
+˜
+de interacc¸ao com o utilizador).
+˜
+˜
+˜
+Note-se que a opc¸ao˜ Abrir nao suporta a leitura de ficheiros de texto (estes apenas s ao utilizados na inicializac¸ ao da aplicac¸ ao). ˜
+˜
+˜
+A opc¸ao˜ Sair nunca guarda o estado da aplicac¸ao, mesmo que existam alterac¸ oes.
+
+4.1.2 Avac¸ar Estac¸ao do Ano ˜
+˜
+˜
+˜
+´
+O comando deve
+˜
+˜
+´
+apresentar na sa´ÿda o codigo para aestac¸ao actual: 0 para Primavera, 1 para Ver ao, 2 para Outono e 3 para Inverno
+
+4.1.3 Ver Estado de Satisfac¸ao Global ˜
+˜
+´
+O sistema apresenta, de imediato, o somatorio do n ´ÿvel de satisfac¸ao de todas as entidades registadas no hotel: animais e fun´
+´
+´
+cionarios. Note-se que o valor a presentar eo que resulta do arredondamento ao inteiro mais pro oximo ( via Math.round).
+˜
+4.1.4 Gestao and consulta de dados da aplicac¸ ao˜
+
+˜
+
+´
+
+Existem ainda no menu principal varias opc¸ oes para abrir um segundo menu com as operac¸ oes dispon ˜ ´ÿveis sobre determinadas
+
+´
+
+´
+
+´
+
+˜
+
+Entidades do sistema (animais, funcionarios, habitats and vacinas). Finale, e tamb em disponibilizado uma opc¸ ao para abrir o menu de consultas (pesquisas).
+
+4.2 Animais Menu
+
+˜
+˜
+
+˜
+
+´
+
+Este menu permit visualizar alterar informac¸ao sobre animais . nas classes do package hva.app.animal: oes This section: Visualization of todos os
+
+˜
+
+DoShowAllAnimals, DoRegisterAnimal,
+
+´
+
+˜
+
+DoTransferToHabitat, e DoShowSatisfactionOfAnimal.
+
+4.2.1 Visualizar todos os animais
+˜
+
+˜
+
+´
+
+Esta opc¸ao permite visualizar todos os animais. O formato de apresentac¸ ao de cada animal eo seguinte:
+
+ANIMAL|idAnimal|nomeAnimal|idEsp´ecie|historialDeSa´ude|idHabitat
+´
+
+´
+
+˜
+
+ˆ
+
+O history of saude and presentation of como descrito na secc¸ ao 1.6.1, ie, uma sequ encia de eventosseparados por v ´ÿrgulas. Se o
+
+´
+
+animal nunca foi vacinado (com ou sem sucesso), o historical saude deve ser apresentado como VOID:
+
+ANIMAL|idAnimal|nomeAnimal|idEsp´ecie|VOID|idHabitat
+
+6
+
+Machine Translated by Google
+
+4.2.2 Registar um novo animal
+˜
+
+´
+
+Esta opc¸ao registar um novo animal. ecie nao existe, deve pedir-se o nome da esp ecie ( Prompt.speciesName()) (cadeia de caracteres) e regista-la com o
+
+´
+
+´
+
+identificador indicado. , nao se processando o registo.
+
+˜
+
+´
+
+´
+˜
+
+´
+
+4.2.3 Transferir um animal para um habitat
+˜
+Esta opc¸ao transfere um animal de um habitat para outro.
+´
+
+4.2.4 Calcular Satisfactory
+˜
+
+˜
+
+Esta opc¸ao apresentar a satisfac¸ ao de um animal .
+
+˜
+
+´
+
+˜
+´
+4.3 Menu de Gestao de Funcion arios
+´
+
+´
+
+´
+
+visualizar todos os funcionarios; (ii) registrar um novo funcion ario; (iii) atribuir uma nova responsabilidade a um funcion ario; (iv) retirar uma responsabilidade
+
+˜
+
+´
+
+´
+
+a um funcionario;
+
+˜
+
+˜
+´
+oes This section: Visualization todos
+´
+, Atribuir uma nova responsabilidade a um funcionario
+, Retirar uma res˜
+´
+´
+˜
+´
+.
+, : DoShowAllEmployees, DoRegisterEmployee,DoAddResponsibility,
+I'm not alone
+The function of the program is as follows
+´
+
+Este menu permit visualizar alter informac¸ao sobre funcion arios .
+
+´
+
+´
+
+DoRemoveResponsibility eDoShowSatisfactionOfEmployee .
+
+´
+4.3.1 Visualizar todos os funcionarios
+˜
+´
+Esta opc¸ao permit visualizar todos os funcion arios.
+´
+
+˜
+
+´
+
+tipo|id|nome|idResponsabilidades
+˜
+Os valores para o campo tipo sao˜ VET ou TRT. ario nao tiver responsabilidades atribu ´ÿdas, o formato de apresentac¸ao˜ eo seguinte:
+
+´
+
+´
+
+˜
+
+´
+
+´
+
+tipo|id|nome
+´
+4.3.2 Registar um novo funcionario
+˜
+
+´
+
+´
+
+Esta opc¸ao permite registar um novo funcion ario.
+
+´
+
+´
+
+(cadet caracteres) funcionario ( Prompt.employeeType ()).Valores, a pergunta refe- rente ao tipo e repetida at e se obter uma resposta v alida. Quando um
+
+˜
+´
+funcion ario ´ e registado fica sem qualquer responsabilidade.
+´
+´
+´
+´
+´
+´
+Se ja existir um funcion ario com o mesmo identificador, deve ser lanc¸ada a excepc¸ ao˜ DuplicateEmployeeKeyException,
+˜
+˜
+nao se realizando qualquer acc¸ao.
+´
+
+4.3.3 Atribuir uma nova responsabilidade a um funcionario
+˜
+
+´
+
+´
+
+´
+
+Esta opc¸ao atribui uma nova responsabilidade a um funcion ario . ao identificador de um habitat, se for um tratador. Se o funcion ario ja tinha essa
+
+´
+
+responsabilidade, n ao˜ e executive nenhuma acc¸ao . .
+
+´
+
+˜
+
+˜
+
+´
+
+´
+˜
+
+7
+
+´
+
+´
+
+Machine Translated by Google
+
+´
+
+4.3.4 Retirar uma response a um funcionario
+˜
+
+´
+
+´
+
+Esta opc¸ao retira uma responsabilidade a um funcion ario . ou ao identificador de um habitat, se for um tratador .
+
+´
+
+´
+˜
+
+´
+´
+
+˜
+
+´
+
+´
+
+4.3.5 Calcular satisfac¸ao de um funcion ario
+
+˜
+
+˜
+
+Esta opc¸ao apresenta a satisfac¸ ao de um funcion ario .
+
+˜
+
+´
+´
+
+´
+
+˜
+4.4 Menu of Habitats
+˜
+Este menu permit visualizar alter informac¸ao sobre funcion arios .
+
+´
+
+˜
+ea seguinte: ´
+oes
+
+´
+´
+´
+
+,
+
+ˆ de um habitat sobre uma esp ecie ao
+Alterar influencia
+˜
+. I'm not alone
+
+´
+
+´
+
+Visualizar
+, Plantar
+
+˜
+parcialmente
+concreti- nas
+
+classes do package hva.app.habitat: DoShowAllHabitats, DoRegisterHabitat, DoChangeHabitatArea,
+DoChangeHabitatInfluence, DoAddTreeToHabitat e DoShowAllTreesInHabitat.
+
+4.4.1 Visualize todos os habitats
+˜
+˜
+´
+Esta opc¸ao permite visualizar todos os habitats. O formato de apresentac¸ ao para cada habitat eo seguinte:
+HABITAT|idHabitat|nome|´area|n´umero´Arvores
+˜
+´
+Esta linha inicial pode ser seguida de uma ou mais linhas, cada uma com a descric¸ao de cada arvore pertencente ao habitat usando
+o seguinte formato:
+´ARVORE|id´Arvore|nome´Arvore|idade´Arvore|dificuldadeBaseLimpeza|tipo´Arvore|cicloBiol´ogico
+´
+O valor relativo ao campo dificuldade
+BaseLimpeza corresponde ao valor da dificuldade base de limpeza da arvore. Os valores poss
+´
+˜
+˜
+´
+,
+´ÿveis para o campo tipo Arvore sao PERENE e CADUCA.
+
+Estac¸ao˜
+
+´
+Tipo de Arvore
+Folha caduca
+
+Primavera
+
+Inverno
+
+Verao˜
+
+Outono
+
+SEMFOLHAS GERARFOLHAS COMFOLHAS LARGARFOLHAS
+LARGARFOLHAS GERARFOLHAS COMFOLHAS COMFOLHAS
+
+Folha perene
+
+4.4.2 Registar um novo habitat
+˜
+Esta opc¸ao regista um novo habitat. O sistema pede o identifiableador, o nome ( Prompt.habitatName()) (cadeia de caracteres) e
+´
+´
+´
+a area do habitat ( Prompt.habitatArea ()) (numero inteiro) , sendo registado o novo habitat. acc¸ao.
+˜
+˜
+˜
+
+´
+4.4.3 Alterar an area de um habitat
+˜
+
+´
+
+´
+
+Esta opc¸ao altera an area de um habitat. O sistema pede o identificador do habitat assim como a nova area desse habitat (Prompt.habitatArea()) (numero
+
+´
+
+inteiro).
+
+ˆ
+
+´
+
+4.4.4 Alterar influencia de um habitat sobre uma esp ecie
+
+˜
+ˆ
+´
+Esta opc¸ao altera influ encia de um habitat sobre uma esp ecie . resposta: POS), negativa (resposta: NEG), ou neutra (resposta: NEU).
+´
+ˆ
+´
+´
+˜
+´
+´
+´
+´
+This extreme pergunta e repetida at e se obter uma resposta v alida.
+
+8
+
+Machine Translated by Google
+´
+4.4.5 Plantar uma nova arvore num habitat
+˜
+´
+Esta opc¸ao introduz uma nova arvore num habitat. ), a difÿcult base de
+
+´
+arvore a
+
+´
+
+´
+´
+´
+limpeza associada a` arvore (Prompt.treeDifficulty()) (numero inteiro) eo tipo de arvore ( Prompt.treeType(),
+PER
+´
+´
+´
+para arvore de folha perene; CAD para arvores de folha caduca), registado-se a nova arvore. Se a resposta relativa ao tipo n ao˜
+´
+´
+´
+´
+´
+Corresponder a nenhum dos dois valores, esta ultima pergunta e repetida at e se obter uma resposta v alida. Se ja existir uma arvore
+˜
+´
+com o mesmo identificador, elanc¸ada a excepc¸ ao˜ DuplicateTreeKeyException, nao se realizando qualquer acc¸
+˜
+˜
+´
+´
+
+´
+˜
+ao.
+
+Caso seja criada uma arvore, ent ao deve apresent a-la utilizando o formatodescrito em 4.4.1. ao esta opc¸
+
+´
+4.4.6 Visualization of habitats
+˜
+´
+Esta opc¸ao permit visualizar todas as arvores um determinado habitat.
+´
+˜
+
+˜
+
+´
+
+´
+
+´
+
+Esta opc¸ao apresenta todas as arvores de todos os habitats. O formato de apresentac¸ ao de cada e como descrito em 4.4.1. arvore
+
+˜
+4.5 Menu of Vacinas
+˜
+
+˜
+
+Este menu permit visualizar alter informac¸ao sobre vacinas e vacinac¸ oes . concretizados nas classes do package
+
+´
+
+hva.app.vaccine: DoShowVaccine, DoRegisterVaccine,
+
+´
+
+˜
+
+˜
+´
+oes This section: Visua˜
+˜
+oes.
+
+DoVaccinateAnimal e DoShowVaccinations.
+
+4.5.1 Visualizar todas as vacinas
+˜
+˜
+´
+Esta opc¸ao apresenta todas as vacinas. O formato de apresentac¸ao de cada vacina, uma por linha, eo seguinte:
+VACINA|idVacina|nomeVacina|n´umeroAplicac¸˜oes|esp´ecies
+´
+´
+´
+O campo especies contem os identificadores, separados por v ´ÿrgulas, das especies de animais que podem receber a vacina.
+
+4.5.2 Registar uma nova vacina
+˜
+Esta opc¸ao regista uma nova vacina .
+´
+caracteres) da vacina e os identity das especies que podem receber esta vacina ( Prompt.listOfSpeciesKeys()) (lista
+˜
+Unidentificable separados por v´ÿrgulas. Os espac¸os brancos sao irrelevantes nesta resposta). De seguida regista a nova vacina.
+˜
+Deve ser lanc¸ada a excepc¸ao˜ DuplicateVaccineKeyException, se existir uma vacina com o mesmo identificador, nao se realizando qualquer acc¸ao.
+˜
+´
+˜
+UnknownSpeciesKeyException, nao sendo registada a nova vacina.
+
+4.5.3 Vacinar um animal
+˜
+
+˜
+
+´
+
+Esta opc¸ao regista a vaccinac¸ ao de um animal. O sistema pede o identificador da vacina, o identificador do veterinario ( Prompt.
+
+˜
+
+´
+
+eo identificador do animal a vacinar .
+˜
+˜
+´
+Se o veterinario n ao tiver permiss ao para ministrar a vacina deve ser lanc¸ada a excepc¸ ao˜ VeterinarianNotAuthorizedException
+˜
+˜
+eo comando nao tem qualquer efeito. Se a vacina n ao for adequada ao animal, deve ser apresentada uma mensagem de aviso (Message.wrongVaccine()).
+˜
+Note-se que, neste caso, a vacinac¸ao aconteceu e os danos para o animal development ter sido regis- tados.
+
+´
+4.5.4 Listar o historico de vacinac¸
+
+˜
+oes
+
+˜
+˜
+´
+Esta opc¸ao lista o hist orico de vacinac¸ oes ordenado pela ordem em que as vacinas foram aplicadas. O sistema lista todas as
+vacinas aplicadas, usando o seguinte formato:
+REGISTO-VACINA|idVacina|idVeterin´ario|idEsp´ecie
+
+9
+
+Machine Translated by Google
+
+4.6 Menu of Consultations
+˜
+
+˜
+
+A list of options available to you: rinario and consultant vacinas dadas com incuria
+
+´
+Consultant habitat, Consultant vaccinas, Animal, Consultative actos medicos, veterinary medicine - ao
+˜
+´
+Estas opc¸oes j ˜ a est´
+.
+parcialmente concretizados nas classes do package
+
+´
+
+´
+
+oes
+
+hva.app.search: DoShowAnimalsInHabitat, DoShowMedicalActsOnAnimal, DoShowMedicalActsByVeterinarian
+
+e DoShowWrongVaccinations.
+
+4.6.1 Consulting animais de um habitat
+
+˜
+˜
+Esta opc¸ao apresenta informac¸ ao relativa aos animais de um habitat.
+
+´
+
+4.6.2 Consulting services for animals
+
+˜
+
+˜
+
+`
+
+Esta opc¸ao apresenta a informac¸ ao relativa ˜ as vacinac¸ oes de um animal. ¸ ao˜ e como indicado em 4.5.4.
+
+˜
+
+˜
+
+´
+
+´
+
+4.6.3 Consulting with veterinary medicine
+
+˜
+
+´
+
+˜
+
+˜
+
+´
+
+Esta opc¸ao apresenta informac¸ ao relativa a vacinac¸ oes feitas por um veterin ario. ao˜UnknownVeterinarianKeyException .
+
+˜
+
+´
+
+´
+
+˜
+
+´
+
+´
+
+Caso contrario, apresenta todas as vacinas por ele realizadas (por ordem de aplicac¸ ao). O formato de apresentac¸ao˜ e como indicado em 4.5.4.
+
+´
+4.6.4 Consultar vacinas dadas com incuria
+˜
+
+˜
+
+˜
+˜
+
+´
+
+ˆ
+
+Esta opc¸ao apresenta informac¸ ao relativa a vacinac¸ problemas oes err oneas.
+
+´
+
+´
+
+de saude aos animais (por ordem de aplicac¸ ao). O formato de apresentac¸ ao˜ e como indicado em 4.5.4.
+
+5 Leitura de Dados a Partir de Ficheiros Textuais
+˜
+
+˜
+˜
+
+˜
+
+Por omissao, quando aplicac¸ ao cont ao comec¸a, n
+
+˜
+
+´
+
+˜
+
+´
+
+˜
+
+´
+
+not
+em nenhuma informac¸ ao doI'm
+ano
+Primavera.
+alone No entanto,
+
+´
+
+˜
+
+alem das opc¸ oes de manipulac¸ ao de ficheiros descritas no menu principal, ´ÿvel iniciar exteriormente
+pela
+aplicac¸ao com um e poss ficheiro de texto especificado
+propriedade Java com o nome import . ˜
+
+´
+´
+The object corresponds to the object. The process doesnot work, the process does not work, it does not exist, it does not exist, it
+˜
+´
+does not exist, it does not exist, it does not work.
+˜
+´
+Sugere-se a utilizac¸ao do m etodoString.split() para dividir uma cadeia de caracteres camp emos. Cada entrada do ficheiro
+´
+´
+The composting process of the campos separados peloton caracter '|'.
+
+ESP´ECIE|id|nome
+´ARVORE|id|nome|idade|dificuldade|tipo
+HABITAT|id|nome|´area|id´Arvore1,...,id´ArvoreN
+ANIMAL|id|nome|idEsp´ecie|idHabitat
+TRATADOR|id|nome|idHabitat1,...,idHabitatN
+VETERIN´ARIO|id|nome|idEsp´ecie1,...,idEsp´ecieN
+VACINA|id|nome|idEsp´ecie1,...,idEsp´ecieN
+
+´
+
+´
+
+´
+
+´
+
+Todos os campos referentes a uma arvore, animal ou esp ecie s ao obrigat ˜ orios. ve- terinario (corresponding em ambos os casos a uma lista de esp ecies) ´
+
+´
+
+e opcional eso´ e apresentado caso a lista indicada n ao seja ˜
+
+´
+
+´
+´
+˜
+˜
+´
+vazia. Se a lista for vazia, entao n ultimo campo, nem o separador. ao se apresenta o
+´
+´
+´
+´
+Para os outros tipos, o ultimo campo e opcional: para um habitat, o ultimo campo correspond as` arvores implantadasno habitat, para a um tratador, o ultimo
+´
+´
+campo corresponde aos habitats so responsabilidade do tratador e para uma vacina ou veterin ario, o Ultimo campo corresponds to a list of esp ecies
+´
+`
+´
+`
+´
+associada a vacina or ao veterinary.
+´
+
+10
+
+Machine Translated by Google
+
+ESP´ECIE|C10|ave
+ESP´ECIE|C8|mam´ÿfero
+ESP´ECIE|C1|peixe
+´ARVORE|T1|Pinheiro 1|5|20|PERENE
+´ARVORE|T4|Pinheiro 4|60|20|PERENE
+´ARVORE|T2|Oliveira|1200|10|PERENE
+´ARVORE|T6|Figueira|5|10|CADUCA
+´ARVORE|T3|Pl´atano|300|20|CADUCA
+´ARVORE|P1|Pl´atano|100|20|CADUCA
+´ARVORE|F30|Figueira|50|20|CADUCA
+HABITAT|AR1|Aldeia dos Macacos|20|T3,P1,F30,T2
+HABITAT|AR2|Floresta tropical|30|T1,T4,T6
+HABITAT|AR3|Deserto|3
+ANIMAL|A1|Alex|C10|AR1
+ANIMAL|A2|Nemo|C1|AR2
+ANIMAL|AA|Bobi|C8|AR1
+ANIMAL|MA|Chita|C8|AR2
+TRATADOR|W2SO4|John Figueiredo|AR2,AR3
+TRATADOR|W2O|Rohit Figueiredo|AR1
+TRATADOR|W24|Rohit Figueiredo
+VETERIN´ARIO|V2|Jorge Figueiredo|C10,C8,C1
+VETERIN´ARIO|V4|Filomena Figueiredo
+VETERIN´ARIO|VR|Abdul Figueiredo|C8
+VACINA|V3|T´etano|C8
+VACINA|V200|Parasitas intestinais|C10,C8,C1
+VACINA|V42172|T´etano|C10
+VACINA|Vexperimental|Gripe A1|C8
+
+ˆ
+
+Note-se que o programa nunca produz ficheiros com este formato, apenas le ficheiros com este formato.
+
+6 Execu¸c˜ao dos Programas e Testes Autom´aticos
+´
+
+´
+
+ˆ
+
+The results are correct and the programs are correct.
+
+• um com extensao˜ .in eque representa o utilizador, ou seja, vai conter os dados de entrada a serem processados pelo
+programa;
+˜
+• um com extensao˜ .out e que representa o resultado esperado da execuc¸ao do programa para o teste em causa;
+˜
+´
+• um com extensao˜ .import e que representa o estado inicial do sistema. Este ficheiro e opcional e pode n ao fazer parte de
+um teste.
+´
+Dado um teste constitu´ÿdo pelos ficheiros test.import, test.in e test.out, e poss ´ÿvel verificar automaticamente o resultado
+
+˜
+
+´
+
+correct programa .
+
+´
+
+´
+
+´
+
+equivalent -cp do comando java), para localizar as classes do programa, ˜incluindo a que contem om etodo correspondente ao
+´
+ponto de entrada da aplicac¸ao (˜ hva.app.App.main). As propriedades sao tratadas automaticamente pelo c odigo de apoio.
+java -cp -Dimport=test.import -Din=test.in -Dout=test.outhyp hva.app.App
+
+˜
+
+˜
+
+˜
+
+´
+
+Import, import, executar, test and semelhante, anterior, specific and specific import. produz o ficheiro de sa´ÿda test.outhyp .
+
+˜
+
+´
+
+´
+
+˜
+
+˜
+Devem ser iguais. A comparac¸ao pode ser feita com o comando:
+diff -b test.out test.outhyp
+
+˜
+
+˜
+
+Este comando nao deve produzir qualquer resultado quando os ficheiros s ao iguais.
+´
+
+11
+
+˜
+
+
