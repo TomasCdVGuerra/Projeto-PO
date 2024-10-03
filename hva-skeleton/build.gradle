@@ -9,3 +9,11 @@ repositories {
 dependencies {
     implementation project(':po-uilib')
 }
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', 'hva-skeleton/hva/app']
+        }
+    }
+}
