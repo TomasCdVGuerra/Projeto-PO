@@ -1,7 +1,0 @@
-{
-    "java.configuration.updateBuildConfiguration": "interactive",
-    "java.project.sourcePaths": [
-        "hva-skeleton/hva"
-    ],
-    "java.project.outputPath": "bin"
-}
