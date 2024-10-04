@@ -5,18 +5,20 @@ public class Tree {
   private String _name;
   private String _type;
   private int _age;
-  private int _baseDiff; // Changed from String to int
-  private String _season;
-  private String _habitatId;
+  private int _baseDiff;
+  private static String _season = "Spring"; // Default season is Spring
+  private Habitat _habitat; // Changed to Habitat object
+  private int _seasonCount; // Counter for seasons to track aging
 
-  public Tree(String treeId, String name, String type, int age, int baseDiff, String season, String habitatId) {
+  public Tree(String treeId, String name, String type, int age, int baseDiff, Habitat habitat) {
     this._treeId = treeId;
     this._name = name;
     this._type = type;
     this._age = age;
     this._baseDiff = baseDiff;
-    this._season = season;
-    this._habitatId = habitatId;
+    this._habitat = habitat;
+    this._seasonCount = 0; // Initialize season counter
+    habitat.addTree(this); // Add tree to habitat
   }
 
   public String getTreeId() {
@@ -39,20 +41,17 @@ public class Tree {
     return _baseDiff;
   }
 
-  public String getSeason() {
+  public static String getSeason() {
     return _season;
   }
 
-  public void setSeason(String season) {
-    this._season = season;
+  public Habitat getHabitat() {
+    return _habitat;
   }
 
-  public String getHabitatId() {
-    return _habitatId;
-  }
-
-  public void setHabitatId(String habitatId) {
-    this._habitatId = habitatId;
+  public void setHabitat(Habitat habitat) {
+    this._habitat = habitat;
+    habitat.addTree(this); // Ensure tree is added to new habitat
   }
 
   /*
@@ -85,5 +84,39 @@ public class Tree {
     double seasonalDifficulty = getSeasonalDifficulty();
     int baseDifficulty = getBaseDiff();
     return baseDifficulty * seasonalDifficulty * Math.log(_age + 1);
+  }
+
+  public int incrementSeason() {
+    _seasonCount++;
+    switch (_season) {
+      case "Spring":
+        _season = "Summer";
+        break;
+      case "Summer":
+        _season = "Autumn";
+        break;
+      case "Autumn":
+        _season = "Winter";
+        break;
+      case "Winter":
+        _season = "Spring";
+        break;
+    }
+    if (_seasonCount >= 4) {
+      _age++;
+      _seasonCount = 0;
+    }
+    switch (_season) {
+      case "Spring":
+        return 0;
+      case "Summer":
+        return 1;
+      case "Autumn":
+        return 2;
+      case "Winter":
+        return 3;
+      default:
+        return -1; // Should never reach here
+    }
   }
 }

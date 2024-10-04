@@ -16,8 +16,6 @@ public class Hotel implements Serializable {
   private List<Vaccine> _vaccines;
   private List<Tree> _trees;
   private List<Habitat> _habitats;
-  private String _season;
-
   public Hotel() {
     _animals = new ArrayList<>();
     _species = new ArrayList<>();
@@ -57,13 +55,6 @@ public class Hotel implements Serializable {
   public Habitat registerHabitat(String habitatId, String name, double area) throws OneOrMoreCoreExceptions {
     // Implementation here
     return null;
-  }
-
-  public void setSeason(String season) {
-    this._season = season;
-    for (Tree tree : _trees) {
-      tree.setSeason(season);
-    }
   }
 
   /**
