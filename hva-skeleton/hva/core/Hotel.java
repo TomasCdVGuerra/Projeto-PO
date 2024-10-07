@@ -24,7 +24,6 @@ public class Hotel implements Serializable {
     _vaccines = new ArrayList<>();
     _trees = new ArrayList<>();
     _habitats = new ArrayList<>();
-    _season = "Spring"; // Default season
   }
 
   public void registerAnimal(String animalId, String name, String habitatId, String speciesId) throws OneOrMoreCoreExceptions {
