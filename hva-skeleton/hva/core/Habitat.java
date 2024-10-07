@@ -74,4 +74,8 @@ public class Habitat {
   public void addHandler(Handler handler) {
     _handlers.add(handler);
   }
+
+    public void setHandlers(List<Handler> _handlers) {
+        this._handlers = _handlers;
+    }
 }
