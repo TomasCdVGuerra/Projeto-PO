@@ -1,9 +1,9 @@
 package hva.core;
 
 public class Animal {
-  private String _id;
-  private String _name;
-  private String _speciesId;
+  private final String _id;
+  private final String _name;
+  private final String _speciesId;
 
   public Animal(String id, String name, String speciesId) {
     this._id = id;
