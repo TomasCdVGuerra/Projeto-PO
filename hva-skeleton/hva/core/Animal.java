@@ -70,9 +70,9 @@ public class Animal {
     return 20 + 3 * sameSpecies - 2 * differentSpecies + (area / population) + suitability;
   }
 
-  public int getSameSpeciesCount(List<Animal> animals) {
+  private int getSameSpeciesCount() {
     int count = 0;
-    for (Animal animal : animals) {
+    for (Animal animal : _habitat.getAnimals()) {
       if (animal.getSpecies().equals(this._species)) {
         count++;
       }
@@ -80,13 +80,18 @@ public class Animal {
     return count;
   }
 
-  public int getDifferentSpeciesCount(List<Animal> animals) {
+  private int getDifferentSpeciesCount() {
     int count = 0;
-    for (Animal animal : animals) {
+    for (Animal animal : _habitat.getAnimals()) {
       if (!animal.getSpecies().equals(this._species)) {
         count++;
       }
     }
     return count;
+  }
+
+  private double getSuitability() {
+    Adequation adequation = _habitat.getAdequationForSpecies(this._species);
+    return adequation.getAdequationValue().getValue();
   }
 }

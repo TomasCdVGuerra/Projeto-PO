@@ -11,6 +11,7 @@ public class Habitat {
   private List<Tree> _trees;
   private List<Adequation> _adequations;
   private List<Handler> _handlers;
+  private List<Animal> _animals;
 
   public Habitat(String habitatId, String name, double area, int population) {  
     this._habitatId = habitatId;
@@ -20,6 +21,7 @@ public class Habitat {
     this._trees = new ArrayList<>();
     this._adequations = new ArrayList<>();
     this._handlers = new ArrayList<>();
+    this._animals = new ArrayList<>();
   }
 
   public String getHabitatId() {
@@ -75,7 +77,15 @@ public class Habitat {
     _handlers.add(handler);
   }
 
-    public void setHandlers(List<Handler> _handlers) {
-        this._handlers = _handlers;
-    }
+  public void setHandlers(List<Handler> _handlers) {
+    this._handlers = _handlers;
+  }
+
+  public List<Animal> getAnimals() {
+    return _animals;
+  }
+
+  public void addAnimal(Animal animal) {
+    _animals.add(animal);
+  }
 }
