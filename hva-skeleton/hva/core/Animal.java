@@ -27,6 +27,8 @@ public class Animal {
   }
 
   public String getHealthHistory() {
+    if(_healthHistory.isEmpty())
+      return "VOID"
     return _healthHistory;
   }
 

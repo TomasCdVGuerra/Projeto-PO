@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Iterator;
 
 public abstract class Employee{
-    private String name;
-    private String id;
+    private String _name;
+    private String _id;
     private int _satisfLevel;
     private String _type;
     private Hotel _hotel;
@@ -39,9 +39,9 @@ public abstract class Employee{
 
     abstract int getSatisf();
 
-    abstract void addResponsibility();
+    abstract void addResponsibility(String id);
 
-    public void removeResponsibility();
+    public void removeResponsibility(String id);
 
     public String getType(){
         return _type;

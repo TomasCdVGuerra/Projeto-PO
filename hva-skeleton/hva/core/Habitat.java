@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Habitat {
-  private String _habitatId;
+  private String _id;
   private String _name;
   private double _area;
   private int _population;
@@ -24,7 +24,7 @@ public class Habitat {
     this._animals = new ArrayList<>();
   }
 
-  public String getHabitatId() {
+  public String getId() {
     return _habitatId;
   }
 
