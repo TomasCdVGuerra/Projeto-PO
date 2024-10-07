@@ -10,7 +10,8 @@ public class Habitat {
   private int _population;
   private List<Tree> _trees;
   private List<Adequation> _adequations;
-  private List<Handler> _handlers; // Added handlers list
+  private List<Handler> _handlers;
+  private List<Animal> _animals;
 
   public Habitat(String habitatId, String name, double area, int population) {  
     this._habitatId = habitatId;
@@ -19,7 +20,8 @@ public class Habitat {
     this._population = population;
     this._trees = new ArrayList<>();
     this._adequations = new ArrayList<>();
-    this._handlers = new ArrayList<>(); // Initialize handlers list
+    this._handlers = new ArrayList<>();
+    this._animals = new ArrayList<>();
   }
 
   public String getHabitatId() {
@@ -54,13 +56,16 @@ public class Habitat {
     _adequations.add(adequation);
   }
 
+  public void removeAdequation(Species species) {
+    _adequations.removeIf(adequation -> adequation.getSpecies().equals(species));
+  }
+
   public Adequation getAdequationForSpecies(Species species) {
     for (Adequation adequation : _adequations) {
       if (adequation.getSpecies().equals(species)) {
         return adequation;
       }
     }
-    // Return a default adequation with value 0 if no adequation found for the species
     return new Adequation(species, Adequation.AdequationValue.NEUTRAL);
   }
 
@@ -70,5 +75,17 @@ public class Habitat {
 
   public void addHandler(Handler handler) {
     _handlers.add(handler);
+  }
+
+  public void setHandlers(List<Handler> _handlers) {
+    this._handlers = _handlers;
+  }
+
+  public List<Animal> getAnimals() {
+    return _animals;
+  }
+
+  public void addAnimal(Animal animal) {
+    _animals.add(animal);
   }
 }
