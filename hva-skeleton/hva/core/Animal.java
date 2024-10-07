@@ -1,18 +1,23 @@
 package hva.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Animal {
   private final String _id;
   private final String _name;
   private String _healthState;
   private Species _species;
   private Habitat _habitat;
+  private List<String> healthHistory;
 
-  public Animal(String id, String name, String speciesId, String healthState, Species species, Habitat habitat) {
+  public Animal(String id, String name, String healthState, Species species, Habitat habitat) {
     this._id = id;
     this._name = name;
     this._healthState = healthState;
     this._species = species;
     this._habitat = habitat;
+    this.healthHistory = new ArrayList<>();
   }
 
   public String getId() {
@@ -35,6 +40,26 @@ public class Animal {
     return _habitat;
   }
 
+  public void addVaccinationResult(int damage, boolean isSameSpecies) {
+    String term;
+    if (isSameSpecies) {
+      if (damage == 0) {
+        term = "NORMAL";
+      } else if (damage >= 1 && damage <= 4) {
+        term = "ACCIDENT";
+      } else {
+        term = "ERROR";
+      }
+    } else {
+      term = "CONFUSATION";
+    }
+    healthHistory.add(term);
+  }
+
+  public List<String> getHealthHistory() {
+    return healthHistory;
+  }
+
   public double satisfaction() {
     int sameSpecies = getSameSpeciesCount();
     int differentSpecies = getDifferentSpeciesCount();
@@ -45,18 +70,23 @@ public class Animal {
     return 20 + 3 * sameSpecies - 2 * differentSpecies + (area / population) + suitability;
   }
 
-  private int getSameSpeciesCount() {
-    // Implement logic to count animals of the same species in the habitat
-    return 0;
+  public int getSameSpeciesCount(List<Animal> animals) {
+    int count = 0;
+    for (Animal animal : animals) {
+      if (animal.getSpecies().equals(this._species)) {
+        count++;
+      }
+    }
+    return count;
   }
 
-  private int getDifferentSpeciesCount() {
-    // Implement logic to count animals of different species in the habitat
-    return 0;
-  }
-
-  private double getSuitability() {
-    // Implement logic to calculate suitability of the habitat for this animal
-    return 0.0;
+  public int getDifferentSpeciesCount(List<Animal> animals) {
+    int count = 0;
+    for (Animal animal : animals) {
+      if (!animal.getSpecies().equals(this._species)) {
+        count++;
+      }
+    }
+    return count;
   }
 }
