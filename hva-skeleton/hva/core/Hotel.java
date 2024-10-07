@@ -57,6 +57,32 @@ public class Hotel implements Serializable {
     return null;
   }
 
+  public int getPopulation(Species species){
+    Iterator<Animal> itr = _animals.Iterator();
+    int res=0;
+
+    while(itr.hasNext()){
+      Animal i = itr.next();
+
+      if(i._species.equals(species))  //falta animal class com ._species!!
+        res++;
+    }
+    return res;
+  }
+
+  public int getNVets(Species species){
+    Iterator<Employee> itr = _employees.Iterator();
+    int res=0;
+
+    while(itr.hasNext()){
+      Employee i = itr.next();
+
+      if(i._listResponsabilities.contains(species))  //falta animal class com ._species!!
+        res++;
+    }
+    return res;
+  }
+
   /**
    * Read text input file and create corresponding domain entities.
    * 
