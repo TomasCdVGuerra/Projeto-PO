@@ -6,18 +6,16 @@ import java.util.List;
 public class Animal {
   private final String _id;
   private final String _name;
-  private String _healthState;
   private Species _species;
   private Habitat _habitat;
-  private List<String> healthHistory;
+  private String _healthHistory;
 
-  public Animal(String id, String name, String healthState, Species species, Habitat habitat) {
-    this._id = id;
+  public Animal(String idAnimal, String name, String idSpecies, String idHabitat) {
+    this._id = idAnimal;
     this._name = name;
-    this._healthState = healthState;
-    this._species = species;
-    this._habitat = habitat;
-    this.healthHistory = new ArrayList<>();
+    this._species = idSpecies;      //func recebe ids mas queremos guardar os objectos msm!!
+    this._habitat = idHabitat;
+    this._healthHistory = new String;
   }
 
   public String getId() {
@@ -28,8 +26,8 @@ public class Animal {
     return _name;
   }
 
-  public String getHealthState() {
-    return _healthState;
+  public String getHealthHistory() {
+    return _healthHistory;
   }
 
   public Species getSpecies() {
@@ -51,14 +49,11 @@ public class Animal {
         term = "ERROR";
       }
     } else {
-      term = "CONFUSATION";
+      term = "CONFUSION";
     }
-    healthHistory.add(term);
+    healthHistory+= "," + term;
   }
 
-  public List<String> getHealthHistory() {
-    return healthHistory;
-  }
 
   public double satisfaction() {
     int sameSpecies = getSameSpeciesCount();
