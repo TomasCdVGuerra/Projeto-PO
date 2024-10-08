@@ -1,11 +1,10 @@
 package hva.core;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Zookeeper extends Employee {
-    private List<Habitat> _habitatsManaged;
+    private final List<Habitat> _habitatsManaged; // Marked as final
 
     public Zookeeper(String id, String name) {
         super(id, name, "TRT");
@@ -28,7 +27,7 @@ public class Zookeeper extends Employee {
         for (Species species : habitat.getSpecies()) {
             sum += species.cleaningEffort();
         }
-        return habitat.area() + 3 * habitat.population() + sum;
+        return (int) habitat.area() + 3 * habitat.population() + sum; // Cast to int
     }
 
     @Override

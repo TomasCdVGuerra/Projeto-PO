@@ -84,6 +84,14 @@ public class Habitat extends HotelEntity {
         _animals.add(animal);
     }
 
+    public double area() {
+        return _area;
+    }
+
+    public int population() {
+        return _population;
+    }
+
     @Override
     public String getEntityDetails() {
         return "Habitat ID: " + getId() + ", Name: " + getName() + ", Area: " + _area + ", Population: " + _population;

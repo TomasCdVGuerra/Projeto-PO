@@ -25,6 +25,11 @@ public class Species extends HotelEntity {
         return _hotel.getNVets(this); // Use the hotel's getNVets method
     }
 
+    public int cleaningEffort() {
+        // Implement the logic for calculating cleaning effort
+        return 0; // Placeholder implementation
+    }
+
     @Override
     public String getEntityDetails() {
         return "Species ID: " + getId() + ", Name: " + getName();
