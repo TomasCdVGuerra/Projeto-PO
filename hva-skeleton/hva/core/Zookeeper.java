@@ -8,7 +8,7 @@ public class Zookeeper extends Employee {
     private List<Habitat> _habitatsManaged;
 
     public Zookeeper(String id, String name) {
-        super(id, name, "TRT"); // Call correct Employee constructor with id, name, and type
+        super(id, name, "TRT");
         _habitatsManaged = new ArrayList<>();
     }
 
@@ -16,8 +16,8 @@ public class Zookeeper extends Employee {
     public int getSatisf() {
         int sum = 0;
         for (Habitat habitat : _habitatsManaged) {
-            for (Species species : habitat.getSpecies()) { // Ensure getSpecies method exists in Habitat
-                sum += this.trabalhoHabitat(species) / species.getNVets(); // Ensure these methods exist and are accessible
+            for (Species species : habitat.getSpecies()) {
+                sum += this.workInHabitat(habitat) / species.getNVets();
             }
         }
         return 300 - sum;
@@ -25,15 +25,15 @@ public class Zookeeper extends Employee {
 
     public int workInHabitat(Habitat habitat) {
         int sum = 0;
-        for (Species species : habitat.getSpecies()) { // Ensure getSpecies method exists in Habitat
-            sum += species.cleaningEffort(); // Ensure cleaningEffort method exists in Species
+        for (Species species : habitat.getSpecies()) {
+            sum += species.cleaningEffort();
         }
-        return habitat.area() + 3 * habitat.population() + sum; // Ensure area and population methods exist in Habitat
+        return habitat.area() + 3 * habitat.population() + sum;
     }
 
     @Override
     public void addResponsibility(String idHabitat) {
-        Habitat habitat = findHabitatById(idHabitat); // Implement this method to find habitat by id
+        Habitat habitat = findHabitatById(idHabitat);
         if (habitat != null && !_habitatsManaged.contains(habitat)) {
             _habitatsManaged.add(habitat);
         }
@@ -41,12 +41,12 @@ public class Zookeeper extends Employee {
 
     @Override
     public void removeResponsibility(String idHabitat) {
-        Habitat habitat = findHabitatById(idHabitat); // Implement this method to find habitat by id
+        Habitat habitat = findHabitatById(idHabitat);
         _habitatsManaged.remove(habitat);
     }
 
     private Habitat findHabitatById(String idHabitat) {
         // Implement logic to find and return habitat by id
-        return null; // Placeholder return statement
+        return null;
     }
 }
