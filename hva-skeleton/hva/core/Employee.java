@@ -16,7 +16,7 @@ public abstract class Employee{
         
         if(type.equals("VET") || type.equals("TRT")){
             _type=type;
-            _name=name
+            _name=name;
             _id=id;
             List<Responsibility> _listResponsabilities= new ArrayList<>();
             //ver como por o hotel correspondente!!<-----

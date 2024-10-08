@@ -8,6 +8,10 @@ import java.lang.Override;  //override ja vem importado?
 public class Veterenarian extends Employee{
     private List<Species> _canVacinate;
     
+    public Veterenarian(String id, String name, String type){
+        super(id,name,type);
+    }
+
     @Override
     public int getSatisf(){
         int  sum = 0;

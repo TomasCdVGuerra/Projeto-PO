@@ -9,6 +9,10 @@ import java.lang.Override;  //override ja vem importado??
 public class Zookeeper extends Employee{
     private List<Habitat> _habitatsManaged;
     
+    public Zookeeper(String id, String name, String type){
+        super(id,name,type);
+    }
+
     @Override
     public int getSatisf(){
         int  sum = 0;
