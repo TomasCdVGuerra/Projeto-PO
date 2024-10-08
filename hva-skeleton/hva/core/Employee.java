@@ -2,7 +2,6 @@ package hva.core;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
 
 public abstract class Employee{
     private String _name;

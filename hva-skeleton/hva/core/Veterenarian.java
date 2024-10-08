@@ -11,7 +11,7 @@ public class Veterenarian extends Employee{
     @Override
     public int getSatisf(){
         int  sum = 0;
-        Iterator<Species> itr = _canVacinate.Iterator();
+        Iterator<Species> itr = _canVacinate.iterator();
 
         while(itr.hasNext()) {
             Species i = itr.next();
@@ -23,7 +23,7 @@ public class Veterenarian extends Employee{
     
     @Override
     public void addResponsibility(String idSpecies){
-        Iterator<Species> itr = _listResponsabilities.Iterator();
+        Iterator<Species> itr = _listResponsabilities.iterator();
 
         while(itr.hasNext()){
             Species i = itr.next();
@@ -31,7 +31,7 @@ public class Veterenarian extends Employee{
             if(i.equals(idSpecies)) //ve se ja tinha essa resp. !!compara Species com SpeciesID
                 return;
         }
-        Iterator<Species> chk = _hotel._species.Iterator();
+        Iterator<Species> chk = _hotel._species.iterator();
         while(chk.hasNext()){
             Species i = chk.next();
 
@@ -45,7 +45,7 @@ public class Veterenarian extends Employee{
 
     @Override
     public void removeResponsibility(String idSpecies){
-        Iterator<Species> itr = _listResponsabilities.Iterator();
+        Iterator<Species> itr = _listResponsabilities.iterator();
         
         while(itr.hasNext()){
             Species i = itr.next();
