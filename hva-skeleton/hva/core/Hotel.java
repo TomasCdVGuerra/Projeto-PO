@@ -8,7 +8,7 @@ public class Hotel implements Serializable {
 
   @Serial
   private static final long serialVersionUID = 202407081733L;
-  
+
   private List<Animal> _animals;
   private List<Species> _species;
   private List<Employee> _employees;
@@ -49,10 +49,10 @@ public class Hotel implements Serializable {
     // Implementation here
   }
 
-  public void createTree(String treeId, String name, String type, int age, String diff) throws OneOrMoreCoreExceptions {
-    Tree tree = new Tree(treeId, name, type, age, diff, _season);
+  public void createTree(String treeId, String name, String type, int age, int baseDiff, Habitat habitat) throws OneOrMoreCoreExceptions {
+    Tree tree = new Tree(treeId, name, type, age, baseDiff, habitat); // Updated to match the Tree constructor
     _trees.add(tree);
-  }
+}
 
   public Habitat registerHabitat(String habitatId, String name, double area) throws OneOrMoreCoreExceptions {
     // Implementation here

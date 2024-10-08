@@ -88,7 +88,6 @@ public class Tree extends HotelEntity {
         };
     }
 
-    @Override
     public String getEntityDetails() {
         return "Tree ID: " + getId() + ", Name: " + getName() + ", Type: " + _type;
     }
