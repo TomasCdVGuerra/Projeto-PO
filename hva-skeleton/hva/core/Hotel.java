@@ -59,6 +59,13 @@ public class Hotel implements Serializable {
     return null;
   }
 
+  public List<Species> getSpecies() { return _species; }
+  public List<Animal> getAnimals() { return _animals; }
+  public List<Habitat> getHabitats() { return _habitats; }
+  public List<Vaccine> getVaccines() { return _vaccines; }
+  public List<Tree> getTrees() { return _trees; }
+  public List<Employee> getEmployees() { return _employees; }
+
   public int getPopulation(Species species){
     Iterator<Animal> itr = _animals.Iterator();
     int res=0;
