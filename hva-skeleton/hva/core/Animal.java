@@ -1,13 +1,11 @@
 package hva.core;
 
-import java.util.List;
-
 public class Animal {
     private final String _id;
     private final String _name;
     private final Species _species;
-    private final Habitat _habitat;
-    private final String _healthHistory;
+    private Habitat _habitat;
+    private String _healthHistory;
 
     public Animal(String idAnimal, String name, Species species, Habitat habitat) {
         this._id = idAnimal;
