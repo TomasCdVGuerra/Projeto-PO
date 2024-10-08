@@ -8,8 +8,9 @@ import java.lang.Override;  //override ja vem importado?
 public class Veterenarian extends Employee{
     private List<Species> _canVacinate;
     
-    public Veterenarian(String id, String name, String type){
-        super(id,name,type);
+    public Zookeeper(String id, String name) {
+        super(id, name, "VET"); // Call correct Employee constructor with id, name, and type
+        _canVacinate = new ArrayList<>();
     }
 
     @Override
