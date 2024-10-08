@@ -3,19 +3,16 @@ package hva.core;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Employee {
-    private String _name;
-    private String _id;
+public abstract class Employee extends HotelEntity {
     private int _satisfLevel;
     private String _type;
     private Hotel _hotel;
     protected List<String> _listResponsabilities;
 
     public Employee(String id, String name, String type) {
+        super(id, name);
         if (type.equals("VET") || type.equals("TRT")) {
             _type = type;
-            _name = name;
-            _id = id;
             _listResponsabilities = new ArrayList<>();
             // TODO: Set the corresponding hotel
         } else {
@@ -25,14 +22,6 @@ public abstract class Employee {
 
     public Hotel getHotel() {
         return _hotel;
-    }
-
-    public String getID() {
-        return _id;
-    }
-
-    public String getName() {
-        return _name;
     }
 
     public String getType() {
@@ -47,4 +36,9 @@ public abstract class Employee {
     public abstract int getSatisf();
     public abstract void addResponsibility(String id);
     public abstract void removeResponsibility(String id);
+
+    @Override
+    public String getEntityDetails() {
+        return "Employee ID: " + getId() + ", Name: " + getName() + ", Type: " + _type;
+    }
 }

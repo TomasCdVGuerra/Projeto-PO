@@ -1,26 +1,15 @@
 package hva.core;
 
-public class Animal {
-    private final String _id;
-    private final String _name;
+public class Animal extends HotelEntity {
     private final Species _species;
     private Habitat _habitat;
     private String _healthHistory;
 
     public Animal(String idAnimal, String name, Species species, Habitat habitat) {
-        this._id = idAnimal;
-        this._name = name;
+        super(idAnimal, name);
         this._species = species;
         this._habitat = habitat;
         this._healthHistory = "";
-    }
-
-    public String getId() {
-        return _id;
-    }
-
-    public String getName() {
-        return _name;
     }
 
     public String getHealthHistory() {
@@ -96,5 +85,10 @@ public class Animal {
       if (newHabitat != null) {
         newHabitat.addAnimal(this);
       }
+    }
+
+    @Override
+    public String getEntityDetails() {
+        return "Animal ID: " + getId() + ", Name: " + getName() + ", Species: " + _species.getName();
     }
 }

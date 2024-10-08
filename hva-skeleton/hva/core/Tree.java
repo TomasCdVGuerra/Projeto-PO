@@ -1,8 +1,6 @@
 package hva.core;
 
-public class Tree {
-    private final String _treeId;
-    private final String _name;
+public class Tree extends HotelEntity {
     private final String _type;
     private final int _baseDiff;
     private int _age;
@@ -11,8 +9,7 @@ public class Tree {
     private int _seasonCount; // Counter for seasons to track aging
 
     public Tree(String treeId, String name, String type, int age, int baseDiff, Habitat habitat) {
-        this._treeId = treeId;
-        this._name = name;
+        super(treeId, name);
         this._type = type;
         this._age = age;
         this._baseDiff = baseDiff;
@@ -25,11 +22,7 @@ public class Tree {
     }
 
     public String getTreeId() {
-        return _treeId;
-    }
-
-    public String getName() {
-        return _name;
+        return getId();
     }
 
     public String getType() {
@@ -93,5 +86,10 @@ public class Tree {
             case "Winter" -> 3;
             default -> -1; // Should never reach here
         };
+    }
+
+    @Override
+    public String getEntityDetails() {
+        return "Tree ID: " + getId() + ", Name: " + getName() + ", Type: " + _type;
     }
 }
