@@ -11,10 +11,16 @@ public class Veterinarian extends Employee {
         this.speciesIds = new ArrayList<>();
     }
 
-    @Override
-    public int getSatisf() {
-        // Implement satisfaction level calculation
-        return 0;
+    public int getSatisf(){
+        int  sum = 0;
+        Iterator<Species> itr = _canVacinate.iterator();
+
+        while(itr.hasNext()) {
+            Species i = itr.next();
+
+            sum += _hotel.getPopulation(i) / _hotel.getNVets(i);
+        }
+        return 20-sum;
     }
 
     @Override
