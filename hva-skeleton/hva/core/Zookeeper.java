@@ -12,7 +12,7 @@ public class Zookeeper extends Employee{
     @Override
     public int getSatisf(){
         int  sum = 0;
-        Iterator<Species> itr = _habitatsManaged.Iterator();
+        Iterator<Species> itr = _habitatsManaged.iterator();
 
         while(itr.hasNext()) {
             Species i = itr.next();
@@ -23,7 +23,7 @@ public class Zookeeper extends Employee{
     }
 
     public int workInHabitat(Habitat habitat){
-        Iterator<Species> itr = habitat._trees.Iterator();
+        Iterator<Species> itr = habitat._trees.iterator();
 
         while(itr.hasNext()) {
             Species i = itr.next();
@@ -36,7 +36,7 @@ public class Zookeeper extends Employee{
 
     @Override
     public void addResponsibility(String idHabitat){
-        Iterator<Habitat> itr = _listResponsabilities.Iterator();
+        Iterator<Habitat> itr = _listResponsabilities.iterator();
 
         while(itr.hasNext()){
             Habitat i = itr.next();
@@ -51,7 +51,7 @@ public class Zookeeper extends Employee{
 
     @Override
     public void removeResponsibility(String idHabitat){
-        Iterator<Habitat> itr = _listResponsabilities.Iterator();
+        Iterator<Habitat> itr = _listResponsabilities.iterator();
         
         while(itr.hasNext()){
             Habitat i = itr.next();

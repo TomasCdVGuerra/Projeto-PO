@@ -13,7 +13,7 @@ class DoShowAllAnimals extends Command<Hotel> {
 
 
   DoShowAllAnimals(Hotel receiver) {
-    _toPrint = new String;
+    _toPrint = new String();
     //------------codigo do stor\/----------------
     super(Label.SHOW_ALL_ANIMALS, receiver);
     """_last = last; --bool
@@ -23,11 +23,11 @@ class DoShowAllAnimals extends Command<Hotel> {
     _display = new Display(_title); --Display(dialog,str)
     _valid = valid; --Predicate<Reciever>"""
     //--------------------------------------------
-    Iterator<Animal> itr = _reciever._animals.Iterator();
+    Iterator<Animal> itr = _reciever._animals.iterator();
     while(itr.hasNext()){
       Animal i = itr.next();
 
-      _toPrint+="ANIMAL|"+i.getId()+"|"+i.getName()+"|"+i.getSpecies().getId()+"|"+i.getHealthHistory()+"|"+i.getHabitat().getId()+"\n";
+      _toPrint += "ANIMAL|" + i.getId() + "|" + i.getName() + "|" + i.getSpecies().getId() + "|" + i.getHealthHistory() + "|" + i.getHabitat().getId() + "\n";
     }
   }
   

@@ -21,6 +21,7 @@ public class HotelManager {
    * @throws IOException if there is some error while serializing the state of the network to disk.
    **/
   public void save() throws FileNotFoundException, MissingFileAssociationException, IOException {
+    
     // FIXME implement serialization method
   }
   
