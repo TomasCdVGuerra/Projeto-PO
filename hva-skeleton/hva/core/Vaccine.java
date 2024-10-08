@@ -8,7 +8,7 @@ public class Vaccine {
     private final String id;
     private String name;
     private Species species;
-    private List<VaccinationRecord> records;
+    private final List<VaccinationRecord> records; // Marked as final
 
     public Vaccine(String id, String name, Species species) {
         this.id = id;
@@ -41,18 +41,18 @@ public class Vaccine {
         return records;
     }
 
-    public void addRecord(Vet vet, Animal animal, boolean success, String result) {
+    public void addRecord(Veterinarian vet, Animal animal, boolean success, String result) {
         records.add(new VaccinationRecord(vet, animal, new Date(), success, result));
     }
 
     public static class VaccinationRecord {
-        private Vet vet;
-        private Animal animal;
-        private Date date;
-        private boolean success;
-        private String result;
+        private final Veterinarian vet; // Marked as final
+        private final Animal animal; // Marked as final
+        private final Date date; // Marked as final
+        private final boolean success; // Marked as final
+        private final String result; // Marked as final
 
-        public VaccinationRecord(Vet vet, Animal animal, Date date, boolean success, String result) {
+        public VaccinationRecord(Veterinarian vet, Animal animal, Date date, boolean success, String result) {
             this.vet = vet;
             this.animal = animal;
             this.date = date;
@@ -60,7 +60,7 @@ public class Vaccine {
             this.result = result;
         }
 
-        public Vet getVet() {
+        public Veterinarian getVet() {
             return vet;
         }
 
