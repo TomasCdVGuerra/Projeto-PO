@@ -28,51 +28,53 @@ public abstract class HotelEntity {
         this.name = name;
     }
 
-    public EntityType getFromId(EntityType type, String id){
-        switch (EntityType){
+    public Object getFromId(EntityType type, String id) {
+        switch (type) {
             case Species:
-                Iterator<Species> itr = _hotel._species.iterator(); 
-                while(itr.hasNext()){
-                    Species i = itr.next();
-                    if(i._id.equals(id))
-                        return i;
+                for (Species species : _hotel.getSpecies()) {
+                    if (species.getId().equals(id)) {
+                        return species;
+                    }
                 }
-
+                break;
             case Animal:
-                Iterator<Animal> itr = _hotel._animals.iterator(); 
-                while(itr.hasNext()){
-                    Animal i = itr.next();
-                    if(i._id.equals(id))
-                        return i;
+                for (Animal animal : _hotel.getAnimals()) {
+                    if (animal.getId().equals(id)) {
+                        return animal;
+                    }
                 }
+                break;
             case Habitat:
-                Iterator<Habitat> itr = _hotel._habitats.iterator(); 
-                while(itr.hasNext()){
-                    Habitat i = itr.next();
-                    if(i._id.equals(id))
-                        return i;
-            }
-            case Vaccine:
-                Iterator<Vaccine> itr = _hotel._vaccines.iterator(); 
-                while(itr.hasNext()){
-                    Vaccine i = itr.next();
-                    if(i._id.equals(id))
-                        return i;
-            }
-            case Tree:
-                Iterator<Tree> itr = _hotel._trees.iterator(); 
-                while(itr.hasNext()){
-                    Tree i = itr.next();
-                    if(i._id.equals(id))
-                        return i;
-            }
-            case Employee:
-                Iterator<Employee> itr = _hotel._employees.iterator(); 
-                while(itr.hasNext()){
-                    Employee i = itr.next();
-                    if(i._id.equals(id))
-                        return i;
+                for (Habitat habitat : _hotel.getHabitats()) {
+                    if (habitat.getId().equals(id)) {
+                        return habitat;
+                    }
                 }
+                break;
+            case Vaccine:
+                for (Vaccine vaccine : _hotel.getVaccines()) {
+                    if (vaccine.getId().equals(id)) {
+                        return vaccine;
+                    }
+                }
+                break;
+            case Tree:
+                for (Tree tree : _hotel.getTrees()) {
+                    if (tree.getId().equals(id)) {
+                        return tree;
+                    }
+                }
+                break;
+            case Employee:
+                for (Employee employee : _hotel.getEmployees()) {
+                    if (employee.getId().equals(id)) {
+                        return employee;
+                    }
+                }
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown EntityType: " + type);
         }
+        return null;
     }
 }
