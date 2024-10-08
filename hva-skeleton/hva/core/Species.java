@@ -4,28 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Species extends hotelEntity {
-  private List<Animal> _animals;
+    private final List<Animal> _animals;
+    private Hotel _hotel; // Reference to the hotel
 
-  public Species(String id, String name) {
-    super(id, name);
-    this._animals = new ArrayList<>();
-  }
+    public Species(String id, String name, Hotel hotel) {
+        super(id, name);
+        this._animals = new ArrayList<>();
+        this._hotel = hotel; // Initialize the hotel reference
+    }
 
-  public List<Animal> getAnimals() {
-    return _animals;
-  }
+    public List<Animal> getAnimals() {
+        return _animals;
+    }
 
-  public void addAnimal(Animal animal) {
-    _animals.add(animal);
-  }
+    public void addAnimal(Animal animal) {
+        _animals.add(animal);
+    }
 
-  public int getNVets() {
-    // Implement logic to count veterinarians
-    return _vets.size(); // Assuming _vets is a list of veterinarians
-  }
+    public int getNVets() {
+        return _hotel.getNVets(this); // Use the hotel's getNVets method
+    }
 
-  @Override
-  public String getEntityDetails() {
-    return "Species ID: " + getId() + ", Name: " + getName();
-  }
+    @Override
+    public String getEntityDetails() {
+        return "Species ID: " + getId() + ", Name: " + getName();
+    }
 }
