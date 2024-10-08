@@ -8,7 +8,7 @@ public class Hotel implements Serializable {
 
   @Serial
   private static final long serialVersionUID = 202407081733L;
-
+  
   private List<Animal> _animals;
   private List<Species> _species;
   private List<Employee> _employees;
@@ -16,14 +16,17 @@ public class Hotel implements Serializable {
   private List<Vaccine> _vaccines;
   private List<Tree> _trees;
   private List<Habitat> _habitats;
+  private String _season; // Add this line
+
   public Hotel() {
-    _animals = new ArrayList<>();
-    _species = new ArrayList<>();
-    _employees = new ArrayList<>();
-    _responsibilities = new HashMap<>();
-    _vaccines = new ArrayList<>();
-    _trees = new ArrayList<>();
-    _habitats = new ArrayList<>();
+      _animals = new ArrayList<>();
+      _species = new ArrayList<>();
+      _employees = new ArrayList<>();
+      _responsibilities = new HashMap<>();
+      _vaccines = new ArrayList<>();
+      _trees = new ArrayList<>();
+      _habitats = new ArrayList<>();
+      _season = "Spring"; // Initialize with a default value
   }
 
   public void registerAnimal(String animalId, String name, String habitatId, String speciesId) throws OneOrMoreCoreExceptions {
