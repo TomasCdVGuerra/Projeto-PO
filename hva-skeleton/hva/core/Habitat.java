@@ -52,6 +52,10 @@ public class Habitat {
     return _adequations;
   }
 
+  public List<Species> getSpecies() {
+    return _species;
+}
+
   public void addAdequation(Adequation adequation) {
     _adequations.add(adequation);
   }

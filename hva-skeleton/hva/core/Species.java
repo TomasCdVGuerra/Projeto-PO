@@ -29,4 +29,10 @@ public class Species {
   public void addAnimal(Animal animal) {
     _animals.add(animal);
   }
+
+  public int getNVets() {
+    // Implement logic to count veterinarians
+    return _vets.size(); // Assuming _vets is a list of veterinarians
+}
+
 }
