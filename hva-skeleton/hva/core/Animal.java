@@ -1,6 +1,6 @@
 package hva.core;
 
-public class Animal extends hotelEntity {
+public class Animal extends HotelEntity {
     private final Species _species;
     private Habitat _habitat;
     private String _healthHistory;

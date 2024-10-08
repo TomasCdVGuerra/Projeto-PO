@@ -3,12 +3,12 @@ package hva.core;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Habitat extends hotelEntity {
+public class Habitat extends HotelEntity {
     private final double _area;
     private int _population;
     private List<Tree> _trees;
     private List<Adequation> _adequations;
-    private List<Handler> _handlers;
+    private List<Zookeeper> _zookeepers; // Changed from Handler to Zookeeper
     private List<Animal> _animals;
     private List<Species> _species;
 
@@ -18,7 +18,7 @@ public class Habitat extends hotelEntity {
         this._population = population;
         this._trees = new ArrayList<>();
         this._adequations = new ArrayList<>();
-        this._handlers = new ArrayList<>();
+        this._zookeepers = new ArrayList<>(); // Changed from _handlers to _zookeepers
         this._animals = new ArrayList<>();
         this._species = new ArrayList<>();
     }
@@ -64,16 +64,16 @@ public class Habitat extends hotelEntity {
         return new Adequation(species, Adequation.AdequationValue.NEUTRAL);
     }
 
-    public List<Handler> getHandlers() {
-        return _handlers;
+    public List<Zookeeper> getZookeepers() {
+        return _zookeepers;
     }
 
-    public void addHandler(Handler handler) {
-        _handlers.add(handler);
+    public void addZookeeper(Zookeeper zookeeper) {
+        _zookeepers.add(zookeeper);
     }
 
-    public void setHandlers(List<Handler> _handlers) {
-        this._handlers = _handlers;
+    public void setZookeepers(List<Zookeeper> _zookeepers) {
+        this._zookeepers = _zookeepers;
     }
 
     public List<Animal> getAnimals() {

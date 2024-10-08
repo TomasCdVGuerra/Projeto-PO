@@ -3,7 +3,7 @@ package hva.core;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Employee extends hotelEntity {
+public abstract class Employee extends HotelEntity {
     private int _satisfLevel;
     private String _type;
     private Hotel _hotel;

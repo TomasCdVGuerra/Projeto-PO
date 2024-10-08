@@ -1,6 +1,6 @@
 package hva.core;
 
-public class Tree extends hotelEntity {
+public class Tree extends HotelEntity {
     private final String _type;
     private final int _baseDiff;
     private int _age;

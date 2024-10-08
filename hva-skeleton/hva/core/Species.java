@@ -3,7 +3,7 @@ package hva.core;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Species extends hotelEntity {
+public class Species extends HotelEntity {
     private final List<Animal> _animals;
     private Hotel _hotel; // Reference to the hotel
 

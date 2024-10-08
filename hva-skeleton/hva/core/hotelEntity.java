@@ -1,10 +1,10 @@
 package hva.core;
 
-public abstract class hotelEntity {
+public abstract class HotelEntity {
     private String id;
     private String name;
 
-    public hotelEntity(String id, String name) {
+    public HotelEntity(String id, String name) {
         this.id = id;
         this.name = name;
     }
