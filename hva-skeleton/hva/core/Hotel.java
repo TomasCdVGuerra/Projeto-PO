@@ -66,31 +66,31 @@ public class Hotel implements Serializable {
   public List<Tree> getTrees() { return _trees; }
   public List<Employee> getEmployees() { return _employees; }
 
-  public int getPopulation(Species species){
-    Iterator<Animal> itr = _animals.Iterator();
-    int res=0;
+  public int getPopulation(Species species) {
+    Iterator<Animal> itr = _animals.iterator();
+    int res = 0;
 
-    while(itr.hasNext()){
-      Animal i = itr.next();
-
-      if(i._species.equals(species))  //falta animal class com ._species!!
-        res++;
+    while (itr.hasNext()) {
+        Animal i = itr.next();
+        if (i.getSpecies().equals(species)) { // Use getSpecies() method
+            res++;
+        }
     }
     return res;
-  }
+}
 
-  public int getNVets(Species species){
-    Iterator<Employee> itr = _employees.Iterator();
-    int res=0;
+public int getNVets(Species species) {
+    Iterator<Employee> itr = _employees.iterator();
+    int res = 0;
 
-    while(itr.hasNext()){
-      Employee i = itr.next();
-
-      if(i._listResponsabilities.contains(species))  //falta animal class com ._species!!
-        res++;
+    while (itr.hasNext()) {
+        Employee i = itr.next();
+        if (i.getResponsabilities().contains(species)) { // Use getListResponsabilities() method
+            res++;
+        }
     }
     return res;
-  }
+}
 
   /**
    * Read text input file and create corresponding domain entities.

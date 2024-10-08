@@ -1,26 +1,27 @@
 package hva.core;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Veterinarian extends Employee {
-    private List<String> speciesIds;
+    private final List<String> speciesIds;
+    private List<Species> _canVacinate; // Assuming this is the intended variable
 
     public Veterinarian(String id, String name) {
         super(id, name, "VET");
         this.speciesIds = new ArrayList<>();
     }
 
-    public int getSatisf(){
-        int  sum = 0;
+    public int getSatisf() {
+        int sum = 0;
         Iterator<Species> itr = _canVacinate.iterator();
 
-        while(itr.hasNext()) {
+        while (itr.hasNext()) {
             Species i = itr.next();
-
-            sum += _hotel.getPopulation(i) / _hotel.getNVets(i);
+            sum += getHotel().getPopulation(i) / getHotel().getNVets(i);
         }
-        return 20-sum;
+        return 20 - sum;
     }
 
     @Override

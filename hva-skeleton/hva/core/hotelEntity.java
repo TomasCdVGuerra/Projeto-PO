@@ -1,7 +1,5 @@
 package hva.core;
 
-import java.util.*;
-
 public abstract class HotelEntity {
     private String id;
     private String name;
@@ -28,6 +26,8 @@ public abstract class HotelEntity {
         this.name = name;
     }
 
+    public abstract String getEntityDetails();
+    
     public Object getFromId(EntityType type, String id) {
         switch (type) {
             case Species:
