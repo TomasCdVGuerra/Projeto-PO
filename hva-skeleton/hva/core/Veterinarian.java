@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Iterator;
 import java.lang.Override;  //override ja vem importado?
 
-public class Veterenarian extends Employee{
+public class Veterinarian extends Employee{
     private List<Species> _canVacinate;
     
     @Override
