@@ -3,9 +3,7 @@ package hva.core;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Habitat {
-  private String _id;
-  private String _name;
+public class Habitat extends hotelEntity {
   private double _area;
   private int _population;
   private List<Tree> _trees;
@@ -14,22 +12,13 @@ public class Habitat {
   private List<Animal> _animals;
 
   public Habitat(String habitatId, String name, double area, int population) {  
-    this._habitatId = habitatId;
-    this._name = name;
+    super(habitatId, name);
     this._area = area;
     this._population = population;
     this._trees = new ArrayList<>();
     this._adequations = new ArrayList<>();
     this._handlers = new ArrayList<>();
     this._animals = new ArrayList<>();
-  }
-
-  public String getId() {
-    return _habitatId;
-  }
-
-  public String getName() {
-    return _name;
   }
 
   public double getArea() {
@@ -54,7 +43,7 @@ public class Habitat {
 
   public List<Species> getSpecies() {
     return _species;
-}
+  }
 
   public void addAdequation(Adequation adequation) {
     _adequations.add(adequation);
@@ -91,5 +80,10 @@ public class Habitat {
 
   public void addAnimal(Animal animal) {
     _animals.add(animal);
+  }
+
+  @Override
+  public String getEntityDetails() {
+    return "Habitat ID: " + getId() + ", Name: " + getName() + ", Area: " + _area + ", Population: " + _population;
   }
 }
