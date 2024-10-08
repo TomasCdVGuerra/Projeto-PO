@@ -8,7 +8,7 @@ public class Zookeeper extends Employee {
     private List<Habitat> _habitatsManaged;
 
     public Zookeeper(String id, String name) {
-        super(id, name, "TRT");
+        super(id, name, "TRT"); // Call correct Employee constructor with id, name, and type
         _habitatsManaged = new ArrayList<>();
     }
 
