@@ -24,6 +24,16 @@ public class HotelManager {
    * @throws IOException if there is some error while serializing the state of the network to disk.
    **/
   public void save() throws FileNotFoundException, MissingFileAssociationException, IOException {
+    if (_filename == null || _filename.isBlank())
+      throw new MissingFileAssociationException();
+
+    ObjectOutputStream out=null;
+
+    out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)));
+    out.writeObject(_hotel); 
+    
+    if (out != null)
+      out.close();
     // FIXME implement serialization method
   }
 
@@ -37,6 +47,8 @@ public class HotelManager {
    * @throws IOException if there is some error while serializing the state of the network to disk.
    **/
   public void saveAs(String filename) throws FileNotFoundException, MissingFileAssociationException, IOException {
+    _filename = filename;
+    save();
     // FIXME implement serialization method
   }
 
@@ -47,38 +59,21 @@ public class HotelManager {
    *         an error while processing this file.
    **/
   public void load(String filename) throws UnavailableFileException, IOException {
-    Hotel hotel = createNewHotel();
-    _hotel = hotel;
-    try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
-      String line;
-      while ((line = br.readLine()) != null) {
-        String[] parts = line.split("\\|");
-        if (parts[0].equals("ESPECIE")) {
-          Species i = new Species(parts[1], parts[2], _hotel);
-          _hotel.getSpecies().add(i);
-        } else if (parts[0].equals("ANIMAL")) {
-          Animal i = new Animal(parts[1], parts[2], getSpeciesFromId(parts[3]), getSpeciesFromId(parts[4]));
-          _hotel.getAnimals().add(i);
-        } else if (parts[0].equals("ARVORE")) {
-          Tree i = new Tree(parts[1], parts[2], parts[5], parts[3], parts[4]);
-          _hotel.getTrees().add(i);
-        } else if (parts[0].equals("HABITAT")) {
-          Habitat i = new Habitat(parts[1], parts[2], Double.parseDouble(parts[3]), 0, _hotel.getSpecies());
-          _hotel.getHabitats().add(i);
-        } else if (parts[0].equals("TRATADOR")) {
-          Zookeeper i = new Zookeeper(parts[1], parts[2], parts[3]);
-          _hotel.getEmployees().add(i);
-        } else if (parts[0].equals("VETERINARIO")) {
-          Veterinarian i = new Veterinarian(parts[1], parts[2], parts[3]);
-          _hotel.getEmployees().add(i);
-        } else if (parts[0].equals("VACINA")) {
-          Vaccine i = new Vaccine(parts[1], parts[2], parts[3]);
-          _hotel.getVaccines().add(i);
-        }
-      }
-    } catch (FileNotFoundException e) {
-      throw new UnavailableFileException("File not found: " + filename);
+    ObjectInputStream in=null;
+
+    try{
+        in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
+
+        _hotel = (Hotel) in.readObject(); 
+ 
+      _filename = filename;
+      in.close();
+
+    } 
+    catch (IOException | ClassNotFoundException e) {
+      throw new UnavailableFileException(filename);
     }
+    // FIXME implement serialization method
   }
 
   /**
@@ -92,7 +87,7 @@ public class HotelManager {
   public void importFile(String filename) throws ImportFileException {
     try {
       _hotel.importFile(filename);
-    } catch (IOException | UnrecognizedEntryException e) {
+    } catch (IOException | UnrecognizedEntryException /* FIXME maybe other exceptions */ e) {
       throw new ImportFileException(filename, e);
     }
   }
@@ -106,9 +101,4 @@ public class HotelManager {
     return _hotel;
   }
 
-  // Helper method to resolve species from ID
-  private Species getSpeciesFromId(String id) {
-    // Implementation to get Species from ID
-    return null; // Replace with actual implementation
-  }
 }

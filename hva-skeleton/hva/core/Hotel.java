@@ -12,7 +12,7 @@ public class Hotel implements Serializable {
   private final List<Animal> _animals;
   private final List<Species> _species;
   private final List<Employee> _employees;
-  private final Map<String, List<String>> _responsibilities;
+  private final List<String> _IdResponsibilities;
   private final List<Vaccine> _vaccines;
   private final List<Tree> _trees;
   private final List<Habitat> _habitats;
@@ -22,7 +22,7 @@ public class Hotel implements Serializable {
       _animals = new ArrayList<>();
       _species = new ArrayList<>();
       _employees = new ArrayList<>();
-      _responsibilities = new HashMap<>();
+      _responsibilities = new ArrayList<>();
       _vaccines = new ArrayList<>();
       _trees = new ArrayList<>();
       _habitats = new ArrayList<>();
@@ -92,6 +92,7 @@ public class Hotel implements Serializable {
     return res;
   }
 
+
   /**
    * Read text input file and create corresponding domain entities.
    * 
@@ -100,6 +101,7 @@ public class Hotel implements Serializable {
    * @throws IOException if there is an IO erro while processing the text file
    **/
   void importFile(String filename) throws UnrecognizedEntryException, IOException {
-    // Implementation here
+    Parser parser = new Parser(this);
+    parser.parseFile(filename);
+    }
   }
-}

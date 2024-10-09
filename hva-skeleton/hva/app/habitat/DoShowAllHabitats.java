@@ -16,6 +16,7 @@ class DoShowAllHabitats extends Command<Hotel> {
   
   @Override
   protected void execute() {
+    _display.popup(_receiver.getHabitats());
     //FIXME implement command
   }
 }

@@ -16,6 +16,11 @@ class DoNewFile extends Command<HotelManager> {
 
   @Override
   protected final void execute() throws CommandException {
+    try {
+      _receiver.newHotel();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     //FIXME implement command
   }
 }
