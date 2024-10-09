@@ -1,9 +1,9 @@
 package hva.core;
 
 public class Responsibility {
-    private String _responsibility;
+    private String _IdResponsibility;
 
     public Responsibility(String responsibility){
-        _responsibility=responsibility;
+        _IdResponsibility=responsibility;
     }
 }

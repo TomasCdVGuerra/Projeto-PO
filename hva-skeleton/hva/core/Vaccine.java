@@ -2,9 +2,7 @@ package hva.core;
 
 import java.util.*;
 
-public class Vaccine {
-    private final String _id;
-    private String _name;
+public class Vaccine extends HotelEntity{
     private List<Species> _species; 
     private List<VaccinationRecord> _records; 
 
@@ -13,18 +11,6 @@ public class Vaccine {
         this._name = name;
         this._species = species;
         this._records = new ArrayList<>();
-    }
-
-    public String getId() {
-        return _id;
-    }
-
-    public String getName() {
-        return _name;
-    }
-
-    public void setName(String name) {
-        this._name = name;
     }
 
     public List<Species> getSpecies() {

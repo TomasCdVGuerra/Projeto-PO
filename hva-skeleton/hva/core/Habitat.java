@@ -2,7 +2,7 @@ package hva.core;
 
 import java.util.*;
 
-public class Habitat extends HotelEntity {
+public class Habitat extends HotelEntity{
     private final double _area;
     private final int _population; // Marked as final
     private final List<Tree> _IdTrees; // Marked as final and corrected type
@@ -12,10 +12,10 @@ public class Habitat extends HotelEntity {
     private final List<Species> _species; // Marked as final
     private final List<Tree> _trees = new ArrayList<>(); // Declare and initialize _trees
 
-    public Habitat(String habitatId, String name, double area, int population, List<Tree> trees) {  
+    public Habitat(String habitatId, String name, double area, List<Tree> trees) {  
         super(habitatId, name);
         this._area = area;
-        this._population = population;
+        this._population = 0;
         this._IdTrees = new ArrayList<>(trees); // Initialize _IdTrees correctly
         this._adequations = new ArrayList<>();
         this._zookeepers = new ArrayList<>(); // Changed from _handlers to _zookeepers

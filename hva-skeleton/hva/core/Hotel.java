@@ -34,34 +34,97 @@ public class Hotel implements Serializable {
   }
 
   public void registerAnimal(String animalId, String name, String habitatId, String speciesId) throws OneOrMoreCoreExceptions {
+    Animal i = new Animal(animalId, name, this..getFromId(EntityType Habitat, habitatId), .getFromId(EntityType Species, speciesId));
+    _animals.add(i);
     // Implementation here
   }
 
   public void registerSpecies(String speciesId, String name) throws OneOrMoreCoreExceptions {
+    Species i = new Species(speciesId, name, this);
+    _species.add(i);
     // Implementation here
   }
 
   public void registerEmployee(String employeeId, String name, String empType) throws OneOrMoreCoreExceptions {
+    Employee i = new Employee(employeeId, name, empType);
+    _employees.add(i);
     // Implementation here
   }
 
   public void addResponsibility(String employeeId, String responsibility) throws OneOrMoreCoreExceptions {
+    Responsibility i = new Responsibility(responsibility);
+    this.getFromId(employeeId)._listResponsabilities.add(i);
+    _IdResponsibilities.add(i);   //adicionar só a employee ou ter array de resps tb?
     // Implementation here
   }
 
   public void registerVaccine(String vaccineId, String name, String[] speciesIds) throws OneOrMoreCoreExceptions {
+    Vaccine i = new Vaccine(vaccineId, name, SpeciesIds);
+    _vaccines.add(i);
     // Implementation here
   }
 
   public void createTree(String treeId, String name, String type, int age, int baseDiff) throws OneOrMoreCoreExceptions {
-    Tree tree = new Tree(treeId, name, type, age, baseDiff);
-    _trees.add(tree);
+    Tree i = new Tree(treeId, name, type, age, baseDiff);
+    _trees.add(i);
   }
 
-  public Habitat registerHabitat(String habitatId, String name, double area) throws OneOrMoreCoreExceptions {
+  public void registerHabitat(String habitatId, String name, double area) throws OneOrMoreCoreExceptions {
+    List<String> t = new ArrayList<>();
+    Habitat i = new Habitat(habitatId, name, area, t);
+    _habitats.add(i);
     // Implementation here
-    return null;
   }
+
+  public EntityType getFromId(EntityType type, String id) {
+    switch (type) {
+        case Species:
+            for (Species species : _hotel.getSpecies()) {
+                if (species.getId().equals(id)) {
+                    return species;
+                }
+            }
+            break;
+        case Animal:
+            for (Animal animal : _hotel.getAnimals()) {
+                if (animal.getId().equals(id)) {
+                    return animal;
+                }
+            }
+            break;
+        case Habitat:
+            for (Habitat habitat : _hotel.getHabitats()) {
+                if (habitat.getId().equals(id)) {
+                    return habitat;
+                }
+            }
+            break;
+        case Vaccine:
+            for (Vaccine vaccine : _hotel.getVaccines()) {
+                if (vaccine.getId().equals(id)) {
+                    return vaccine;
+                }
+            }
+            break;
+        case Tree:
+            for (Tree tree : _hotel.getTrees()) {
+                if (tree.getId().equals(id)) {
+                    return tree;
+                }
+            }
+            break;
+        case Employee:
+            for (Employee employee : _hotel.getEmployees()) {
+                if (employee.getId().equals(id)) {
+                    return employee;
+                }
+            }
+            break;
+        default:
+            throw new IllegalArgumentException("Unknown EntityType: " + type);
+    }
+    return null;
+}
 
   public List<Species> getSpecies() { return _species; }
   public List<Animal> getAnimals() { return _animals; }
