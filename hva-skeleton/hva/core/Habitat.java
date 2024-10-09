@@ -4,12 +4,13 @@ import java.util.*;
 
 public class Habitat extends HotelEntity {
     private final double _area;
-    private int _population;
-    private List<Tree> _IdTrees;
-    private List<Adequation> _adequations;
+    private final int _population; // Marked as final
+    private final List<Tree> _IdTrees; // Marked as final and corrected type
+    private final List<Adequation> _adequations; // Marked as final
     private List<Zookeeper> _zookeepers; // Changed from Handler to Zookeeper
-    private List<Animal> _animals;
-    private List<Species> _species;
+    private final List<Animal> _animals; // Marked as final
+    private final List<Species> _species; // Marked as final
+    private final List<Tree> _trees = new ArrayList<>(); // Declare and initialize _trees
 
     public Habitat(String habitatId, String name, double area, int population, String idsTrees) {  
         super(habitatId, name);
@@ -72,8 +73,8 @@ public class Habitat extends HotelEntity {
         _zookeepers.add(zookeeper);
     }
 
-    public void setZookeepers(List<Zookeeper> _zookeepers) {
-        this._zookeepers = _zookeepers;
+    public void setZookeepers(List<Zookeeper> zookeepers) { // Removed final keyword
+        this._zookeepers = zookeepers;
     }
 
     public List<Animal> getAnimals() {
