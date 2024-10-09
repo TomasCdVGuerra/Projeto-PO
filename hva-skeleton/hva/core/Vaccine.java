@@ -3,45 +3,40 @@ package hva.core;
 import java.util.*;
 
 public class Vaccine {
-    private String _id;
+    private final String _id;
     private String _name;
-    private List<Species> _species;
-    private List<VaccinationRecord> _records; // Marked as final
+    private List<Species> _species; 
+    private List<VaccinationRecord> _records; 
 
-    public Vaccine(String id, String name, String species) {
-        this.id = id;
-        this.name = name;
-        String[] lstIdsSpecies = species.split(",");
-         _species = new ArrayList<>(Arrays.asList(lstIdsSpecies));
-        this.records = new ArrayList<>();
+    public Vaccine(String id, String name, List<Species> species) {
+        this._id = id;
+        this._name = name;
+        this._species = species;
+        this._records = new ArrayList<>();
     }
 
     public String getId() {
-        return id;
+        return _id;
     }
 
     public String getName() {
-        return name;
+        return _name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this._name = name;
     }
 
-"""    public Species getSpecies() {
-        return species;
+    public List<Species> getSpecies() {
+        return _species;
     }
-
-    public void setSpecies(Species species) {
-        this.species = species;
-    }"""
 
     public List<VaccinationRecord> getRecords() {
-        return records;
+        return _records;
     }
 
     public void addRecord(Veterinarian vet, Animal animal, boolean success, String result) {
-        records.add(new VaccinationRecord(vet, animal, new Date(), success, result));
+        _records.add(new VaccinationRecord(vet, animal, new Date(), success, result));
     }
 
     public static class VaccinationRecord {
