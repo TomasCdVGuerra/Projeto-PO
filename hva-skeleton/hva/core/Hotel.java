@@ -92,6 +92,7 @@ public class Hotel implements Serializable {
     return res;
   }
 
+
   /**
    * Read text input file and create corresponding domain entities.
    * 

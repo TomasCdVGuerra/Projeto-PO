@@ -17,6 +17,7 @@ class DoShowAllVaccines extends Command<Hotel> {
   
   @Override
   protected final void execute() {
+    _display.popup(_receiver.getVaccines());
     //FIXME implement command
   }
 }
