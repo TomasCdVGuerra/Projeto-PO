@@ -1,6 +1,6 @@
 package hva.core;
 
-public enum entityType{
+public enum EntityType{
     Species,
     Animal,
     Habitat,
