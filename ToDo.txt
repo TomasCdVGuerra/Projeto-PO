@@ -1,0 +1,7 @@
+1 - Reading, interpretation and representation in memory of the textual file indicated by the import property (implies implementing some core classes)
+2 - Main menu: Safeguarding current application state: "Create", "Open" and "Save" -- full implementation
+3 - Main menu: Management and consultation of application data: opening of the various submenus (commands provided already implemented).
+4 - Animal Management Menu -- implement the "View all animals" operation.
+5 - Employee Management Menu -- implement the "View all employees" operation.
+6 - Habitat Management Menu -- implement the "View all habitats" operation.
+7 - Vaccine Management Menu -- implement the "View all vaccines" operation.
