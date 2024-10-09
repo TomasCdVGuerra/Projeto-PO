@@ -1,19 +1,18 @@
 package hva.core;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Vaccine {
-    private final String id;
-    private String name;
-    private Species species;
-    private final List<VaccinationRecord> records; // Marked as final
+    private String _id;
+    private String _name;
+    private List<Species> _species;
+    private List<VaccinationRecord> _records; // Marked as final
 
-    public Vaccine(String id, String name, Species species) {
+    public Vaccine(String id, String name, String species) {
         this.id = id;
         this.name = name;
-        this.species = species;
+        String[] lstIdsSpecies = species.split(",");
+         _species = new ArrayList<>(Arrays.asList(lstIdsSpecies));
         this.records = new ArrayList<>();
     }
 
@@ -29,13 +28,13 @@ public class Vaccine {
         this.name = name;
     }
 
-    public Species getSpecies() {
+"""    public Species getSpecies() {
         return species;
     }
 
     public void setSpecies(Species species) {
         this.species = species;
-    }
+    }"""
 
     public List<VaccinationRecord> getRecords() {
         return records;

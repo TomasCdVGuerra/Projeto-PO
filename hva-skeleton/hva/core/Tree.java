@@ -5,20 +5,14 @@ public class Tree extends HotelEntity {
     private final int _baseDiff;
     private int _age;
     private static String _season = "Spring"; // Default season is Spring
-    private Habitat _habitat; // Changed to Habitat object
     private int _seasonCount; // Counter for seasons to track aging
 
-    public Tree(String treeId, String name, String type, int age, int baseDiff, Habitat habitat) {
+    public Tree(String treeId, String name, String type, int age, int baseDiff) {
         super(treeId, name);
         this._type = type;
         this._age = age;
         this._baseDiff = baseDiff;
-        this._habitat = habitat;
         this._seasonCount = 0; // Initialize season counter
-    }
-
-    public void initHabitat() {
-        _habitat.addTree(this); // Add tree to habitat after construction
     }
 
     public String getTreeId() {
@@ -39,15 +33,6 @@ public class Tree extends HotelEntity {
 
     public static String getSeason() {
         return _season;
-    }
-
-    public Habitat getHabitat() {
-        return _habitat;
-    }
-
-    public void setHabitat(Habitat habitat) {
-        this._habitat = habitat;
-        habitat.addTree(this); // Ensure tree is added to new habitat
     }
 
     public int getSeasonalDifficulty() {

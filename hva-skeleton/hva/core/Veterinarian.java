@@ -6,9 +6,10 @@ import java.util.List;
 public class Veterinarian extends Employee {
     private List<String> speciesIds;
 
-    public Veterinarian(String id, String name) {
+    public Veterinarian(String id, String name, String responsabilities) {
         super(id, name, "VET");
-        this.speciesIds = new ArrayList<>();
+        String[] lstIdsResps = responsabilities.split(",");
+        _habitatsManaged = new ArrayList<>(Arrays.asList(lstIdsResps));
     }
 
     public int getSatisf(){

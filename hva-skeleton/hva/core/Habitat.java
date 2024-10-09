@@ -1,22 +1,22 @@
 package hva.core;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Habitat extends HotelEntity {
     private final double _area;
     private int _population;
-    private List<Tree> _trees;
+    private List<Tree> _IdTrees;
     private List<Adequation> _adequations;
     private List<Zookeeper> _zookeepers; // Changed from Handler to Zookeeper
     private List<Animal> _animals;
     private List<Species> _species;
 
-    public Habitat(String habitatId, String name, double area, int population) {  
+    public Habitat(String habitatId, String name, double area, int population, String idsTrees) {  
         super(habitatId, name);
         this._area = area;
         this._population = population;
-        this._trees = new ArrayList<>();
+        String[] lstTrees = idsTrees.split(",");
+        this._IdTrees = new ArrayList<>(Arrays.asList(lstTrees));
         this._adequations = new ArrayList<>();
         this._zookeepers = new ArrayList<>(); // Changed from _handlers to _zookeepers
         this._animals = new ArrayList<>();

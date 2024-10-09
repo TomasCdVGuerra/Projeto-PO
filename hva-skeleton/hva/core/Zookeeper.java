@@ -1,14 +1,14 @@
 package hva.core;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Zookeeper extends Employee {
     private final List<Habitat> _habitatsManaged; // Marked as final
 
-    public Zookeeper(String id, String name) {
+    public Zookeeper(String id, String name, String responsabilities) {
         super(id, name, "TRT");
-        _habitatsManaged = new ArrayList<>();
+        String[] lstIdsResps = responsabilities.split(",");
+        _habitatsManaged = new ArrayList<>(Arrays.asList(lstIdsResps));
     }
 
     @Override

@@ -11,7 +11,11 @@ import java.io.*;
  **/
 public class HotelManager {
   /** The current zoo hotel */ // Should we initialize this field?
-  private Hotel _hotel = new Hotel();
+  private Hotel _hotel;
+
+  public void createNewHotel(){
+    _hotel = new Hotel();
+  }
   
   /**
    * Saves the serialized application's state into the file associated to the current network.
@@ -21,7 +25,7 @@ public class HotelManager {
    * @throws IOException if there is some error while serializing the state of the network to disk.
    **/
   public void save() throws FileNotFoundException, MissingFileAssociationException, IOException {
-    
+  
     // FIXME implement serialization method
   }
   
@@ -45,7 +49,43 @@ public class HotelManager {
    *         an error while processing this file.
    **/
   public void load(String filename) throws UnavailableFileException {
-    // FIXME implement serialization method
+    Hotel hotel = createNewHotel();
+    _hotel=hotel;
+    try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+          String[] parts = line.split("|");
+          if (parts[0].equals("ESPECIE")) {
+            Species i = new Species(parts[1], parts[2], _hotel);
+            _hotel._species.add(i);
+          }
+          else if (parts[0].equals("ANIMAL")) {
+            Animal i = new Animal(parts[1], parts[2], getFromId(parts[3]), getFromId(parts[4]));
+            _hotel._animals.add(i);
+          }
+          else if (parts[0].equals("ARVORE")) {
+            Arvore i = new Arvore(parts[1], parts[2], parts[5], parts[3], parts[4]);   //tirar habitat d arvore
+            _hotel._trees.add(i);
+          }
+          else if (parts[0].equals("HABITAT")) {
+            Habitat i = new Habitat(parts[1], parts[2], parts[3], 0, 0, parts[4]);
+            _hotel._habitats.add(i);
+          }
+          else if (parts[0].equals("TRATADOR")) {
+            Zookepper i = new Zookepper(parts[1], parts[2], parts[3]);
+            _hotel._employees.add(i);
+          }
+          else if (parts[0].equals("VETERINARIO")) {
+            Veterinarian i = new Veterinarian(parts[1], parts[2], parts[3]);
+            _hotel._employees.add(i);
+          }
+          else if (parts[0].equals("VACINA")) {
+            Vaccine i = new Vaccine(parts[1], parts[2], parts[3]);
+            _hotel._vaccines.add(i);
+          }
+      }
+    }
+      // FIXME implement serialization method
   }
   
   /**
