@@ -22,11 +22,15 @@ public class Hotel implements Serializable {
       _animals = new ArrayList<>();
       _species = new ArrayList<>();
       _employees = new ArrayList<>();
-      _responsibilities = new ArrayList<>();
+      _IdResponsibilities = new ArrayList<>();
       _vaccines = new ArrayList<>();
       _trees = new ArrayList<>();
       _habitats = new ArrayList<>();
       _season = "Spring";
+  }
+
+  public String getSeason(){
+    return _season;
   }
 
   public void registerAnimal(String animalId, String name, String habitatId, String speciesId) throws OneOrMoreCoreExceptions {
