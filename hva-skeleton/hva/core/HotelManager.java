@@ -47,14 +47,26 @@ public class HotelManager {
    *         an error while processing this file.
    **/
   public void load(String filename) throws UnavailableFileException, IOException {
+    // FIXME implement serialization method
+  }
+
+  /**
+   * Read text input file and initializes the current zoo hotel (which should be empty)
+   * with the domain entities represented in the import file.
+   *
+   * @param filename name of the text input file
+   * @throws ImportFileException if some error happens during the processing of the
+   * import file.
+   **/
+  public void importFile(String filename) throws ImportFileException {
     Hotel hotel = createNewHotel();
     _hotel = hotel;
     try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
       String line;
       while ((line = br.readLine()) != null) {
-        String[] parts = line.split("\\|");
+        String[] parts = line.split("|");
         if (parts[0].equals("ESPECIE")) {
-          Species i = new Species(parts[1], parts[2], _hotel);
+          Species i = new Species(parts[1], parts[2], _hotel);    //getHotel?
           _hotel.getSpecies().add(i);
         } else if (parts[0].equals("ANIMAL")) {
           Animal i = new Animal(parts[1], parts[2], getFromId(HotelEntity Species,parts[3]), getFromId(EntityType Habitat,parts[4]));
@@ -78,23 +90,17 @@ public class HotelManager {
       }
     } catch (FileNotFoundException e) {
       throw new UnavailableFileException("File not found: " + filename);
-    }
-  }
-
-  /**
-   * Read text input file and initializes the current zoo hotel (which should be empty)
-   * with the domain entities represented in the import file.
-   *
-   * @param filename name of the text input file
-   * @throws ImportFileException if some error happens during the processing of the
-   * import file.
-   **/
-  public void importFile(String filename) throws ImportFileException {
-    try {
-      _hotel.importFile(filename);
     } catch (IOException | UnrecognizedEntryException e) {
       throw new ImportFileException(filename, e);
     }
+
+    """ORIGINAL CODE
+    try {
+      _hotel.importFile(filename);
+    } catch (IOException | UnrecognizedEntryException /* FIXME maybe other exceptions */ e) {
+      throw new ImportFileException(filename, e);
+    }"""
+
   }
 
   /**
