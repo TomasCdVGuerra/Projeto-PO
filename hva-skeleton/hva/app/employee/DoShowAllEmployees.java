@@ -11,6 +11,7 @@ class DoShowAllEmployees extends Command<Hotel> {
 
   DoShowAllEmployees(Hotel receiver) {
     super(Label.SHOW_ALL_EMPLOYEES, receiver);
+    
   }
   
   @Override
