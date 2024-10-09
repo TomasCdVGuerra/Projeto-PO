@@ -60,7 +60,7 @@ public class HotelManager {
             _hotel._species.add(i);
           }
           else if (parts[0].equals("ANIMAL")) {
-            Animal i = new Animal(parts[1], parts[2], getFromId(parts[3]), getFromId(parts[4]));
+            Animal i = new Animal(parts[1], parts[2], getFromId( hotelEntity Species,parts[3]), getFromId(hotelEntity Habitat,parts[4]));
             _hotel._animals.add(i);
           }
           else if (parts[0].equals("ARVORE")) {
