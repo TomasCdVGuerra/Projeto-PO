@@ -7,8 +7,14 @@ public class Zookeeper extends Employee {
 
     public Zookeeper(String id, String name, String responsabilities) {
         super(id, name, "TRT");
+        _habitatsManaged = new ArrayList<>(); // Initialize as empty list
         String[] lstIdsResps = responsabilities.split(",");
-        _habitatsManaged = new ArrayList<>(Arrays.asList(lstIdsResps));
+        for (String idResps : lstIdsResps) {
+            Habitat habitat = findHabitatById(idResps);
+            if (habitat != null) {
+                _habitatsManaged.add(habitat);
+            }
+        }
     }
 
     @Override
@@ -46,6 +52,7 @@ public class Zookeeper extends Employee {
 
     private Habitat findHabitatById(String idHabitat) {
         // Implement logic to find and return habitat by id
+        // For now, returning null as a placeholder
         return null;
     }
 }

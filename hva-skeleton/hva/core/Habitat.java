@@ -4,19 +4,19 @@ import java.util.*;
 
 public class Habitat extends HotelEntity {
     private final double _area;
-    private int _population;
-    private List<Tree> _IdTrees;
-    private List<Adequation> _adequations;
+    private final int _population; // Marked as final
+    private final List<Tree> _IdTrees; // Marked as final and corrected type
+    private final List<Adequation> _adequations; // Marked as final
     private List<Zookeeper> _zookeepers; // Changed from Handler to Zookeeper
-    private List<Animal> _animals;
-    private List<Species> _species;
+    private final List<Animal> _animals; // Marked as final
+    private final List<Species> _species; // Marked as final
+    private final List<Tree> _trees = new ArrayList<>(); // Declare and initialize _trees
 
-    public Habitat(String habitatId, String name, double area, int population, String idsTrees) {  
+    public Habitat(String habitatId, String name, double area, int population, List<Tree> trees) {  
         super(habitatId, name);
         this._area = area;
         this._population = population;
-        String[] lstTrees = idsTrees.split(",");
-        this._IdTrees = new ArrayList<>(Arrays.asList(lstTrees));
+        this._IdTrees = new ArrayList<>(trees); // Initialize _IdTrees correctly
         this._adequations = new ArrayList<>();
         this._zookeepers = new ArrayList<>(); // Changed from _handlers to _zookeepers
         this._animals = new ArrayList<>();
@@ -72,8 +72,8 @@ public class Habitat extends HotelEntity {
         _zookeepers.add(zookeeper);
     }
 
-    public void setZookeepers(List<Zookeeper> _zookeepers) {
-        this._zookeepers = _zookeepers;
+    public void setZookeepers(List<Zookeeper> zookeepers) { // Removed final keyword
+        this._zookeepers = zookeepers;
     }
 
     public List<Animal> getAnimals() {
