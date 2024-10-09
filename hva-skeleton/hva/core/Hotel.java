@@ -12,7 +12,7 @@ public class Hotel implements Serializable {
   private final List<Animal> _animals;
   private final List<Species> _species;
   private final List<Employee> _employees;
-  private final Map<String, List<String>> _responsibilities;
+  private final List<String> _IdResponsibilities;
   private final List<Vaccine> _vaccines;
   private final List<Tree> _trees;
   private final List<Habitat> _habitats;
@@ -22,7 +22,7 @@ public class Hotel implements Serializable {
       _animals = new ArrayList<>();
       _species = new ArrayList<>();
       _employees = new ArrayList<>();
-      _responsibilities = new HashMap<>();
+      _responsibilities = new ArrayList<>();
       _vaccines = new ArrayList<>();
       _trees = new ArrayList<>();
       _habitats = new ArrayList<>();
@@ -100,37 +100,7 @@ public class Hotel implements Serializable {
    * @throws IOException if there is an IO erro while processing the text file
    **/
   void importFile(String filename) throws UnrecognizedEntryException, IOException {
-    Hotel hotel = createNewHotel();
-    _hotel = hotel;
-    try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
-      String line;
-      while ((line = br.readLine()) != null) {
-        String[] parts = line.split("|");
-        if (parts[0].equals("ESPECIE")) {
-          Species i = new Species(parts[1], parts[2], _hotel);    //getHotel?
-          _hotel.getSpecies().add(i);
-        } else if (parts[0].equals("ANIMAL")) {
-          Animal i = new Animal(parts[1], parts[2], getFromId(HotelEntity Species,parts[3]), getFromId(EntityType Habitat,parts[4]));
-          _hotel.getAnimals().add(i);
-        } else if (parts[0].equals("ARVORE")) {
-          Tree i = new Tree(parts[1], parts[2], parts[5], parts[3], parts[4]);
-          _hotel.getTrees().add(i);
-        } else if (parts[0].equals("HABITAT")) {
-          Habitat i = new Habitat(parts[1], parts[2], Double.parseDouble(parts[3]), 0, _hotel.getSpecies());
-          _hotel.getHabitats().add(i);
-        } else if (parts[0].equals("TRATADOR")) {
-          Zookeeper i = new Zookeeper(parts[1], parts[2], parts[3]);
-          _hotel.getEmployees().add(i);
-        } else if (parts[0].equals("VETERINARIO")) {
-          Veterinarian i = new Veterinarian(parts[1], parts[2], parts[3]);
-          _hotel.getEmployees().add(i);
-        } else if (parts[0].equals("VACINA")) {
-          Vaccine i = new Vaccine(parts[1], parts[2], parts[3]);
-          _hotel.getVaccines().add(i);
-        }
-      }
-    } catch (IOException | UnrecognizedEntryException e) {
-      throw new ImportFileException(filename, e);
+    Parser parser = new Parser(this);
+    parser.parseFile(filename);
     }
   }
-}

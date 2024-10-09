@@ -24,6 +24,16 @@ public class HotelManager {
    * @throws IOException if there is some error while serializing the state of the network to disk.
    **/
   public void save() throws FileNotFoundException, MissingFileAssociationException, IOException {
+    if (_filename == null || _filename.isBlank())
+      throw new MissingFileAssociationException();
+
+    ObjectOutputStream out=null;
+
+    out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)));
+    out.writeObject(_hotel); 
+    
+    if (out != null)
+      out.close();
     // FIXME implement serialization method
   }
 
@@ -37,6 +47,8 @@ public class HotelManager {
    * @throws IOException if there is some error while serializing the state of the network to disk.
    **/
   public void saveAs(String filename) throws FileNotFoundException, MissingFileAssociationException, IOException {
+    _filename = filename;
+    save();
     // FIXME implement serialization method
   }
 
@@ -47,6 +59,20 @@ public class HotelManager {
    *         an error while processing this file.
    **/
   public void load(String filename) throws UnavailableFileException, IOException {
+    ObjectInputStream in=null;
+
+    try{
+        in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
+
+        _hotel = (Hotel) in.readObject(); 
+ 
+      _filename = filename;
+      in.close();
+
+    } 
+    catch (IOException | ClassNotFoundException e) {
+      throw new UnavailableFileException(filename);
+    }
     // FIXME implement serialization method
   }
 
@@ -64,7 +90,6 @@ public class HotelManager {
     } catch (IOException | UnrecognizedEntryException /* FIXME maybe other exceptions */ e) {
       throw new ImportFileException(filename, e);
     }
-
   }
 
   /**
@@ -76,9 +101,4 @@ public class HotelManager {
     return _hotel;
   }
 
-  // Helper method to resolve species from ID
-  private Species getSpeciesFromId(String id) {
-    // Implementation to get Species from ID
-    return null; // Replace with actual implementation
-  }
 }
