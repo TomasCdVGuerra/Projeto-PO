@@ -9,14 +9,14 @@ public class Hotel implements Serializable {
   @Serial
   private static final long serialVersionUID = 202407081733L;
 
-  private List<Animal> _animals;
-  private List<Species> _species;
-  private List<Employee> _employees;
-  private Map<String, List<String>> _responsibilities;
-  private List<Vaccine> _vaccines;
-  private List<Tree> _trees;
-  private List<Habitat> _habitats;
-  private String _season; // Add this line
+  private final List<Animal> _animals;
+  private final List<Species> _species;
+  private final List<Employee> _employees;
+  private final Map<String, List<String>> _responsibilities;
+  private final List<Vaccine> _vaccines;
+  private final List<Tree> _trees;
+  private final List<Habitat> _habitats;
+  private final String _season;
 
   public Hotel() {
       _animals = new ArrayList<>();
@@ -26,7 +26,7 @@ public class Hotel implements Serializable {
       _vaccines = new ArrayList<>();
       _trees = new ArrayList<>();
       _habitats = new ArrayList<>();
-      _season = "Spring"; // Initialize with a default value
+      _season = "Spring";
   }
 
   public void registerAnimal(String animalId, String name, String habitatId, String speciesId) throws OneOrMoreCoreExceptions {
@@ -49,10 +49,10 @@ public class Hotel implements Serializable {
     // Implementation here
   }
 
-  public void createTree(String treeId, String name, String type, int age, int baseDiff, Habitat habitat) throws OneOrMoreCoreExceptions {
-    Tree tree = new Tree(treeId, name, type, age, baseDiff, habitat); // Updated to match the Tree constructor
+  public void createTree(String treeId, String name, String type, int age, int baseDiff) throws OneOrMoreCoreExceptions {
+    Tree tree = new Tree(treeId, name, type, age, baseDiff);
     _trees.add(tree);
-}
+  }
 
   public Habitat registerHabitat(String habitatId, String name, double area) throws OneOrMoreCoreExceptions {
     // Implementation here
@@ -72,25 +72,25 @@ public class Hotel implements Serializable {
 
     while (itr.hasNext()) {
         Animal i = itr.next();
-        if (i.getSpecies().equals(species)) { // Use getSpecies() method
+        if (i.getSpecies().equals(species)) {
             res++;
         }
     }
     return res;
-}
+  }
 
-public int getNVets(Species species) {
+  public int getNVets(Species species) {
     Iterator<Employee> itr = _employees.iterator();
     int res = 0;
 
     while (itr.hasNext()) {
         Employee i = itr.next();
-        if (i.getResponsabilities().contains(species)) { // Use getListResponsabilities() method
+        if (i.getResponsabilities().contains(species)) {
             res++;
         }
     }
     return res;
-}
+  }
 
   /**
    * Read text input file and create corresponding domain entities.
