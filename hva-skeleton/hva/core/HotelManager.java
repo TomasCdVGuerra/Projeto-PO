@@ -2,6 +2,7 @@ package hva.core;
 
 import hva.core.exception.*;
 import java.io.*;
+import java.util.List;
 
 /**
  * Class representing the manager of this application. It manages the current
@@ -18,7 +19,7 @@ public class HotelManager {
   /**
    * Saves the serialized application's state into the file associated to the current network.
    *
-   * @throws FileNotFoundException if for some reason the file cannot be created or opened. 
+   * @throws FileNotFoundException if for some reason the file cannot be created or opened.
    * @throws MissingFileAssociationException if the current network does not have a file.
    * @throws IOException if there is some error while serializing the state of the network to disk.
    **/
@@ -56,16 +57,16 @@ public class HotelManager {
           Species i = new Species(parts[1], parts[2], _hotel);
           _hotel.getSpecies().add(i);
         } else if (parts[0].equals("ANIMAL")) {
-          Animal i = new Animal(parts[1], parts[2], getFromId(parts[3]), getFromId(parts[4]));
+          Animal i = new Animal(parts[1], parts[2], getSpeciesFromId(parts[3]), getSpeciesFromId(parts[4]));
           _hotel.getAnimals().add(i);
         } else if (parts[0].equals("ARVORE")) {
           Tree i = new Tree(parts[1], parts[2], parts[5], parts[3], parts[4]);
           _hotel.getTrees().add(i);
         } else if (parts[0].equals("HABITAT")) {
-          Habitat i = new Habitat(parts[1], parts[2], parts[3], 0, 0, parts[4]);
+          Habitat i = new Habitat(parts[1], parts[2], Double.parseDouble(parts[3]), 0, _hotel.getSpecies());
           _hotel.getHabitats().add(i);
         } else if (parts[0].equals("TRATADOR")) {
-          Zookepper i = new Zookepper(parts[1], parts[2], parts[3]);
+          Zookeeper i = new Zookeeper(parts[1], parts[2], parts[3]);
           _hotel.getEmployees().add(i);
         } else if (parts[0].equals("VETERINARIO")) {
           Veterinarian i = new Veterinarian(parts[1], parts[2], parts[3]);
@@ -76,7 +77,7 @@ public class HotelManager {
         }
       }
     } catch (FileNotFoundException e) {
-      throw new UnavailableFileException(filename, e);
+      throw new UnavailableFileException("File not found: " + filename);
     }
   }
 
@@ -103,5 +104,11 @@ public class HotelManager {
    **/
   public final Hotel getHotel() {
     return _hotel;
+  }
+
+  // Helper method to resolve species from ID
+  private Species getSpeciesFromId(String id) {
+    // Implementation to get Species from ID
+    return null; // Replace with actual implementation
   }
 }
