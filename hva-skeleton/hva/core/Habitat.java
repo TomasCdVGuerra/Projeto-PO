@@ -12,12 +12,11 @@ public class Habitat extends HotelEntity {
     private final List<Species> _species; // Marked as final
     private final List<Tree> _trees = new ArrayList<>(); // Declare and initialize _trees
 
-    public Habitat(String habitatId, String name, double area, int population, String idsTrees) {  
+    public Habitat(String habitatId, String name, double area, int population, List<Tree> trees) {  
         super(habitatId, name);
         this._area = area;
         this._population = population;
-        String[] lstTrees = idsTrees.split(",");
-        this._IdTrees = new ArrayList<>(Arrays.asList(lstTrees));
+        this._IdTrees = new ArrayList<>(trees); // Initialize _IdTrees correctly
         this._adequations = new ArrayList<>();
         this._zookeepers = new ArrayList<>(); // Changed from _handlers to _zookeepers
         this._animals = new ArrayList<>();
