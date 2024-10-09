@@ -57,7 +57,7 @@ public class HotelManager {
           Species i = new Species(parts[1], parts[2], _hotel);
           _hotel.getSpecies().add(i);
         } else if (parts[0].equals("ANIMAL")) {
-          Animal i = new Animal(parts[1], parts[2], getSpeciesFromId(parts[3]), getSpeciesFromId(parts[4]));
+          Animal i = new Animal(parts[1], parts[2], getFromId(HotelEntity Species,parts[3]), getFromId(EntityType Habitat,parts[4]));
           _hotel.getAnimals().add(i);
         } else if (parts[0].equals("ARVORE")) {
           Tree i = new Tree(parts[1], parts[2], parts[5], parts[3], parts[4]);
