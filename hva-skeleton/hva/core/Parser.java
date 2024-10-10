@@ -35,7 +35,7 @@ public class Parser {
   }
 
   public void parseFile(String filename) throws IOException, UnrecognizedEntryException {
-    try (BufferedReader reader = new BufferedReader(FileReader(filename))) {
+    try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
       String line;
 
       while ((line = reader.readLine()) != null)
