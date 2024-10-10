@@ -34,7 +34,7 @@ public class Hotel implements Serializable {
   }
 
   public void registerAnimal(String animalId, String name, String habitatId, String speciesId) throws OneOrMoreCoreExceptions {
-    Animal i = new Animal(animalId, name, this..getFromId(EntityType Habitat, habitatId), .getFromId(EntityType Species, speciesId));
+    Animal i = new Animal(animalId, name, this.getFromId(EntityType.Habitat, habitatId), this.getFromId(EntityType.Species, speciesId));
     _animals.add(i);
     // Implementation here
   }
@@ -53,7 +53,7 @@ public class Hotel implements Serializable {
 
   public void addResponsibility(String employeeId, String responsibility) throws OneOrMoreCoreExceptions {
     Responsibility i = new Responsibility(responsibility);
-    this.getFromId(employeeId)._listResponsabilities.add(i);
+    this.getFromId(EntityType.Employee, employeeId)._listResponsabilities.add(i);
     _IdResponsibilities.add(i);   //adicionar só a employee ou ter array de resps tb?
     // Implementation here
   }
@@ -76,7 +76,7 @@ public class Hotel implements Serializable {
     // Implementation here
   }
 
-  public EntityType getFromId(EntityType type, String id) {
+  public Object getFromId(EntityType type, String id) {
     switch (type) {
         case Species:
             for (Species species : _hotel.getSpecies()) {
