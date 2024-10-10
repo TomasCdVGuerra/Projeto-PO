@@ -12,6 +12,10 @@ public class HotelManager {
   private Hotel _hotel;
   private String _filename;
 
+  public HotelManager(){
+    _hotel= createNewHotel();
+  }
+  
   public Hotel createNewHotel() {
     return new Hotel();
   }
