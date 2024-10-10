@@ -91,7 +91,7 @@ public class HotelManager {
   public void importFile(String filename) throws ImportFileException {
     try {
       _hotel.importFile(filename);
-    } catch (IOException | UnrecognizedEntryException /* FIXME maybe other exceptions */ e) {
+    } catch (IOException | UnrecognizedEntryException | NullPointerException /* FIXME maybe other exceptions */ e) {
       throw new ImportFileException(filename, e);
     }
   }
