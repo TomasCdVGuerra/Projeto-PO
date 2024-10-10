@@ -1,5 +1,5 @@
 package hva.app;
-
+//java -cp po-uilib.jar:. hva.app.App
 import hva.core.exception.ImportFileException;
 import pt.tecnico.uilib.Dialog;
 
