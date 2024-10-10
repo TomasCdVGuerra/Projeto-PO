@@ -34,7 +34,7 @@ public class Hotel implements Serializable {
   }
 
   public void registerAnimal(String animalId, String name, String habitatId, String speciesId) throws OneOrMoreCoreExceptions {
-    Animal i = new Animal(animalId, name, this.getFromId(EntityType.Habitat, habitatId), this.getFromId(EntityType.Species, speciesId));
+    Animal i = new Animal(animalId, name, (Habitat) getFromId(EntityType.Habitat, habitatId), (Species) getFromId(EntityType.Species, speciesId));
     _animals.add(i);
     // Implementation here
   }
@@ -53,7 +53,7 @@ public class Hotel implements Serializable {
 
   public void addResponsibility(String employeeId, String responsibility) throws OneOrMoreCoreExceptions {
     Responsibility i = new Responsibility(responsibility);
-    this.getFromId(EntityType.Employee, employeeId)._listResponsabilities.add(i);
+    (Employee) getFromId(EntityType.Employee, employeeId)._listResponsabilities.add(i);
     _IdResponsibilities.add(i);   //adicionar só a employee ou ter array de resps tb?
     // Implementation here
   }
@@ -123,7 +123,7 @@ public class Hotel implements Serializable {
         default:
             throw new IllegalArgumentException("Unknown EntityType: " + type);
     }
-    return null;
+    throw new IllegalArgumentException("No matching Id: " + id);
 }
 
   public List<Species> getSpecies() { return _species; }
