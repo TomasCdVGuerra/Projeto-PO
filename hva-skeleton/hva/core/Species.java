@@ -30,8 +30,4 @@ public class Species extends HotelEntity{
         return 0; // Placeholder implementation
     }
 
-    @Override
-    public String getEntityDetails() {
-        return "Species ID: " + getId() + ", Name: " + getName();
-    }
 }

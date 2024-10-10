@@ -2,7 +2,6 @@ package hva.core;
 
 import hva.core.exception.*;
 import java.io.*;
-import java.util.List;
 
 /**
  * Class representing the manager of this application. It manages the current
@@ -11,6 +10,7 @@ import java.util.List;
 public class HotelManager {
   /** The current zoo hotel */
   private Hotel _hotel;
+  private String _filename;
 
   public Hotel createNewHotel() {
     return new Hotel();

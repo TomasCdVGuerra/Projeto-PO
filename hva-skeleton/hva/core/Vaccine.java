@@ -7,8 +7,7 @@ public class Vaccine extends HotelEntity{
     private List<VaccinationRecord> _records; 
 
     public Vaccine(String id, String name, List<Species> species) {
-        this._id = id;
-        this._name = name;
+        super(id, name);
         this._species = species;
         this._records = new ArrayList<>();
     }
