@@ -7,13 +7,13 @@ public abstract class Employee extends HotelEntity {
     private int _satisfLevel;
     private String _type;
     private Hotel _hotel;
-    protected List<String> _listResponsabilities;
+    protected List<Responsibility> _listResponsibilities;
 
     public Employee(String id, String name, String type) {
         super(id, name);
         if (type.equals("VET") || type.equals("TRT")) {
             _type = type;
-            _listResponsabilities = new ArrayList<>();
+            _listResponsibilities = new ArrayList<>();
             // TODO: Set the corresponding hotel
         } else {
             // TODO: Throw an exception for unsupported type
@@ -28,17 +28,13 @@ public abstract class Employee extends HotelEntity {
         return _type;
     }
 
-    public List<String> getResponsabilities() {
-        return _listResponsabilities;
+    public List<Responsibility> getResponsabilities() {
+        return _listResponsibilities;
     }
 
     // Abstract methods need to be implemented by subclasses
     public abstract int getSatisf();
     public abstract void addResponsibility(String id);
     public abstract void removeResponsibility(String id);
-
-    @Override
-    public String getEntityDetails() {
-        return "Employee ID: " + getId() + ", Name: " + getName() + ", Type: " + _type;
-    }
+    
 }

@@ -90,12 +90,9 @@ public class Parser {
     try {
       String id = components[1];
       String name = components[2];
+      String responsabilities = components[3];
 
-      _hotel.registerEmployee(id, name, empType);
-
-      if (components.length == 4) {
-        for(String responsibility : components[3].split(","))
-          _hotel.addResponsibility(components[1], responsibility);
+      _hotel.registerEmployee(id, name, empType, responsabilities);
       }
     } catch (excCore1 | excpCore 2 | ...) {
       throw new UnrecognizedEntryException("Invalid entry: " + e.getMessage);

@@ -12,7 +12,7 @@ public class Hotel implements Serializable {
   private final List<Animal> _animals;
   private final List<Species> _species;
   private final List<Employee> _employees;
-  private final List<String> _IdResponsibilities;
+  private final List<Responsibility> _responsibilities;
   private final List<Vaccine> _vaccines;
   private final List<Tree> _trees;
   private final List<Habitat> _habitats;
@@ -22,7 +22,7 @@ public class Hotel implements Serializable {
       _animals = new ArrayList<>();
       _species = new ArrayList<>();
       _employees = new ArrayList<>();
-      _IdResponsibilities = new ArrayList<>();
+      _responsibilities = new ArrayList<>();
       _vaccines = new ArrayList<>();
       _trees = new ArrayList<>();
       _habitats = new ArrayList<>();
@@ -34,7 +34,7 @@ public class Hotel implements Serializable {
   }
 
   public void registerAnimal(String animalId, String name, String habitatId, String speciesId) throws OneOrMoreCoreExceptions {
-    Animal i = new Animal(animalId, name, (Habitat) getFromId(EntityType.Habitat, habitatId), (Species) getFromId(EntityType.Species, speciesId));
+    Animal i = new Animal(animalId, name, (Species) getFromId(EntityType.Species, speciesId), (Habitat) getFromId(EntityType.Habitat, habitatId));
     _animals.add(i);
     // Implementation here
   }
@@ -45,20 +45,30 @@ public class Hotel implements Serializable {
     // Implementation here
   }
 
-  public void registerEmployee(String employeeId, String name, String empType) throws OneOrMoreCoreExceptions {
-    Employee i = new Employee(employeeId, name, empType);
-    _employees.add(i);
+  public void registerEmployee(String employeeId, String name, String empType, String responsabilities) throws OneOrMoreCoreExceptions{
+    Employee i=null;
+    if(empType.equals("TRT")){
+      i = new Zookeeper(employeeId, name, responsabilities);
+    }
+    else if(empType.equals("VET")){
+      i = new Veterinarian(employeeId, name, responsabilities);
+    }
+    if(i!=null){
+      _employees.add(i);
+      addResponsibility(employeeId,responsabilities);
+    }
     // Implementation here
   }
 
   public void addResponsibility(String employeeId, String responsibility) throws OneOrMoreCoreExceptions {
     Responsibility i = new Responsibility(responsibility);
-    (Employee) getFromId(EntityType.Employee, employeeId)._listResponsabilities.add(i);
-    _IdResponsibilities.add(i);   //adicionar só a employee ou ter array de resps tb?
+    ((Employee) getFromId(EntityType.Employee, employeeId))._listResponsibilities.add(i);
+    _responsibilities.add(i);   //adicionar só a employee ou ter array de resps tb?
     // Implementation here
   }
 
   public void registerVaccine(String vaccineId, String name, String[] speciesIds) throws OneOrMoreCoreExceptions {
+    List<Species> Species = new ArrayList<>();
     Vaccine i = new Vaccine(vaccineId, name, SpeciesIds);
     _vaccines.add(i);
     // Implementation here

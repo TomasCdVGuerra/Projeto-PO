@@ -86,9 +86,4 @@ public class Animal extends HotelEntity{
         newHabitat.addAnimal(this);
       }
     }
-
-    @Override
-    public String getEntityDetails() {
-        return "Animal ID: " + getId() + ", Name: " + getName() + ", Species: " + _species.getName();
-    }
 }
