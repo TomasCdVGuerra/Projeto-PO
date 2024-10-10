@@ -33,19 +33,19 @@ public class Hotel implements Serializable {
     return _season;
   }
 
-  public void registerAnimal(String animalId, String name, String habitatId, String speciesId) throws OneOrMoreCoreExceptions {
+  public void registerAnimal(String animalId, String name, String habitatId, String speciesId) {
     Animal i = new Animal(animalId, name, (Species) getFromId(EntityType.Species, speciesId), (Habitat) getFromId(EntityType.Habitat, habitatId));
     _animals.add(i);
     // Implementation here
   }
 
-  public void registerSpecies(String speciesId, String name) throws OneOrMoreCoreExceptions {
+  public void registerSpecies(String speciesId, String name) {
     Species i = new Species(speciesId, name, this);
     _species.add(i);
     // Implementation here
   }
 
-  public void registerEmployee(String employeeId, String name, String empType, String responsabilities) throws OneOrMoreCoreExceptions{
+  public void registerEmployee(String employeeId, String name, String empType, String responsabilities) {
     Employee i=null;
     if(empType.equals("TRT")){
       i = new Zookeeper(employeeId, name, responsabilities);
@@ -60,27 +60,33 @@ public class Hotel implements Serializable {
     // Implementation here
   }
 
-  public void addResponsibility(String employeeId, String responsibility) throws OneOrMoreCoreExceptions {
+  public void addResponsibility(String employeeId, String responsibility)  {
     Responsibility i = new Responsibility(responsibility);
     ((Employee) getFromId(EntityType.Employee, employeeId))._listResponsibilities.add(i);
     _responsibilities.add(i);   //adicionar só a employee ou ter array de resps tb?
     // Implementation here
   }
 
-  public void registerVaccine(String vaccineId, String name, String[] speciesIds) throws OneOrMoreCoreExceptions {
+  public void registerVaccine(String vaccineId, String name, String[] speciesIds)  {
     List<Species> Species = new ArrayList<>();
-    Vaccine i = new Vaccine(vaccineId, name, SpeciesIds);
+    for(String element : speciesIds){
+      Species.add((Species)getFromId(EntityType.Species, element));
+    }
+    Vaccine i = new Vaccine(vaccineId, name, Species);
     _vaccines.add(i);
     // Implementation here
   }
 
-  public void createTree(String treeId, String name, String type, int age, int baseDiff) throws OneOrMoreCoreExceptions {
+  public void createTree(String treeId, String name, String type, int age, int baseDiff)  {
     Tree i = new Tree(treeId, name, type, age, baseDiff);
     _trees.add(i);
   }
 
-  public void registerHabitat(String habitatId, String name, double area) throws OneOrMoreCoreExceptions {
-    List<String> t = new ArrayList<>();
+  public void registerHabitat(String habitatId, String name, double area, List<String> trees)  {
+    List<Tree> t = new ArrayList<>();
+    for(String element: trees){
+      t.add((Tree)getFromId(EntityType.Tree, element));
+    }
     Habitat i = new Habitat(habitatId, name, area, t);
     _habitats.add(i);
     // Implementation here
@@ -89,42 +95,42 @@ public class Hotel implements Serializable {
   public Object getFromId(EntityType type, String id) {
     switch (type) {
         case Species:
-            for (Species species : _hotel.getSpecies()) {
+            for (Species species : getSpecies()) {
                 if (species.getId().equals(id)) {
                     return species;
                 }
             }
             break;
         case Animal:
-            for (Animal animal : _hotel.getAnimals()) {
+            for (Animal animal : getAnimals()) {
                 if (animal.getId().equals(id)) {
                     return animal;
                 }
             }
             break;
         case Habitat:
-            for (Habitat habitat : _hotel.getHabitats()) {
+            for (Habitat habitat : getHabitats()) {
                 if (habitat.getId().equals(id)) {
                     return habitat;
                 }
             }
             break;
         case Vaccine:
-            for (Vaccine vaccine : _hotel.getVaccines()) {
+            for (Vaccine vaccine : getVaccines()) {
                 if (vaccine.getId().equals(id)) {
                     return vaccine;
                 }
             }
             break;
         case Tree:
-            for (Tree tree : _hotel.getTrees()) {
+            for (Tree tree : getTrees()) {
                 if (tree.getId().equals(id)) {
                     return tree;
                 }
             }
             break;
         case Employee:
-            for (Employee employee : _hotel.getEmployees()) {
+            for (Employee employee : getEmployees()) {
                 if (employee.getId().equals(id)) {
                     return employee;
                 }

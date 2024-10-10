@@ -91,9 +91,4 @@ public class Habitat extends HotelEntity{
     public int population() {
         return _population;
     }
-
-    @Override
-    public String getEntityDetails() {
-        return "Habitat ID: " + getId() + ", Name: " + getName() + ", Area: " + _area + ", Population: " + _population;
-    }
 }
