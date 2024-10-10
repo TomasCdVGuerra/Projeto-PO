@@ -1,7 +1,6 @@
 package hva.app.main;
 
 import hva.core.HotelManager;
-import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME add more imports if needed
@@ -16,11 +15,8 @@ class DoNewFile extends Command<HotelManager> {
 
   @Override
   protected final void execute() throws CommandException {
-    try {
-      _receiver.newHotel();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+      _receiver.createNewHotel();
+
     //FIXME implement command
   }
 }
