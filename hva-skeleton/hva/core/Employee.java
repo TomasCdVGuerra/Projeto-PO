@@ -10,13 +10,13 @@ public abstract class Employee extends HotelEntity {
             _type = type;
         }
     }
-
+    
+    //get methods
+    
     public String getType() {
         return _type;
     }
 
     @Override
-    public String toString(){
-        return "";
-    }
+    public abstract String toString();
 }
