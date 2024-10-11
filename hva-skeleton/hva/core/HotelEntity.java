@@ -1,6 +1,11 @@
 package hva.core;
 
-public abstract class HotelEntity {
+import java.io.*;
+
+public abstract class HotelEntity implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 202407081733L;
     private String _id;
     private String _name;
     private Hotel _hotel;

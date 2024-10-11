@@ -20,13 +20,17 @@ public class Vaccine extends HotelEntity{
     @Override
     public String toString(){    
         String s="";
-        for(String ids:_species){
-            if (s.length() > 0) {
-                s+=",";
+        String barra="";
+        if(!(_species.isEmpty())){
+           barra+="|"; 
+            for(String ids:_species){
+                if (s.length() > 0) {
+                    s+=",";
+                }
+                s+=ids;
             }
-            s+=ids;
         }
-        return "VACINA|" + super.getId() + "|" + super.getName() +"|"+ _numAplicacoes+"|" + s;
+        return "VACINA|" + super.getId() + "|" + super.getName() +"|"+ _numAplicacoes + barra + s;
     }
 }
 
