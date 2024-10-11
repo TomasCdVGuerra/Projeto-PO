@@ -1,0 +1,27 @@
+*** testsBoth/A-01-16-M-ok.out	Thu Oct  3 22:33:10 2024
+--- testsBoth/A-01-16-M-ok.outhyp	Fri Oct 11 10:54:39 2024
+***************
+*** 19,29 ****
+  5 - Calcular satisfação de funcionário
+  0 - Sair
+  Escolha uma opção: 1
+! TRT|A24|Rohit Figueiredo
+! TRT|A34|Rohit Figueiredo 2
+! TRT|B24|Rohit Figueiredo 3
+! TRT|D24|Rohit Figueiredo 4
+! TRT|X24|Rohit Figueiredo 5
+  Gestão de Funcionários
+  1 - Visualizar todos os funcionários
+  2 - Registar funcionário
+--- 19,29 ----
+  5 - Calcular satisfação de funcionário
+  0 - Sair
+  Escolha uma opção: 1
+! TRATADOR|A24|Rohit Figueiredo
+! TRATADOR|A34|Rohit Figueiredo 2
+! TRATADOR|B24|Rohit Figueiredo 3
+! TRATADOR|D24|Rohit Figueiredo 4
+! TRATADOR|X24|Rohit Figueiredo 5
+  Gestão de Funcionários
+  1 - Visualizar todos os funcionários
+  2 - Registar funcionário
