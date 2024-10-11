@@ -43,11 +43,5 @@ public class Zookeeper extends Employee {
         }
         return "TRT|" + super.getId() + "|" + super.getName() + "|" + r;
     }
-
-    /*
-    private Habitat findHabitatById(String idHabitat) {
-        // Implement logic to find and return habitat by id
-        // For now, returning null as a placeholder
-        return null;
-    } */
+    
 }

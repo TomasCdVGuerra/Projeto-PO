@@ -1,6 +1,5 @@
 package hva.core;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +7,7 @@ import java.util.List;
  * Represents a Species in the hotel system.
  * This class extends HotelEntity and implements Serializable.
  */
-public class Species extends HotelEntity implements Serializable {
+public class Species extends HotelEntity {
     private static final long serialVersionUID = 1L;
     private final List<String> _animals;
 

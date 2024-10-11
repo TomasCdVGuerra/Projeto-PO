@@ -1,6 +1,5 @@
 package hva.core;
 
-import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -8,8 +7,7 @@ import java.util.*;
  * This class extends HotelEntity and implements Serializable.
  * Keeps a List of Trees, Zookeepers, Animals and their Species;
  */
-public class Habitat extends HotelEntity implements Serializable {
-    private static final long serialVersionUID = 202407081733L;
+public class Habitat extends HotelEntity {
     private final int _area;
     private final int _population;
     private List<String> _trees;
