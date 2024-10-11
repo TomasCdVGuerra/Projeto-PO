@@ -38,12 +38,14 @@ public class Hotel implements Serializable {
     
     Animal i = new Animal(animalId, name, speciesId, habitatId);
     _animals.add(i);
+    markAsChanged();
     // Implementation here
   }
 
   public void registerSpecies(String speciesId, String name) {
     Species i = new Species(speciesId, name, this);
     _species.add(i);
+    markAsChanged();
     // Implementation here
   }
 
@@ -57,6 +59,7 @@ public class Hotel implements Serializable {
     }
     if(i!=null){
       _employees.add(i);
+      markAsChanged();
     }
     // Implementation here
   }
@@ -73,6 +76,7 @@ public class Hotel implements Serializable {
       }
     }
     _responsibilities.add(i);   //adicionar só a employee ou ter array de resps tb?
+    markAsChanged();
     // Implementation here
   }
 
@@ -83,24 +87,29 @@ public class Hotel implements Serializable {
     }
     Vaccine i = new Vaccine(vaccineId, name, Species);
     _vaccines.add(i);
+    markAsChanged();
     // Implementation here
   }
 
   public void addTreeToHabitat(String idHabitat, String idTree){
     for(Habitat element: _habitats){
-      if(element.getId().equals(idHabitat))
+      if(element.getId().equals(idHabitat)){
         element.addTree(idTree);
+        markAsChanged();
+      }
     }
   }
 
   public void createTree(String treeId, String name, String type, int age, int baseDiff)  {
     Tree i = new Tree(treeId, name, type, age, baseDiff);
     _trees.add(i);
+    markAsChanged();
   }
 
   public void registerHabitat(String habitatId, String name, int area)  {
     Habitat i = new Habitat(habitatId, name, area);
     _habitats.add(i);
+    markAsChanged();
     // Implementation here
   }
 
