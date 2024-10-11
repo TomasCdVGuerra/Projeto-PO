@@ -2,7 +2,6 @@ package hva.core;
 
 import hva.core.exception.UnrecognizedEntryException;
 import java.io.*;
-import java.util.*;
 
 // FIXME add other imports if needed
 
@@ -61,10 +60,10 @@ public class Parser {
     //try {
       String id = components[1];
       String name = components[2];
-      String habitatId = components[4];
       String speciesId = components[3];
+      String habitatId = components[4];
 
-      _hotel.registerAnimal(id, name, habitatId, speciesId);
+      _hotel.registerAnimal(id, name, speciesId, habitatId);
     
   /* } catch (excCore1 | excpCore 2 | ...) {
    throw new UnrecognizedEntryException("Invalid entry: " + e.getMessage);
@@ -89,9 +88,8 @@ public class Parser {
     //try {
       String id = components[1];
       String name = components[2];
-      String responsabilities = components[3];
 
-      _hotel.registerEmployee(id, name, empType, responsabilities);
+      _hotel.registerEmployee(id, name, empType);
       }
    /*  } catch (excCore1 | excpCore 2 | ...) {
       throw new UnrecognizedEntryException("Invalid entry: " + e.getMessage);
@@ -129,11 +127,9 @@ public class Parser {
     //try {
       String id = components[1];
       String name = components[2];
-      Double area = Double.parseDouble(components[3]);
+      int area = Integer.parseInt(components[3]);
 
-      List<String> trees = Arrays.asList(components[4].split(","));
-
-      _hotel.registerHabitat(id, name, area, trees);
+      _hotel.registerHabitat(id, name, area);
 
           // adicionar a árvore com id treeKey ao habitat referenciado por hab
       }

@@ -3,20 +3,34 @@ package hva.core;
 import java.util.*;
 
 public class Vaccine extends HotelEntity{
-    private List<Species> _species; 
-    private List<VaccinationRecord> _records; 
+    private List<String> _species; 
+    private int _numAplicacoes;
+    //private List<VaccinationRecord> _records; 
 
-    public Vaccine(String id, String name, List<Species> species) {
+    public Vaccine(String id, String name, List<String> species) {
         super(id, name);
         this._species = species;
-        this._records = new ArrayList<>();
+        //this._records = new ArrayList<>();
     }
 
-    public List<Species> getSpecies() {
+    public List<String> getSpecies() {
         return _species;
     }
 
-    public List<VaccinationRecord> getRecords() {
+    @Override
+    public String toString(){    
+        String s="";
+        for(String ids:_species){
+            if (s.length() > 0) {
+                s+=",";
+            }
+            s+=ids;
+        }
+        return "VACINA|" + super.getId() + "|" + super.getName() +"|"+ _numAplicacoes+"|" + s;
+    }
+}
+
+/*     public List<VaccinationRecord> getRecords() {
         return _records;
     }
 
@@ -58,5 +72,4 @@ public class Vaccine extends HotelEntity{
         public String getResult() {
             return result;
         }
-    }
-}
+    } */

@@ -34,7 +34,8 @@ public class Hotel implements Serializable {
   }
 
   public void registerAnimal(String animalId, String name, String habitatId, String speciesId) {
-    Animal i = new Animal(animalId, name, (Species) getFromId(EntityType.Species, speciesId), (Habitat) getFromId(EntityType.Habitat, habitatId));
+    
+    Animal i = new Animal(animalId, name, speciesId, habitatId);
     _animals.add(i);
     // Implementation here
   }
@@ -45,36 +46,50 @@ public class Hotel implements Serializable {
     // Implementation here
   }
 
-  public void registerEmployee(String employeeId, String name, String empType, String responsabilities) {
+  public void registerEmployee(String employeeId, String name, String empType) {
     Employee i=null;
     if(empType.equals("TRT")){
-      i = new Zookeeper(employeeId, name, responsabilities);
+      i = new Zookeeper(employeeId, name);
     }
     else if(empType.equals("VET")){
-      i = new Veterinarian(employeeId, name, responsabilities);
+      i = new Veterinarian(employeeId, name);
     }
     if(i!=null){
       _employees.add(i);
-      addResponsibility(employeeId,responsabilities);
     }
     // Implementation here
   }
 
   public void addResponsibility(String employeeId, String responsibility)  {
-    Responsibility i = new Responsibility(responsibility);
-    ((Employee) getFromId(EntityType.Employee, employeeId))._listResponsibilities.add(i);
+    Responsibility i = new Responsibility(responsibility, employeeId);
+    for(Employee element: _employees){
+      if(element.getId().equals(employeeId)){
+        if(element instanceof Zookeeper)
+          ((Zookeeper) element).getHabitatsM().add(i.getId());
+        else if(element instanceof Veterinarian){
+          ((Veterinarian) element).getSpeciesIds().add(i.getId());
+        }
+      }
+    }
     _responsibilities.add(i);   //adicionar só a employee ou ter array de resps tb?
     // Implementation here
   }
 
   public void registerVaccine(String vaccineId, String name, String[] speciesIds)  {
-    List<Species> Species = new ArrayList<>();
+    List<String> Species = new ArrayList<>();
     for(String element : speciesIds){
-      Species.add((Species)getFromId(EntityType.Species, element));
+      Species.add(element);
     }
     Vaccine i = new Vaccine(vaccineId, name, Species);
     _vaccines.add(i);
     // Implementation here
+  }
+
+  public void addTreeToHabitat(String idHabitat, String idTree){
+    for(Habitat element: _habitats){
+      if(element.getId().equals(idHabitat))
+        element.addTree(idTree);
+    }
   }
 
   public void createTree(String treeId, String name, String type, int age, int baseDiff)  {
@@ -82,16 +97,21 @@ public class Hotel implements Serializable {
     _trees.add(i);
   }
 
-  public void registerHabitat(String habitatId, String name, double area, List<String> trees)  {
-    List<Tree> t = new ArrayList<>();
-    for(String element: trees){
-      t.add((Tree)getFromId(EntityType.Tree, element));
-    }
-    Habitat i = new Habitat(habitatId, name, area, t);
+  public void registerHabitat(String habitatId, String name, int area)  {
+    Habitat i = new Habitat(habitatId, name, area);
     _habitats.add(i);
     // Implementation here
   }
 
+  public List<Species> getSpecies() { return _species; }
+  public List<Animal> getAnimals() { return _animals; }
+  public List<Habitat> getHabitats() { return _habitats; }
+  public List<Vaccine> getVaccines() { return _vaccines; }
+  public List<Tree> getTrees() { return _trees; }
+  public List<Employee> getEmployees() { return _employees; }
+
+
+/*
   public Object getFromId(EntityType type, String id) {
     switch (type) {
         case Species:
@@ -142,13 +162,6 @@ public class Hotel implements Serializable {
     throw new IllegalArgumentException("No matching Id: " + id);
 }
 
-  public List<Species> getSpecies() { return _species; }
-  public List<Animal> getAnimals() { return _animals; }
-  public List<Habitat> getHabitats() { return _habitats; }
-  public List<Vaccine> getVaccines() { return _vaccines; }
-  public List<Tree> getTrees() { return _trees; }
-  public List<Employee> getEmployees() { return _employees; }
-
   public int getPopulation(Species species) {
     Iterator<Animal> itr = _animals.iterator();
     int res = 0;
@@ -173,7 +186,7 @@ public class Hotel implements Serializable {
         }
     }
     return res;
-  }
+  } */
 
 
   /**

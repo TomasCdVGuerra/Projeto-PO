@@ -2,7 +2,6 @@ package hva.app.animal;
 
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
-import java.util.Iterator;
 
 //FIXME add more imports if needed
 
@@ -10,7 +9,6 @@ import java.util.Iterator;
  * Show all animals registered in this zoo hotel.
  */
 class DoShowAllAnimals extends Command<Hotel> {
-  private String _toPrint;
 
 
   DoShowAllAnimals(Hotel receiver) {

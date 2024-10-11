@@ -9,6 +9,10 @@ public interface Prompt {
     return "Nome do animal: ";
   }
   
+  static String habitatKey() {
+    return "Identificador único do habitat: ";
+  }
+
   static String speciesKey() {
     return "Identificador único da espécie: ";
   }

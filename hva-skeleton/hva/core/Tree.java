@@ -15,9 +15,9 @@ public class Tree extends HotelEntity{
         this._seasonCount = 0; // Initialize season counter
     }
 
-    public String getTreeId() {
+/*     public String getTreeId() {
         return getId();
-    }
+    } */
 
     public String getType() {
         return _type;
@@ -73,7 +73,8 @@ public class Tree extends HotelEntity{
         };
     }
 
-    public String getEntityDetails() {
-        return "Tree ID: " + getId() + ", Name: " + getName() + ", Type: " + _type;
+    @Override
+    public String toString(){    
+        return "";
     }
 }

@@ -3,27 +3,26 @@ package hva.core;
 import java.util.*;
 
 public class Habitat extends HotelEntity{
-    private final double _area;
+    private final int _area;
     private final int _population; // Marked as final
-    private final List<Tree> _IdTrees; // Marked as final and corrected type
-    private final List<Adequation> _adequations; // Marked as final
-    private List<Zookeeper> _zookeepers; // Changed from Handler to Zookeeper
-    private final List<Animal> _animals; // Marked as final
-    private final List<Species> _species; // Marked as final
-    private final List<Tree> _trees = new ArrayList<>(); // Declare and initialize _trees
+    private List<String> _trees; // Marked as final and corrected type
+    //private final List<Adequation> _adequations; // Marked as final
+    private List<String> _zookeepers; // Changed from Handler to Zookeeper
+    private final List<String> _animals; // Marked as final
+    private final List<String> _species; // Marked as final
 
-    public Habitat(String habitatId, String name, double area, List<Tree> trees) {  
+    public Habitat(String habitatId, String name, int area) {  
         super(habitatId, name);
         this._area = area;
         this._population = 0;
-        this._IdTrees = new ArrayList<>(trees); // Initialize _IdTrees correctly
-        this._adequations = new ArrayList<>();
+        this._trees = new ArrayList<>();
+        /* this._adequations = new ArrayList<>(); */
         this._zookeepers = new ArrayList<>(); // Changed from _handlers to _zookeepers
         this._animals = new ArrayList<>();
         this._species = new ArrayList<>();
     }
 
-    public double getArea() {
+    public int getArea() {
         return _area;
     }
 
@@ -31,23 +30,23 @@ public class Habitat extends HotelEntity{
         return _population;
     }
 
-    public List<Tree> getTrees() {
+    public List<String> getTree() {
         return _trees;
     }
 
-    public void addTree(Tree tree) {
-        _trees.add(tree);
+    public void addTree(String idTree) {
+        _trees.add(idTree);
     }
 
-    public List<Adequation> getAdequations() {
+/*     public List<Adequation> getAdequations() {
         return _adequations;
-    }
+    } */
 
-    public List<Species> getSpecies() {
+    public List<String> getSpecies() {
         return _species;
     }
 
-    public void addAdequation(Adequation adequation) {
+    /* public void addAdequation(Adequation adequation) {
         _adequations.add(adequation);
     }
 
@@ -63,32 +62,34 @@ public class Habitat extends HotelEntity{
         }
         return new Adequation(species, Adequation.AdequationValue.NEUTRAL);
     }
-
-    public List<Zookeeper> getZookeepers() {
+ */
+    public List<String> getZookeepers() {
         return _zookeepers;
     }
 
-    public void addZookeeper(Zookeeper zookeeper) {
-        _zookeepers.add(zookeeper);
+    public void addZookeeper(String idZookeeper) {
+        _zookeepers.add(idZookeeper);
     }
 
-    public void setZookeepers(List<Zookeeper> zookeepers) { // Removed final keyword
+    /* public void setZookeepers(List<Zookeeper> zookeepers) { // Removed final keyword
         this._zookeepers = zookeepers;
-    }
+    } */
 
-    public List<Animal> getAnimals() {
+    public List<String> getAnimals() {
         return _animals;
     }
 
-    public void addAnimal(Animal animal) {
-        _animals.add(animal);
+    public void addAnimal(String idAnimal) {
+        _animals.add(idAnimal);
     }
 
-    public double area() {
-        return _area;
+    public int getNumTrees(){
+        return _trees.size();
     }
 
-    public int population() {
-        return _population;
+
+    @Override
+    public String toString(){
+        return "HABITAT|" + super.getId()+"|" + super.getName() + "|" + _area + "|" + getNumTrees();
     }
 }

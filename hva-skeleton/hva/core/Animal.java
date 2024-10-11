@@ -1,14 +1,14 @@
 package hva.core;
 
 public class Animal extends HotelEntity{
-    private final Species _species;
-    private Habitat _habitat;
+    private String _species;
+    private String _habitat;
     private String _healthHistory;
 
-    public Animal(String idAnimal, String name, Species species, Habitat habitat) {
+    public Animal(String idAnimal, String name, String idSpecies, String idHabitat) {
         super(idAnimal, name);
-        this._species = species;
-        this._habitat = habitat;
+        this._species = idSpecies;
+        this._habitat = idHabitat;
         this._healthHistory = "";
     }
 
@@ -18,15 +18,22 @@ public class Animal extends HotelEntity{
         return _healthHistory;
     }
 
-    public Species getSpecies() {
+    public String getSpecies() {
         return _species;
     }
 
-    public Habitat getHabitat() {
+    public String getHabitat() {
         return _habitat;
     }
 
-    public void addVaccinationResult(int damage, boolean isSameSpecies) {
+    @Override
+    public String toString(){
+        return "ANIMAL|"+super.getId()+"|"+super.getName()+"|"+_species+"|"+getHealthHistory()+"|"+_habitat;
+
+    }
+}
+
+/*     public void addVaccinationResult(int damage, boolean isSameSpecies) {
         String term;
         if (isSameSpecies) {
             if (damage == 0) {
@@ -72,6 +79,7 @@ public class Animal extends HotelEntity{
         return count;
     }
 
+
     private double getSuitability() {
         Adequation adequation = _habitat.getAdequationForSpecies(this._species);
         return adequation.getAdequationValue().getValue();
@@ -86,4 +94,4 @@ public class Animal extends HotelEntity{
         newHabitat.addAnimal(this);
       }
     }
-}
+}*/

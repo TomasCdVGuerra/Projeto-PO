@@ -1,42 +1,34 @@
 package hva.core;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Veterinarian extends Employee {
-    private final List<String> speciesIds;
-    private final List<Species> _canVacinate;
-    private final List<String> _habitatsManaged; // Declare _habitatsManaged
+    private final List<String> _speciesIds;
 
-    public Veterinarian(String id, String name, String responsabilities) {
+    public Veterinarian(String id, String name) {
         super(id, name, "VET");
-        speciesIds = new ArrayList<>(); // Initialize speciesIds
-        _canVacinate = new ArrayList<>(); // Initialize _canVacinate
-        String[] lstIdsResps = responsabilities.split(",");
-        _habitatsManaged = new ArrayList<>(Arrays.asList(lstIdsResps)); // Initialize _habitatsManaged with String elements
+        _speciesIds = new ArrayList<>(); // Initialize speciesIds
     }
 
+    public List<String> getSpeciesIds(){
+        return _speciesIds;
+    }
+    
     @Override
-    public int getSatisf() {
-        int sum = 0;
-        for (Species i : _canVacinate) { // Use enhanced for-loop
-            sum += getHotel().getPopulation(i) / getHotel().getNVets(i);
+    public String toString(){
+        String r = "";
+        if(_speciesIds.isEmpty())
+            return "VETERIN´ARIO|" + super.getId()+"|" + super.getName();
+        for(String element: _speciesIds){
+            r+=element+",";
         }
-        return 20 - sum;
+        return "VETERIN´ARIO|" + super.getId()+"|" + super.getName() + "|" + r;
     }
 
-    @Override
-    public void addResponsibility(String speciesId) {
-        speciesIds.add(speciesId);
-    }
-
-    @Override
-    public void removeResponsibility(String speciesId) {
-        speciesIds.remove(speciesId);
-    }
+   /*  
 
     public List<String> getSpeciesIds() {
-        return speciesIds;
-    }
+        return _speciesIds;
+    } */
 }
