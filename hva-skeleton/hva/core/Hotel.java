@@ -33,7 +33,7 @@ public class Hotel implements Serializable {
     return _season;
   }
 
-  public void registerAnimal(String animalId, String name, String habitatId, String speciesId) {
+  public void registerAnimal(String animalId, String name, String speciesId, String habitatId) {
     
     Animal i = new Animal(animalId, name, speciesId, habitatId);
     _animals.add(i);
