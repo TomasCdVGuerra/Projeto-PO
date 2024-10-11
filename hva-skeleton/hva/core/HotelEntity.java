@@ -31,12 +31,12 @@ public abstract class HotelEntity implements Serializable {
         this._name = name;
     }
 
-    public Hotel getHotel(){
+    public Hotel getHotel() {
         return _hotel;
     }
     
-    public void setHotel(Hotel hotel){
-        this._hotel=hotel;
+    public void setHotel(Hotel hotel) {
+        this._hotel = hotel;
     }
 
     public abstract String toString();
