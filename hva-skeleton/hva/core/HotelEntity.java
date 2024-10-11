@@ -1,6 +1,10 @@
 package hva.core;
 
-public abstract class HotelEntity {
+import java.io.Serializable;
+
+public abstract class HotelEntity implements Serializable {
+    private static final long serialVersionUID = 1L; // Add serialVersionUID for serialization
+
     private String _id;
     private String _name;
     private Hotel _hotel;
@@ -26,12 +30,12 @@ public abstract class HotelEntity {
         this._name = name;
     }
 
-    public Hotel getHotel(){
+    public Hotel getHotel() {
         return _hotel;
     }
     
-    public void setHotel(Hotel hotel){
-        this._hotel=hotel;
+    public void setHotel(Hotel hotel) {
+        this._hotel = hotel;
     }
 
     public abstract String toString();
