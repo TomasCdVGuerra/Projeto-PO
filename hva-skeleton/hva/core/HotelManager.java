@@ -11,6 +11,8 @@ public class HotelManager {
   /** The current zoo hotel */
   private Hotel _hotel;
   private String _filename;
+  private boolean hasUnsavedChanges = false; // New flag to track unsaved changes
+
 
   public HotelManager(){
     _hotel= createNewHotel();
@@ -31,14 +33,12 @@ public class HotelManager {
     if (_filename == null || _filename.isBlank())
       throw new MissingFileAssociationException();
 
-    ObjectOutputStream out=null;
-
+    ObjectOutputStream out = null;
     out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)));
-    out.writeObject(_hotel); 
-    
+    out.writeObject(_hotel);
     if (out != null)
       out.close();
-    // FIXME implement serialization method
+    hasUnsavedChanges = false; // Reset flag after saving
   }
 
   /**
@@ -53,7 +53,7 @@ public class HotelManager {
   public void saveAs(String filename) throws FileNotFoundException, MissingFileAssociationException, IOException {
     _filename = filename;
     save();
-    // FIXME implement serialization method
+    hasUnsavedChanges = false; // Reset flag after saving
   }
 
   /**
@@ -63,21 +63,16 @@ public class HotelManager {
    *         an error while processing this file.
    **/
   public void load(String filename) throws UnavailableFileException, IOException {
-    ObjectInputStream in=null;
-
-    try{
-        in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
-
-        _hotel = (Hotel) in.readObject(); 
- 
+    ObjectInputStream in = null;
+    try {
+      in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
+      _hotel = (Hotel) in.readObject();
       _filename = filename;
       in.close();
-
-    } 
-    catch (IOException | ClassNotFoundException e) {
+    } catch (IOException | ClassNotFoundException e) {
       throw new UnavailableFileException(filename);
     }
-    // FIXME implement serialization method
+    hasUnsavedChanges = false; // Reset flag after loading
   }
 
   /**
@@ -104,5 +99,12 @@ public class HotelManager {
   public final Hotel getHotel() {
     return _hotel;
   }
+  // Method to mark changes
+  public void markAsChanged() {
+    hasUnsavedChanges = true;
+  }
 
+  public boolean hasUnsavedChanges() {
+    return hasUnsavedChanges;
+  }
 }

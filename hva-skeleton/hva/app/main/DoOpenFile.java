@@ -4,6 +4,7 @@ import hva.app.exception.FileOpenFailedException;
 import hva.core.HotelManager;
 import hva.core.exception.UnavailableFileException;
 import java.io.*;
+import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 
@@ -20,23 +21,29 @@ class DoOpenFile extends Command<HotelManager> {
 
   @Override
   protected final void execute() throws CommandException {
-    String filename=stringField("filename");
+    if (_receiver.hasUnsavedChanges()) {
+      boolean saveChanges = requestBoolean(Prompt.saveBeforeExit());
+      if (saveChanges) {
+        try {
+          _receiver.save();
+        } catch (Exception exc) {
+          exc.printStackTrace();
+        }
+      }
+    }
 
-      try {
+    String filename = stringField("filename");
+    try {
       _receiver.load(filename);
-      } 
-      catch (UnavailableFileException exc) {
-        throw new FileOpenFailedException(exc);
-      }
-      catch (IOException exc){
-        exc.printStackTrace();
-      }
-    /*
-      try {
-      //FIXME implement command
-      } catch (UnavailableFileException efe) {
-      throw new FileOpenFailedException(efe);
-      }
-    */
+    } catch (UnavailableFileException exc) {
+      throw new FileOpenFailedException(exc);
+    } catch (IOException exc) {
+      exc.printStackTrace();
+    }
+  }
+
+  private boolean requestBoolean(String prompt) {
+    String response = Form.requestString(prompt + " (sim/não)");
+    return response.equalsIgnoreCase("sim");
   }
 }
