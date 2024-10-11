@@ -19,11 +19,11 @@ public class Veterinarian extends Employee {
     public String toString(){
         String r = "";
         if(_speciesIds.isEmpty())
-            return "VETERIN´ARIO|" + super.getId()+"|" + super.getName();
+            return "VET|" + super.getId()+"|" + super.getName();
         for(String element: _speciesIds){
             r+=element+",";
         }
-        return "VETERIN´ARIO|" + super.getId()+"|" + super.getName() + "|" + r;
+        return "VET|" + super.getId()+"|" + super.getName() + "|" + r;
     }
 
    /*  

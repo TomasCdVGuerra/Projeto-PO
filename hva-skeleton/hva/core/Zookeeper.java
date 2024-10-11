@@ -18,11 +18,11 @@ public class Zookeeper extends Employee {
     public String toString(){
         String r = "";
         if(_habitatsManaged.isEmpty())
-            return "TRATADOR|" + super.getId()+"|" + super.getName();
+            return "TRT|" + super.getId()+"|" + super.getName();
         for(String element: _habitatsManaged){
             r+=element+",";
         }
-        return "TRATADOR|" + super.getId()+"|" + super.getName() + "|" + r;
+        return "TRT|" + super.getId()+"|" + super.getName() + "|" + r;
     }
 
     /*
