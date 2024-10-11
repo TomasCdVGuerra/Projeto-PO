@@ -103,12 +103,33 @@ public class Hotel implements Serializable {
     // Implementation here
   }
 
-  public List<Species> getSpecies() { return _species; }
-  public List<Animal> getAnimals() { return _animals; }
-  public List<Habitat> getHabitats() { return _habitats; }
-  public List<Vaccine> getVaccines() { return _vaccines; }
-  public List<Tree> getTrees() { return _trees; }
-  public List<Employee> getEmployees() { return _employees; }
+  public List<Species> getSpecies() {
+    _species.sort((s1, s2) -> s1.getId().compareTo(s2.getId()));
+    return _species;
+  }
+
+  public List<Animal> getAnimals() { 
+    _animals.sort((a1, a2) -> a1.getId().compareTo(a2.getId()));
+    return _animals;
+  }
+
+  public List<Habitat> getHabitats() {
+    _habitats.sort((h1, h2) -> h1.getId().compareTo(h2.getId()));
+    return _habitats;
+  }
+
+  public List<Vaccine> getVaccines() {
+    _vaccines.sort((v1, v2) -> v1.getId().compareTo(v2.getId()));
+    return _vaccines;
+  }
+  public List<Tree> getTrees() {
+    _trees.sort((t1, t2) -> t1.getId().compareTo(t2.getId()));
+    return _trees;
+  }
+  public List<Employee> getEmployees() {
+    _employees.sort((e1, e2) -> e1.getId().compareTo(e2.getId()));
+    return _employees;
+  }
 
 
 /*
