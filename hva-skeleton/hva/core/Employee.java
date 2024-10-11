@@ -6,7 +6,7 @@ public abstract class Employee extends HotelEntity {
 
     public Employee(String id, String name, String type) {
         super(id, name);
-        if (type.equals("VETERINÁRIO") || type.equals("TRATADOR")) {
+        if (type.equals("VET") || type.equals("TRT")) {
             _type = type;
         }
     }
