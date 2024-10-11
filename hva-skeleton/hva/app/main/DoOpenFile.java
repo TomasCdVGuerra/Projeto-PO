@@ -8,8 +8,6 @@ import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 
-//FIXME add more imports if needed
-
 /**
  * Command to open a file.
  */
@@ -43,7 +41,7 @@ class DoOpenFile extends Command<HotelManager> {
   }
 
   private boolean requestBoolean(String prompt) {
-    String response = Form.requestString(prompt + " (sim/não)");
-    return response.equalsIgnoreCase("sim");
+    String response = Form.requestString(prompt + " (Y/N)");
+    return response.equalsIgnoreCase("Y");
   }
 }

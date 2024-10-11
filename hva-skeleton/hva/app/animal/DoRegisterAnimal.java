@@ -16,8 +16,6 @@ class DoRegisterAnimal extends Command<Hotel> {
     addStringField("nomeAnimal", Prompt.animalName());
     addStringField("idSpecies", Prompt.speciesKey());
     addStringField("idHabitat", Prompt.habitatKey());
-
-    //FIXME add command fields
   }
   
   @Override
@@ -27,6 +25,5 @@ class DoRegisterAnimal extends Command<Hotel> {
     String speciesId = stringField("idSpecies");
     String habitatId = stringField("idHabitat");
     _receiver.registerAnimal(animalId, name, speciesId, habitatId);
-    //FIXME implement command
   }
 }
