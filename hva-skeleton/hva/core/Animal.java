@@ -1,6 +1,9 @@
 package hva.core;
 
-public class Animal extends HotelEntity{
+import java.io.Serializable;
+
+public class Animal extends HotelEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String _species;
     private String _habitat;
     private String _healthHistory;
