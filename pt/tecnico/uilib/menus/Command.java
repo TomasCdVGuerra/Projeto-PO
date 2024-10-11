@@ -1,6 +1,7 @@
 package pt.tecnico.uilib.menus;
 
 import java.util.function.Predicate;
+
 import pt.tecnico.uilib.Display;
 import pt.tecnico.uilib.forms.Form;
 
