@@ -1,16 +1,19 @@
 package hva.core;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Habitat extends HotelEntity{
+public class Habitat extends HotelEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final int _area;
-    private final int _population; // Marked as final
-    private List<String> _trees; // Marked as final and corrected type
+    private final int _population;
+    private List<String> _trees;
+    private List<String> _zookeepers;
+    private final List<String> _animals;
+    private final List<String> _species;
     //private final List<Adequation> _adequations; // Marked as final
-    private List<String> _zookeepers; // Changed from Handler to Zookeeper
-    private final List<String> _animals; // Marked as final
-    private final List<String> _species; // Marked as final
 
+    
     public Habitat(String habitatId, String name, int area) {  
         super(habitatId, name);
         this._area = area;
