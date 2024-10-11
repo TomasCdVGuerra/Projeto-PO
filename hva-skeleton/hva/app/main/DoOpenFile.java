@@ -3,7 +3,7 @@ package hva.app.main;
 import hva.app.exception.FileOpenFailedException;
 import hva.core.HotelManager;
 import hva.core.exception.UnavailableFileException;
-import java.io.*;
+import java.io.IOException;
 import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
@@ -23,7 +23,11 @@ class DoOpenFile extends Command<HotelManager> {
       boolean saveChanges = requestBoolean(Prompt.saveBeforeExit());
       if (saveChanges) {
         try {
-          _receiver.save();
+          if (_receiver.getFilename() == null) {
+            _receiver.saveAs(Form.requestString(Prompt.newSaveAs()));
+          } else {
+            _receiver.save();
+          }
         } catch (Exception exc) {
           exc.printStackTrace();
         }
