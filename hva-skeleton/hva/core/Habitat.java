@@ -11,7 +11,6 @@ public class Habitat extends HotelEntity implements Serializable {
     private List<String> _zookeepers;
     private final List<String> _animals;
     private final List<String> _species;
-    //private final List<Adequation> _adequations; // Marked as final
 
     
     public Habitat(String habitatId, String name, int area) {  
@@ -19,11 +18,12 @@ public class Habitat extends HotelEntity implements Serializable {
         this._area = area;
         this._population = 0;
         this._trees = new ArrayList<>();
-        /* this._adequations = new ArrayList<>(); */
-        this._zookeepers = new ArrayList<>(); // Changed from _handlers to _zookeepers
+        this._zookeepers = new ArrayList<>();
         this._animals = new ArrayList<>();
         this._species = new ArrayList<>();
     }
+
+    //get methods
 
     public int getArea() {
         return _area;
@@ -33,53 +33,30 @@ public class Habitat extends HotelEntity implements Serializable {
         return _population;
     }
 
+    public List<String> getAnimals() {
+        return _animals;
+    }
+
     public List<String> getTree() {
         return _trees;
     }
-
-    public void addTree(String idTree) {
-        _trees.add(idTree);
-    }
-
-/*     public List<Adequation> getAdequations() {
-        return _adequations;
-    } */
 
     public List<String> getSpecies() {
         return _species;
     }
 
-    /* public void addAdequation(Adequation adequation) {
-        _adequations.add(adequation);
-    }
-
-    public void removeAdequation(Species species) {
-        _adequations.removeIf(adequation -> adequation.getSpecies().equals(species));
-    }
-
-    public Adequation getAdequationForSpecies(Species species) {
-        for (Adequation adequation : _adequations) {
-            if (adequation.getSpecies().equals(species)) {
-                return adequation;
-            }
-        }
-        return new Adequation(species, Adequation.AdequationValue.NEUTRAL);
-    }
- */
     public List<String> getZookeepers() {
         return _zookeepers;
     }
 
+    //add Entities to be part of this Hotel.
+
+    public void addTree(String idTree) {
+        _trees.add(idTree);
+    }
+    
     public void addZookeeper(String idZookeeper) {
         _zookeepers.add(idZookeeper);
-    }
-
-    /* public void setZookeepers(List<Zookeeper> zookeepers) { // Removed final keyword
-        this._zookeepers = zookeepers;
-    } */
-
-    public List<String> getAnimals() {
-        return _animals;
     }
 
     public void addAnimal(String idAnimal) {

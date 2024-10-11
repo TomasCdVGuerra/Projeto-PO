@@ -4,8 +4,7 @@ import hva.core.exception.*;
 import java.io.*;
 
 /**
- * Class representing the manager of this application. It manages the current
- * zoo hotel.
+ * Class representing the manager of this application. It manages the current Hotel.
  **/
 public class HotelManager {
   /** The current zoo hotel */
@@ -99,6 +98,5 @@ public class HotelManager {
   public final Hotel getHotel() {
     return _hotel;
   }
-  // Method to mark changes
 
 }
