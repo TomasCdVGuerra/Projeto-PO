@@ -21,6 +21,9 @@ public class HotelManager {
     return new Hotel();
   }
 
+  public String getFilename() {
+    return _filename;
+  }
   /**
    * Saves the serialized application's state into the file associated to the current network.
    *
