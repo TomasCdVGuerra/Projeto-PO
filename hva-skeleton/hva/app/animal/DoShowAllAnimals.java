@@ -21,3 +21,4 @@ class DoShowAllAnimals extends Command<Hotel> {
     //FIXME implement command
   }
 }
+
