@@ -1,7 +1,7 @@
 package pt.tecnico.uilib.menus;
 
-import java.io.IOException;
 import java.util.function.Predicate;
+
 import pt.tecnico.uilib.Display;
 import pt.tecnico.uilib.forms.Form;
 
@@ -146,14 +146,10 @@ public abstract class Command<Receiver> {
    * @throws CommandException
    */
   public final void performCommand() throws CommandException {
-    try{
     _display.clear();
-    _form.resetFields(); //parse();
+    _form.parse(); //resetFields(); //parse();
     execute();
     _display.displayText();
-    }catch (IOException exc){
-      exc.printStackTrace();
-    }
   }
 
   /**
@@ -162,6 +158,6 @@ public abstract class Command<Receiver> {
    * 
    * @throws CommandException if something wrong or unexpected occurs.
    */
-  protected abstract void execute() throws CommandException, IOException;
+  protected abstract void execute() throws CommandException;
 
 }
