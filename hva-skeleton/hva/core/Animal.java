@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Represents an Animal in the hotel.
- * This class extends HotelEntity, getting id and name; and implements Serializable.
+ * This class extends HotelEntity, getting id and name atributes; and implements Serializable.
  */
 public class Animal extends HotelEntity implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -13,12 +13,12 @@ public class Animal extends HotelEntity implements Serializable {
     private String _healthHistory;
 
     /**
-     * Constructs an Animal with the specified ID, name, species, and habitat.
+     * Constructs an Animal.
      *
-     * @param idAnimal the ID of the animal
-     * @param name the name of the animal
-     * @param idSpecies the species ID of the animal
-     * @param idHabitat the habitat ID of the animal
+     * @param idAnimal the ID of the Animal
+     * @param name the name of the Animal
+     * @param idSpecies ID of the Species ofthe animal
+     * @param idHabitat ID of the Habitat ofthe animal
      */
     public Animal(String idAnimal, String name, String idSpecies, String idHabitat) {
         super(idAnimal, name);
@@ -28,7 +28,7 @@ public class Animal extends HotelEntity implements Serializable {
     }
 
     /**
-     * Gets the health history of the animal.
+     * Gets the health history of the Animal.
      *
      * @return the health history of the animal, or "VOID" if it is empty
      */
@@ -39,28 +39,28 @@ public class Animal extends HotelEntity implements Serializable {
     }
 
     /**
-     * Gets the species of the animal.
+     * Gets the Species of the Animal.
      *
-     * @return the species of the animal
+     * @return the Species of the Animal
      */
     public String getSpecies() {
         return _species;
     }
 
     /**
-     * Gets the habitat of the animal.
+     * Gets the Habitat of the Animal.
      *
-     * @return the habitat of the animal
+     * @return the Habitat of the Animal
      */
     public String getHabitat() {
         return _habitat;
     }
 
     /**
-     * Returns a string representation of the animal.
+     * Returns a string representation of the Animal, used in DoShowAllAnimals.
      *
      * @return a string representation of the animal in the format:
-     *         "ANIMAL|id|name|species|healthHistory|habitat"
+     *         "ANIMAL|id|name|idSpecies|healthHistory|idHabitat"
      */
     @Override
     public String toString() {
