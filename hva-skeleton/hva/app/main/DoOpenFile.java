@@ -21,7 +21,7 @@ class DoOpenFile extends Command<HotelManager> {
 
   @Override
   protected final void execute() throws CommandException {
-    if (_receiver.hasUnsavedChanges()) {
+    if (_receiver.getHotel().hasUnsavedChanges()) {
       boolean saveChanges = requestBoolean(Prompt.saveBeforeExit());
       if (saveChanges) {
         try {

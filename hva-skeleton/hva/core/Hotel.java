@@ -17,6 +17,7 @@ public class Hotel implements Serializable {
   private final List<Tree> _trees;
   private final List<Habitat> _habitats;
   private final String _season;
+  private boolean _hasUnsavedChanges = false;
 
   public Hotel() {
       _animals = new ArrayList<>();
@@ -129,6 +130,18 @@ public class Hotel implements Serializable {
   public List<Employee> getEmployees() {
     _employees.sort((e1, e2) -> e1.getId().compareTo(e2.getId()));
     return _employees;
+  }
+
+  public void markAsUnchanged() {
+    _hasUnsavedChanges = false;
+  }
+
+  public void markAsChanged() {
+    _hasUnsavedChanges = true;
+  }
+
+  public boolean hasUnsavedChanges() {
+    return _hasUnsavedChanges;
   }
 
 

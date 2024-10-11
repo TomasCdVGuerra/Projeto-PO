@@ -11,7 +11,6 @@ public class HotelManager {
   /** The current zoo hotel */
   private Hotel _hotel;
   private String _filename;
-  private boolean hasUnsavedChanges = false; // New flag to track unsaved changes
 
 
   public HotelManager(){
@@ -38,7 +37,7 @@ public class HotelManager {
     out.writeObject(_hotel);
     if (out != null)
       out.close();
-    hasUnsavedChanges = false; // Reset flag after saving
+    _hotel.markAsChanged(); // Reset flag after saving
   }
 
   /**
@@ -53,7 +52,7 @@ public class HotelManager {
   public void saveAs(String filename) throws FileNotFoundException, MissingFileAssociationException, IOException {
     _filename = filename;
     save();
-    hasUnsavedChanges = false; // Reset flag after saving
+    _hotel.markAsUnchanged(); // Reset flag after saving
   }
 
   /**
@@ -72,7 +71,7 @@ public class HotelManager {
     } catch (IOException | ClassNotFoundException e) {
       throw new UnavailableFileException(filename);
     }
-    hasUnsavedChanges = false; // Reset flag after loading
+    _hotel.markAsUnchanged(); // Reset flag after loading
   }
 
   /**
@@ -100,11 +99,5 @@ public class HotelManager {
     return _hotel;
   }
   // Method to mark changes
-  public void markAsChanged() {
-    hasUnsavedChanges = true;
-  }
 
-  public boolean hasUnsavedChanges() {
-    return hasUnsavedChanges;
-  }
 }
