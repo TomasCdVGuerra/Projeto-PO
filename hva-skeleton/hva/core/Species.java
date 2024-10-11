@@ -1,9 +1,11 @@
 package hva.core;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Species extends HotelEntity{
+public class Species extends HotelEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
     private final List<String> _animals;
 
     public Species(String id, String name, Hotel hotel) {
@@ -20,8 +22,7 @@ public class Species extends HotelEntity{
     }
 
     @Override
-    public String toString(){    
+    public String toString(){
         return "";
     }
-
 }
