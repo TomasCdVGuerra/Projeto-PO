@@ -31,13 +31,11 @@ public class HotelManager {
   public void save() throws FileNotFoundException, MissingFileAssociationException, IOException {
     if (_filename == null || _filename.isBlank())
       throw new MissingFileAssociationException();
-
-    ObjectOutputStream out = null;
-    out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)));
-    out.writeObject(_hotel);
-    if (out != null)
-      out.close();
-    _hotel.markAsChanged(); // Reset flag after saving
+  
+    try (ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(_filename)))) {
+      out.writeObject(_hotel);
+    }
+    _hotel.markAsUnchanged(); // Reset flag after saving
   }
 
   /**
