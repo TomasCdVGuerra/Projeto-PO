@@ -26,7 +26,7 @@ public class Vaccine extends HotelEntity{
             }
             s+=ids;
         }
-        return "VACINA|" + super.getId() + "|" + super.getName() +"|"+ _numAplicacoes+"|" + s+"|";
+        return "VACINA|" + super.getId() + "|" + super.getName() +"|"+ _numAplicacoes+"|" + s;
     }
 }
 
