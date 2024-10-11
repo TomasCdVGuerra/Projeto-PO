@@ -21,6 +21,12 @@ public abstract class Employee extends HotelEntity {
         return _type;
     }
 
+    /**
+ * Returns a string representation of the object.
+ * This method must be implemented by Zookeeper and Veterinarian.
+ *
+ * @return a string representation of the object
+ */
     @Override
     public abstract String toString();
 }

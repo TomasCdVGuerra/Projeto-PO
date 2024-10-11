@@ -1,5 +1,6 @@
 package hva.core;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -7,7 +8,8 @@ import java.io.Serializable;
  * This class extends HotelEntity, getting id and name atributes; and implements Serializable.
  */
 public class Animal extends HotelEntity implements Serializable {
-    private static final long serialVersionUID = 1L;
+    @Serial
+    private static final long serialVersionUID = 202407081733L;
     private String _species;
     private String _habitat;
     private String _healthHistory;
