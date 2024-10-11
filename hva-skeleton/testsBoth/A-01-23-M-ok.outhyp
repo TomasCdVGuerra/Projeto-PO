@@ -18,7 +18,7 @@ Gestão de Vacinas
 4 - Mostrar vacinações
 0 - Sair
 Escolha uma opção: 1
-VACINA|V3|Tétano|0||
+VACINA|V3|Tétano|0|E1|
 Gestão de Vacinas
 1 - Visualizar todas as vacinas
 2 - Registar vacina
