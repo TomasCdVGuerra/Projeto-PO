@@ -1,7 +1,6 @@
 package pt.tecnico.uilib.menus;
 
 import java.util.function.Predicate;
-
 import pt.tecnico.uilib.Display;
 import pt.tecnico.uilib.forms.Form;
 
@@ -29,6 +28,9 @@ public abstract class Command<Receiver> {
 
   /** This command's display. */
   protected final Display _display;
+
+  /** Flag to track unsaved changes */
+  private boolean _hasUnsavedChanges;
 
   /**
    * @param last  indicates whether, in a menu, this is the last command.
@@ -149,6 +151,7 @@ public abstract class Command<Receiver> {
     _display.clear();
     _form.parse(); //resetFields(); //parse();
     execute();
+    _hasUnsavedChanges = true; // Set unsaved changes flag to true
     _display.displayText();
   }
 
@@ -160,4 +163,10 @@ public abstract class Command<Receiver> {
    */
   protected abstract void execute() throws CommandException;
 
+  /**
+   * @return the unsaved changes flag.
+   */
+  public boolean hasUnsavedChanges() {
+    return _hasUnsavedChanges;
+  }
 }
