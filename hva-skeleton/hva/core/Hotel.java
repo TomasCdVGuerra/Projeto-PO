@@ -179,7 +179,7 @@ public class Hotel implements Serializable {
    * @return the list of species
    */
   public List<Species> getSpecies() {
-    _species.sort((s1, s2) -> s1.getId().compareTo(s2.getId()));
+    _species.sort((s1, s2) -> s1.getId().compareToIgnoreCase(s2.getId()));
     return _species;
   }
 
@@ -189,7 +189,7 @@ public class Hotel implements Serializable {
    * @return the list of animals
    */
   public List<Animal> getAnimals() {
-    _animals.sort((a1, a2) -> a1.getId().compareTo(a2.getId()));
+    _animals.sort((a1, a2) -> a1.getId().compareToIgnoreCase(a2.getId()));
     return _animals;
   }
 
@@ -199,9 +199,9 @@ public class Hotel implements Serializable {
    * @return the list of habitats
    */
   public List<Habitat> getHabitats() {
-    _habitats.sort((h1, h2) -> h1.getId().compareTo(h2.getId()));
+    _habitats.sort((h1, h2) -> h1.getId().compareToIgnoreCase(h2.getId()));
     return _habitats;
-  }
+}
 
   /**
    * Gets the list of vaccines in the hotel, sorted by ID.
@@ -209,7 +209,7 @@ public class Hotel implements Serializable {
    * @return the list of vaccines
    */
   public List<Vaccine> getVaccines() {
-    _vaccines.sort((v1, v2) -> v1.getId().compareTo(v2.getId()));
+    _vaccines.sort((v1, v2) -> v1.getId().compareToIgnoreCase(v2.getId()));
     return _vaccines;
   }
 
@@ -219,7 +219,7 @@ public class Hotel implements Serializable {
    * @return the list of trees
    */
   public List<Tree> getTrees() {
-    _trees.sort((t1, t2) -> t1.getId().compareTo(t2.getId()));
+    _trees.sort((t1, t2) -> t1.getId().compareToIgnoreCase(t2.getId()));
     return _trees;
   }
 
@@ -229,7 +229,7 @@ public class Hotel implements Serializable {
  * @return the list of employees
  */
 public List<Employee> getEmployees() {
-  _employees.sort((e1, e2) -> e1.getId().compareTo(e2.getId()));
+  _employees.sort((e1, e2) -> e1.getId().compareToIgnoreCase(e2.getId()));
   return _employees;
 }
 
