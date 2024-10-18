@@ -1,20 +1,25 @@
 #!/bin/bash
 
+# Ensure the bin directory exists
+mkdir -p bin
+
+# Compile the code
+javac -d bin $(find hva -name "*.java")
+
 let total=0;
 let correct=0;
 
 for x in tests/*.in; do
     if [ -e ${x%.in}.import ]; then
-        java -cp :po-uilib.jar:. -Dimport=${x%.in}.import -Din=$x -Dout=${x%.in}.outhyp hva.app.App;
+        java -cp bin:po-uilib.jar:. -Dimport=${x%.in}.import -Din=$x -Dout=${x%.in}.outhyp hva.app.App;
     else
-        java -cp po-uilib.jar:. -Din=$x -Dout=${x%.in}.outhyp hva.app.App;
+        java -cp bin:po-uilib.jar:. -Din=$x -Dout=${x%.in}.outhyp hva.app.App;
     fi
 
     diff -cwB ${x%.in}.out ${x%.in}.outhyp > ${x%.in}.diff ;
     if [ -s ${x%.in}.diff ]; then
         echo -n "F"
         failures=$failures"Fail: $x: See file ${x%.in}.diff\n" ;
-#        echo "FAIL: $x. See file ${x%.in}.diff " ;
     else
         let correct++;
         echo -n "."
@@ -28,6 +33,5 @@ let res=100*$correct/$total
 echo ""
 echo "Total Tests = " $total
 echo "Passed = " $res"%"
-printf "$failures"
+echo -e $failures
 echo "Done."
-
