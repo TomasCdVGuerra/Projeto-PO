@@ -18,6 +18,7 @@ public class Vaccine extends HotelEntity {
      */
     public Vaccine(String id, String name, List<String> species) {
         super(id, name);
+        species.sort((s1, s2) -> s1.compareToIgnoreCase(s2));
         this._species = species;
     }
 
