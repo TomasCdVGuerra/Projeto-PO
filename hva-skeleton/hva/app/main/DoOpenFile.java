@@ -45,7 +45,7 @@ class DoOpenFile extends Command<HotelManager> {
   }
 
   private boolean requestBoolean(String prompt) {
-    String response = Form.requestString(prompt + " (s/n)");
+    String response = Form.requestString(prompt);
     return response.equalsIgnoreCase("s");
   }
 }
