@@ -39,6 +39,32 @@ public class Zookeeper extends Employee {
     }
 
     /**
+     * Calculates the satisfaction level of the zookeeper.
+     *
+     * @param habitats a map of habitat IDs to Habitat objects
+     * @param habitatZookeeperCount a map of habitat IDs to the number of zookeepers assigned to that habitat
+     * @return the satisfaction level of the zookeeper
+     */
+    public int calculateSatisfaction(Map<String, Habitat> habitats, Map<String, Integer> habitatZookeeperCount) {
+        int satisfaction = 300;
+        for (String habitatId : _habitatsManaged) {
+            Habitat habitat = habitats.get(habitatId);
+            if (habitat != null) {
+                int workInHabitat = habitat.getArea() + 3 * habitat.getPopulation();
+                for (String treeId : habitat.getTree()) {
+                    Tree tree = habitat.getTreeById(treeId); // Assuming a method to get Tree by ID
+                    if (tree != null) {
+                        workInHabitat += tree.getCleaningEffort();
+                    }
+                }
+                int zookeeperCount = habitatZookeeperCount.getOrDefault(habitatId, 1); // Avoid division by zero
+                satisfaction -= workInHabitat / zookeeperCount;
+            }
+        }
+        return satisfaction;
+    }
+
+    /**
      * Returns a string representation of the zookeeper.
      *
      * @return a string representation of the zookeeper
