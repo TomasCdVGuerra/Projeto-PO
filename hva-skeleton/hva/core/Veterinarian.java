@@ -2,6 +2,7 @@ package hva.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Represents a veterinarian in the hotel management system.
@@ -16,7 +17,7 @@ public class Veterinarian extends Employee {
      * @param name the name of the veterinarian
      */
     public Veterinarian(String id, String name) {
-        super(id, name, "VET");
+        super(id, name);
         _speciesIds = new ArrayList<>(); // Initialize speciesIds
     }
 
@@ -30,6 +31,33 @@ public class Veterinarian extends Employee {
     }
 
     /**
+     * Returns the type of the employee.
+     *
+     * @return the type of the employee
+     */
+    @Override
+    public String getType() {
+        return "VET";
+    }
+
+    /**
+     * Calculates the satisfaction level of the veterinarian.
+     *
+     * @param speciesAnimalCount a map of species IDs to the number of animals of that species
+     * @param speciesVetCount a map of species IDs to the number of veterinarians working on that species
+     * @return the satisfaction level of the veterinarian
+     */
+    public int calculateSatisfaction(Map<String, Integer> speciesAnimalCount, Map<String, Integer> speciesVetCount) {
+        int satisfaction = 20;
+        for (String speciesId : _speciesIds) {
+            int animalCount = speciesAnimalCount.getOrDefault(speciesId, 0);
+            int vetCount = speciesVetCount.getOrDefault(speciesId, 1); // Avoid division by zero
+            satisfaction -= animalCount / vetCount;
+        }
+        return satisfaction;
+    }
+
+    /**
      * Returns a string representation of the veterinarian.
      *
      * @return a string representation of the veterinarian
@@ -38,10 +66,10 @@ public class Veterinarian extends Employee {
     public String toString() {
         String r = "";
         if (_speciesIds.isEmpty())
-            return "VET|" + super.getId() + "|" + super.getName();
+            return getType() + "|" + super.getId() + "|" + super.getName();
         for (String element : _speciesIds) {
             r += element + ",";
         }
-        return "VET|" + super.getId() + "|" + super.getName() + "|" + r;
+        return getType() + "|" + super.getId() + "|" + super.getName() + "|" + r;
     }
 }

@@ -15,7 +15,7 @@ public class Zookeeper extends Employee {
      * @param name the name of the zookeeper
      */
     public Zookeeper(String id, String name) {
-        super(id, name, "TRT");
+        super(id, name);
         _habitatsManaged = new ArrayList<>(); // Initialize as empty list
     }
 
@@ -29,6 +29,16 @@ public class Zookeeper extends Employee {
     }
 
     /**
+     * Returns the type of the employee.
+     *
+     * @return the type of the employee
+     */
+    @Override
+    public String getType() {
+        return "TRT";
+    }
+
+    /**
      * Returns a string representation of the zookeeper.
      *
      * @return a string representation of the zookeeper
@@ -37,11 +47,10 @@ public class Zookeeper extends Employee {
     public String toString() {
         String r = "";
         if (_habitatsManaged.isEmpty())
-            return "TRT|" + super.getId() + "|" + super.getName();
+            return getType() + "|" + super.getId() + "|" + super.getName();
         for (String element : _habitatsManaged) {
             r += element + ",";
         }
-        return "TRT|" + super.getId() + "|" + super.getName() + "|" + r;
+        return getType() + "|" + super.getId() + "|" + super.getName() + "|" + r;
     }
-    
 }
