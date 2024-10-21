@@ -2,7 +2,7 @@ package hva.core;
 
 public class SpringState implements SeasonState {
     @Override
-    public int getSeasonalDifficulty(String type) {
+    public int getSeasonalDifficulty(Tree tree) {
         return 1; // Spring difficulty
     }
 

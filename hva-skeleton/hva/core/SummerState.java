@@ -2,8 +2,8 @@ package hva.core;
 
 public class SummerState implements SeasonState {
     @Override
-    public int getSeasonalDifficulty(String type) {
-        return type.equals("CAD") ? 2 : 1; // Summer difficulty based on type
+    public int getSeasonalDifficulty(Tree tree) {
+        return tree instanceof Deciduous ? 2 : 1; // Summer difficulty based on type
     }
 
     @Override

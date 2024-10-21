@@ -1,6 +1,6 @@
 package hva.core;
 
 public interface SeasonState {
-    int getSeasonalDifficulty(String type);
+    int getSeasonalDifficulty(Tree tree);
     String nextSeason();
 }

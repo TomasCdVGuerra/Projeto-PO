@@ -69,7 +69,7 @@ public class Animal extends HotelEntity{
         _healthHistory += "," + term;
     }
 
-    /* public double satisfaction() {
+     public double satisfaction() {
         int sameSpecies = getSameSpeciesCount();
         int differentSpecies = getDifferentSpeciesCount();
         double area = _habitat.getArea();
@@ -113,7 +113,7 @@ public class Animal extends HotelEntity{
           newHabitat.addAnimal(this);
         }
       }
- */
+ 
     /**
      * Returns a string representation of the Animal, used in DoShowAllAnimals.
      *

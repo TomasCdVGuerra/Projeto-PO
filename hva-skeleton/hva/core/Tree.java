@@ -1,7 +1,6 @@
 package hva.core;
 
 public class Tree extends HotelEntity {
-    private final String _type;
     private final int _baseDiff;
     private int _age;
     private SeasonState _seasonState;
@@ -9,15 +8,10 @@ public class Tree extends HotelEntity {
 
     public Tree(String treeId, String name, String type, int age, int baseDiff) {
         super(treeId, name);
-        this._type = type;
         this._age = age;
         this._baseDiff = baseDiff;
         this._seasonState = new SpringState(); // Initial state
         this._seasonCount = 0; // Initialize season counter
-    }
-
-    public String getType() {
-        return _type;
     }
 
     public int getAge() {
@@ -29,7 +23,7 @@ public class Tree extends HotelEntity {
     }
 
     public int getSeasonalDifficulty() {
-        return _seasonState.getSeasonalDifficulty(_type);
+        return _seasonState.getSeasonalDifficulty(this);
     }
 
     public double getCleaningEffort() {
@@ -63,7 +57,7 @@ public class Tree extends HotelEntity {
     @Override
     public String toString() {
         return "Tree{" +
-                "type='" + _type + '\'' +
+                "type='" + this.getClass().getName() + '\'' +
                 ", baseDiff=" + _baseDiff +
                 ", age=" + _age +
                 ", seasonState=" + _seasonState.getClass().getSimpleName() +
