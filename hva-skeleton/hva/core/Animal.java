@@ -2,11 +2,11 @@ package hva.core;
 
 /**
  * Represents an Animal in the hotel.
- * This class extends HotelEntity, getting id and name atributes; and implements Serializable.
+ * This class extends HotelEntity, getting id and name attributes; and implements Serializable.
  */
-public class Animal extends HotelEntity{
-    private String _species;
-    private String _habitat;
+public class Animal extends HotelEntity {
+    private final String _species;
+    private Habitat _habitat;
     private String _healthHistory;
 
     /**
@@ -14,13 +14,13 @@ public class Animal extends HotelEntity{
      *
      * @param idAnimal the ID of the Animal
      * @param name the name of the Animal
-     * @param idSpecies ID of the Species ofthe animal
-     * @param idHabitat ID of the Habitat ofthe animal
+     * @param idSpecies ID of the Species of the animal
+     * @param habitat the Habitat of the animal
      */
-    public Animal(String idAnimal, String name, String idSpecies, String idHabitat) {
+    public Animal(String idAnimal, String name, String idSpecies, Habitat habitat) {
         super(idAnimal, name);
         this._species = idSpecies;
-        this._habitat = idHabitat;
+        this._habitat = habitat;
         this._healthHistory = "";
     }
 
@@ -49,7 +49,7 @@ public class Animal extends HotelEntity{
      *
      * @return the Habitat of the Animal
      */
-    public String getHabitat() {
+    public Habitat getHabitat() {
         return _habitat;
     }
 
@@ -69,7 +69,7 @@ public class Animal extends HotelEntity{
         _healthHistory += "," + term;
     }
 
-     public double satisfaction() {
+    public double satisfaction() {
         int sameSpecies = getSameSpeciesCount();
         int differentSpecies = getDifferentSpeciesCount();
         double area = _habitat.getArea();
@@ -106,14 +106,14 @@ public class Animal extends HotelEntity{
 
     public void changeHabitat(Habitat newHabitat) {
         if (this._habitat != null) {
-          this._habitat.getAnimals().remove(this);
+            this._habitat.getAnimals().remove(this);
         }
         this._habitat = newHabitat;
         if (newHabitat != null) {
-          newHabitat.addAnimal(this);
+            newHabitat.addAnimal(this);
         }
-      }
- 
+    }
+
     /**
      * Returns a string representation of the Animal, used in DoShowAllAnimals.
      *
@@ -122,6 +122,6 @@ public class Animal extends HotelEntity{
      */
     @Override
     public String toString() {
-        return "ANIMAL|" + super.getId() + "|" + super.getName() + "|" + _species + "|" + getHealthHistory() + "|" + _habitat;
+        return "ANIMAL|" + super.getId() + "|" + super.getName() + "|" + _species + "|" + getHealthHistory() + "|" + _habitat.getId();
     }
 }

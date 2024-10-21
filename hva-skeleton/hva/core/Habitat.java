@@ -10,9 +10,9 @@ import java.util.*;
 public class Habitat extends HotelEntity {
     private final int _area;
     private final int _population;
-    private List<String> _trees;
-    private List<String> _zookeepers;
-    private final List<String> _animals;
+    private List<Tree> _trees;
+    private List<Zookeeper> _zookeepers;
+    private final List<Animal> _animals;
     private final List<String> _species;
 
     /**
@@ -57,7 +57,7 @@ public class Habitat extends HotelEntity {
      *
      * @return the list of animals
      */
-    public List<String> getAnimals() {
+    public List<Animal> getAnimals() {
         return _animals;
     }
 
@@ -66,7 +66,7 @@ public class Habitat extends HotelEntity {
      *
      * @return the list of trees
      */
-    public List<String> getTree() {
+    public List<Tree> getTree() {
         return _trees;
     }
 
@@ -84,7 +84,7 @@ public class Habitat extends HotelEntity {
      *
      * @return the list of zookeepers
      */
-    public List<String> getZookeepers() {
+    public List<Zookeeper> getZookeepers() {
         return _zookeepers;
     }
 
@@ -95,26 +95,26 @@ public class Habitat extends HotelEntity {
      *
      * @param idTree the ID of the tree to add
      */
-    public void addTree(String idTree) {
-        _trees.add(idTree);
+    public void addTree(Tree tree) {
+        _trees.add(tree);
     }
     
     /**
      * Adds a zookeeper to the habitat.
      *
-     * @param idZookeeper the ID of the zookeeper to add
+     * @param zookeeper the zookeeper to add
      */
-    public void addZookeeper(String idZookeeper) {
-        _zookeepers.add(idZookeeper);
+    public void addZookeeper(Zookeeper zookeeper) {
+        _zookeepers.add(zookeeper);
     }
 
     /**
      * Adds an animal to the habitat.
      *
-     * @param idAnimal the ID of the animal to add
+     * @param animal the animal to add
      */
-    public void addAnimal(String idAnimal) {
-        _animals.add(idAnimal);
+    public void addAnimal(Animal animal) {
+        _animals.add(animal);
     }
 
     /**
@@ -136,6 +136,7 @@ public class Habitat extends HotelEntity {
     public String toString() {
         return "HABITAT|" + super.getId() + "|" + super.getName() + "|" + _area + "|" + getNumTrees();
     }
+
     /**
      * Gets a tree by its ID.
      *
@@ -144,6 +145,18 @@ public class Habitat extends HotelEntity {
      */
     public Tree getTreeById(String treeId) {
         // Implement logic to find and return the Tree object by its ID
+        // For now, returning null as a placeholder
+        return null;
+    }
+
+    /**
+     * Gets the adequation for a species.
+     *
+     * @param speciesId the ID of the species
+     * @return the adequation for the species
+     */
+    public Adequation getAdequationForSpecies(String speciesId) {
+        // Implement logic to get the adequation for a species
         // For now, returning null as a placeholder
         return null;
     }
