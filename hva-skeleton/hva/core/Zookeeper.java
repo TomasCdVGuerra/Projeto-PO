@@ -51,8 +51,7 @@ public class Zookeeper extends Employee {
             Habitat habitat = habitats.get(habitatId);
             if (habitat != null) {
                 int workInHabitat = habitat.getArea() + 3 * habitat.getPopulation();
-                for (String treeId : habitat.getTree()) {
-                    Tree tree = habitat.getTreeById(treeId); // Assuming a method to get Tree by ID
+                for (Tree tree : habitat.getTree()) {
                     if (tree != null) {
                         workInHabitat += tree.getCleaningEffort();
                     }

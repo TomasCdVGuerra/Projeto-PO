@@ -55,7 +55,11 @@ public class Hotel implements Serializable {
    * @param habitatId the habitat ID of the animal
    */
   public void registerAnimal(String animalId, String name, String speciesId, String habitatId) {
-    Animal i = new Animal(animalId, name, speciesId, habitatId);
+    Habitat habitat = _habitats.stream()
+                               .filter(h -> h.getId().equals(habitatId))
+                               .findFirst()
+                               .orElseThrow(() -> new IllegalArgumentException("Habitat not found"));
+    Animal i = new Animal(animalId, name, speciesId, habitat);
     _animals.add(i);
     markAsChanged();
   }
@@ -102,10 +106,10 @@ public class Hotel implements Serializable {
     Responsibility i = new Responsibility(responsibility, employeeId);
     for (Employee element : _employees) {
       if (element.getId().equals(employeeId)) {
-        if (element instanceof Zookeeper) {
-          ((Zookeeper) element).getHabitatsM().add(i.getId());
-        } else if (element instanceof Veterinarian) {
-          ((Veterinarian) element).getSpeciesIds().add(i.getId());
+        if (element instanceof Zookeeper zookeeper) {
+          zookeeper.getHabitatsM().add(i.getId());
+        } else if (element instanceof Veterinarian veterinarian) {
+          veterinarian.getSpeciesIds().add(i.getId());
         }
       }
     }
@@ -121,10 +125,7 @@ public class Hotel implements Serializable {
    * @param speciesIds the IDs of the species the vaccine is for
    */
   public void registerVaccine(String vaccineId, String name, String[] speciesIds) {
-    List<String> species = new ArrayList<>();
-    for (String element : speciesIds) {
-      species.add(element);
-    }
+    List<String> species = Arrays.asList(speciesIds);
     Vaccine i = new Vaccine(vaccineId, name, species);
     _vaccines.add(i);
     markAsChanged();
@@ -137,12 +138,16 @@ public class Hotel implements Serializable {
    * @param idTree the ID of the tree
    */
   public void addTreeToHabitat(String idHabitat, String idTree) {
-    for (Habitat element : _habitats) {
-      if (element.getId().equals(idHabitat)) {
-        element.addTree(idTree);
-        markAsChanged();
-      }
-    }
+    Habitat habitat = _habitats.stream()
+                               .filter(h -> h.getId().equals(idHabitat))
+                               .findFirst()
+                               .orElseThrow(() -> new IllegalArgumentException("Habitat not found"));
+    Tree tree = _trees.stream()
+                      .filter(t -> t.getId().equals(idTree))
+                      .findFirst()
+                      .orElseThrow(() -> new IllegalArgumentException("Tree not found"));
+    habitat.addTree(tree);
+    markAsChanged();
   }
 
   /**
@@ -201,7 +206,7 @@ public class Hotel implements Serializable {
   public List<Habitat> getHabitats() {
     _habitats.sort((h1, h2) -> h1.getId().compareToIgnoreCase(h2.getId()));
     return _habitats;
-}
+  }
 
   /**
    * Gets the list of vaccines in the hotel, sorted by ID.
@@ -224,47 +229,47 @@ public class Hotel implements Serializable {
   }
 
   /**
- * Gets the list of employees in the hotel, sorted by ID.
- *
- * @return the list of employees
- */
-public List<Employee> getEmployees() {
-  _employees.sort((e1, e2) -> e1.getId().compareToIgnoreCase(e2.getId()));
-  return _employees;
-}
+   * Gets the list of employees in the hotel, sorted by ID.
+   *
+   * @return the list of employees
+   */
+  public List<Employee> getEmployees() {
+    _employees.sort((e1, e2) -> e1.getId().compareToIgnoreCase(e2.getId()));
+    return _employees;
+  }
 
-/**
-* Marks the hotel as having no unsaved changes.
-*/
-public void markAsUnchanged() {
-  _hasUnsavedChanges = false;
-}
+  /**
+   * Marks the hotel as having no unsaved changes.
+   */
+  public void markAsUnchanged() {
+    _hasUnsavedChanges = false;
+  }
 
-/**
-* Marks the hotel as having unsaved changes.
-*/
-public void markAsChanged() {
-  _hasUnsavedChanges = true;
-}
+  /**
+   * Marks the hotel as having unsaved changes.
+   */
+  public void markAsChanged() {
+    _hasUnsavedChanges = true;
+  }
 
-/**
-* Checks if the hotel has unsaved changes.
-*
-* @return true if there are unsaved changes, false otherwise
-*/
-public boolean hasUnsavedChanges() {
-  return _hasUnsavedChanges;
-}
+  /**
+   * Checks if the hotel has unsaved changes.
+   *
+   * @return true if there are unsaved changes, false otherwise
+   */
+  public boolean hasUnsavedChanges() {
+    return _hasUnsavedChanges;
+  }
 
-/**
-* Reads a text input file and creates corresponding domain entities.
-*
-* @param filename the name of the text input file
-* @throws UnrecognizedEntryException if some entry is not correct
-* @throws IOException if there is an IO error while processing the text file
-*/
-void importFile(String filename) throws UnrecognizedEntryException, IOException {
-  Parser parser = new Parser(this);
-  parser.parseFile(filename);
+  /**
+   * Reads a text input file and creates corresponding domain entities.
+   *
+   * @param filename the name of the text input file
+   * @throws UnrecognizedEntryException if some entry is not correct
+   * @throws IOException if there is an IO error while processing the text file
+   */
+  void importFile(String filename) throws UnrecognizedEntryException, IOException {
+    Parser parser = new Parser(this);
+    parser.parseFile(filename);
   }
 }
