@@ -136,4 +136,15 @@ public class Habitat extends HotelEntity {
     public String toString() {
         return "HABITAT|" + super.getId() + "|" + super.getName() + "|" + _area + "|" + getNumTrees();
     }
+    /**
+     * Gets a tree by its ID.
+     *
+     * @param treeId the ID of the tree
+     * @return the Tree object, or null if not found
+     */
+    public Tree getTreeById(String treeId) {
+        // Implement logic to find and return the Tree object by its ID
+        // For now, returning null as a placeholder
+        return null;
+    }
 }
