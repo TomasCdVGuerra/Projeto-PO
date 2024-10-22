@@ -160,7 +160,7 @@ public class Hotel implements Serializable {
    * @param baseDiff the base difficulty of the tree
    */
   public void createTree(String treeId, String name, String type, int age, int baseDiff) {
-    Tree i = new Tree(treeId, name, type, age, baseDiff);
+    Tree i = Tree.createTree(treeId, name, age, baseDiff, type);
     _trees.add(i);
     markAsChanged();
   }
