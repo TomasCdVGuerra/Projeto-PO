@@ -1,8 +1,8 @@
-package hva.app.exception;
+package hva.core.exception;
 
-import pt.tecnico.uilib.menus.CommandException;
-
+import hva.app.habitat.Message;
 import java.io.Serial;
+import pt.tecnico.uilib.menus.CommandException;
 
 public class UnknownTreeKeyException extends CommandException {
   @Serial
