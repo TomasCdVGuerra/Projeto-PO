@@ -114,6 +114,15 @@ public class Animal extends HotelEntity {
         }
     }
 
+    @Override
+    public String getId() {
+        return super.getId(); // Assuming getId() is defined in HotelEntity
+    }
+
+    public void setHabitat(Habitat habitat) {
+        _habitat = habitat;
+    }
+
     /**
      * Returns a string representation of the Animal, used in DoShowAllAnimals.
      *

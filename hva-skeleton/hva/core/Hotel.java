@@ -1,6 +1,8 @@
 package hva.core;
 
-import hva.core.exception.*;
+import hva.app.exception.UnknownAnimalKeyException;
+import hva.app.exception.UnknownHabitatKeyException;
+import hva.core.exception.UnrecognizedEntryException;
 import java.io.*;
 import java.util.*;
 
@@ -208,6 +210,13 @@ public class Hotel implements Serializable {
                    .filter(a -> a.getId().equals(animalId))
                    .findFirst()
                    .orElseThrow(() -> new UnknownAnimalKeyException(animalId));
+  }
+
+  public Habitat getHabitat(String habitatId) throws UnknownHabitatKeyException {
+    return _habitats.stream()
+                    .filter(h -> h.getId().equals(habitatId))
+                    .findFirst()
+                    .orElseThrow(() -> new UnknownHabitatKeyException(habitatId));
   }
 
   /**
