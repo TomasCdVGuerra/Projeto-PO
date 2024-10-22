@@ -6,12 +6,23 @@ public class Tree extends HotelEntity {
     private SeasonState _seasonState;
     private int _seasonCount;
 
-    public Tree(String treeId, String name, String type, int age, int baseDiff) {
+    public Tree(String treeId, String name, int age, int baseDiff){
         super(treeId, name);
         this._age = age;
         this._baseDiff = baseDiff;
         this._seasonState = new SpringState(); // Initial state
         this._seasonCount = 0; // Initialize season counter
+    }
+
+    public static Tree createTree(String treeId, String name, int age, int baseDiff, String type) {
+        if(type.equals("CAD"))
+            return new Deciduous(treeId, name, age, baseDiff);
+        else if (type.equals("PER"))
+            return new Evergreen(treeId, name, age, baseDiff);
+        else
+            new Exception().printStackTrace();
+            return null;
+        //quando o register é feito certifica se q type é PER ou CAD
     }
 
     public int getAge() {

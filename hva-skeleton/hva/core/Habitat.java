@@ -13,7 +13,7 @@ public class Habitat extends HotelEntity {
     private List<Tree> _trees;
     private List<Zookeeper> _zookeepers;
     private final List<Animal> _animals;
-    private final List<String> _species;
+    private final List<Species> _species;
 
     /**
      * Constructs a Habitat with the specified ID, name, and area.
@@ -75,7 +75,7 @@ public class Habitat extends HotelEntity {
      *
      * @return the list of species
      */
-    public List<String> getSpecies() {
+    public List<Species> getSpecies() {
         return _species;
     }
 

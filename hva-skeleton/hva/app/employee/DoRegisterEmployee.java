@@ -13,14 +13,15 @@ class DoRegisterEmployee extends Command<Hotel> {
     super(Label.REGISTER_EMPLOYEE, receiver);
     addStringField("idEmployee", Prompt.employeeKey());
     addStringField("nomeEmployee", Prompt.employeeName());
-    addStringField("typeEmployee", Prompt.employeeType());
+    addOptionField("typeEmployee", Prompt.employeeType(), "TRT", "VET");
   }
   
   @Override
   protected void execute() throws CommandException {
     String employeeId = stringField("idEmployee");
     String name = stringField("nomeEmployee");
-    String empType= stringField("typeEmployee");
+    String empType = stringField("typeEmployee");
+
     _receiver.registerEmployee(employeeId, name, empType);
   }
 }
