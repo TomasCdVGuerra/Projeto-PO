@@ -1,12 +1,14 @@
 package hva.core;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Represents a zookeeper in the hotel management system.
  */
 public class Zookeeper extends Employee {
-    private final List<String> _habitatsManaged; // Marked as final
+    private List<String> _habitatsManaged;
 
     /**
      * Constructs a new Zookeeper.
@@ -18,13 +20,22 @@ public class Zookeeper extends Employee {
         super(id, name);
         _habitatsManaged = new ArrayList<>(); // Initialize as empty list
     }
+    
+    /**
+     * Adds a habitat responsibility to the zookeeper.
+     *
+     * @param habitatId the ID of the habitat
+     */
+    public void addHabitatResponsibility(String habitatId) {
+        _habitatsManaged.add(habitatId);
+    }
 
     /**
      * Gets the list of habitats managed by the zookeeper.
      *
-     * @return the list of habitats managed
+     * @return the list of habitats managed by the zookeeper
      */
-    public List<String> getHabitatsM() {
+    public List<String> getHabitatsManaged() {
         return _habitatsManaged;
     }
 

@@ -1,8 +1,9 @@
 package hva.core;
 
 import hva.app.exception.UnknownAnimalKeyException;
+import hva.app.exception.UnknownEmployeeKeyException;
 import hva.app.exception.UnknownHabitatKeyException;
-import hva.core.exception.UnrecognizedEntryException;
+import hva.core.exception.UnrecognizedEntryException; 
 import java.io.*;
 import java.util.*;
 
@@ -99,6 +100,25 @@ public class Hotel implements Serializable {
   }
 
   /**
+   * Assigns a habitat to a zookeeper.
+   *
+   * @param zookeeperId the ID of the zookeeper
+   * @param habitatId the ID of the habitat
+   * @throws UnknownHabitatKeyException if the habitat ID is unknown
+   */
+  public void assignHabitatToZookeeper(String zookeeperId, String habitatId) throws UnknownHabitatKeyException {
+    Zookeeper zookeeper = (Zookeeper) _employees.stream()
+                                                .filter(e -> e.getId().equals(zookeeperId) && e instanceof Zookeeper)
+                                                .findFirst()
+                                                .orElseThrow(() -> new IllegalArgumentException("Zookeeper not found"));
+    Habitat habitat = _habitats.stream()
+                               .filter(h -> h.getId().equals(habitatId))
+                               .findFirst()
+                               .orElseThrow(() -> new UnknownHabitatKeyException(habitatId));
+    zookeeper.addHabitatResponsibility(habitatId);
+  }
+
+  /**
    * Adds a responsibility to an employee.
    *
    * @param employeeId the ID of the employee
@@ -109,7 +129,7 @@ public class Hotel implements Serializable {
     for (Employee element : _employees) {
       if (element.getId().equals(employeeId)) {
         if (element instanceof Zookeeper zookeeper) {
-          zookeeper.getHabitatsM().add(i.getId());
+          zookeeper.getHabitatsManaged().add(i.getId()); // Correct method name
         } else if (element instanceof Veterinarian veterinarian) {
           veterinarian.getSpeciesIds().add(i.getId());
         }
@@ -257,6 +277,13 @@ public class Hotel implements Serializable {
   public List<Employee> getEmployees() {
     _employees.sort((e1, e2) -> e1.getId().compareToIgnoreCase(e2.getId()));
     return _employees;
+  }
+
+  public Employee getEmployee(String employeeId) throws UnknownEmployeeKeyException {
+    return _employees.stream()
+                     .filter(e -> e.getId().equals(employeeId))
+                     .findFirst()
+                     .orElseThrow(() -> new UnknownEmployeeKeyException(employeeId));
   }
 
   /**

@@ -22,6 +22,15 @@ public class Veterinarian extends Employee {
     }
 
     /**
+     * Adds a species responsibility to the veterinarian.
+     *
+     * @param speciesId the ID of the species
+     */
+    public void addSpeciesResponsibility(String speciesId) {
+        _speciesIds.add(speciesId);
+    }
+    
+    /**
      * Gets the list of species IDs that the veterinarian is responsible for.
      *
      * @return the list of species IDs
