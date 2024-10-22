@@ -3,7 +3,6 @@ package hva.app.animal;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
-//FIXME add more imports if needed
 
 /**
  * Register a new animal in this zoo hotel.

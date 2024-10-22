@@ -3,8 +3,6 @@ package hva.core;
 import hva.core.exception.UnrecognizedEntryException;
 import java.io.*;
 
-// FIXME add other imports if needed
-
 /**
  * Esta solução assume que a classe Hotel já tem a seguinte funcionalidade
 
