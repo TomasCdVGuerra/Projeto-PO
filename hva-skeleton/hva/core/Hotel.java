@@ -199,6 +199,18 @@ public class Hotel implements Serializable {
   }
 
   /**
+   * Get animal by id in the hotel.
+   *
+   * @return an animal
+   */
+  public Animal getAnimal(String animalId) throws UnknownAnimalKeyException {
+    return _animals.stream()
+                   .filter(a -> a.getId().equals(animalId))
+                   .findFirst()
+                   .orElseThrow(() -> new UnknownAnimalKeyException(animalId));
+  }
+
+  /**
    * Gets the list of habitats in the hotel, sorted by ID.
    *
    * @return the list of habitats

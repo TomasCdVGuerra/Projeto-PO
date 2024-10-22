@@ -160,4 +160,19 @@ public class Habitat extends HotelEntity {
         // For now, returning null as a placeholder
         return null;
     }
+    public int countSameSpecies(Animal animal) {
+        return (int) _animals.stream()
+                             .filter(a -> a.getSpecies().equals(animal.getSpecies()))
+                             .count();
+      }
+    
+      public int countDifferentSpecies(Animal animal) {
+        return (int) _animals.stream()
+                             .filter(a -> !a.getSpecies().equals(animal.getSpecies()))
+                             .count();
+      }
+      public double getAdequacy(Animal animal) {
+        // Implement the logic to calculate adequacy
+        return 1.0; // Placeholder value
+      }
 }
