@@ -221,6 +221,16 @@ public class Hotel implements Serializable {
   }
 
   /**
+   * Gets the list of habitats in the hotel, sorted by ID.
+   *
+   * @return the list of habitats
+   */
+  public List<Habitat> getHabitats() {
+    _habitats.sort((h1, h2) -> h1.getId().compareToIgnoreCase(h2.getId()));
+    return _habitats;
+  }
+
+  /**
    * Gets the count of animals for each species.
    *
    * @return a map of species IDs to animal counts
@@ -327,7 +337,7 @@ public class Hotel implements Serializable {
   public List<Tree> getTrees(String habitatId) {
     for(Habitat i: _habitats){
       if(i.getId().equals(habitatId)){
-        return i.getTrees();
+        return i.getTreesH();
       }
     }
     try {

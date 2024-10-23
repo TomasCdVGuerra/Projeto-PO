@@ -66,13 +66,13 @@ public class Tree extends HotelEntity {
     }
 
     @Override
-    public String toString() {
-        return "Tree{" +
-                "type='" + this.getClass().getName() + '\'' +
-                ", baseDiff=" + _baseDiff +
-                ", age=" + _age +
-                ", seasonState=" + _seasonState.getClass().getSimpleName() +
-                ", seasonCount=" + _seasonCount +
-                '}';
-    }
+public String toString() {
+    return "ÁRVORE|" +
+            this.getId() + '|' +
+            this.getName() + '|' +
+            this.getAge() + '|' +
+            this.getBaseDiff() + '|' +
+            this.getClass().getName() + '|' +
+            ;
+}
 }

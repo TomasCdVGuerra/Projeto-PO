@@ -66,7 +66,7 @@ public class Habitat extends HotelEntity {
      *
      * @return the list of trees
      */
-    public List<Tree> getTrees() {
+    public List<Tree> getTreesH() {
         return _trees;
     }
 
