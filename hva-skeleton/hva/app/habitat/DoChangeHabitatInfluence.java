@@ -9,7 +9,6 @@ import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
 import hva.app.exception.InvalidInfluenceValueException;
 import pt.tecnico.uilib.menus.Command;
-import pt.tecnico.uilib.menus.CommandException;
 
 /**
  * Associate (positive or negatively) a species to a given habitat.
@@ -24,7 +23,7 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
   }
   
   @Override
-  protected void execute() throws CommandException {
+  protected void execute() throws InvalidInfluenceValueException {
     String habitatId = stringField("habitatId");
     String speciesId = stringField("speciesId");
     String influenceStr = stringField("influence");
@@ -57,8 +56,6 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
       throw new UnknownHabitatKeyException("Unknown habitat ID: " + habitatId);
     } catch (UnknownSpeciesKeyException e) {
       throw new UnknownSpeciesKeyException("Unknown species ID: " + speciesId);
-    } catch (InvalidInfluenceValueException e) {
-      throw new InvalidInfluenceValueException("Invalid influence value: " + influenceStr);
     }
   }
 }
