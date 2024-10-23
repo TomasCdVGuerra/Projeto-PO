@@ -3,7 +3,8 @@ package hva.core;
 import hva.app.exception.UnknownAnimalKeyException;
 import hva.app.exception.UnknownEmployeeKeyException;
 import hva.app.exception.UnknownHabitatKeyException;
-import hva.core.exception.UnrecognizedEntryException; 
+import hva.app.exception.UnknownSpeciesKeyException;
+import hva.core.exception.UnrecognizedEntryException;
 import java.io.*;
 import java.util.*;
 
@@ -77,6 +78,22 @@ public class Hotel implements Serializable {
     Species i = new Species(speciesId, name, this);
     _species.add(i);
     markAsChanged();
+  }
+
+  /**
+   * Gets a species by its ID.
+   *
+   * @param speciesId the ID of the species
+   * @return the Species object
+   * @throws UnknownSpeciesKeyException if the species ID is not found
+   */
+  public Species getSpecies(String speciesId) throws UnknownSpeciesKeyException {
+    for (Species species : _species) {
+      if (species.getId().equals(speciesId)) {
+        return species;
+      }
+    }
+    throw new UnknownSpeciesKeyException(speciesId);
   }
 
   /**
@@ -337,7 +354,7 @@ public class Hotel implements Serializable {
   public List<Tree> getTrees(String habitatId) {
     for(Habitat i: _habitats){
       if(i.getId().equals(habitatId)){
-        return i.getTreesH();
+        return i.getTrees();
       }
     }
     try {
