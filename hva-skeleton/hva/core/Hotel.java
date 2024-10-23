@@ -221,6 +221,53 @@ public class Hotel implements Serializable {
   }
 
   /**
+   * Gets the count of animals for each species.
+   *
+   * @return a map of species IDs to animal counts
+   */
+  public Map<String, Integer> getSpeciesAnimalCount() {
+    Map<String, Integer> speciesAnimalCount = new HashMap<>();
+    for (Animal animal : _animals) {
+      speciesAnimalCount.put(animal.getSpecies(), speciesAnimalCount.getOrDefault(animal.getSpecies(), 0) + 1);
+    }
+    return speciesAnimalCount;
+  }
+
+  /**
+   * Gets the count of veterinarians for each species.
+   *
+   * @return a map of species IDs to veterinarian counts
+   */
+  public Map<String, Integer> getSpeciesVetCount() {
+    Map<String, Integer> speciesVetCount = new HashMap<>();
+    for (Employee employee : _employees) {
+      if (employee instanceof Veterinarian vet) {
+        for (String speciesId : vet.getSpeciesIds()) {
+          speciesVetCount.put(speciesId, speciesVetCount.getOrDefault(speciesId, 0) + 1);
+        }
+      }
+    }
+    return speciesVetCount;
+  }
+
+  /**
+   * Gets the count of zookeepers for each habitat.
+   *
+   * @return a map of habitat IDs to zookeeper counts
+   */
+  public Map<String, Integer> getHabitatZookeeperCount() {
+    Map<String, Integer> habitatZookeeperCount = new HashMap<>();
+    for (Employee employee : _employees) {
+      if (employee instanceof Zookeeper keeper) {
+        for (String habitatId : keeper.getHabitatsManaged()) {
+          habitatZookeeperCount.put(habitatId, habitatZookeeperCount.getOrDefault(habitatId, 0) + 1);
+        }
+      }
+    }
+    return habitatZookeeperCount;
+  }
+
+  /**
    * Get animal by id in the hotel.
    *
    * @return an animal
@@ -242,9 +289,22 @@ public class Hotel implements Serializable {
   /**
    * Gets the list of habitats in the hotel, sorted by ID.
    *
+   * @return a map of habitat IDs to habitats
+   */
+  public Map<String, Habitat> getMapHabitats() {
+    Map<String, Habitat> habitatMap = new HashMap<>();
+    for (Habitat habitat : _habitats) {
+      habitatMap.put(habitat.getId(), habitat);
+    }
+    return habitatMap;
+  }
+
+  /**
+   * Gets the list of habitats in the hotel, sorted by ID.
+   *
    * @return the list of habitats
    */
-  public List<Habitat> getHabitats() {
+  public List<Habitat> getListHabitats() {
     _habitats.sort((h1, h2) -> h1.getId().compareToIgnoreCase(h2.getId()));
     return _habitats;
   }
@@ -329,4 +389,6 @@ public class Hotel implements Serializable {
     Parser parser = new Parser(this);
     parser.parseFile(filename);
   }
+
+  
 }
