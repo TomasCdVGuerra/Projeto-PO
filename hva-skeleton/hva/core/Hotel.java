@@ -264,9 +264,18 @@ public class Hotel implements Serializable {
    *
    * @return the list of trees
    */
-  public List<Tree> getTrees() {
-    _trees.sort((t1, t2) -> t1.getId().compareToIgnoreCase(t2.getId()));
-    return _trees;
+  public List<Tree> getTrees(String habitatId) {
+    for(Habitat i: _habitats){
+      if(i.getId().equals(habitatId)){
+        return i.getTrees();
+      }
+    }
+    try {
+      throw new IllegalArgumentException("Habitat ID not found");
+  } catch (IllegalArgumentException e) {
+      e.printStackTrace();
+      return Collections.emptyList(); // Return an empty list or handle as needed
+  }
   }
 
   /**

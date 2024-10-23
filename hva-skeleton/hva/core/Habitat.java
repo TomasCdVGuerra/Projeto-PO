@@ -8,12 +8,12 @@ import java.util.*;
  * Keeps a List of Trees, Zookeepers, Animals and their Species;
  */
 public class Habitat extends HotelEntity {
-    private final int _area;
-    private final int _population;
+    private int _area;
+    private int _population;
     private List<Tree> _trees;
     private List<Zookeeper> _zookeepers;
-    private final List<Animal> _animals;
-    private final List<Species> _species;
+    private List<Animal> _animals;
+    private List<Species> _species;
 
     /**
      * Constructs a Habitat with the specified ID, name, and area.
@@ -66,7 +66,7 @@ public class Habitat extends HotelEntity {
      *
      * @return the list of trees
      */
-    public List<Tree> getTree() {
+    public List<Tree> getTrees() {
         return _trees;
     }
 
@@ -86,6 +86,17 @@ public class Habitat extends HotelEntity {
      */
     public List<Zookeeper> getZookeepers() {
         return _zookeepers;
+    }
+
+    // Set methods
+
+    /**
+     * Sets the area of the habitat.
+     *
+     * @param habitatArea the new Area of the Habitat
+     */
+    public void setArea(int area) {
+        _area=area;
     }
 
     // Add entities to be part of this habitat

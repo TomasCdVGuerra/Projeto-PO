@@ -10,7 +10,6 @@ import java.util.List;
  */
 public abstract class Employee extends HotelEntity {
     private int _satisfLevel;
-    private Hotel _hotel;
     protected List<Responsibility> _listResponsibilities;
 
     public Employee(String id, String name) {
