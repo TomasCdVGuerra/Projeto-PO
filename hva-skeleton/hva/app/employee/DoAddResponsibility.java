@@ -1,11 +1,11 @@
 package hva.app.employee;
 
-import hva.core.Hotel;
+import hva.app.exception.NoResponsibilityException;
+import hva.app.exception.UnknownEmployeeKeyException;
 import hva.core.Employee;
+import hva.core.Hotel;
 import hva.core.Veterinarian;
 import hva.core.Zookeeper;
-import hva.app.exception.UnknownEmployeeKeyException;
-import hva.app.exception.NoResponsibilityException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 
@@ -29,11 +29,14 @@ class DoAddResponsibility extends Command<Hotel> {
     try {
       Employee employee = _receiver.getEmployee(employeeId);
 
-      switch (employee) {
-        case Veterinarian vet -> vet.addSpeciesResponsibility(responsibility);
-        case Zookeeper keeper -> keeper.addHabitatResponsibility(responsibility);
-        default -> throw new NoResponsibilityException(employeeId, responsibility);
+      if (employee instanceof Veterinarian vet) {
+        vet.addSpeciesResponsibility(responsibility);
+      } else if (employee instanceof Zookeeper keeper) {
+        keeper.addHabitatResponsibility(responsibility);
+      } else {
+        throw new NoResponsibilityException(employeeId, responsibility);
       }
+      
 
       _display.popup("Responsibility added to employee " + employeeId);
 
