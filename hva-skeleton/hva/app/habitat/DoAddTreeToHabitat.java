@@ -3,7 +3,6 @@ package hva.app.habitat;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
-//FIXME add more imports if needed
 
 /**
  * Add a new tree to a given habitat of the current zoo hotel.
