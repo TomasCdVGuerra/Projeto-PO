@@ -1,13 +1,13 @@
 package hva.app.habitat;
 
-import hva.core.Hotel;
-import hva.core.Habitat;
-import hva.core.Species;
-import hva.core.Adequation;
-import hva.core.Adequation.AdequationValue;
+import hva.app.exception.InvalidInfluenceValueException;
 import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
-import hva.app.exception.InvalidInfluenceValueException;
+import hva.core.Adequation;
+import hva.core.Adequation.AdequationValue;
+import hva.core.Habitat;
+import hva.core.Hotel;
+import hva.core.Species;
 import pt.tecnico.uilib.menus.Command;
 
 /**
@@ -23,7 +23,7 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
   }
   
   @Override
-  protected void execute() throws InvalidInfluenceValueException {
+  protected void execute() {
     String habitatId = stringField("habitatId");
     String speciesId = stringField("speciesId");
     String influenceStr = stringField("influence");
@@ -32,20 +32,12 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
       Habitat habitat = _receiver.getHabitat(habitatId);
       Species species = _receiver.getSpecies(speciesId);
 
-      AdequationValue influence;
-      switch (influenceStr.toUpperCase()) {
-        case "POSITIVE":
-          influence = AdequationValue.POSITIVE;
-          break;
-        case "NEUTRAL":
-          influence = AdequationValue.NEUTRAL;
-          break;
-        case "NEGATIVE":
-          influence = AdequationValue.NEGATIVE;
-          break;
-        default:
-          throw new InvalidInfluenceValueException(influenceStr);
-      }
+      AdequationValue influence = switch (influenceStr.toUpperCase()) {
+        case "POSITIVE" -> AdequationValue.POSITIVE;
+        case "NEUTRAL" -> AdequationValue.NEUTRAL;
+        case "NEGATIVE" -> AdequationValue.NEGATIVE;
+        default -> throw new InvalidInfluenceValueException(influenceStr);
+      };
 
       Adequation adequation = new Adequation(species, influence);
       habitat.setAdequationForSpecies(speciesId, adequation);
@@ -53,9 +45,11 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
       _display.popup("Influence of species " + speciesId + " on habitat " + habitatId + " set to " + influenceStr);
 
     } catch (UnknownHabitatKeyException e) {
-      throw new UnknownHabitatKeyException("Unknown habitat ID: " + habitatId);
+      _display.popup("Unknown habitat ID: " + habitatId);
     } catch (UnknownSpeciesKeyException e) {
-      throw new UnknownSpeciesKeyException("Unknown species ID: " + speciesId);
+      _display.popup("Unknown species ID: " + speciesId);
+    } catch (InvalidInfluenceValueException e) {
+      _display.popup("Invalid influence value: " + influenceStr);
     }
   }
 }
