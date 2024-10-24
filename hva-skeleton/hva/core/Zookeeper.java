@@ -50,6 +50,16 @@ public class Zookeeper extends Employee {
     }
 
     /**
+     * Adds a habitat to habitats managed by the zookeeper.
+     *
+     * @param id key of the new habitat the employee will manage
+     */
+    @Override
+     public void addResponsibility(String id){
+        _habitatsManaged.add(id);
+    }
+
+    /**
      * Calculates the satisfaction level of the zookeeper.
      *
      * @param habitats a map of habitat IDs to Habitat objects

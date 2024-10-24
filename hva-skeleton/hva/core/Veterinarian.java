@@ -50,6 +50,16 @@ public class Veterinarian extends Employee {
     }
 
     /**
+     * Adds a species to speciesId vaccinated by the veterinarian.
+     *
+     * @param id key of the new species the employee will vaccinate
+     */
+    @Override
+     public void addResponsibility(String id){
+        _speciesIds.add(id);
+    }
+
+    /**
      * Calculates the satisfaction level of the veterinarian.
      *
      * @param speciesAnimalCount a map of species IDs to the number of animals of that species

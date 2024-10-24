@@ -20,6 +20,9 @@ public abstract class Employee extends HotelEntity {
     // Abstract method to get the type of the employee
     public abstract String getType();
 
+    // Abstract method to add a responsibility to the employee
+    public abstract void addResponsibility(String id);
+
     /**
      * Returns a string representation of the object.
      * This method must be implemented by Zookeeper and Veterinarian.

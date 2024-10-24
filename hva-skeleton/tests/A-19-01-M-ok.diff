@@ -1,5 +1,5 @@
-*** tests/A-19-01-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-19-01-M-ok.outhyp	Thu Oct 24 16:56:14 2024
+*** tests/A-19-01-M-ok.out	2024-10-24 13:33:59.769748800 +0100
+--- tests/A-19-01-M-ok.outhyp	2024-10-24 17:22:26.150442100 +0100
 ***************
 *** 17,23 ****
   4 - Retirar responsabilidade

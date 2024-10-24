@@ -424,11 +424,22 @@ public class Hotel implements Serializable {
   }
 
   public Employee getEmployee(String employeeId) throws UnknownEmployeeKeyException {
-    return _employees.stream()
-                     .filter(e -> e.getId().equals(employeeId))
-                     .findFirst()
-                     .orElseThrow(() -> new UnknownEmployeeKeyException(employeeId));
-  }
+    boolean empExists = false;
+    Employee foundEmployee = null;
+    for (Employee i : getEmployees()) {
+        if (i.getId().equals(employeeId)) {
+            empExists = true;
+            foundEmployee = i;
+            break;
+        }
+    }
+    if (!empExists) {
+        throw new UnknownEmployeeKeyException(employeeId);
+    }
+
+    return foundEmployee;
+}
+
 
   /**
    * Marks the hotel as having no unsaved changes.

@@ -1,5 +1,5 @@
-*** tests/A-11-08-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-11-08-M-ok.outhyp	Thu Oct 24 16:56:12 2024
+*** tests/A-11-08-M-ok.out	2024-10-24 13:33:59.691623100 +0100
+--- tests/A-11-08-M-ok.outhyp	2024-10-24 17:22:08.699165200 +0100
 ***************
 *** 27,63 ****
   3 - Transferir para habitat
