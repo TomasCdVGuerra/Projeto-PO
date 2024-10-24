@@ -25,9 +25,9 @@ class DoVaccinateAnimal extends Command<Hotel> {
 
   DoVaccinateAnimal(Hotel receiver) {
     super(Label.VACCINATE_ANIMAL, receiver);
-    _form.addFieldString("veterinarianId", Message.requestVeterinarianId());
-    _form.addFieldString("animalId", Message.requestAnimalId());
-    _form.addFieldString("vaccineId", Message.requestVaccineId());
+    _form.addStringField("veterinarianId", Message.requestVeterinarianId());
+    _form.addStringField("animalId", Message.requestAnimalId());
+    _form.addStringField("vaccineId", Message.requestVaccineId());
   }
 
   @Override
@@ -41,11 +41,11 @@ class DoVaccinateAnimal extends Command<Hotel> {
       Vaccine vaccine = _receiver.getVaccine(_vaccineId);
       Animal animal = _receiver.getAnimal(_animalId);
       if (!_receiver.isAuthorized(_veterinarianId, animal.getSpeciesId())) {
-        throw new VeterinarianNotAuthorizedException(_veterinarianId, animal.getSpeciesId());
+          throw new VeterinarianNotAuthorizedException(_veterinarianId, animal.getSpeciesId());
       }
       animal.vaccinate(vaccine);
-    } catch (UnknownVaccineKeyException | UnknownAnimalKeyException | UnknownVeterinarianKeyException e) {
-      throw new CommandException(e.getMessage());
-    }
+  } catch (UnknownAnimalKeyException e) {
+      throw new UnknownAnimalKeyException(e.getMessage());
+  }
   }
 }
