@@ -2,8 +2,6 @@ package hva.app.vaccine;
 
 import hva.core.Hotel;
 import hva.app.exception.UnknownAnimalKeyException;
-import hva.app.exception.UnknownVaccineKeyException;
-import hva.app.exception.UnknownVeterinarianKeyException;
 import hva.app.exception.VeterinarianNotAuthorizedException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
@@ -29,13 +27,9 @@ class DoVaccinateAnimal extends Command<Hotel> {
       _receiver.vaccinateAnimal(animalId, vaccineId, veterinarianId);
       _display.popup("Vacinação realizada com sucesso.");
     } catch (UnknownAnimalKeyException e) {
-      throw new CommandException("Unknown animal ID: " + animalId);
-    } catch (UnknownVaccineKeyException e) {
-      throw new CommandException("Unknown vaccine ID: " + vaccineId);
-    } catch (UnknownVeterinarianKeyException e) {
-      throw new CommandException("Unknown veterinarian ID: " + veterinarianId);
+      throw new CommandException(Message.unknownAnimalKey(animalId));
     } catch (VeterinarianNotAuthorizedException e) {
-      throw new CommandException("Veterinarian not authorized: " + veterinarianId);
+      throw new CommandException(Message.veterinarianNotAuthorized(veterinarianId));
     }
   }
 }
