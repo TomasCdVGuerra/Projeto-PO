@@ -16,8 +16,8 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
 
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Grant execute permission for runtests.sh
+      run: chmod +x hva-skeleton/runtests.sh
 
     - name: Run tests
-      run: ./gradlew test
+      run: ./hva-skeleton/runtests.sh
