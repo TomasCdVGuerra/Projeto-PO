@@ -34,8 +34,6 @@ class DoVaccinateAnimal extends Command<Hotel> {
       throw new UnknownAnimalKeyException("Unknown animal ID: " + animalId);
     } catch (UnknownVaccineKeyException e) {
       throw new UnknownVaccineKeyException("Unknown vaccine ID: " + vaccineId);
-    } catch (VeterinarianNotAuthorizedException e) {
-      throw new VeterinarianNotAuthorizedException("Veterinarian not authorized: " + veterinarianId + " for species: ",  _receiver.getAnimal(animalId).getSpecies(), e);
     }
   }
 }
