@@ -1,14 +1,9 @@
 package hva.app.exception;
 
-import pt.tecnico.uilib.menus.CommandException;
+public class VeterinarianNotAuthorizedException extends Exception {
+  private static final long serialVersionUID = 1L;
 
-import java.io.Serial;
-
-public class VeterinarianNotAuthorizedException extends CommandException {
-  @Serial
-  private static final long serialVersionUID = 202407081733L;
-  
-  public VeterinarianNotAuthorizedException(String idVet, String idSpecies) {
-    super(Message.notAuthorized(idVet, idSpecies));
+  public VeterinarianNotAuthorizedException(String veterinarianId, String species) {
+    super("Veterinarian " + veterinarianId + " is not authorized for species " + species);
   }
 }
