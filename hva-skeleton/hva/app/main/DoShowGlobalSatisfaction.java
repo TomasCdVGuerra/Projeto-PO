@@ -19,6 +19,6 @@ class DoShowGlobalSatisfaction extends Command<HotelManager> {
       sum+=a.satisfaction();
     }
     
-    _display.popup(sum);
+    _display.popup(Math.round(sum));
   }
 }
