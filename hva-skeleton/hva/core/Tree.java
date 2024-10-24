@@ -6,7 +6,7 @@ public class Tree extends HotelEntity {
     private SeasonState _seasonState;
     private int _seasonCount;
 
-    public Tree(String treeId, String name, int age, int baseDiff){
+    public Tree(String treeId, String name, int age, int baseDiff) {
         super(treeId, name);
         this._age = age;
         this._baseDiff = baseDiff;
@@ -15,14 +15,15 @@ public class Tree extends HotelEntity {
     }
 
     public static Tree createTree(String treeId, String name, int age, int baseDiff, String type) {
-        if(type.equals("CAD"))
+        if (type.equals("CAD"))
             return new Deciduous(treeId, name, age, baseDiff);
         else if (type.equals("PER"))
             return new Evergreen(treeId, name, age, baseDiff);
-        else
+        else {
             new Exception().printStackTrace();
             return null;
-        //quando o register é feito certifica se q type é PER ou CAD
+        }
+        // Ensure that the type is either PER or CAD during registration
     }
 
     public int getAge() {
@@ -66,33 +67,32 @@ public class Tree extends HotelEntity {
     }
 
     @Override
-public String toString() {
-    return "ÁRVORE|" +
-            this.getId() + '|' +
-            this.getName() + '|' +
-            this.getAge() + '|' +
-            this.getBaseDiff() + '|' +
-            this.getClass().getName() + '|' +
-            this.getBiologicalCycle();
-}
-
-private String getBiologicalCycle() {
-    String cycle = "";
-
-    // Verifica o tipo de estação atual (_seasonState)
-    if (_seasonState instanceof WinterState) {
-        cycle = (this instanceof Deciduous) ? "SEMFOLHAS" : "LARGARFOLHAS";
-    } else if (_seasonState instanceof SpringState) {
-        cycle = "GERARFOLHAS";
-    } else if (_seasonState instanceof SummerState) {
-        cycle = "COMFOLHAS";
-    } else if (_seasonState instanceof AutumnState) {
-        cycle = (this instanceof Deciduous) ? "LARGARFOLHAS" : "COMFOLHAS";
-    } else {
-        cycle = "Ciclo desconhecido";
+    public String toString() {
+        return "ÁRVORE|" +
+                this.getId() + '|' +
+                this.getName() + '|' +
+                this.getAge() + '|' +
+                this.getBaseDiff() + '|' +
+                (this instanceof Deciduous ? "CADUCA" : "PERENE") + '|' +
+                this.getBiologicalCycle();
     }
 
-    return cycle;
-}
+    private String getBiologicalCycle() {
+        String cycle = "";
 
+        // Determine the biological cycle based on the current season state
+        if (_seasonState instanceof WinterState) {
+            cycle = (this instanceof Deciduous) ? "SEMFOLHAS" : "LARGARFOLHAS";
+        } else if (_seasonState instanceof SpringState) {
+            cycle = "GERARFOLHAS";
+        } else if (_seasonState instanceof SummerState) {
+            cycle = "COMFOLHAS";
+        } else if (_seasonState instanceof AutumnState) {
+            cycle = (this instanceof Deciduous) ? "LARGARFOLHAS" : "COMFOLHAS";
+        } else {
+            cycle = "Ciclo desconhecido";
+        }
+
+        return cycle;
+    }
 }
