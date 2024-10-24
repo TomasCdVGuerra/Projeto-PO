@@ -84,18 +84,20 @@ public class Veterinarian extends Employee {
     @Override
     public String toString() {
         String r = "";
-        if (_speciesIds.isEmpty())
+        if (_speciesIds.isEmpty()) {
             return getType() + "|" + super.getId() + "|" + super.getName();
-            int size = _speciesIds.size();
-            int count = 0;
-                
-            for (String element : _speciesIds) {
-                r += element;
-                count++;
-                if (count < size) {
-                    r += ",";
-                }
+        }
+        
+        int size = _speciesIds.size();
+        int count = 0;
+        
+        for (String element : _speciesIds) {
+            r += element;
+            count++;
+            if (count < size) {
+                r += ",";
             }
+        }
         return getType() + "|" + super.getId() + "|" + super.getName() + "|" + r;
     }
 }
