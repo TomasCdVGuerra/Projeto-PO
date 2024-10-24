@@ -1,27 +1,37 @@
-package hva.app.main;
+package hva;
 
-import hva.core.Habitat;
 import hva.core.Hotel;
-import hva.core.HotelManager;
-import hva.core.Tree;
+import hva.core.Animal;
+import hva.core.Habitat;
+import hva.app.exception.UnknownHabitatKeyException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
+import pt.tecnico.uilib.form.Form;
 
 /**
- * Command for advancing the season of the system.
+ * Show all animals of a given habitat.
  **/
-class DoAdvanceSeason extends Command<HotelManager> {
-  DoAdvanceSeason(HotelManager receiver) {
-    super(Label.ADVANCE_SEASON, receiver);
+class DoShowAnimalsInHabitat extends Command<Hotel> {
+
+  DoShowAnimalsInHabitat(Hotel receiver) {
+    super(Label.ANIMALS_IN_HABITAT, receiver);
+    addStringField("habitatId", Message.requestHabitatId());
   }
 
   @Override
-  protected final void execute() throws CommandException {
-    Hotel hotel = _receiver.getHotel();
-    for (Habitat habitat : hotel.getListHabitats()) {
-      for (Tree tree : habitat.getTrees()) {
-        tree.incrementSeason();
-      }
+  protected void execute() throws CommandException {
+    String habitatId = stringField("habitatId");
+    Habitat habitat;
+
+    try {
+      habitat = _receiver.getHabitat(habitatId);
+    } catch (UnknownHabitatKeyException e) {
+      throw new UnknownHabitatKeyException(e.getMessage());
     }
+
+    for (Animal animal : habitat.getAnimals()) {
+      _display.addLine(animal.toString());
+    }
+    _display.display();
   }
 }
