@@ -1,4 +1,4 @@
-package hva.app.search;
+package hva.app.main;
 
 import hva.core.Hotel;
 import hva.core.Animal;
@@ -6,7 +6,7 @@ import hva.core.Habitat;
 import hva.app.exception.UnknownHabitatKeyException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
-import pt.tecnico.uilib.form.Form;
+import pt.tecnico.uilib.forms.Form;
 
 /**
  * Show all animals of a given habitat.
