@@ -15,4 +15,6 @@ public interface Label {
 
   String ADVANCE_SEASON = "Avançar estação do ano";
   String SHOW_GLOBAL_SATISFACTION = "Ver satisfação global";
+
+ 
 }
