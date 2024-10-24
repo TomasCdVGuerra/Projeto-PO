@@ -57,8 +57,8 @@ Gestão de Funcionários
 4 - Retirar responsabilidade
 5 - Calcular satisfação de funcionário
 0 - Sair
-Escolha uma opção: TRT|T1|Trt one|H1,H2,H3,
-TRT|T2|Trt two|H2,H3,
+Escolha uma opção: TRT|T1|Trt one|H1,H2,H3
+TRT|T2|Trt two|H2,H3
 VET|V1|Vet one
 VET|V2|Vet two
 Gestão de Funcionários
@@ -100,10 +100,10 @@ Gestão de Funcionários
 4 - Retirar responsabilidade
 5 - Calcular satisfação de funcionário
 0 - Sair
-Escolha uma opção: TRT|T1|Trt one|H1,H2,H3,
-TRT|T2|Trt two|H2,H3,
-VET|V1|Vet one|C1,C3,C4,
-VET|V2|Vet two|C2,
+Escolha uma opção: TRT|T1|Trt one|H1,H2,H3
+TRT|T2|Trt two|H2,H3
+VET|V1|Vet one|C1,C3,C4
+VET|V2|Vet two|C2
 Gestão de Funcionários
 1 - Visualizar todos os funcionários
 2 - Registar funcionário

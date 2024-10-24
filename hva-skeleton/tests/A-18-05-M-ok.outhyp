@@ -26,7 +26,7 @@ Gestão de Funcionários
 4 - Retirar responsabilidade
 5 - Calcular satisfação de funcionário
 0 - Sair
-Escolha uma opção: Employee IDResponsibilityRetirar responsabilidade: Operação inválida: O funcionário 'Employee V1 does not have this responsibility.' não existe.
+Escolha uma opção: Employee IDResponsibilityRetirar responsabilidade: Operação inválida: Responsabilidade (habitat ou espécie) 'C2' não atribuída ao funcionário 'V1'.
 Gestão de Funcionários
 1 - Visualizar todos os funcionários
 2 - Registar funcionário
