@@ -2,7 +2,6 @@ package hva.app.vaccine;
 import hva.app.exception.UnknownAnimalKeyException;
 import hva.app.exception.UnknownVaccineKeyException;
 import hva.app.exception.VeterinarianNotAuthorizedException;
-//FIXME
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 
@@ -33,5 +32,5 @@ class DoVaccinateAnimal extends Command<Hotel> {
     } catch (UnknownAnimalKeyException e) {
       throw new UnknownAnimalKeyException(animalId);
   }
-  
+  }
 }
