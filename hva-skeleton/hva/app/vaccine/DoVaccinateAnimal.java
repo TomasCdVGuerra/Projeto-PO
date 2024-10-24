@@ -2,6 +2,8 @@ package hva.app.vaccine;
 
 import hva.core.Hotel;
 import hva.app.exception.UnknownAnimalKeyException;
+import hva.app.exception.UnknownVaccineKeyException;
+import hva.app.exception.UnknownVeterinarianKeyException;
 import hva.app.exception.VeterinarianNotAuthorizedException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
@@ -18,7 +20,7 @@ class DoVaccinateAnimal extends Command<Hotel> {
   }
 
   @Override
-  protected final void execute() throws CommandException {
+  protected final void execute() {
     String animalId = stringField("animalId");
     String vaccineId = stringField("vaccineId");
     String veterinarianId = stringField("veterinarianId");
@@ -27,9 +29,9 @@ class DoVaccinateAnimal extends Command<Hotel> {
       _receiver.vaccinateAnimal(animalId, vaccineId, veterinarianId);
       _display.popup("Vacinação realizada com sucesso.");
     } catch (UnknownAnimalKeyException e) {
-      throw new CommandException(Message.unknownAnimalKey(animalId));
+      throw new UnknownAnimalKeyException("Unknown animal ID: " + animalId);
     } catch (VeterinarianNotAuthorizedException e) {
-      throw new CommandException(Message.veterinarianNotAuthorized(veterinarianId));
+      throw new VeterinarianNotAuthorizedException("Veterinarian not authorized: " + veterinarianId + " for species: " + _receiver.getAnimal(animalId).getSpecies());
     }
   }
 }
