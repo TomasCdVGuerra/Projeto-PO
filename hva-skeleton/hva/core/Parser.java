@@ -116,12 +116,6 @@ public class Parser {
   // Parse a line with format ÁRVORE|id|nome|idade|dificuldade|tipo
 private void parseTree(String[] components) throws UnrecognizedEntryException {
   try {
-      // Debug statements
-      System.out.println("Components Length: " + components.length);
-      for (int i = 0; i < components.length; i++) {
-          System.out.println("Component[" + i + "]: " + components[i]);
-      }
-      
       String id = components[1];
       String name = components[2];
       int age = Integer.parseInt(components[3]);
