@@ -1,5 +1,7 @@
 package hva.app.search;
 
 public interface Message {
-  // EMPTY
+  static String requestHabitatId() {
+    return "Please provide the habitat ID:";
+  }
 }

@@ -1,4 +1,4 @@
-package hva.app.animal;
+package hva.app.search;
 
 import hva.app.exception.UnknownHabitatKeyException;
 import hva.core.Animal;
