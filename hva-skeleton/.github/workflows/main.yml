@@ -1,23 +1,19 @@
-name: Java CI
+name: Run Tests
 
 on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
+    - uses: actions/checkout@v2
     - name: Set up JDK 21
       uses: actions/setup-java@v2
       with:
-        distribution: 'adopt'
         java-version: '21'
-
-    - name: Grant execute permission for runtests.sh
-      run: chmod +x hva-skeleton/runtests.sh
-
+        distribution: 'temurin'
     - name: Run tests
-      run: ./hva-skeleton/runtests.sh
+      run: |
+        chmod +x hva-skeleton/runtests_both.sh
+        hva-skeleton/runtests_both.sh
