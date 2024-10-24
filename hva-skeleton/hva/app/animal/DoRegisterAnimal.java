@@ -1,6 +1,9 @@
 package hva.app.animal;
 
+import hva.app.exception.UnknownSpeciesKeyException;
 import hva.core.Hotel;
+import hva.core.Species;
+import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME
@@ -31,6 +34,14 @@ class DoRegisterAnimal extends Command<Hotel> {
     String speciesId = stringField("idSpecies");
 
     String habitatId = stringField("idHabitat");
+
+    try {
+      Species species = _receiver.getSpecies(speciesId);
+    } catch (UnknownSpeciesKeyException e) {
+      String newSpeciesName = Form.requestString("Species not found. Enter the name of the new species:");
+      _receiver.registerSpecies(speciesId, newSpeciesName);
+    }
+
     _receiver.registerAnimal(animalId, name, speciesId, habitatId);
   }
 }

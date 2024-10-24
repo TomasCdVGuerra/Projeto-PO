@@ -14,6 +14,7 @@ public class Habitat extends HotelEntity {
     private List<Zookeeper> _zookeepers;
     private List<Animal> _animals;
     private List<Species> _species;
+    private Map<String, Adequation> _adequations = new HashMap<>();
 
     /**
      * Constructs a Habitat with the specified ID, name, and area.
@@ -66,7 +67,7 @@ public class Habitat extends HotelEntity {
      *
      * @return the list of trees
      */
-    public List<Tree> getTreesH() {
+    public List<Tree> getTrees() { // Renamed from getTreesH to getTrees
         return _trees;
     }
 
@@ -167,10 +168,19 @@ public class Habitat extends HotelEntity {
      * @return the adequation for the species
      */
     public Adequation getAdequationForSpecies(String speciesId) {
-        // Implement logic to get the adequation for a species
-        // For now, returning null as a placeholder
-        return null;
+        return _adequations.get(speciesId);
     }
+
+    /**
+     * Sets the adequation for a species.
+     *
+     * @param speciesId the ID of the species
+     * @param adequation the adequation to set
+     */
+    public void setAdequationForSpecies(String speciesId, Adequation adequation) {
+        _adequations.put(speciesId, adequation);
+    }
+
     public int countSameSpecies(Animal animal) {
         return (int) _animals.stream()
                              .filter(a -> a.getSpecies().equals(animal.getSpecies()))
