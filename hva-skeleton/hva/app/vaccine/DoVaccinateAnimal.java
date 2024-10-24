@@ -3,7 +3,6 @@ package hva.app.vaccine;
 import hva.core.Hotel;
 import hva.core.Vaccine;
 import hva.core.Animal;
-import hva.core.Veterinarian;
 import hva.app.exception.UnknownAnimalKeyException;
 import hva.app.exception.UnknownVaccineKeyException;
 import hva.app.exception.UnknownVeterinarianKeyException;
@@ -12,13 +11,11 @@ import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 import pt.tecnico.uilib.forms.Form;
 
-// Add more imports if needed
-
 /**
  * Vaccinate by a given veterinarian a given animal with a given vaccine.
  **/
 class DoVaccinateAnimal extends Command<Hotel> {
-  private Form _form = new Form();
+  private final Form _form = new Form();
   private String _veterinarianId;
   private String _animalId;
   private String _vaccineId;
@@ -40,12 +37,12 @@ class DoVaccinateAnimal extends Command<Hotel> {
     try {
       Vaccine vaccine = _receiver.getVaccine(_vaccineId);
       Animal animal = _receiver.getAnimal(_animalId);
-      if (!_receiver.isAuthorized(_veterinarianId, animal.getSpeciesId())) {
-          throw new VeterinarianNotAuthorizedException(_veterinarianId, animal.getSpeciesId());
+      if (!_receiver.isAuthorized(_veterinarianId, animal.getSpecies())) {
+        throw new VeterinarianNotAuthorizedException(_veterinarianId, animal.getSpecies());
       }
-      animal.vaccinate(vaccine);
-  } catch (UnknownAnimalKeyException e) {
-      throw new UnknownAnimalKeyException(e.getMessage());
-  }
+      _receiver.vaccinateAnimal(_animalId, _vaccineId, _veterinarianId);
+    } catch (UnknownVaccineKeyException | UnknownAnimalKeyException | UnknownVeterinarianKeyException e) {
+      throw new CommandException(e.getMessage());
+    }
   }
 }
