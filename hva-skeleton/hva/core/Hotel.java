@@ -493,6 +493,20 @@ public class Hotel implements Serializable {
     Parser parser = new Parser(this);
     parser.parseFile(filename);
   }
-
-  
+  /**
+   * Gets the list of habitats in the hotel, sorted by ID.
+   * 
+   * @return the list of habitats
+   */
+  public List<String> getHabitatsWithTrees() {
+    _habitats.sort((h1, h2) -> h1.getId().compareToIgnoreCase(h2.getId()));
+    List<String> habitatsInfo = new ArrayList<>();
+    for (Habitat habitat : _habitats) {
+        habitatsInfo.add(habitat.toString());
+        for (Tree tree : habitat.getTrees()) {
+            habitatsInfo.add(tree.toString());
+        }
+    }
+    return habitatsInfo;
+  }
 }

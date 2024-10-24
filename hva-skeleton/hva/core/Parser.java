@@ -95,10 +95,10 @@ public class Parser {
       for (String responsibility : responsibilities) {
           _hotel.getEmployee(id).addResponsibility(responsibility);
       }
-  } catch (UnknownEmployeeKeyException e) {
+    } catch (UnknownEmployeeKeyException e) {
       throw new UnrecognizedEntryException("Failed to add responsibilities: " + e.getMessage());
+    }
   }
-}
 
 
   // Parse a line with format VACINA|id|nome|idEspécie1,...,idEspécieN
@@ -130,20 +130,23 @@ public class Parser {
 
   // Parse a line with format HABITAT|id|nome|área|idÁrvore1,...,idÁrvoreN
   private void parseHabitat(String[] components) throws UnrecognizedEntryException {
-    //try {
+    try {
       String id = components[1];
       String name = components[2];
       int area = Integer.parseInt(components[3]);
+      String[] treeIds = components.length > 4 ? components[4].split(",") : new String[0];
 
       _hotel.registerHabitat(id, name, area);
 
-          // adicionar a árvore com id treeKey ao habitat referenciado por hab
+      // Associate trees with the habitat
+      for (String treeId : treeIds) {
+        _hotel.addTreeToHabitat(id, treeId);
       }
-    /* } catch (excCore1 | excpCore 2 | ...) {
-      throw new UnrecognizedEntryException("Invalid entry: " + e.getMessage);
-    } */
+    } catch (Exception e) {
+      throw new UnrecognizedEntryException("Invalid entry: " + e.getMessage());
+    }
+  }
 }
-
 /**
  * Nota: O bloco catch presente nos vários métodos parse desta classe deverá ter em conta
  * as várias excepções que podem acontecer no contexto do bloco try em questão.
