@@ -6,4 +6,5 @@ interface Label {
   String REGISTER_ANIMAL = "Registar animal";
   String TRANSFER_ANIMAL_TO_HABITAT = "Transferir para habitat";
   String SHOW_SATISFACTION_OF_ANIMAL = "Calcular satisfação de animal";
+  String ANIMALS_IN_HABITAT = "Animais num habitat";
 }
