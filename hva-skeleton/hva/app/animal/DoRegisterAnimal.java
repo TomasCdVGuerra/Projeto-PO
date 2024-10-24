@@ -1,5 +1,6 @@
 package hva.app.animal;
 
+import hva.app.exception.DuplicateAnimalKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
 import hva.core.Habitat;
 import hva.core.Hotel;
@@ -27,8 +28,11 @@ class DoRegisterAnimal extends Command<Hotel> {
     String animalId = stringField("idAnimal");
     String name = stringField("nomeAnimal");
     String speciesId = stringField("idSpecies");
-
     String habitatId = stringField("idHabitat");
+
+    if (_receiver.getAnimal(animalId) != null) {
+        throw new DuplicateAnimalKeyException(animalId);
+    }
 
     try {
       Species species = _receiver.getSpecies(speciesId);

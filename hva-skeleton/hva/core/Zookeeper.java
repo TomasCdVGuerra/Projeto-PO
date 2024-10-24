@@ -84,8 +84,16 @@ public class Zookeeper extends Employee {
         String r = "";
         if (_habitatsManaged.isEmpty())
             return getType() + "|" + super.getId() + "|" + super.getName();
+            
+        int size = _habitatsManaged.size();
+        int count = 0;
+            
         for (String element : _habitatsManaged) {
-            r += element + ",";
+            r += element;
+            count++;
+            if (count < size) {
+                r += ",";
+            }
         }
         return getType() + "|" + super.getId() + "|" + super.getName() + "|" + r;
     }
