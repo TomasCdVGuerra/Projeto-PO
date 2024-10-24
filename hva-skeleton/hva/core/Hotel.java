@@ -186,6 +186,24 @@ public class Hotel implements Serializable {
   }
 
   /**
+   * Vaccinates an animal with a vaccine.
+   *
+   * @param animalId the ID of the animal
+   * @param vaccineId the ID of the vaccine
+   * @param veterinarianId the ID of the veterinarian
+   */
+  public void vaccinateAnimal(String animalId, String vaccineId, String veterinarianId) throws UnknownAnimalKeyException, UnknownVaccineKeyException, UnknownVeterinarianKeyException, VeterinarianNotAuthorizedException {
+    Animal animal = getAnimal(animalId);
+    Vaccine vaccine = getVaccine(vaccineId);
+    if (!isAuthorized(veterinarianId, animal.getSpecies())) {
+        throw new VeterinarianNotAuthorizedException(veterinarianId, animal.getSpecies());
+    }
+    // Implement the vaccination logic here
+    // For example: animal.addVaccine(vaccine);
+    markAsChanged();
+}
+
+  /**
    * Adds a tree to a habitat.
    *
    * @param idHabitat the ID of the habitat
