@@ -42,5 +42,6 @@ class DoRegisterAnimal extends Command<Hotel> {
     species.addAnimal(animalId);
     Habitat habitat = _receiver.getHabitat(habitatId);
     habitat.addAnimal(_receiver.getAnimal(animalId));
+    habitat.addSpecies(species);
   }
 }

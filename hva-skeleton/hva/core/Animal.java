@@ -8,6 +8,7 @@ public class Animal extends HotelEntity {
     private final String _species;
     private Habitat _habitat;
     private String _healthHistory;
+    private double _satisfaction;
 
     /**
      * Constructs an Animal.
@@ -70,13 +71,15 @@ public class Animal extends HotelEntity {
     }
 
     public double satisfaction() {
-        int sameSpecies = getSameSpeciesCount();
-        int differentSpecies = getDifferentSpeciesCount();
-        double area = _habitat.getArea();
-        int population = _habitat.getPopulation();
-        double suitability = getSuitability();
+    int especieIgual = this.getSameSpeciesCount();
+    int especieDiferente = this.getDifferentSpeciesCount();
 
-        return 20 + 3 * sameSpecies - 2 * differentSpecies + (area / population) + suitability;
+    double area = _habitat.getArea();
+    int populacao = _habitat.getPopulation();
+    double adequacao = this.getSuitability();
+
+    double satisfacao = 20 + 3 * especieIgual - 2 * especieDiferente + (area / populacao) + adequacao;
+    return satisfacao;
     }
 
     private int getSameSpeciesCount() {
