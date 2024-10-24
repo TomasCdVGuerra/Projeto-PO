@@ -72,7 +72,6 @@ public String toString() {
             this.getName() + '|' +
             this.getAge() + '|' +
             this.getBaseDiff() + '|' +
-            this.getClass().getName() + '|' +
-            ;
+            this.getClass().getName() + '|';
 }
 }

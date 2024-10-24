@@ -74,9 +74,17 @@ public class Hotel implements Serializable {
    * @param name the name of the species
    */
   public void registerSpecies(String speciesId, String name) {
+    boolean speciesExists=false;
+
+    for(Species i: this.getSpecies()){
+      if(i.getId().equals(speciesId))
+        speciesExists=true;
+    }
+    if(speciesExists==false){
     Species i = new Species(speciesId, name, this);
     _species.add(i);
     markAsChanged();
+    }
   }
 
   /**
