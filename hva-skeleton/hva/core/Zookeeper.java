@@ -67,8 +67,10 @@ public class Zookeeper extends Employee {
                         workInHabitat += tree.getCleaningEffort();
                     }
                 }
-                int zookeeperCount = habitatZookeeperCount.getOrDefault(habitatId, 1); // Avoid division by zero
+                int zookeeperCount = habitatZookeeperCount.getOrDefault(habitatId, 1);
+                System.out.println("Habitat ID: " + habitatId + ", Work in Habitat: " + workInHabitat + ", Zookeeper Count: " + zookeeperCount);
                 satisfaction -= workInHabitat / zookeeperCount;
+                System.out.println("Intermediate Satisfaction: " + satisfaction);
             }
         }
         return satisfaction;
