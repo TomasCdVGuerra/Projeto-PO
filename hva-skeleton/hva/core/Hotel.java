@@ -4,7 +4,8 @@ import hva.app.exception.UnknownAnimalKeyException;
 import hva.app.exception.UnknownEmployeeKeyException;
 import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
-import hva.core.exception.UnrecognizedEntryException;
+import hva.app.exception.VeterinarianNotAuthorizedException;
+import hva.core.exception.*;
 import java.io.*;
 import java.util.*;
 
@@ -192,7 +193,7 @@ public class Hotel implements Serializable {
    * @param vaccineId the ID of the vaccine
    * @param veterinarianId the ID of the veterinarian
    */
-  public void vaccinateAnimal(String animalId, String vaccineId, String veterinarianId) throws UnknownAnimalKeyException, UnknownVaccineKeyException, UnknownVeterinarianKeyException, VeterinarianNotAuthorizedException {
+  public void vaccinateAnimal(String animalId, String vaccineId, String veterinarianId) throws UnknownAnimalKeyException, UnknownVaccineKeyException, UnknownVeterinarianKeyException, VeterinarianNotAuthorizedException, UnknownEmployeeKeyException {
     Animal animal = getAnimal(animalId);
     Vaccine vaccine = getVaccine(vaccineId);
     if (!isAuthorized(veterinarianId, animal.getSpecies())) {
@@ -201,7 +202,39 @@ public class Hotel implements Serializable {
     // Implement the vaccination logic here
     // For example: animal.addVaccine(vaccine);
     markAsChanged();
-}
+  }
+
+  /**
+   * Gets a vaccine by its ID.
+   *
+   * @param vaccineId the ID of the vaccine
+   * @return the Vaccine object
+   * @throws UnknownVaccineKeyException if the vaccine ID is not found
+   */
+  public Vaccine getVaccine(String vaccineId) throws UnknownVaccineKeyException {
+    for (Vaccine vaccine : _vaccines) {
+      if (vaccine.getId().equals(vaccineId)) {
+        return vaccine;
+      }
+    }
+    throw new UnknownVaccineKeyException(vaccineId);
+  }
+
+  /**
+   * Checks if a veterinarian is authorized to vaccinate the given species.
+   *
+   * @param veterinarianId the ID of the veterinarian
+   * @param speciesId the ID of the species
+   * @return true if authorized, false otherwise
+   * @throws UnknownEmployeeKeyException if the veterinarian ID is not found
+   */
+  public boolean isAuthorized(String veterinarianId, String speciesId) throws UnknownEmployeeKeyException {
+    Veterinarian veterinarian = (Veterinarian) _employees.stream()
+                                                        .filter(e -> e.getId().equals(veterinarianId) && e instanceof Veterinarian)
+                                                        .findFirst()
+                                                        .orElseThrow(() -> new UnknownEmployeeKeyException(veterinarianId));
+    return veterinarian.getSpeciesIds().contains(speciesId);
+  }
 
   /**
    * Adds a tree to a habitat.
