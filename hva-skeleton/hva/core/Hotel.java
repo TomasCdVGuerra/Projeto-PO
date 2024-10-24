@@ -490,5 +490,5 @@ public class Hotel implements Serializable {
         }
     }
     return habitatsInfo;
-}
+  }
 }

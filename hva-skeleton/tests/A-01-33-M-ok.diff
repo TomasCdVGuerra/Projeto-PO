@@ -1,5 +1,5 @@
 *** tests/A-01-33-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-01-33-M-ok.outhyp	Thu Oct 24 23:43:05 2024
+--- tests/A-01-33-M-ok.outhyp	Thu Oct 24 23:49:16 2024
 ***************
 *** 18,29 ****
   5 - Plantar árvore
@@ -14,12 +14,29 @@
   Gestão de Habitats
   1 - Visualizar todos os habitats
   2 - Registar habitat
---- 18,25 ----
+--- 18,24 ----
   5 - Plantar árvore
   6 - Mostrar árvores de habitat
   0 - Sair
 ! Escolha uma opção: HABITAT|H1|Aldeia dos Macacos|20|0
-! HABITAT|H2|Aldeia dos Ursos|20|0
   Gestão de Habitats
   1 - Visualizar todos os habitats
   2 - Registar habitat
+***************
+*** 51,58 ****
+  4 - Retirar responsabilidade
+  5 - Calcular satisfação de funcionário
+  0 - Sair
+! Escolha uma opção: TRT|W2SO4|John Figueiredo|H1,H2
+! Gestão de Funcionários
+  1 - Visualizar todos os funcionários
+  2 - Registar funcionário
+  3 - Atribuir responsabilidade
+--- 46,52 ----
+  4 - Retirar responsabilidade
+  5 - Calcular satisfação de funcionário
+  0 - Sair
+! Escolha uma opção: Gestão de Funcionários
+  1 - Visualizar todos os funcionários
+  2 - Registar funcionário
+  3 - Atribuir responsabilidade
