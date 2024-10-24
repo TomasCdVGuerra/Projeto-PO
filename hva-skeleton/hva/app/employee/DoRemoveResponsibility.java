@@ -45,7 +45,7 @@ class DoRemoveResponsibility extends Command<Hotel> {
         } catch (UnknownEmployeeKeyException e) {
             throw new UnknownEmployeeKeyException("Unknown employee ID: " + employeeId);
         } catch (NoResponsibilityException e) {
-            throw new UnknownEmployeeKeyException("Employee " + employeeId + " does not have this responsibility.");
+            throw new NoResponsibilityException(employeeId, responsibility);
         }
     }
 }

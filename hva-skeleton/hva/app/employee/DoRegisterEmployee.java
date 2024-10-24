@@ -1,6 +1,7 @@
 package hva.app.employee;
 
 import hva.app.exception.DuplicateEmployeeKeyException;
+import hva.core.Employee;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
@@ -23,7 +24,8 @@ class DoRegisterEmployee extends Command<Hotel> {
     String name = stringField("nomeEmployee");
     String empType = stringField("typeEmployee");
 
-    if (_receiver.getEmployee(employeeId) != null) {
+    for(Employee empId : _receiver.getEmployees()){
+      if (employeeId.equals(empId.getId()))
         throw new DuplicateEmployeeKeyException(employeeId);
     }
 
