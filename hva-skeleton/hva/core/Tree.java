@@ -67,12 +67,21 @@ public class Tree extends HotelEntity {
 
     @Override
 public String toString() {
+    String className;
+    if (this instanceof Deciduous) {
+        className = "CADUCA";
+    } else if (this instanceof Evergreen) {
+        className = "PERENE";
+    } else {
+        className = this.getClass().getSimpleName();
+    }
+
     return "ÁRVORE|" +
             this.getId() + '|' +
             this.getName() + '|' +
             this.getAge() + '|' +
             this.getBaseDiff() + '|' +
-            this.getClass().getName() + '|' +
+            className + '|' +
             this.getBiologicalCycle();
 }
 
