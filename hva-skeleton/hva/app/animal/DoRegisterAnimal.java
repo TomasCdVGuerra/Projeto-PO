@@ -9,7 +9,6 @@ import hva.core.Species;
 import pt.tecnico.uilib.forms.Form;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
-//FIXME
 /**
  * Register a new animal in this zoo hotel.
  */
