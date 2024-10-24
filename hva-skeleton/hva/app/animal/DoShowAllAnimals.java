@@ -1,34 +1,22 @@
 package hva.app.animal;
 
-import hva.app.exception.UnknownHabitatKeyException;
 import hva.core.Animal;
-import hva.core.Habitat;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 
 /**
- * Show all animals of a given habitat.
- **/
-class DoShowAnimalsInHabitat extends Command<Hotel> {
+ * Show all animals registered in this zoo hotel.
+ */
+class DoShowAllAnimals extends Command<Hotel> {
 
-  DoShowAnimalsInHabitat(Hotel receiver) {
-    super(Label.ANIMALS_IN_HABITAT, receiver);
-    addStringField("habitatId", Message.requestHabitatId());
+  DoShowAllAnimals(Hotel receiver) {
+    super(Label.SHOW_ALL_ANIMALS, receiver);
   }
-
+  
   @Override
-  protected void execute() throws CommandException {
-    String habitatId = stringField("habitatId");
-    Habitat habitat;
-
-    try {
-      habitat = _receiver.getHabitat(habitatId);
-    } catch (UnknownHabitatKeyException e) {
-      throw new UnknownHabitatKeyException(e.getMessage());
-    }
-
-    for (Animal animal : habitat.getAnimals()) {
+  protected final void execute() throws CommandException {
+    for (Animal animal : _receiver.getAnimals()) {
       _display.addLine(animal.toString());
     }
     _display.display();

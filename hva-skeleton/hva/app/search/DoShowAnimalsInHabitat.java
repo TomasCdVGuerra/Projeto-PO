@@ -1,10 +1,11 @@
-package hva.app.search;
+package hva.app.animal;
 
-import hva.core.Hotel;
 import hva.app.exception.UnknownHabitatKeyException;
+import hva.core.Animal;
+import hva.core.Habitat;
+import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
-//FIXME add more imports if needed
 
 /**
  * Show all animals of a given habitat.
@@ -13,11 +14,23 @@ class DoShowAnimalsInHabitat extends Command<Hotel> {
 
   DoShowAnimalsInHabitat(Hotel receiver) {
     super(Label.ANIMALS_IN_HABITAT, receiver);
-    //FIXME add command fields
+    addStringField("habitatId", Message.requestHabitatId());
   }
 
   @Override
   protected void execute() throws CommandException {
-    //FIXME implement command
+    String habitatId = stringField("habitatId");
+    Habitat habitat;
+
+    try {
+      habitat = _receiver.getHabitat(habitatId);
+    } catch (UnknownHabitatKeyException e) {
+      throw new UnknownHabitatKeyException(e.getMessage());
+    }
+
+    for (Animal animal : habitat.getAnimals()) {
+      _display.addLine(animal.toString());
+    }
+    _display.display();
   }
 }
