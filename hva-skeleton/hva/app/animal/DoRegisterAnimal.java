@@ -1,6 +1,7 @@
 package hva.app.animal;
 
 import hva.app.exception.UnknownSpeciesKeyException;
+import hva.core.Habitat;
 import hva.core.Hotel;
 import hva.core.Species;
 import pt.tecnico.uilib.forms.Form;
@@ -39,5 +40,7 @@ class DoRegisterAnimal extends Command<Hotel> {
     _receiver.registerAnimal(animalId, name, speciesId, habitatId);
     Species species = _receiver.getSpecies(speciesId);
     species.addAnimal(animalId);
+    Habitat habitat = _receiver.getHabitat(habitatId);
+    habitat.addAnimal(_receiver.getAnimal(animalId));
   }
 }

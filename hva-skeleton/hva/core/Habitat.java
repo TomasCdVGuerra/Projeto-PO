@@ -9,7 +9,6 @@ import java.util.*;
  */
 public class Habitat extends HotelEntity {
     private int _area;
-    private int _population;
     private List<Tree> _trees;
     private List<Zookeeper> _zookeepers;
     private List<Animal> _animals;
@@ -26,7 +25,6 @@ public class Habitat extends HotelEntity {
     public Habitat(String habitatId, String name, int area) {  
         super(habitatId, name);
         this._area = area;
-        this._population = 0;
         this._trees = new ArrayList<>();
         this._zookeepers = new ArrayList<>();
         this._animals = new ArrayList<>();
@@ -50,7 +48,7 @@ public class Habitat extends HotelEntity {
      * @return the population of the habitat
      */
     public int getPopulation() {
-        return _population;
+        return _animals.size();
     }
 
     /**

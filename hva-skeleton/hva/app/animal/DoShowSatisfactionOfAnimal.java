@@ -14,7 +14,7 @@ class DoShowSatisfactionOfAnimal extends Command<Hotel> {
 
   DoShowSatisfactionOfAnimal(Hotel receiver) {
     super(Label.SHOW_SATISFACTION_OF_ANIMAL, receiver);
-    addStringField("animalId", "Animal ID");
+    addStringField("animalId", "Animal ID:");
   }
 
   @Override
