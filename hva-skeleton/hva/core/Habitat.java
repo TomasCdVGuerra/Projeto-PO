@@ -29,6 +29,7 @@ public class Habitat extends HotelEntity {
         this._zookeepers = new ArrayList<>();
         this._animals = new ArrayList<>();
         this._species = new ArrayList<>();
+        this._adequations = new HashMap<>();
     }
 
     // Get methods
@@ -125,6 +126,17 @@ public class Habitat extends HotelEntity {
      */
     public void addAnimal(Animal animal) {
         _animals.add(animal);
+    }
+
+    /**
+     * Adds an species to the habitat.
+     *
+     * @param species the species to add
+     */
+    public void addSpecies(Species species) {
+         _species.add(species);
+        Adequation adequation = new Adequation(species, Adequation.AdequationValue.NEUTRAL);
+        _adequations.put(species.getId(), adequation);
     }
 
     /**

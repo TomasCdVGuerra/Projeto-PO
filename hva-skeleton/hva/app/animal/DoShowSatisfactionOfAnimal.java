@@ -2,7 +2,6 @@ package hva.app.animal;
 
 import hva.app.exception.UnknownAnimalKeyException;
 import hva.core.Animal;
-import hva.core.Habitat;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
@@ -28,17 +27,6 @@ class DoShowSatisfactionOfAnimal extends Command<Hotel> {
       throw new UnknownAnimalKeyException(animalId);
     }
 
-    Habitat habitat = animal.getHabitat();
-
-    int especieIgual = habitat.countSameSpecies(animal);
-    int especieDiferente = habitat.countDifferentSpecies(animal);
-
-    double area = habitat.getArea();
-    int populacao = habitat.getPopulation();
-    double adequacao = habitat.getAdequacy(animal);
-
-    double satisfacao = 20 + 3 * especieIgual - 2 * especieDiferente + (area / populacao) + adequacao;
-
-    _display.popup("Satisfaction of animal " + animalId + ": " + satisfacao);
+    _display.popup("Satisfaction of animal " + animalId + ": " + animal.satisfaction());
   }
 }

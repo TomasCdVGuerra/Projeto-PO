@@ -1,5 +1,6 @@
 package hva.app.main;
 
+import hva.core.Animal;
 import hva.core.HotelManager;
 import pt.tecnico.uilib.menus.Command;
 
@@ -13,6 +14,11 @@ class DoShowGlobalSatisfaction extends Command<HotelManager> {
   
   @Override
   protected final void execute() {
-    //FIXME implement command
+    double sum=0;
+    for(Animal a : _receiver.getHotel().getAnimals()){
+      sum+=a.satisfaction();
+    }
+    
+    _display.popup(sum);
   }
 }
