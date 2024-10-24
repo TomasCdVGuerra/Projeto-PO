@@ -1,5 +1,7 @@
 package hva.app.habitat;
 
+import hva.app.exception.DuplicateHabitatKeyException;
+import hva.core.Habitat;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
@@ -21,6 +23,12 @@ class DoRegisterHabitat extends Command<Hotel> {
     String habitatId = stringField("idHabitat");
     String name = stringField("nomeHabitat");
     int area = integerField("areaHabitat");
+
+    for(Habitat hbtId : _receiver.getHabitats()){
+      if (habitatId.equals(hbtId.getId()))
+        throw new DuplicateHabitatKeyException(habitatId);
+    }
+
     _receiver.registerHabitat(habitatId, name, area);
   }
 }
