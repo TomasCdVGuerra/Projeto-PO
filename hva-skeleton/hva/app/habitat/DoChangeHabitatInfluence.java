@@ -19,14 +19,14 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
     super(Label.CHANGE_HABITAT_INFLUENCE, receiver);
     addStringField("habitatId", "Habitat ID");
     addStringField("speciesId", "Species ID");
-    addStringField("influence", "Influence (POSITIVE, NEUTRAL, NEGATIVE)");
+    addOptionField("influence", "Influence (POSITIVE, NEUTRAL, NEGATIVE)","POSITIVE", "NEUTRAL", "NEGATIVE" );
   }
   
   @Override
   protected void execute() {
     String habitatId = stringField("habitatId");
     String speciesId = stringField("speciesId");
-    String influenceStr = stringField("influence");
+    String influenceStr = optionField("influence");
 
     try {
       Habitat habitat = _receiver.getHabitat(habitatId);
