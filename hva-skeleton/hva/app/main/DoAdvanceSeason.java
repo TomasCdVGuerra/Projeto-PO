@@ -1,4 +1,4 @@
-package hva;
+package hva.app.search;
 
 import hva.core.Hotel;
 import hva.core.Animal;
