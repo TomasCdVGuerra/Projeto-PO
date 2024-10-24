@@ -1,5 +1,5 @@
 *** tests/A-21-10-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-21-10-M-ok.outhyp	Thu Oct 24 13:32:33 2024
+--- tests/A-21-10-M-ok.outhyp	Thu Oct 24 16:27:53 2024
 ***************
 *** 17,37 ****
   4 - Mostrar vacinações
@@ -23,28 +23,22 @@
   1 - Visualizar todas as vacinas
   2 - Registar vacina
   3 - Vacinar animal
---- 17,41 ----
+--- 17,35 ----
   4 - Mostrar vacinações
   0 - Sair
   Escolha uma opção: Número inválido!
-! Escolha uma opção: Gestão de Vacinas
+! Escolha uma opção: Identificador do animal: Identificador da vacina: Identficador do veterinário a ministrar a vacina: Gestão de Vacinas
   1 - Visualizar todas as vacinas
   2 - Registar vacina
   3 - Vacinar animal
   4 - Mostrar vacinações
   0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Gestão de Vacinas
+! Escolha uma opção: Identificador do animal: Identificador da vacina: Identficador do veterinário a ministrar a vacina: Gestão de Vacinas
   1 - Visualizar todas as vacinas
   2 - Registar vacina
   3 - Vacinar animal
   4 - Mostrar vacinações
   0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Número inválido!
 ! Escolha uma opção: Gestão de Vacinas
   1 - Visualizar todas as vacinas
   2 - Registar vacina
@@ -59,7 +53,7 @@
   Gestão de Animais
   1 - Visualizar todos os animais
   2 - Registar animal
---- 60,67 ----
+--- 54,61 ----
   4 - Calcular satisfação de animal
   0 - Sair
   Escolha uma opção: ANIMAL|AA1|Patudo|E1|VOID|H1
@@ -79,7 +73,7 @@
   Gestão de Vacinas
   1 - Visualizar todas as vacinas
   2 - Registar vacina
---- 86,94 ----
+--- 80,88 ----
   3 - Vacinar animal
   4 - Mostrar vacinações
   0 - Sair
