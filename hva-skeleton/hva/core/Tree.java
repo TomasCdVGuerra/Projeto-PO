@@ -15,17 +15,14 @@ public class Tree extends HotelEntity {
     }
 
     public static Tree createTree(String treeId, String name, int age, int baseDiff, String type) {
-        if (type.equals("CAD"))
+        if (type.equals("CAD") || type.equals("CADUCA")) {
             return new Deciduous(treeId, name, age, baseDiff);
-        else if (type.equals("PER"))
+        } else if (type.equals("PER") || type.equals("PERENE")) {
             return new Evergreen(treeId, name, age, baseDiff);
-        else {
-            new Exception().printStackTrace();
-            return null;
+        } else {
+            throw new IllegalArgumentException("Invalid tree type: " + type);
         }
-        // Ensure that the type is either PER or CAD during registration
     }
-
     public int getAge() {
         return _age;
     }

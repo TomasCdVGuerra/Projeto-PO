@@ -1,36 +1,36 @@
 *** tests/A-21-14-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-21-14-M-ok.outhyp	Thu Oct 24 23:55:31 2024
+--- tests/A-21-14-M-ok.outhyp	Fri Oct 25 00:02:53 2024
 ***************
-*** 17,31 ****
+*** 17,30 ****
   3 - Vacinar animal
   4 - Mostrar vacinações
   0 - Sair
 ! Escolha uma opção: Identificador da vacina: Identficador do veterinário a ministrar a vacina: Identificador único do animal: A vacina 'Vac1' não é apropiada para o animal 'AA3'.
-! Gestão de Vacinas
+  Gestão de Vacinas
   1 - Visualizar todas as vacinas
   2 - Registar vacina
   3 - Vacinar animal
   4 - Mostrar vacinações
   0 - Sair
 ! Escolha uma opção: Identificador da vacina: Identficador do veterinário a ministrar a vacina: Identificador único do animal: A vacina 'Vac2' não é apropiada para o animal 'AA1'.
-! Gestão de Vacinas
+  Gestão de Vacinas
   1 - Visualizar todas as vacinas
   2 - Registar vacina
-  3 - Vacinar animal
---- 17,29 ----
+--- 17,30 ----
   3 - Vacinar animal
   4 - Mostrar vacinações
   0 - Sair
-! Escolha uma opção: Identificador do animal: Identificador da vacina: Identficador do veterinário a ministrar a vacina: Gestão de Vacinas
+! Escolha uma opção: Identificador do animal: Identificador da vacina: Identficador do veterinário a ministrar a vacina: Vacinar animal: Operação inválida: O animal 'Vac1' não existe.
+  Gestão de Vacinas
   1 - Visualizar todas as vacinas
   2 - Registar vacina
   3 - Vacinar animal
   4 - Mostrar vacinações
   0 - Sair
-! Escolha uma opção: Identificador do animal: Identificador da vacina: Identficador do veterinário a ministrar a vacina: Gestão de Vacinas
+! Escolha uma opção: Identificador do animal: Identificador da vacina: Identficador do veterinário a ministrar a vacina: Vacinar animal: Operação inválida: O animal 'Vac2' não existe.
+  Gestão de Vacinas
   1 - Visualizar todas as vacinas
   2 - Registar vacina
-  3 - Vacinar animal
 ***************
 *** 49,57 ****
   3 - Transferir para habitat
@@ -42,7 +42,7 @@
   Gestão de Animais
   1 - Visualizar todos os animais
   2 - Registar animal
---- 47,55 ----
+--- 49,57 ----
   3 - Transferir para habitat
   4 - Calcular satisfação de animal
   0 - Sair
@@ -70,7 +70,7 @@
   VACINA|Vac3|nome 3|0|E1,E2
   Gestão de Vacinas
   1 - Visualizar todas as vacinas
---- 74,87 ----
+--- 76,89 ----
   3 - Vacinar animal
   4 - Mostrar vacinações
   0 - Sair

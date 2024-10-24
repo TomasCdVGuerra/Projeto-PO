@@ -114,8 +114,14 @@ public class Parser {
   }
 
   // Parse a line with format ÁRVORE|id|nome|idade|dificuldade|tipo
-  private void parseTree(String[] components) throws UnrecognizedEntryException {
-    //try {
+private void parseTree(String[] components) throws UnrecognizedEntryException {
+  try {
+      // Debug statements
+      System.out.println("Components Length: " + components.length);
+      for (int i = 0; i < components.length; i++) {
+          System.out.println("Component[" + i + "]: " + components[i]);
+      }
+      
       String id = components[1];
       String name = components[2];
       int age = Integer.parseInt(components[3]);
@@ -123,10 +129,10 @@ public class Parser {
       String type = components[5];
 
       _hotel.createTree(id, name, type, age, diff);
-   /*  } catch (excCore1 | excpCore 2 | ...) {
-      throw new UnrecognizedEntryException("Invalid entry: " + e.getMessage);
-    } */
+  } catch (Exception e) {
+      throw new UnrecognizedEntryException("Invalid entry: " + e.getMessage());
   }
+}
 
   // Parse a line with format HABITAT|id|nome|área|idÁrvore1,...,idÁrvoreN
   private void parseHabitat(String[] components) throws UnrecognizedEntryException {
