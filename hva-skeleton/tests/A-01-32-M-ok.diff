@@ -1,0 +1,30 @@
+*** tests/A-01-32-M-ok.out	Fri Oct 18 19:27:35 2024
+--- tests/A-01-32-M-ok.outhyp	Thu Oct 24 20:42:24 2024
+***************
+*** 17,28 ****
+  4 - Retirar responsabilidade
+  5 - Calcular satisfação de funcionário
+  0 - Sair
+! Escolha uma opção: TRT|T1|Rohit Figueiredo|H1
+! TRT|T2|Rohit Figueiredo 3|H1,H4
+! TRT|T3|Rohit Figueiredo 6|H2,H3,H4
+! TRT|T4|Rohit Figueiredo 7|H1,H2,H3,H4
+! VET|V1|Rohit Figueiredo 2|E1,E2,E3
+! VET|V2|Rohit Figueiredo 4|E3
+  VET|V3|Rohit Figueiredo 5
+  VET|V4|Rohit Figueiredo 9
+  Gestão de Funcionários
+--- 17,28 ----
+  4 - Retirar responsabilidade
+  5 - Calcular satisfação de funcionário
+  0 - Sair
+! Escolha uma opção: TRT|T1|Rohit Figueiredo
+! TRT|T2|Rohit Figueiredo 3
+! TRT|T3|Rohit Figueiredo 6
+! TRT|T4|Rohit Figueiredo 7
+! VET|V1|Rohit Figueiredo 2
+! VET|V2|Rohit Figueiredo 4
+  VET|V3|Rohit Figueiredo 5
+  VET|V4|Rohit Figueiredo 9
+  Gestão de Funcionários
+

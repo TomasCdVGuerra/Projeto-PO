@@ -91,20 +91,21 @@ public class Zookeeper extends Employee {
      */
     @Override
     public String toString() {
-        String r = "";
-        if (_habitatsManaged.isEmpty())
+        StringBuilder r = new StringBuilder();
+        if (_habitatsManaged.isEmpty()) {
             return getType() + "|" + super.getId() + "|" + super.getName();
-            
+        }
+        
         int size = _habitatsManaged.size();
         int count = 0;
-            
+        
         for (String element : _habitatsManaged) {
-            r += element;
+            r.append(element);
             count++;
             if (count < size) {
-                r += ",";
+                r.append(",");
             }
         }
-        return getType() + "|" + super.getId() + "|" + super.getName() + "|" + r;
+        return getType() + "|" + super.getId() + "|" + super.getName() + "|" + r.toString();
     }
 }

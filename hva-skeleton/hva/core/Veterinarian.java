@@ -83,7 +83,7 @@ public class Veterinarian extends Employee {
      */
     @Override
     public String toString() {
-        String r = "";
+        StringBuilder r = new StringBuilder();
         if (_speciesIds.isEmpty()) {
             return getType() + "|" + super.getId() + "|" + super.getName();
         }
@@ -92,12 +92,12 @@ public class Veterinarian extends Employee {
         int count = 0;
         
         for (String element : _speciesIds) {
-            r += element;
+            r.append(element);
             count++;
             if (count < size) {
-                r += ",";
+                r.append(",");
             }
         }
-        return getType() + "|" + super.getId() + "|" + super.getName() + "|" + r;
+        return getType() + "|" + super.getId() + "|" + super.getName() + "|" + r.toString();
     }
 }
