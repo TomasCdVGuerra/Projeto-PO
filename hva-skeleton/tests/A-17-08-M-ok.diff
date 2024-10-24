@@ -1,0 +1,23 @@
+*** tests/A-17-08-M-ok.out	Fri Oct 18 19:27:35 2024
+--- tests/A-17-08-M-ok.outhyp	Thu Oct 24 13:32:31 2024
+***************
+*** 17,25 ****
+  4 - Retirar responsabilidade
+  5 - Calcular satisfação de funcionário
+  0 - Sair
+! Escolha uma opção: TRT|T1|Trt one|H1,H2,H3
+! TRT|T2|Trt two|H1,H3
+! VET|V1|Vet one|C1,C3,C4
+  VET|V2|Vet two
+  Gestão de Funcionários
+  1 - Visualizar todos os funcionários
+--- 17,25 ----
+  4 - Retirar responsabilidade
+  5 - Calcular satisfação de funcionário
+  0 - Sair
+! Escolha uma opção: TRT|T1|Trt one
+! TRT|T2|Trt two
+! VET|V1|Vet one
+  VET|V2|Vet two
+  Gestão de Funcionários
+  1 - Visualizar todos os funcionários

@@ -1,0 +1,32 @@
+*** tests/A-22-02-M-ok.out	Sat Oct 19 17:48:37 2024
+--- tests/A-22-02-M-ok.outhyp	Thu Oct 24 13:32:34 2024
+***************
+*** 16,29 ****
+  3 - Actos médicos de um veterinário
+  4 - Vacinações com problemas
+  0 - Sair
+! Escolha uma opção: Identificador único do habitat: Consultas
+  1 - Animais de um habitat
+  2 - Actos médicos num animal
+  3 - Actos médicos de um veterinário
+  4 - Vacinações com problemas
+  0 - Sair
+! Escolha uma opção: Identificador único do habitat: ANIMAL|A1|Nome 1|E1|VOID|H1
+! Consultas
+  1 - Animais de um habitat
+  2 - Actos médicos num animal
+  3 - Actos médicos de um veterinário
+--- 16,28 ----
+  3 - Actos médicos de um veterinário
+  4 - Vacinações com problemas
+  0 - Sair
+! Escolha uma opção: Please provide the habitat ID:Consultas
+  1 - Animais de um habitat
+  2 - Actos médicos num animal
+  3 - Actos médicos de um veterinário
+  4 - Vacinações com problemas
+  0 - Sair
+! Escolha uma opção: Please provide the habitat ID:Consultas
+  1 - Animais de um habitat
+  2 - Actos médicos num animal
+  3 - Actos médicos de um veterinário
