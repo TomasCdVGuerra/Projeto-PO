@@ -202,6 +202,10 @@ public class Hotel implements Serializable {
     throw new UnknownVaccineKeyException(vaccineId);
   }
 
+  public void vaccinateAnimal(String animaId, String vaccineId, String vetId){
+
+  }
+
   /**
    * Checks if a veterinarian is authorized to vaccinate the given species.
    *
@@ -210,13 +214,27 @@ public class Hotel implements Serializable {
    * @return true if authorized, false otherwise
    * @throws UnknownEmployeeKeyException if the veterinarian ID is not found
    */
-  public boolean isAuthorized(String veterinarianId, String speciesId) throws UnknownEmployeeKeyException {
-    Veterinarian veterinarian = (Veterinarian) _employees.stream()
-                                                        .filter(e -> e.getId().equals(veterinarianId) && e instanceof Veterinarian)
-                                                        .findFirst()
-                                                        .orElseThrow(() -> new UnknownEmployeeKeyException(veterinarianId));
-    return veterinarian.getSpeciesIds().contains(speciesId);
-  }
+  public boolean isAuthorized(String veterinarianId, String speciesId) {
+    try {
+        Veterinarian veterinarian = null;
+
+        for (Employee e : _employees) {
+            if (e.getId().equals(veterinarianId) && e instanceof Veterinarian) {
+                veterinarian = (Veterinarian) e;
+                break;
+            }
+        }
+
+        if (veterinarian == null) {
+            throw new UnknownEmployeeKeyException(veterinarianId);
+        }
+
+        return veterinarian.getSpeciesIds().contains(speciesId);
+    } catch (UnknownEmployeeKeyException e) {
+        // Handle the exception by returning false
+        return false;
+    }
+}
 
   /**
    * Adds a tree to a habitat.
