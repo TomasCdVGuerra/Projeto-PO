@@ -72,6 +72,27 @@ public String toString() {
             this.getName() + '|' +
             this.getAge() + '|' +
             this.getBaseDiff() + '|' +
-            this.getClass().getName() + '|';
+            this.getClass().getName() + '|' +
+            this.getBiologicalCycle();
 }
+
+private String getBiologicalCycle() {
+    String cycle = "";
+
+    // Verifica o tipo de estação atual (_seasonState)
+    if (_seasonState instanceof WinterState) {
+        cycle = (this instanceof Deciduous) ? "SEMFOLHAS" : "LARGARFOLHAS";
+    } else if (_seasonState instanceof SpringState) {
+        cycle = "GERARFOLHAS";
+    } else if (_seasonState instanceof SummerState) {
+        cycle = "COMFOLHAS";
+    } else if (_seasonState instanceof AutumnState) {
+        cycle = (this instanceof Deciduous) ? "LARGARFOLHAS" : "COMFOLHAS";
+    } else {
+        cycle = "Ciclo desconhecido";
+    }
+
+    return cycle;
+}
+
 }

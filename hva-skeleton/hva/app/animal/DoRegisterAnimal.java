@@ -17,12 +17,6 @@ class DoRegisterAnimal extends Command<Hotel> {
     addStringField("idAnimal", Prompt.animalKey());
     addStringField("nomeAnimal", Prompt.animalName());
     addStringField("idSpecies", Prompt.speciesKey());
-    
-    /* String speciesId = stringField("idSpecies");
-    addStringField("nomeSpecies", Prompt.speciesName());
-    String speciesName = stringField("nomeSpecies");
-    _receiver.registerSpecies(speciesId, speciesName);
-     */
     addStringField("idHabitat", Prompt.habitatKey());
 
   }
@@ -43,5 +37,7 @@ class DoRegisterAnimal extends Command<Hotel> {
     }
 
     _receiver.registerAnimal(animalId, name, speciesId, habitatId);
+    Species species = _receiver.getSpecies(speciesId);
+    species.addAnimal(animalId);
   }
 }

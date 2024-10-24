@@ -18,7 +18,7 @@ public class Species extends HotelEntity {
      * @param name the name of the species
      * @param hotel the hotel associated with the species
      */
-    public Species(String id, String name, Hotel hotel) {
+    public Species(String id, String name) {
         super(id, name);
         this._animals = new ArrayList<>();
     }
