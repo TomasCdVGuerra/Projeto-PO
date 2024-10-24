@@ -4,6 +4,8 @@ import hva.app.exception.UnknownAnimalKeyException;
 import hva.app.exception.UnknownEmployeeKeyException;
 import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
+import hva.app.exception.UnknownVaccineKeyException;
+import hva.app.exception.UnknownVeterinarianKeyException;
 import hva.app.exception.VeterinarianNotAuthorizedException;
 import hva.core.exception.*;
 import java.io.*;
