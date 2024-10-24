@@ -19,21 +19,21 @@ class DoVaccinateAnimal extends Command<Hotel> {
   }
 
   @Override
-  protected final void execute() throws CommandException, VeterinarianNotAuthorizedException {
+  protected final void execute() throws CommandException {
     String animalId = stringField("animalId");
     String vaccineId = stringField("vaccineId");
     String veterinarianId = stringField("veterinarianId");
 
     try {
       if (!_receiver.isAuthorized(veterinarianId, _receiver.getAnimal(animalId).getSpecies())) {
-        throw new VeterinarianNotAuthorizedException(veterinarianId, _receiver.getAnimal(animalId).getSpecies());
+        throw new VeterinarianNotAuthorizedException(veterinarianId);
       }
       _receiver.vaccinateAnimal(animalId, vaccineId, veterinarianId);
       _display.popup("Vacinação realizada com sucesso.");
     } catch (UnknownAnimalKeyException e) {
-      throw new CommandException("Unknown animal ID: " + animalId, e);
+      throw new UnknownAnimalKeyException(animalId);
     } catch (UnknownVaccineKeyException e) {
-      throw new CommandException("Unknown vaccine ID: " + vaccineId, e);
+      throw new UnknownVaccineKeyException(vaccineId);
     }
   }
 }
