@@ -25,6 +25,9 @@ class DoVaccinateAnimal extends Command<Hotel> {
     String veterinarianId = stringField("veterinarianId");
 
     try {
+      if (!_receiver.isAuthorized(veterinarianId, _receiver.getAnimal(animalId).getSpecies())) {
+        throw new VeterinarianNotAuthorizedException(veterinarianId, _receiver.getAnimal(animalId).getSpecies());
+      }
       _receiver.vaccinateAnimal(animalId, vaccineId, veterinarianId);
       _display.popup("Vacinação realizada com sucesso.");
     } catch (UnknownAnimalKeyException e) {
@@ -32,7 +35,7 @@ class DoVaccinateAnimal extends Command<Hotel> {
     } catch (UnknownVaccineKeyException e) {
       throw new UnknownVaccineKeyException("Unknown vaccine ID: " + vaccineId);
     } catch (VeterinarianNotAuthorizedException e) {
-      throw new VeterinarianNotAuthorizedException("Veterinarian not authorized: " + veterinarianId + " for species: " + _receiver.getAnimal(animalId).getSpecies());
+      throw new VeterinarianNotAuthorizedException("Veterinarian not authorized: " + veterinarianId + " for species: ",  _receiver.getAnimal(animalId).getSpecies(), e);
     }
   }
 }
