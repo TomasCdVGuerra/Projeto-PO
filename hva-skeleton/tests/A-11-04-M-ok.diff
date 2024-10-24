@@ -1,0 +1,37 @@
+*** tests/A-11-04-M-ok.out	Fri Oct 18 19:27:35 2024
+--- tests/A-11-04-M-ok.outhyp	Thu Oct 24 11:20:46 2024
+***************
+*** 18,24 ****
+  5 - Plantar árvore
+  6 - Mostrar árvores de habitat
+  0 - Sair
+! Escolha uma opção: Identificador único do habitat: Identificador único da espécie: Influência (positiva, negativa, neutra: POS, NEG, NEU): Gestão de Habitats
+  1 - Visualizar todos os habitats
+  2 - Registar habitat
+  3 - Alterar área de habitat
+--- 18,25 ----
+  5 - Plantar árvore
+  6 - Mostrar árvores de habitat
+  0 - Sair
+! Escolha uma opção: Habitat IDSpecies IDInfluence (POSITIVE, NEUTRAL, NEGATIVE)Invalid influence value: POS
+! Gestão de Habitats
+  1 - Visualizar todos os habitats
+  2 - Registar habitat
+  3 - Alterar área de habitat
+***************
+*** 44,50 ****
+  3 - Transferir para habitat
+  4 - Calcular satisfação de animal
+  0 - Sair
+! Escolha uma opção: Identificador único do animal: 52
+  Gestão de Animais
+  1 - Visualizar todos os animais
+  2 - Registar animal
+--- 45,51 ----
+  3 - Transferir para habitat
+  4 - Calcular satisfação de animal
+  0 - Sair
+! Escolha uma opção: Animal IDSatisfaction of animal a1: Infinity
+  Gestão de Animais
+  1 - Visualizar todos os animais
+  2 - Registar animal
