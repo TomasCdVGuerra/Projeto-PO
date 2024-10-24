@@ -1,6 +1,5 @@
 package hva.app.habitat;
 
-import hva.app.exception.InvalidInfluenceValueException;
 import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
 import hva.core.Adequation;
@@ -23,33 +22,37 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
   }
   
   @Override
-  protected void execute() {
+protected void execute() {
     String habitatId = stringField("habitatId");
     String speciesId = stringField("speciesId");
     String influenceStr = optionField("influence");
 
     try {
-      Habitat habitat = _receiver.getHabitat(habitatId);
-      Species species = _receiver.getSpecies(speciesId);
+        Habitat habitat = _receiver.getHabitat(habitatId);
+        Species species = _receiver.getSpecies(speciesId);
 
-      AdequationValue influence = switch (influenceStr.toUpperCase()) {
-        case "POSITIVE" -> AdequationValue.POSITIVE;
-        case "NEUTRAL" -> AdequationValue.NEUTRAL;
-        case "NEGATIVE" -> AdequationValue.NEGATIVE;
-        default -> throw new InvalidInfluenceValueException(influenceStr);
-      };
+        AdequationValue influence;
+        if (influenceStr.equalsIgnoreCase("POSITIVE")) {
+            influence = AdequationValue.POSITIVE;
+        } else if (influenceStr.equalsIgnoreCase("NEUTRAL")) {
+            influence = AdequationValue.NEUTRAL;
+        } else if (influenceStr.equalsIgnoreCase("NEGATIVE")) {
+            influence = AdequationValue.NEGATIVE;
+        } else {
+            throw new IllegalArgumentException("Invalid influence value: " + influenceStr);
+        }
 
-      Adequation adequation = new Adequation(species, influence);
-      habitat.setAdequationForSpecies(speciesId, adequation);
+        Adequation adequation = new Adequation(species, influence);
+        habitat.setAdequationForSpecies(speciesId, adequation);
 
-      _display.popup("Influence of species " + speciesId + " on habitat " + habitatId + " set to " + influenceStr);
+        _display.popup("Influence of species " + speciesId + " on habitat " + habitatId + " set to " + influenceStr);
 
     } catch (UnknownHabitatKeyException e) {
-      _display.popup("Unknown habitat ID: " + habitatId);
+        _display.popup("Unknown habitat ID: " + habitatId);
     } catch (UnknownSpeciesKeyException e) {
-      _display.popup("Unknown species ID: " + speciesId);
-    } catch (InvalidInfluenceValueException e) {
-      _display.popup("Invalid influence value: " + influenceStr);
+        _display.popup("Unknown species ID: " + speciesId);
+    } catch (IllegalArgumentException e) {
+        _display.popup(e.getMessage());
     }
-  }
+}
 }
