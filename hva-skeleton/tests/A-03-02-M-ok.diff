@@ -1,7 +1,7 @@
-*** tests/A-07-10-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-07-10-M-ok.outhyp	Thu Oct 24 21:32:54 2024
+*** tests/A-03-02-M-ok.out	Fri Oct 18 19:27:35 2024
+--- tests/A-03-02-M-ok.outhyp	Thu Oct 24 21:32:52 2024
 ***************
-*** 10,83 ****
+*** 10,86 ****
   9 - Gestão de vacinas
   10 - Consultas
   0 - Sair
@@ -13,8 +13,7 @@
 - 5 - Plantar árvore
 - 6 - Mostrar árvores de habitat
 - 0 - Sair
-- Escolha uma opção: Identificador único do habitat: Identificador único da árvore: Nome da árvore: Idade da árvore: Dificuldade de limpeza da árvore: Tipo de árvore: (CADUCA ou PERENE) ÁRVORE|B1|b1|2|3|CADUCA|GERARFOLHAS
-- Gestão de Habitats
+- Escolha uma opção: Identificador único do habitat: Nome do habitat: Área do habitat: Gestão de Habitats
 - 1 - Visualizar todos os habitats
 - 2 - Registar habitat
 - 3 - Alterar área de habitat
@@ -22,8 +21,7 @@
 - 5 - Plantar árvore
 - 6 - Mostrar árvores de habitat
 - 0 - Sair
-- Escolha uma opção: Identificador único do habitat: Identificador único da árvore: Nome da árvore: Idade da árvore: Dificuldade de limpeza da árvore: Tipo de árvore: (CADUCA ou PERENE) ÁRVORE|P1|p1|3|4|PERENE|GERARFOLHAS
-- Gestão de Habitats
+- Escolha uma opção: Identificador único do habitat: Nome do habitat: Área do habitat: Gestão de Habitats
 - 1 - Visualizar todos os habitats
 - 2 - Registar habitat
 - 3 - Alterar área de habitat
@@ -31,8 +29,7 @@
 - 5 - Plantar árvore
 - 6 - Mostrar árvores de habitat
 - 0 - Sair
-- Escolha uma opção: Identificador único do habitat: Identificador único da árvore: Nome da árvore: Idade da árvore: Dificuldade de limpeza da árvore: Tipo de árvore: (CADUCA ou PERENE) ÁRVORE|R1|r1|6|7|PERENE|GERARFOLHAS
-- Gestão de Habitats
+- Escolha uma opção: Identificador único do habitat: Nome do habitat: Área do habitat: Gestão de Habitats
 - 1 - Visualizar todos os habitats
 - 2 - Registar habitat
 - 3 - Alterar área de habitat
@@ -40,8 +37,7 @@
 - 5 - Plantar árvore
 - 6 - Mostrar árvores de habitat
 - 0 - Sair
-- Escolha uma opção: Identificador único do habitat: Identificador único da árvore: Nome da árvore: Idade da árvore: Dificuldade de limpeza da árvore: Tipo de árvore: (CADUCA ou PERENE) ÁRVORE|X1|x1|10|12|CADUCA|GERARFOLHAS
-- Gestão de Habitats
+- Escolha uma opção: Identificador único do habitat: Nome do habitat: Área do habitat: Gestão de Habitats
 - 1 - Visualizar todos os habitats
 - 2 - Registar habitat
 - 3 - Alterar área de habitat
@@ -49,12 +45,19 @@
 - 5 - Plantar árvore
 - 6 - Mostrar árvores de habitat
 - 0 - Sair
-- Escolha uma opção: HABITAT|h1|nome2|12|5
-- ÁRVORE|A1|Pinheiro 1|5|20|PERENE|GERARFOLHAS
-- ÁRVORE|B1|b1|2|3|CADUCA|GERARFOLHAS
-- ÁRVORE|P1|p1|3|4|PERENE|GERARFOLHAS
-- ÁRVORE|R1|r1|6|7|PERENE|GERARFOLHAS
-- ÁRVORE|X1|x1|10|12|CADUCA|GERARFOLHAS
+- Escolha uma opção: Identificador único do habitat: Nome do habitat: Área do habitat: Gestão de Habitats
+- 1 - Visualizar todos os habitats
+- 2 - Registar habitat
+- 3 - Alterar área de habitat
+- 4 - Alterar influência de habitat sobre espécie
+- 5 - Plantar árvore
+- 6 - Mostrar árvores de habitat
+- 0 - Sair
+- Escolha uma opção: HABITAT|a|primeiro|1|0
+- HABITAT|c|verdadeiro 2º|23|0
+- HABITAT|d|segundo|4|0
+- HABITAT|v|pnúltimo|23|0
+- HABITAT|zz|último|50|0
 - Gestão de Habitats
 - 1 - Visualizar todos os habitats
 - 2 - Registar habitat

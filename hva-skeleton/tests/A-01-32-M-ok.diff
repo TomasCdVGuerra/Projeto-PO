@@ -1,5 +1,5 @@
 *** tests/A-01-32-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-01-32-M-ok.outhyp	Thu Oct 24 20:42:24 2024
+--- tests/A-01-32-M-ok.outhyp	Thu Oct 24 21:32:51 2024
 ***************
 *** 17,28 ****
   4 - Retirar responsabilidade
@@ -27,4 +27,3 @@
   VET|V3|Rohit Figueiredo 5
   VET|V4|Rohit Figueiredo 9
   Gestão de Funcionários
-

@@ -1,5 +1,5 @@
-*** tests/A-04-02-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-04-02-M-ok.outhyp	Thu Oct 24 21:32:52 2024
+*** tests/A-02-02-M-ok.out	Fri Oct 18 19:27:35 2024
+--- tests/A-02-02-M-ok.outhyp	Thu Oct 24 21:32:52 2024
 ***************
 *** 10,42 ****
   9 - Gestão de vacinas
@@ -13,7 +13,7 @@
 - 5 - Plantar árvore
 - 6 - Mostrar árvores de habitat
 - 0 - Sair
-- Escolha uma opção: Identificador único do habitat: Área do habitat: Alterar área de habitat: Operação inválida: O habitat 'AAA' não existe.
+- Escolha uma opção: HABITAT|AR1|Aldeia dos Macacos|20|0
 - Gestão de Habitats
 - 1 - Visualizar todos os habitats
 - 2 - Registar habitat
