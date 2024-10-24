@@ -16,4 +16,4 @@ jobs:
     - name: Run tests
       run: |
         chmod +x hva-skeleton/runtests.sh
-        hva-skeleton/runtests_both.sh
+        hva-skeleton/runtests.sh
