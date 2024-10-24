@@ -95,10 +95,10 @@ public class Parser {
       for (String responsibility : responsibilities) {
           _hotel.getEmployee(id).addResponsibility(responsibility);
       }
-  } catch (UnknownEmployeeKeyException e) {
+    } catch (UnknownEmployeeKeyException e) {
       throw new UnrecognizedEntryException("Failed to add responsibilities: " + e.getMessage());
+    }
   }
-}
 
 
   // Parse a line with format VACINA|id|nome|idEspécie1,...,idEspécieN
