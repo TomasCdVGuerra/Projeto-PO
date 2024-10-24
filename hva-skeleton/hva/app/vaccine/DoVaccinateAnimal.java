@@ -12,16 +12,16 @@ class DoVaccinateAnimal extends Command<Hotel> {
   
   DoVaccinateAnimal(Hotel receiver) {
     super(Label.VACCINATE_ANIMAL, receiver);
-    addStringField("animalId", Prompt.animalKey());
     addStringField("vaccineId", Prompt.vaccineKey());
     addStringField("veterinarianId", Prompt.veterinarianKey());
+    addStringField("animalId", Prompt.animalKey());
   }
 
   @Override
   protected final void execute() throws UnknownAnimalKeyException, UnknownVaccineKeyException, VeterinarianNotAuthorizedException {
-    String animalId = stringField("animalId");
     String vaccineId = stringField("vaccineId");
     String veterinarianId = stringField("veterinarianId");
+    String animalId = stringField("animalId");
 
     try {
       if (!_receiver.isAuthorized(veterinarianId, _receiver.getAnimal(animalId).getSpecies())) {
