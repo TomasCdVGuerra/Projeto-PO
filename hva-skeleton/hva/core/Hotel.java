@@ -5,8 +5,6 @@ import hva.app.exception.UnknownEmployeeKeyException;
 import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
 import hva.app.exception.UnknownVaccineKeyException;
-import hva.app.exception.UnknownVeterinarianKeyException;
-import hva.app.exception.VeterinarianNotAuthorizedException;
 import hva.core.exception.*;
 import java.io.*;
 import java.util.*;
@@ -185,24 +183,6 @@ public class Hotel implements Serializable {
     List<String> species = Arrays.asList(speciesIds);
     Vaccine i = new Vaccine(vaccineId, name, species);
     _vaccines.add(i);
-    markAsChanged();
-  }
-
-  /**
-   * Vaccinates an animal with a vaccine.
-   *
-   * @param animalId the ID of the animal
-   * @param vaccineId the ID of the vaccine
-   * @param veterinarianId the ID of the veterinarian
-   */
-  public void vaccinateAnimal(String animalId, String vaccineId, String veterinarianId) throws UnknownAnimalKeyException, UnknownVaccineKeyException, UnknownVeterinarianKeyException, VeterinarianNotAuthorizedException, UnknownEmployeeKeyException {
-    Animal animal = getAnimal(animalId);
-    Vaccine vaccine = getVaccine(vaccineId);
-    if (!isAuthorized(veterinarianId, animal.getSpecies())) {
-        throw new VeterinarianNotAuthorizedException(veterinarianId, animal.getSpecies());
-    }
-    // Implement the vaccination logic here
-    // For example: animal.addVaccine(vaccine);
     markAsChanged();
   }
 
