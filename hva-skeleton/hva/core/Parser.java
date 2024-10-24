@@ -1,6 +1,7 @@
 package hva.core;
 
-import hva.core.exception.*;
+import hva.app.exception.*;
+import hva.core.exception.UnrecognizedEntryException;
 import java.io.*;
 
 /**
@@ -83,17 +84,21 @@ public class Parser {
   // Parse a line with format TRATADOR|id|nome|idHabitat1,...,idHabitatN or
   // VETERINÁRIO|id|nome|idEspécie1,...,idEspécieN
   private void parseEmployee(String[] components, String empType) throws UnrecognizedEntryException {
-        String id = components[1];
-        String name = components[2];
-        String[] responsibilities = components[3].split(",");
+    try {
+      String id = components[1];
+      String name = components[2];
+      String[] responsibilities = components[3].split(",");
 
-        _hotel.registerEmployee(id, name, empType);
+      _hotel.registerEmployee(id, name, empType);
 
-        // Add responsibilities to the newly registered employee
-        for (String responsibility : responsibilities) {
-            _hotel.getEmployee(id).addResponsibility(responsibility);
+      // Add responsibilities to the newly registered employee
+      for (String responsibility : responsibilities) {
+          _hotel.getEmployee(id).addResponsibility(responsibility);
       }
+  } catch (UnknownEmployeeKeyException e) {
+      throw new UnrecognizedEntryException("Failed to add responsibilities: " + e.getMessage());
   }
+}
 
 
   // Parse a line with format VACINA|id|nome|idEspécie1,...,idEspécieN
