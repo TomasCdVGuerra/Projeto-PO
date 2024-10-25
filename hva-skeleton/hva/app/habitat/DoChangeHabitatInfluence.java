@@ -46,12 +46,10 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
         Adequation adequation = new Adequation(species, influence);
         habitat.setAdequationForSpecies(speciesId, adequation);
 
-        _display.popup("Alterar influência de habitat sobre espécie: Influence of species " + speciesId + " on habitat " + habitatId + " set to " + influenceStr);
-
     } catch (UnknownHabitatKeyException e) {
-        _display.popup("Operação inválida: O habitat '" + habitatId + "' não existe.");
+        _display.popup("Alterar influência de habitat sobre espécie: Operação inválida: O habitat '" + habitatId + "' não existe.");
     } catch (UnknownSpeciesKeyException e) {
-        _display.popup("Operação inválida: A espécie '" + speciesId + "' não existe.");
+        _display.popup("Alterar influência de habitat sobre espécie: Operação inválida: A espécie '" + speciesId + "' não existe.");
     } catch (IllegalArgumentException e) {
         _display.popup(e.getMessage());
     }
