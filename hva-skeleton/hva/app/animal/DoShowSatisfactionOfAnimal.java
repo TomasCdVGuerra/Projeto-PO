@@ -1,7 +1,9 @@
 package hva.app.animal;
 
 import hva.app.exception.UnknownAnimalKeyException;
+import hva.app.exception.UnknownHabitatKeyException;
 import hva.core.Animal;
+import hva.core.Habitat;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
@@ -25,6 +27,12 @@ class DoShowSatisfactionOfAnimal extends Command<Hotel> {
     if (animal == null) {
       // Directly throw the UnknownAnimalKeyException if the animal is not found
       throw new UnknownAnimalKeyException(animalId);
+    }
+
+    Habitat habitat = animal.getHabitat();
+    if (habitat == null) {
+      // Directly throw the UnknownAnimalKeyException if the animal is not found
+      throw new UnknownHabitatKeyException(animalId);
     }
 
     _display.popup("Satisfaction of animal " + animalId + ": " + animal.satisfaction());
