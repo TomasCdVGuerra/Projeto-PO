@@ -6,6 +6,7 @@ import hva.core.MedicalAct;
 import hva.app.exception.UnknownAnimalKeyException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
+import hva.core.Hotel;
 
 /**
  * Show all medical acts applied to a given animal.
