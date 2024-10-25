@@ -1,6 +1,7 @@
 package hva.app.animal;
 
 import hva.app.exception.DuplicateEmployeeKeyException;
+import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
 import hva.core.Animal;
 import hva.core.Habitat;
@@ -41,6 +42,11 @@ class DoRegisterAnimal extends Command<Hotel> {
     } catch (UnknownSpeciesKeyException e) {
       String newSpeciesName = Form.requestString("Species not found. Enter the name of the new species:");
       _receiver.registerSpecies(speciesId, newSpeciesName);
+    }
+    try {
+      Habitat habitat = _receiver.getHabitat(habitatId);
+    } catch (UnknownHabitatKeyException e) {
+        throw new UnknownHabitatKeyException(habitatId);
     }
 
     _receiver.registerAnimal(animalId, name, speciesId, habitatId);
