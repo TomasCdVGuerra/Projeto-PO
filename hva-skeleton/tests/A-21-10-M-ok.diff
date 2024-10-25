@@ -1,5 +1,5 @@
 *** tests/A-21-10-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-21-10-M-ok.outhyp	Fri Oct 25 20:06:38 2024
+--- tests/A-21-10-M-ok.outhyp	Fri Oct 25 21:29:00 2024
 ***************
 *** 57,63 ****
   0 - Sair
@@ -17,3 +17,24 @@
   Gestão de Animais
   1 - Visualizar todos os animais
   2 - Registar animal
+***************
+*** 82,90 ****
+  3 - Vacinar animal
+  4 - Mostrar vacinações
+  0 - Sair
+! Escolha uma opção: VACINA|Vac1|nome 1|1|E1
+  VACINA|Vac2|nome 2|0|E2
+! VACINA|Vac3|nome 3|1|E1,E2
+  Gestão de Vacinas
+  1 - Visualizar todas as vacinas
+  2 - Registar vacina
+--- 82,90 ----
+  3 - Vacinar animal
+  4 - Mostrar vacinações
+  0 - Sair
+! Escolha uma opção: VACINA|Vac1|nome 1|0|E1
+  VACINA|Vac2|nome 2|0|E2
+! VACINA|Vac3|nome 3|0|E1,E2
+  Gestão de Vacinas
+  1 - Visualizar todas as vacinas
+  2 - Registar vacina

@@ -82,8 +82,8 @@ Escolha uma opção: Gestão de Vacinas
 3 - Vacinar animal
 4 - Mostrar vacinações
 0 - Sair
-Escolha uma opção: VACINA|Vac1|nome 1|1|E1
-VACINA|Vac2|nome 2|1|E2
+Escolha uma opção: VACINA|Vac1|nome 1|0|E1
+VACINA|Vac2|nome 2|0|E2
 VACINA|Vac3|nome 3|0|E1,E2
 Gestão de Vacinas
 1 - Visualizar todas as vacinas
