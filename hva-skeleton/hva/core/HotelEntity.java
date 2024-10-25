@@ -27,6 +27,19 @@ public abstract class HotelEntity implements Serializable {
     }
 
     /**
+     * Constructs a HotelEntity with the specified ID and name.
+     *
+     * @param id the ID of the entity
+     * @param name the name of the entity
+     */
+    public HotelEntity(String id, String name) {
+        this._id = id;
+        this._name = name;
+    }
+
+
+
+    /**
      * Gets the ID of the entity.
      *
      * @return the ID of the entity
