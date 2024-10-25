@@ -1,1 +1,6 @@
 *.class
+*.in
+*.out
+*.diff
+*.outhyp
+*.import
