@@ -30,14 +30,14 @@ class DoAddTreeToHabitat extends Command<Hotel> {
     try {
       habitat = _receiver.getHabitat(idHabitat);
     } catch (UnknownHabitatKeyException e) {
-      throw new UnknownHabitatKeyException("Unknown habitat key: " + idHabitat);
+      throw new UnknownHabitatKeyException(idHabitat);
     }
 
     String idTree = stringField("idTree");
 
     for (Tree tree : _receiver.getTrees(idHabitat)) {
       if (tree.getId().equals(idTree)) {
-        throw new DuplicateTreeKeyException("Duplicate tree key: " + idTree);
+        throw new DuplicateTreeKeyException(idTree);
       }
     }
 
@@ -50,6 +50,3 @@ class DoAddTreeToHabitat extends Command<Hotel> {
     _receiver.addTreeToHabitat(idHabitat, idTree);
   }
 }
-
-
-
