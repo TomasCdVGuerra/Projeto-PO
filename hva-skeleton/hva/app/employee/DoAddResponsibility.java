@@ -17,8 +17,8 @@ class DoAddResponsibility extends Command<Hotel> {
 
   DoAddResponsibility(Hotel receiver) {
     super(Label.ADD_RESPONSIBILITY, receiver);  // Corrected constant name
-    addStringField("employeeId", hva.app.employee.Prompt.employeeKey());
-    addStringField("responsibility", hva.app.employee.Prompt.responsibilityKey());
+    addStringField("employeeId", "Employee ID");
+    addStringField("responsibility", "Responsibility");
   }
   
   @Override
@@ -40,7 +40,7 @@ class DoAddResponsibility extends Command<Hotel> {
       _display.popup("Responsibility added to employee " + employeeId);
 
     } catch (UnknownEmployeeKeyException e) {
-      throw new UnknownEmployeeKeyException("Unknown employee ID: " + employeeId);
+      throw new UnknownEmployeeKeyException(employeeId);
     } catch (NoResponsibilityException e) {
       throw new NoResponsibilityException(employeeId, responsibility);
     }

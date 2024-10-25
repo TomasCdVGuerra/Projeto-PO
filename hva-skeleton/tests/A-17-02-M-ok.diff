@@ -1,5 +1,5 @@
 *** tests/A-17-02-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-17-02-M-ok.outhyp	Fri Oct 25 14:50:40 2024
+--- tests/A-17-02-M-ok.outhyp	Fri Oct 25 15:08:54 2024
 ***************
 *** 17,23 ****
   4 - Retirar responsabilidade
@@ -13,7 +13,7 @@
   4 - Retirar responsabilidade
   5 - Calcular satisfação de funcionário
   0 - Sair
-! Escolha uma opção: Employee IDResponsibilityAtribuir responsabilidade: Operação inválida: O funcionário 'Unknown employee ID: V2' não existe.
+! Escolha uma opção: Employee IDResponsibilityAtribuir responsabilidade: Operação inválida: O funcionário 'V2' não existe.
   Gestão de Funcionários
   1 - Visualizar todos os funcionários
   2 - Registar funcionário
@@ -30,7 +30,7 @@
   4 - Retirar responsabilidade
   5 - Calcular satisfação de funcionário
   0 - Sair
-! Escolha uma opção: Employee IDResponsibilityAtribuir responsabilidade: Operação inválida: O funcionário 'Unknown employee ID: T2' não existe.
+! Escolha uma opção: Employee IDResponsibilityAtribuir responsabilidade: Operação inválida: O funcionário 'T2' não existe.
   Gestão de Funcionários
   1 - Visualizar todos os funcionários
   2 - Registar funcionário

@@ -43,7 +43,7 @@ class DoRemoveResponsibility extends Command<Hotel> {
             _display.popup("Responsibility removed from employee " + employeeId);
 
         } catch (UnknownEmployeeKeyException e) {
-            throw new UnknownEmployeeKeyException("Unknown employee ID: " + employeeId);
+            throw new UnknownEmployeeKeyException(employeeId);
         } catch (NoResponsibilityException e) {
             throw new NoResponsibilityException(employeeId, responsibility);
         }
