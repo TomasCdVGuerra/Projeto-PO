@@ -71,16 +71,25 @@ public class Zookeeper extends Employee {
         for (String habitatId : _habitatsManaged) {
             Habitat habitat = habitats.get(habitatId);
             if (habitat != null) {
+                System.out.println("area"+habitat.getArea());
+                System.out.println("popelation"+ habitat.getPopulation());
+                System.out.println("listanimals"+ habitat.getAnimals());
                 int workInHabitat = habitat.getArea() + 3 * habitat.getPopulation();
                 for (Tree tree : habitat.getTrees()) {
                     if (tree != null) {
                         workInHabitat += tree.getCleaningEffort();
                     }
+                    System.out.println("Tree cleaning effort: " + tree.getCleaningEffort());
+                    System.out.println("Work in habitat: " + workInHabitat);
                 }
                 int zookeeperCount = habitatZookeeperCount.getOrDefault(habitatId, 1);
                 satisfaction -= workInHabitat / zookeeperCount;
+                System.out.println("Work in habitat: " + workInHabitat);
+                System.out.println("Zookeeper count: " + zookeeperCount);
+                System.out.println("Satisfaction: " + satisfaction);
             }
         }
+        System.out.println("final"+satisfaction);
         return satisfaction;
     }
 
