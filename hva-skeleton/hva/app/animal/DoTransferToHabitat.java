@@ -25,12 +25,12 @@ class DoTransferToHabitat extends Command<Hotel> {
   String habitatId = stringField("habitatId");
 
   try {
-    Animal animal = _receiver.getAnimal(animalId);  // Ensure _receiver has this method
-    Habitat newHabitat = _receiver.getHabitat(habitatId);  // Ensure _receiver has this method
+    Animal animal = _receiver.getAnimal(animalId);  
+    Habitat newHabitat = _receiver.getHabitat(habitatId); 
 
-    animal.setHabitat(newHabitat);  // Ensure Animal class has this method
-
-    _display.popup("Animal " + animalId + " has been transferred to habitat " + habitatId);
+    animal.getHabitat().rmAnimal(animal);
+    animal.setHabitat(newHabitat); 
+    newHabitat.addAnimal(animal);
 
   } catch (UnknownAnimalKeyException e) {
     throw new UnknownAnimalKeyException(animalId);  // Re-throw the correct exception

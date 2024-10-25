@@ -15,7 +15,7 @@ class DoShowSatisfactionOfAnimal extends Command<Hotel> {
 
   DoShowSatisfactionOfAnimal(Hotel receiver) {
     super(Label.SHOW_SATISFACTION_OF_ANIMAL, receiver);
-    addStringField("animalId", "Animal ID:");
+    addStringField("animalId", hva.app.animal.Prompt.animalKey());
   }
 
   @Override
@@ -34,7 +34,7 @@ class DoShowSatisfactionOfAnimal extends Command<Hotel> {
       // Directly throw the UnknownAnimalKeyException if the animal is not found
       throw new UnknownHabitatKeyException(animalId);
     }
-
-    _display.popup("Satisfaction of animal " + animalId + ": " + Math.round(animal.satisfaction()));
+    
+    _display.popup("Identificador único do animal: " + Math.round(animal.satisfaction()));
   }
 }
