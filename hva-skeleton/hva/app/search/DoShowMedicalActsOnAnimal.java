@@ -1,7 +1,6 @@
 package hva.app.search;
 
 import hva.core.Hotel;
-import hva.app.exception.UnknownAnimalKeyException;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 //FIXME add more imports if needed
@@ -21,3 +20,4 @@ class DoShowMedicalActsOnAnimal extends Command<Hotel> {
     //FIXME implement command
   }
 }
+
