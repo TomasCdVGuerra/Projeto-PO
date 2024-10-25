@@ -15,8 +15,8 @@ class DoTransferToHabitat extends Command<Hotel> {
 
   DoTransferToHabitat(Hotel hotel) {
     super(Label.TRANSFER_ANIMAL_TO_HABITAT, hotel);
-    addStringField("animalId", "Animal ID");
-    addStringField("habitatId", "New Habitat ID");
+    addStringField("animalId", hva.app.animal.Prompt.animalKey());
+    addStringField("habitatId", hva.app.animal.Prompt.habitatKey());
   }
   
   @Override
