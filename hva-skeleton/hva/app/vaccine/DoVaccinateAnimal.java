@@ -3,6 +3,7 @@ import hva.app.exception.UnknownAnimalKeyException;
 import hva.app.exception.UnknownEmployeeKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
 import hva.app.exception.UnknownVaccineKeyException;
+import hva.app.exception.UnknownVeterinarianKeyException;
 import hva.app.exception.VeterinarianNotAuthorizedException;
 import hva.core.Animal;
 import hva.core.Employee;
@@ -23,7 +24,7 @@ class DoVaccinateAnimal extends Command<Hotel> {
   }
 
   @Override
-  protected final void execute() throws UnknownSpeciesKeyException, UnknownAnimalKeyException, UnknownVaccineKeyException, VeterinarianNotAuthorizedException, UnknownEmployeeKeyException {
+  protected final void execute() throws UnknownSpeciesKeyException, UnknownAnimalKeyException, UnknownVaccineKeyException, VeterinarianNotAuthorizedException, UnknownEmployeeKeyException, UnknownVeterinarianKeyException {
     String vaccineId = stringField("vaccineId");
     String veterinarianId = stringField("veterinarianId");
     String animalId = stringField("animalId");
@@ -40,9 +41,9 @@ class DoVaccinateAnimal extends Command<Hotel> {
       throw new UnknownVaccineKeyException(vaccineId);
     }
     try {
-        Employee employee = _receiver.getEmployee(veterinarianId);
-    } catch (UnknownEmployeeKeyException e) {
-      throw new UnknownEmployeeKeyException(veterinarianId);
+      Employee employee = _receiver.getEmployee(veterinarianId);
+    } catch (UnknownEmployeeKeyException e) { // Correct exception type
+      throw new UnknownVeterinarianKeyException(veterinarianId);
     }
     try {
       if (!_receiver.vetIsAuthorized(veterinarianId, _receiver.getAnimal(animalId).getSpecies())) 
