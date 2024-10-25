@@ -1,5 +1,5 @@
 *** tests/A-18-02-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-18-02-M-ok.outhyp	Fri Oct 25 15:13:14 2024
+--- tests/A-18-02-M-ok.outhyp	Fri Oct 25 15:16:27 2024
 ***************
 *** 17,37 ****
   4 - Retirar responsabilidade
@@ -44,42 +44,6 @@
   5 - Calcular satisfação de funcionário
   0 - Sair
 ! Escolha uma opção: Identificador único do funcionário: Identificador único da responsabilidade: Responsibility added to employee T1
-! Gestão de Funcionários
-  1 - Visualizar todos os funcionários
-  2 - Registar funcionário
-  3 - Atribuir responsabilidade
-***************
-*** 47,53 ****
-  4 - Retirar responsabilidade
-  5 - Calcular satisfação de funcionário
-  0 - Sair
-! Escolha uma opção: Identificador único do funcionário: Identificador único da responsabilidade: Gestão de Funcionários
-  1 - Visualizar todos os funcionários
-  2 - Registar funcionário
-  3 - Atribuir responsabilidade
---- 50,57 ----
-  4 - Retirar responsabilidade
-  5 - Calcular satisfação de funcionário
-  0 - Sair
-! Escolha uma opção: Identificador único do funcionário: Identificador único da responsabilidade: Responsibility removed from employee T1
-! Gestão de Funcionários
-  1 - Visualizar todos os funcionários
-  2 - Registar funcionário
-  3 - Atribuir responsabilidade
-***************
-*** 63,69 ****
-  4 - Retirar responsabilidade
-  5 - Calcular satisfação de funcionário
-  0 - Sair
-! Escolha uma opção: Identificador único do funcionário: Identificador único da responsabilidade: Gestão de Funcionários
-  1 - Visualizar todos os funcionários
-  2 - Registar funcionário
-  3 - Atribuir responsabilidade
---- 67,74 ----
-  4 - Retirar responsabilidade
-  5 - Calcular satisfação de funcionário
-  0 - Sair
-! Escolha uma opção: Identificador único do funcionário: Identificador único da responsabilidade: Responsibility removed from employee V1
 ! Gestão de Funcionários
   1 - Visualizar todos os funcionários
   2 - Registar funcionário
