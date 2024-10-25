@@ -16,8 +16,8 @@ public class Zookeeper extends Employee {
      * @param id the unique identifier of the zookeeper
      * @param name the name of the zookeeper
      */
-    public Zookeeper(String id, String name) {
-        super(id, name);
+    public Zookeeper(String id, String name, Hotel hotel) {
+        super(id, name, hotel);
         _habitatsManaged = new ArrayList<>(); // Initialize as empty list
     }
     

@@ -17,8 +17,8 @@ public class Animal extends HotelEntity {
      * @param idSpecies ID of the Species of the animal
      * @param habitat the Habitat of the animal
      */
-    public Animal(String idAnimal, String name, String idSpecies, Habitat habitat) {
-        super(idAnimal, name);
+    public Animal(String idAnimal, String name, Hotel hotel, String idSpecies, Habitat habitat) {
+        super(idAnimal, name, hotel);
         this._species = idSpecies;
         this._habitat = habitat;
         this._healthHistory = "";

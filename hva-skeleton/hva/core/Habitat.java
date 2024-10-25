@@ -22,8 +22,8 @@ public class Habitat extends HotelEntity {
      * @param name the name of the habitat
      * @param area the area of the habitat
      */
-    public Habitat(String habitatId, String name, int area) {  
-        super(habitatId, name);
+    public Habitat(String habitatId, String name, Hotel hotel, int area) {  
+        super(habitatId, name, hotel);
         this._area = area;
         this._trees = new ArrayList<>();
         this._zookeepers = new ArrayList<>();

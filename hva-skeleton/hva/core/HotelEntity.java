@@ -20,9 +20,10 @@ public abstract class HotelEntity implements Serializable {
      * @param id the ID of the entity
      * @param name the name of the entity
      */
-    public HotelEntity(String id, String name) {
+    public HotelEntity(String id, String name, Hotel hotel) {
         this._id = id;
         this._name = name;
+        this._hotel = hotel;
     }
 
     /**

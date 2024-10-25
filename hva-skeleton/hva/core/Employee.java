@@ -12,8 +12,8 @@ public abstract class Employee extends HotelEntity {
     private int _satisfLevel;
     protected List<Responsibility> _listResponsibilities;
 
-    public Employee(String id, String name) {
-        super(id, name);
+    public Employee(String id, String name, Hotel hotel) {
+        super(id, name, hotel);
         _listResponsibilities = new ArrayList<>();
     }
 
