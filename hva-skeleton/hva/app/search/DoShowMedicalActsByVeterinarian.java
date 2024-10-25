@@ -1,7 +1,7 @@
 package hva.app.search;
 
-import hva.app.vaccine.Prompt;
 import hva.app.exception.UnknownEmployeeKeyException;
+import hva.app.vaccine.Prompt;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
@@ -32,4 +32,5 @@ class DoShowMedicalActsByVeterinarian extends Command<Hotel> {
               .append("\n");
       }
     }
+}
 }
