@@ -62,18 +62,18 @@ public class Animal extends HotelEntity {
             if (damage == 0) {
                 term = "NORMAL";
             } else if (damage >= 1 && damage <= 4) {
-                term = "ACCIDENT";
+                term = "ACIDENTE";
             } else {
-                term = "ERROR";
+                term = "ERRO";
             }
         } else {
             if (damage == 0) {
                 term = "NORMAL";
             }
             else if (damage >= 1 && damage <= 4) {
-                term = "ACCIDENT";
+                term = "ACIDENTE";
             } else {
-                term = "ERROR";
+                term = "ERRO";
             }
         }
     

@@ -27,6 +27,7 @@ class DoVaccinateAnimal extends Command<Hotel> {
     String vaccineId = stringField("vaccineId");
     String veterinarianId = stringField("veterinarianId");
     String animalId = stringField("animalId");
+    _receiver.getVaccine(vaccineId).increaseNumAplicacoes();
 
     try {
       Animal animal = _receiver.getAnimal(animalId);

@@ -36,9 +36,6 @@ class DoAddResponsibility extends Command<Hotel> {
       } else {
         throw new NoResponsibilityException(employeeId, responsibility);
       }
-
-      _display.popup("Responsibility added to employee " + employeeId);
-
     } catch (UnknownEmployeeKeyException e) {
       throw new UnknownEmployeeKeyException(employeeId);
     } catch (NoResponsibilityException e) {
