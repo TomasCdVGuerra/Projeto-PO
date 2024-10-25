@@ -2,7 +2,6 @@ package hva.app.vaccine;
 
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
-import pt.tecnico.uilib.menus.CommandException;
 //FIXME add more imports if needed
 
 /**
@@ -16,6 +15,6 @@ class DoShowVaccinations extends Command<Hotel> {
   
   @Override
   protected final void execute() {
-    //FIXME implement command
+    _display.popup(_receiver.showVaxHistory());
   }
 }

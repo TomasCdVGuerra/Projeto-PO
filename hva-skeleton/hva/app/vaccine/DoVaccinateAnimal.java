@@ -14,7 +14,7 @@ class DoVaccinateAnimal extends Command<Hotel> {
     super(Label.VACCINATE_ANIMAL, receiver);
     addStringField("vaccineId", Prompt.vaccineKey());
     addStringField("veterinarianId", Prompt.veterinarianKey());
-    addStringField("animalId", Prompt.animalKey());
+    addStringField("animalId", hva.app.vaccine.Prompt.animalKey());
   }
 
   @Override
@@ -32,6 +32,7 @@ class DoVaccinateAnimal extends Command<Hotel> {
       
       else{
       _receiver.vaccinateAnimal(animalId, vaccineId, veterinarianId);
+      _receiver.addVaxHistory(vaccineId, veterinarianId, _receiver.getAnimal(animalId).getSpecies());
     }
     }catch (UnknownAnimalKeyException e) {
       throw new UnknownAnimalKeyException(animalId);
