@@ -23,7 +23,7 @@ class DoRegisterVaccine extends Command<Hotel> {
   protected final void execute() throws CommandException {
     String vaccineId = stringField("idVaccine");
     for(Vaccine i : _receiver.getVaccines()){
-      if(i.getId().equals(vaccineId))
+      if(i.getId().equalsIgnoreCase(vaccineId))
         throw new DuplicateVaccineKeyException(vaccineId);
     }
     String name = stringField("nameVaccine");
