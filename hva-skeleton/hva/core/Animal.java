@@ -153,4 +153,22 @@ public class Animal extends HotelEntity {
     public String toString() {
         return "ANIMAL|" + super.getId() + "|" + super.getName() + "|" + _species + "|" + getHealthHistory() + "|" + _habitat.getId();
     }
+
+    /**
+     * Adds a medical act to the animal.
+     *
+     * @param act the medical act to add
+     */
+    public void addMedicalAct(MedicalAct act) {
+        _medicalActs.add(act);
+    }
+
+    /**
+     * Gets the list of medical acts applied to the animal.
+     *
+     * @return the list of medical acts
+     */
+    public List<MedicalAct> getMedicalActs() {
+        return _medicalActs;
+    }
 }
