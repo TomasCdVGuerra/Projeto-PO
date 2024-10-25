@@ -1,6 +1,6 @@
 package hva.app.animal;
 
-import hva.app.exception.DuplicateEmployeeKeyException;
+import hva.app.exception.DuplicateAnimalKeyException;
 import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
 import hva.core.Animal;
@@ -34,7 +34,7 @@ class DoRegisterAnimal extends Command<Hotel> {
 
     for(Animal anmlId : _receiver.getAnimals()){
       if (animalId.equals(anmlId.getId()))
-        throw new DuplicateEmployeeKeyException(animalId);
+        throw new DuplicateAnimalKeyException(animalId);
     }
 
     try {
