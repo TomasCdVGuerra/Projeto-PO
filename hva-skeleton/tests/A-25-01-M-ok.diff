@@ -1,16 +1,7 @@
 *** tests/A-25-01-M-ok.out	Sat Oct 19 15:14:49 2024
---- tests/A-25-01-M-ok.outhyp	Fri Oct 25 22:07:05 2024
+--- tests/A-25-01-M-ok.outhyp	Fri Oct 25 23:08:40 2024
 ***************
-*** 137,144 ****
-  3 - Actos médicos de um veterinário
-  4 - Vacinações com problemas
-  0 - Sair
-! Escolha uma opção: REGISTO-VACINA|Vac2|Vet2|E2
-! Consultas
-  1 - Animais de um habitat
-  2 - Actos médicos num animal
-  3 - Actos médicos de um veterinário
---- 137,143 ----
+*** 70,76 ****
   3 - Actos médicos de um veterinário
   4 - Vacinações com problemas
   0 - Sair
@@ -18,3 +9,31 @@
   1 - Animais de um habitat
   2 - Actos médicos num animal
   3 - Actos médicos de um veterinário
+--- 70,78 ----
+  3 - Actos médicos de um veterinário
+  4 - Vacinações com problemas
+  0 - Sair
+! Escolha uma opção: Error processing record: Vac3, Vet1, E1. Error: O animal 'E1' não existe.
+! Error processing record: Vac3, Vet1, E1. Error: O animal 'E1' não existe.
+! Consultas
+  1 - Animais de um habitat
+  2 - Actos médicos num animal
+  3 - Actos médicos de um veterinário
+***************
+*** 137,143 ****
+  3 - Actos médicos de um veterinário
+  4 - Vacinações com problemas
+  0 - Sair
+! Escolha uma opção: REGISTO-VACINA|Vac2|Vet2|E2
+  Consultas
+  1 - Animais de um habitat
+  2 - Actos médicos num animal
+--- 139,146 ----
+  3 - Actos médicos de um veterinário
+  4 - Vacinações com problemas
+  0 - Sair
+! Escolha uma opção: Error processing record: Vac3, Vet1, E1. Error: O animal 'E1' não existe.
+! Error processing record: Vac3, Vet1, E1. Error: O animal 'E1' não existe.
+  Consultas
+  1 - Animais de um habitat
+  2 - Actos médicos num animal

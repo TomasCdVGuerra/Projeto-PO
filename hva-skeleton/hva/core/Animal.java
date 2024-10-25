@@ -1,5 +1,6 @@
 package hva.core;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Represents an Animal in the hotel.
  * This class extends HotelEntity, getting id and name attributes; and implements Serializable.
@@ -156,5 +157,24 @@ public class Animal extends HotelEntity {
     @Override
     public String toString() {
         return "ANIMAL|" + super.getId() + "|" + super.getName() + "|" + _species + "|" + getHealthHistory() + "|" + _habitat.getId();
+    }
+
+    /**
+     * Gets the vaccination history of the animal.
+     *
+     * @return a list of vaccination records related to the animal
+     */
+    public List<String[]> getVaccinations() {
+        List<String[]> vaccinations = new ArrayList<>();
+        List<String[]> vaxHistory = this.getHotel().getVaxHistory();
+
+        for (String[] record : vaxHistory) {
+            String speciesId = record[2];
+            if (speciesId.equals(this._species)) {
+                vaccinations.add(record);
+            }
+        }
+
+        return vaccinations;
     }
 }
