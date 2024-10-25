@@ -128,6 +128,10 @@ public class Habitat extends HotelEntity {
         _animals.add(animal);
     }
 
+    public void rmAnimal(Animal animal) {
+        _animals.remove(animal);
+    }
+
     /**
      * Adds an species to the habitat.
      *
