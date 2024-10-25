@@ -589,4 +589,8 @@ public boolean vacIsAuthorized(String vaccineId, String speciesId) {
     }
     return habitatsInfo;
   }
+
+  public List<String[]> getVaxHistory(){
+    return _vaxHistory;
+  }
 }

@@ -1,5 +1,5 @@
 *** tests/A-10-03-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-10-03-M-ok.outhyp	Fri Oct 25 16:25:47 2024
+--- tests/A-10-03-M-ok.outhyp	Fri Oct 25 17:32:42 2024
 ***************
 *** 16,22 ****
   3 - Transferir para habitat
@@ -13,7 +13,7 @@
   3 - Transferir para habitat
   4 - Calcular satisfação de animal
   0 - Sair
-! Escolha uma opção: Animal IDNew Habitat IDAnimal A1 has been transferred to habitat AR1
+! Escolha uma opção: Identificador único do animal: Identificador único do habitat: Animal A1 has been transferred to habitat AR1
 ! Gestão de Animais
   1 - Visualizar todos os animais
   2 - Registar animal

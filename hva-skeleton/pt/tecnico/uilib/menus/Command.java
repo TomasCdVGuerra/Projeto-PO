@@ -169,4 +169,5 @@ public abstract class Command<Receiver> {
   public boolean hasUnsavedChanges() {
     return _hasUnsavedChanges;
   }
+
 }
