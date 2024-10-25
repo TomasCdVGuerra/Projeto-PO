@@ -33,11 +33,11 @@ protected void execute() {
         Species species = _receiver.getSpecies(speciesId);
 
         AdequationValue influence;
-        if (influenceStr.equalsIgnoreCase("POSITIVE")) {
+        if (influenceStr.equals("POS")) {
             influence = AdequationValue.POSITIVE;
-        } else if (influenceStr.equalsIgnoreCase("NEUTRAL")) {
+        } else if (influenceStr.equals("NEU")) {
             influence = AdequationValue.NEUTRAL;
-        } else if (influenceStr.equalsIgnoreCase("NEGATIVE")) {
+        } else if (influenceStr.equals("NEG")) {
             influence = AdequationValue.NEGATIVE;
         } else {
             throw new IllegalArgumentException("Invalid influence value: " + influenceStr);
