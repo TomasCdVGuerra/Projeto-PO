@@ -18,6 +18,6 @@ public interface Prompt {
   }
 
   static String animalKey() {
-    return "Identificador do animal: ";
+    return "Identificador único do animal: ";
   }
 }
