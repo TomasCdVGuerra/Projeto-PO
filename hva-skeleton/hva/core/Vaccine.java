@@ -79,6 +79,15 @@ public class Vaccine extends HotelEntity {
     }
 
     /**
+     * increases the number of applications of the vaccine.
+     *
+     * @return the number of applications
+     */
+    public int increaseNumAplicacoes() {
+        return _numAplicacoes++;
+    }
+
+    /**
      * Returns a string representation of the vaccine.
      *
      * @return a string representation of the vaccine
