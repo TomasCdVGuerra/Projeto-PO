@@ -49,9 +49,9 @@ protected void execute() {
         _display.popup("Influence of species " + speciesId + " on habitat " + habitatId + " set to " + influenceStr);
 
     } catch (UnknownHabitatKeyException e) {
-        _display.popup("Unknown habitat ID: " + habitatId);
+        _display.popup("Operação inválida: O habitat '" + habitatId + "' não existe.");
     } catch (UnknownSpeciesKeyException e) {
-        _display.popup("Unknown species ID: " + speciesId);
+        _display.popup("Operação inválida: A espécie '" + speciesId + "' não existe.");
     } catch (IllegalArgumentException e) {
         _display.popup(e.getMessage());
     }
