@@ -4,6 +4,7 @@ import hva.app.exception.UnknownAnimalKeyException;
 import hva.app.exception.UnknownEmployeeKeyException;
 import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
+import hva.app.exception.UnknownTreeKeyException;
 import hva.app.exception.UnknownVaccineKeyException;
 import hva.core.exception.*;
 import java.io.*;
@@ -384,6 +385,13 @@ public class Hotel implements Serializable {
                     .filter(h -> h.getId().equals(habitatId))
                     .findFirst()
                     .orElseThrow(() -> new UnknownHabitatKeyException(habitatId));
+  }
+
+  public Tree getTree(String treeId) throws UnknownTreeKeyException {
+    return _trees.stream()
+                    .filter(t -> t.getId().equals(treeId))
+                    .findFirst()
+                    .orElseThrow(() -> new UnknownTreeKeyException(treeId));
   }
 
   /**

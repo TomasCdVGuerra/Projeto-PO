@@ -37,6 +37,7 @@ class DoAddTreeToHabitat extends Command<Hotel> {
     String type = stringField("typeTree");
 
     _receiver.createTree(idTree,name,type, age, baseDiff);
+    addStringField("cycleTree", Prompt.treeState());
     _receiver.addTreeToHabitat(idHabitat,idTree);
   }
 }

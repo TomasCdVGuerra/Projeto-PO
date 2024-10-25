@@ -83,7 +83,7 @@ public String toString() {
             this.getBiologicalCycle();
 }
 
-    private String getBiologicalCycle() {
+    public String getBiologicalCycle() {
         String cycle = "";
 
         // Determine the biological cycle based on the current season state
