@@ -19,6 +19,7 @@ class DoAddTreeToHabitat extends Command<Hotel> {
     addIntegerField("ageTree", Prompt.treeAge());
     addIntegerField("baseDiff", Prompt.treeDifficulty());
     addOptionField("typeTree", Prompt.treeType(), "CAD", "PER");
+    addStringField("cycle", Prompt.treeState());
   }
   
   @Override
@@ -37,7 +38,6 @@ class DoAddTreeToHabitat extends Command<Hotel> {
     String type = stringField("typeTree");
 
     _receiver.createTree(idTree,name,type, age, baseDiff);
-    addStringField("cycleTree", Prompt.treeState());
     _receiver.addTreeToHabitat(idHabitat,idTree);
   }
 }
