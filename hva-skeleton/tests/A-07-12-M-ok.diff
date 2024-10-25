@@ -1,23 +1,5 @@
 *** tests/A-07-12-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-07-12-M-ok.outhyp	Fri Oct 25 10:47:05 2024
-***************
-*** 18,25 ****
-  5 - Plantar árvore
-  6 - Mostrar árvores de habitat
-  0 - Sair
-! Escolha uma opção: Identificador único do habitat: Identificador único da árvore: Nome da árvore: Idade da árvore: Dificuldade de limpeza da árvore: Tipo de árvore: (CADUCA ou PERENE) ÁRVORE|t1|t1|1|1|CADUCA|GERARFOLHAS
-! Gestão de Habitats
-  1 - Visualizar todos os habitats
-  2 - Registar habitat
-  3 - Alterar área de habitat
---- 18,24 ----
-  5 - Plantar árvore
-  6 - Mostrar árvores de habitat
-  0 - Sair
-! Escolha uma opção: Identificador único do habitat: Identificador único da árvore: Nome da árvore: Idade da árvore: Dificuldade de limpeza da árvore: Tipo de árvore: (CADUCA ou PERENE) Gestão de Habitats
-  1 - Visualizar todos os habitats
-  2 - Registar habitat
-  3 - Alterar área de habitat
+--- tests/A-07-12-M-ok.outhyp	Fri Oct 25 11:13:46 2024
 ***************
 *** 39,46 ****
   9 - Gestão de vacinas
@@ -28,7 +10,7 @@
   1 - Criar ficheiro
   2 - Abrir ficheiro
   3 - Guardar ficheiro
---- 38,44 ----
+--- 39,45 ----
   9 - Gestão de vacinas
   10 - Consultas
   0 - Sair
@@ -46,7 +28,7 @@
   1 - Criar ficheiro
   2 - Abrir ficheiro
   3 - Guardar ficheiro
---- 79,85 ----
+--- 80,86 ----
   9 - Gestão de vacinas
   10 - Consultas
   0 - Sair
@@ -64,7 +46,7 @@
   1 - Criar ficheiro
   2 - Abrir ficheiro
   3 - Guardar ficheiro
---- 120,126 ----
+--- 121,127 ----
   9 - Gestão de vacinas
   10 - Consultas
   0 - Sair

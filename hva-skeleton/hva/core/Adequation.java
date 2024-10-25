@@ -21,6 +21,9 @@ public class Adequation {
   private AdequationValue _adequationValue;
 
   public Adequation(Species species, AdequationValue adequationValue) {
+    if (species == null || adequationValue == null) {
+      throw new IllegalArgumentException("Species and AdequationValue cannot be null");
+    }
     this._species = species;
     this._adequationValue = adequationValue;
   }
@@ -30,6 +33,9 @@ public class Adequation {
   }
 
   public void setSpecies(Species species) {
+    if (species == null) {
+      throw new IllegalArgumentException("Species cannot be null");
+    }
     this._species = species;
   }
 
@@ -38,6 +44,9 @@ public class Adequation {
   }
 
   public void setAdequationValue(AdequationValue adequationValue) {
+    if (adequationValue == null) {
+      throw new IllegalArgumentException("AdequationValue cannot be null");
+    }
     this._adequationValue = adequationValue;
   }
 }
