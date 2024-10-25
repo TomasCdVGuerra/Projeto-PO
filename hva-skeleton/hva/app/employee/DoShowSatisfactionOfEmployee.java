@@ -17,7 +17,7 @@ class DoShowSatisfactionOfEmployee extends Command<Hotel> {
 
   DoShowSatisfactionOfEmployee(Hotel receiver) {
     super(Label.SHOW_SATISFACTION_OF_EMPLOYEE, receiver);
-    addStringField("employeeId", "Employee ID");
+    addStringField("employeeId", hva.app.employee.Prompt.employeeKey());
   }
   
   @Override

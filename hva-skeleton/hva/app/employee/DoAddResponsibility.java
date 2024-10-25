@@ -17,8 +17,8 @@ class DoAddResponsibility extends Command<Hotel> {
 
   DoAddResponsibility(Hotel receiver) {
     super(Label.ADD_RESPONSIBILITY, receiver);  // Corrected constant name
-    addStringField("employeeId", "Employee ID");
-    addStringField("responsibility", "Responsibility");
+    addStringField("employeeId", hva.app.employee.Prompt.employeeKey());
+    addStringField("responsibility", hva.app.employee.Prompt.responsibilityKey());
   }
   
   @Override
