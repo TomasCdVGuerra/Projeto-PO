@@ -1,7 +1,6 @@
 package hva.app.search;
 
 import hva.app.exception.UnknownEmployeeKeyException;
-import hva.app.vaccine.Prompt;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
@@ -12,7 +11,7 @@ import pt.tecnico.uilib.menus.CommandException;
 class DoShowMedicalActsByVeterinarian extends Command<Hotel> {
   DoShowMedicalActsByVeterinarian(Hotel receiver) {
     super(Label.MEDICAL_ACTS_BY_VET, receiver);
-    addStringField("vetId", Prompt.veterinarianKey());
+    addStringField("vetId", hva.app.employee.Prompt.employeeKey());
   }
   
   @Override
