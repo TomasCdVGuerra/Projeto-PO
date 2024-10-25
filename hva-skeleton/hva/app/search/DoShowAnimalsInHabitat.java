@@ -25,7 +25,7 @@ class DoShowAnimalsInHabitat extends Command<Hotel> {
     try {
       habitat = _receiver.getHabitat(habitatId);
     } catch (UnknownHabitatKeyException e) {
-      throw new UnknownHabitatKeyException(e.getMessage());
+      throw new UnknownHabitatKeyException(habitatId);
     }
 
     for (Animal animal : habitat.getAnimals()) {

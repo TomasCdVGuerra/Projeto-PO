@@ -13,8 +13,8 @@ class DoChangeHabitatArea extends Command<Hotel> {
 
   DoChangeHabitatArea(Hotel receiver) {
     super(Label.CHANGE_HABITAT_AREA, receiver);
-    addStringField("habitatId", "Identificador único do habitat: ");
-    addIntegerField("habitatArea", "Área do habitat: ");
+    addStringField("habitatId", hva.app.habitat.Prompt.habitatKey());
+    addIntegerField("habitatArea", hva.app.habitat.Prompt.habitatArea());
   }
   
   @Override
