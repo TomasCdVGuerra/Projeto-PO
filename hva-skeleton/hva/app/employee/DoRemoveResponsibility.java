@@ -16,8 +16,8 @@ class DoRemoveResponsibility extends Command<Hotel> {
 
     DoRemoveResponsibility(Hotel receiver) {
         super(Label.REMOVE_RESPONSIBILITY, receiver);
-        addStringField("employeeId", "Employee ID");
-        addStringField("responsibility", "Responsibility");
+        addStringField("employeeId", hva.app.employee.Prompt.employeeKey());
+        addStringField("responsibility", hva.app.employee.Prompt.responsibilityKey());
     }
 
     @Override
