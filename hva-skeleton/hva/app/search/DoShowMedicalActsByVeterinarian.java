@@ -2,6 +2,7 @@ package hva.app.search;
 
 import hva.app.vaccine.Prompt;
 import hva.app.exception.UnknownVeterinarianKeyException;
+import hva.app.exception.UnknownEmployeeKeyException;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
 
@@ -15,7 +16,7 @@ class DoShowMedicalActsByVeterinarian extends Command<Hotel>{
   }
   
   @Override
-  protected void execute() {
+  protected void execute() throws UnknownEmployeeKeyException {
     String vetId = stringField("vetId");
     try {
       _receiver.getEmployee(vetId); // Check if veterinarian exists
