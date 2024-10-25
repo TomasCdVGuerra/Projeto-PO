@@ -1,5 +1,6 @@
 package hva.core;
 
+import hva.app.exception.UnknownSpeciesKeyException;
 import java.util.*;
 
 /**
@@ -29,6 +30,52 @@ public class Vaccine extends HotelEntity {
      */
     public List<String> getSpecies() {
         return _species;
+    }
+
+    private int countCommonCharacters(String name1, String name2) {
+        int[] charCount = new int[256];
+        for (char c : name1.toCharArray()) {
+            charCount[c]++;
+        }
+
+        int commonCount = 0;
+        for (char c : name2.toCharArray()) {
+            if (charCount[c] > 0) {
+                commonCount++;
+                charCount[c]--;
+            }
+        }
+
+        return commonCount;
+    }
+
+    public int[] calculateDamage(Species species) throws UnknownSpeciesKeyException{
+        int maxDamage = 0;
+        int maxLength = 0;
+        int commonChars = 0;
+        String maxSpeciesId = "";
+        int samespcs = 0;
+
+        for (String idSpecies : this.getSpecies()) {
+            try{
+            maxLength = Math.max(species.getName().length(), this.getHotel().getSpecies(idSpecies).getName().length());
+            commonChars = countCommonCharacters(species.getName(), this.getHotel().getSpecies(idSpecies).getName());
+            } catch(UnknownSpeciesKeyException e) {
+                throw new UnknownSpeciesKeyException(idSpecies);
+            }
+            int damage = maxLength - commonChars;
+            if(maxDamage<damage){
+                maxSpeciesId=idSpecies;
+            }
+            maxDamage = Math.max(maxDamage, damage);
+        }
+        if(maxSpeciesId.equals(species.getId()))
+            samespcs=1;
+        else
+            samespcs=0;
+
+        int[] res = {maxDamage, samespcs};
+        return res;
     }
 
     /**

@@ -1,8 +1,11 @@
 package hva.app.vaccine;
 import hva.app.exception.UnknownAnimalKeyException;
 import hva.app.exception.UnknownVaccineKeyException;
+import hva.app.exception.UnknownSpeciesKeyException;
 import hva.app.exception.VeterinarianNotAuthorizedException;
 import hva.core.Hotel;
+import hva.core.Animal;
+import hva.core.Vaccine;
 import pt.tecnico.uilib.menus.Command;
 
 /**
@@ -18,7 +21,7 @@ class DoVaccinateAnimal extends Command<Hotel> {
   }
 
   @Override
-  protected final void execute() throws UnknownAnimalKeyException, UnknownVaccineKeyException, VeterinarianNotAuthorizedException {
+  protected final void execute() throws UnknownSpeciesKeyException, UnknownAnimalKeyException, UnknownVaccineKeyException, VeterinarianNotAuthorizedException {
     String vaccineId = stringField("vaccineId");
     String veterinarianId = stringField("veterinarianId");
     String animalId = stringField("animalId");
@@ -32,10 +35,15 @@ class DoVaccinateAnimal extends Command<Hotel> {
       
       else{
       _receiver.vaccinateAnimal(animalId, vaccineId, veterinarianId);
-      _receiver.addVaxHistory(vaccineId, veterinarianId, _receiver.getAnimal(animalId).getSpecies());
+      Animal animal = _receiver.getAnimal(animalId);
+      Vaccine vaccine = _receiver.getVaccine(vaccineId);
+      _receiver.addVaxHistory(vaccineId, veterinarianId, animal.getSpecies());
+      animal.addVaccinationResult(vaccine.calculateDamage(_receiver.getSpecies(animal.getSpecies())));
     }
     }catch (UnknownAnimalKeyException e) {
       throw new UnknownAnimalKeyException(animalId);
-  }
+  } catch (UnknownSpeciesKeyException e) {
+    throw new UnknownSpeciesKeyException(animalId);
+}
   }
 }

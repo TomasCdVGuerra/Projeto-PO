@@ -53,9 +53,12 @@ public class Animal extends HotelEntity {
         return _habitat;
     }
 
-    public void addVaccinationResult(int damage, boolean isSameSpecies) {
+    public void addVaccinationResult(int[] results) {
+        int damage = results[0];
+        int isSameSpecies = results[1];
+
         String term;
-        if (isSameSpecies) {
+        if (isSameSpecies==1) {
             if (damage == 0) {
                 term = "NORMAL";
             } else if (damage >= 1 && damage <= 4) {
