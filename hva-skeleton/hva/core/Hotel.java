@@ -95,6 +95,7 @@ public class Hotel implements Serializable {
 
     Animal i = new Animal(animalId, name, this, speciesId, habitat);
     _animals.add(i);
+    habitat.addAnimal(i);
 
     try {
         this.getSpecies(speciesId).addAnimal(animalId);
