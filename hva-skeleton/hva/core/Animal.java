@@ -56,9 +56,9 @@ public class Animal extends HotelEntity {
     public void addVaccinationResult(int[] results) {
         int damage = results[0];
         int isSameSpecies = results[1];
-
+    
         String term;
-        if (isSameSpecies==1) {
+        if (isSameSpecies == 1) {
             if (damage == 0) {
                 term = "NORMAL";
             } else if (damage >= 1 && damage <= 4) {
@@ -67,9 +67,21 @@ public class Animal extends HotelEntity {
                 term = "ERROR";
             }
         } else {
-            term = "CONFUSION";
+            if (damage == 0) {
+                term = "NORMAL";
+            }
+            else if (damage >= 1 && damage <= 4) {
+                term = "ACCIDENT";
+            } else {
+                term = "ERROR";
+            }
         }
-        _healthHistory += "," + term;
+    
+        if (_healthHistory.isEmpty()) {
+            _healthHistory = term;
+        } else {
+            _healthHistory += "," + term;
+        }
     }
 
     public double satisfaction() {
