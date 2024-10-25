@@ -35,6 +35,6 @@ class DoShowSatisfactionOfAnimal extends Command<Hotel> {
       throw new UnknownHabitatKeyException(animalId);
     }
     
-    _display.popup("Identificador único do animal: " + Math.round(animal.satisfaction()));
+    _display.popup(Math.round(animal.satisfaction()));
   }
 }

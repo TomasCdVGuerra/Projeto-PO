@@ -103,6 +103,10 @@ public class Animal extends HotelEntity {
                 count++;
             }
         }
+        count--;
+        if (count < 0) {
+            count = 0;
+        }
         return count;
     }
 
