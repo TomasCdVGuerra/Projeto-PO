@@ -1,10 +1,12 @@
 package hva.app.vaccine;
 import hva.app.exception.UnknownAnimalKeyException;
-import hva.app.exception.UnknownVaccineKeyException;
+import hva.app.exception.UnknownEmployeeKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
+import hva.app.exception.UnknownVaccineKeyException;
 import hva.app.exception.VeterinarianNotAuthorizedException;
-import hva.core.Hotel;
 import hva.core.Animal;
+import hva.core.Employee;
+import hva.core.Hotel;
 import hva.core.Vaccine;
 import pt.tecnico.uilib.menus.Command;
 
@@ -21,11 +23,26 @@ class DoVaccinateAnimal extends Command<Hotel> {
   }
 
   @Override
-  protected final void execute() throws UnknownSpeciesKeyException, UnknownAnimalKeyException, UnknownVaccineKeyException, VeterinarianNotAuthorizedException {
+  protected final void execute() throws UnknownSpeciesKeyException, UnknownAnimalKeyException, UnknownVaccineKeyException, VeterinarianNotAuthorizedException, UnknownEmployeeKeyException {
     String vaccineId = stringField("vaccineId");
     String veterinarianId = stringField("veterinarianId");
     String animalId = stringField("animalId");
 
+    try {
+      Animal animal = _receiver.getAnimal(animalId);
+    } catch (UnknownAnimalKeyException e) {
+      throw new UnknownAnimalKeyException(animalId);
+    }
+    try {
+      Vaccine vaccine = _receiver.getVaccine(vaccineId);
+    } catch (UnknownVaccineKeyException e) {
+      throw new UnknownVaccineKeyException(vaccineId);
+    }
+    try {
+        Employee employee = _receiver.getEmployee(veterinarianId);
+    } catch (UnknownEmployeeKeyException e) {
+      throw new UnknownEmployeeKeyException(veterinarianId);
+    }
     try {
       if (!_receiver.vetIsAuthorized(veterinarianId, _receiver.getAnimal(animalId).getSpecies())) 
         throw new VeterinarianNotAuthorizedException(veterinarianId, _receiver.getAnimal(animalId).getSpecies());
