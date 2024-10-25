@@ -38,7 +38,7 @@ class DoShowSatisfactionOfEmployee extends Command<Hotel> {
         satisfaction = keeper.calculateSatisfaction(habitats, habitatZookeeperCount);
       }
 
-      _display.popup("Identificador único do funcionário:  "+ Math.round(satisfaction));
+      _display.popup(Math.round(satisfaction));
 
     } catch (UnknownEmployeeKeyException e) {
       throw new UnknownEmployeeKeyException(employeeId);
