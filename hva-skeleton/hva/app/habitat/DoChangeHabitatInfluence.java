@@ -1,5 +1,6 @@
 package hva.app.habitat;
 
+import hva.app.animal.Prompt;
 import hva.app.exception.UnknownHabitatKeyException;
 import hva.app.exception.UnknownSpeciesKeyException;
 import hva.core.Adequation;
@@ -16,9 +17,9 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
 
   DoChangeHabitatInfluence(Hotel receiver) {
     super(Label.CHANGE_HABITAT_INFLUENCE, receiver);
-    addStringField("habitatId", "Habitat ID");
-    addStringField("speciesId", "Species ID");
-    addOptionField("influence", "Influence (POSITIVE, NEUTRAL, NEGATIVE)","POSITIVE", "NEUTRAL", "NEGATIVE" );
+    addStringField("habitatId", Prompt.habitatKey());
+    addStringField("speciesId", Prompt.speciesKey());
+    addOptionField("influence", hva.app.habitat.Prompt.habitatInfluence(), "POS", "NEG", "NEU");
   }
   
   @Override
