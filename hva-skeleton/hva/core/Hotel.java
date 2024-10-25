@@ -60,21 +60,28 @@ public class Hotel implements Serializable {
    * @param habitatId the habitat ID of the animal
    */
   public void registerAnimal(String animalId, String name, String speciesId, String habitatId) {
-    Habitat habitat = _habitats.stream()
-                               .filter(h -> h.getId().equals(habitatId))
-                               .findFirst()
-                               .orElseThrow(() -> new IllegalArgumentException("Habitat not found"));
+    Habitat habitat = null;
+    for (Habitat h : _habitats) {
+        if (h.getId().equals(habitatId)) {
+            habitat = h;
+            break;
+        }
+    }
+    if (habitat == null) {
+        throw new IllegalArgumentException("Habitat not found");
+    }
+
     Animal i = new Animal(animalId, name, speciesId, habitat);
     _animals.add(i);
-  
+
     try {
-      this.getSpecies(speciesId).addAnimal(animalId);
-  } catch (UnknownSpeciesKeyException e) {
-      throw new IllegalArgumentException("Species not found.", e);
-  }
+        this.getSpecies(speciesId).addAnimal(animalId);
+    } catch (UnknownSpeciesKeyException e) {
+        throw new IllegalArgumentException("Species not found.", e);
+    }
 
     markAsChanged();
-  }
+}
 
   /**
    * Registers a new species in the hotel.
