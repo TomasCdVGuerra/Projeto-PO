@@ -20,7 +20,7 @@ class DoAddTreeToHabitat extends Command<Hotel> {
     addStringField("nomeArvore", Prompt.treeName());
     addIntegerField("ageTree", Prompt.treeAge());
     addIntegerField("baseDiff", Prompt.treeDifficulty());
-    addOptionField("typeTree", Prompt.treeType(), "CAD", "PER");
+    addOptionField("typeTree", Prompt.treeType(), "CADUCA", "PERENE");
   }
 
   @Override
