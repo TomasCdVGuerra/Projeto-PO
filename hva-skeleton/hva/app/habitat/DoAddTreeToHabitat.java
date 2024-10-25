@@ -1,6 +1,8 @@
 package hva.app.habitat;
 
+import hva.app.exception.DuplicateTreeKeyException;
 import hva.core.Hotel;
+import hva.core.Tree;
 import pt.tecnico.uilib.menus.Command;
 import pt.tecnico.uilib.menus.CommandException;
 
@@ -23,6 +25,12 @@ class DoAddTreeToHabitat extends Command<Hotel> {
   protected void execute() throws CommandException {
     String idHabitat = stringField("idHabitat");
     String idTree = stringField("idTree");
+
+    for(Tree i : _receiver.getTrees(idHabitat)){
+      if(i.getId().equals(idTree))
+        throw new DuplicateTreeKeyException(idTree);
+    }
+
     String name = stringField("nomeArvore");
     int age = integerField("ageTree");
     int baseDiff = integerField("baseDiff");
