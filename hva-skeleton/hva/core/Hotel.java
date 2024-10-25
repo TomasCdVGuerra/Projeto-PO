@@ -424,7 +424,12 @@ public class Hotel implements Serializable {
    *
    * @return the list of trees
    */
-  public List<Tree> getTrees(String habitatId) {
+  public List<Tree> getTrees(String habitatId) throws UnknownHabitatKeyException{
+    try {
+        Habitat habitat = getHabitat(habitatId);
+    } catch (UnknownHabitatKeyException e) {
+      throw new UnknownHabitatKeyException(habitatId);
+    }
     for(Habitat i: _habitats){
       if(i.getId().equals(habitatId)){
         return i.getTrees();
