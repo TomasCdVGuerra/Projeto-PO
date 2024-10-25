@@ -26,6 +26,7 @@ public class Hotel implements Serializable {
   private final List<Vaccine> _vaccines;
   private final List<Tree> _trees;
   private final List<Habitat> _habitats;
+  private final List<String[]> _vaxHistory;
   private final String _season;
   private boolean _hasUnsavedChanges = false;
 
@@ -41,6 +42,7 @@ public class Hotel implements Serializable {
       _trees = new ArrayList<>();
       _habitats = new ArrayList<>();
       _season = "Spring";
+      _vaxHistory = new ArrayList<>();
   }
 
   /**
@@ -139,6 +141,23 @@ public class Hotel implements Serializable {
       markAsChanged();
     }
   }
+
+  public void addVaxHistory(String vaccineId, String veterinarianId, String speciesId){
+    String[] record = {vaccineId, veterinarianId, speciesId}; 
+    _vaxHistory.add(record);
+  }
+
+  public String showVaxHistory() {
+    StringBuilder res = new StringBuilder();
+    for (int j = 0; j < _vaxHistory.size(); j++) {
+        String[] i = _vaxHistory.get(j);
+        res.append("REGISTO-VACINA|").append(i[0]).append("|").append(i[1]).append("|").append(i[2]);
+        if (j < _vaxHistory.size() - 1) {
+            res.append("\n");
+        }
+    }
+    return res.toString();
+}
 
   /**
    * Assigns a habitat to a zookeeper.
