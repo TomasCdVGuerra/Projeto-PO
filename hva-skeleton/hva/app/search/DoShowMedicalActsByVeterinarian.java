@@ -1,27 +1,27 @@
 package hva.app.search;
 
 import hva.app.vaccine.Prompt;
-import hva.app.exception.UnknownVeterinarianKeyException;
 import hva.app.exception.UnknownEmployeeKeyException;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
+import pt.tecnico.uilib.menus.CommandException;
 
 /**
  * Show all medical acts of a given veterinarian.
  **/
-class DoShowMedicalActsByVeterinarian extends Command<Hotel>{
+class DoShowMedicalActsByVeterinarian extends Command<Hotel> {
   DoShowMedicalActsByVeterinarian(Hotel receiver) {
     super(Label.MEDICAL_ACTS_BY_VET, receiver);
     addStringField("vetId", Prompt.veterinarianKey());
   }
   
   @Override
-  protected void execute() throws UnknownEmployeeKeyException {
+  protected void execute() throws CommandException {
     String vetId = stringField("vetId");
     try {
       _receiver.getEmployee(vetId); // Check if veterinarian exists
-    } catch (UnknownVeterinarianKeyException e) {
-      throw new UnknownVeterinarianKeyException(vetId);
+    } catch (UnknownEmployeeKeyException e) {
+      throw new UnknownEmployeeKeyException(vetId);
     }
 
     StringBuilder result = new StringBuilder();
@@ -32,5 +32,4 @@ class DoShowMedicalActsByVeterinarian extends Command<Hotel>{
               .append("\n");
       }
     }
-  }
 }
