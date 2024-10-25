@@ -8,7 +8,7 @@ public interface Message {
     return "Identificador do veterinário: ";
   }
   static String requestAnimalId() {
-    return "Identificador do animal: ";
+    return "Identificador único do animal: ";
   }
   static String requestVaccineId() {
     return "Identificador da vacina: ";
