@@ -105,9 +105,12 @@ public class Animal extends HotelEntity {
     }
 
     private int getSuitability() {
-    Adequation adequation = _habitat.getAdequationForSpecies(this._species);
-    return adequation.getAdequationValue().getValue();
-}
+        Adequation adequation = _habitat.getAdequationForSpecies(this._species);
+        if (adequation == null) {
+            return 0;
+        }
+        return adequation.getAdequationValue().getValue();
+    }
 
     public void changeHabitat(Habitat newHabitat) {
         if (this._habitat != null) {
