@@ -76,7 +76,7 @@ public class Animal extends HotelEntity {
 
     double area = _habitat.getArea();
     int populacao = _habitat.getPopulation();
-    double adequacao = this.getSuitability();
+    int adequacao = this.getSuitability();
 
     double satisfacao = 20 + 3 * especieIgual - 2 * especieDiferente + (area / populacao) + adequacao;
     return satisfacao;
