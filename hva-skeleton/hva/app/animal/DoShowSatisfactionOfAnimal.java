@@ -35,6 +35,6 @@ class DoShowSatisfactionOfAnimal extends Command<Hotel> {
       throw new UnknownHabitatKeyException(animalId);
     }
 
-    _display.popup("Satisfaction of animal " + animalId + ": " + animal.satisfaction());
+    _display.popup("Satisfaction of animal " + animalId + ": " + Math.round(animal.satisfaction()));
   }
 }
