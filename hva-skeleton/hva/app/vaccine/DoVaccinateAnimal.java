@@ -24,15 +24,17 @@ class DoVaccinateAnimal extends Command<Hotel> {
     String animalId = stringField("animalId");
 
     try {
-      if (!_receiver.vetIsAuthorized(veterinarianId, _receiver.getAnimal(animalId).getSpecies())) {
+      if (!_receiver.vetIsAuthorized(veterinarianId, _receiver.getAnimal(animalId).getSpecies())) 
         throw new VeterinarianNotAuthorizedException(veterinarianId, _receiver.getAnimal(animalId).getSpecies());
-      }
-      else if(!_receiver.vacIsAuthorized(vaccineId, _receiver.getAnimal(animalId).getSpecies())){
-        throw new IllegalArgumentException(hva.app.vaccine.Message.wrongVaccine(vaccineId, animalId));
-      }
+      
+      else if(!_receiver.vacIsAuthorized(vaccineId, _receiver.getAnimal(animalId).getSpecies()))
+        _display.popup(Message.wrongVaccine(vaccineId, _receiver.getAnimal(animalId).getSpecies()));
+      
+      else{
       _receiver.vaccinateAnimal(animalId, vaccineId, veterinarianId);
       _display.popup("Vacinação realizada com sucesso.");
-    } catch (UnknownAnimalKeyException e) {
+    }
+    }catch (UnknownAnimalKeyException e) {
       throw new UnknownAnimalKeyException(animalId);
   }
   }
