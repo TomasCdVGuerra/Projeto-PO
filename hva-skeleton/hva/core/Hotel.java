@@ -272,11 +272,11 @@ public class Hotel implements Serializable {
         }
 
         if (veterinarian == null) {
-            throw new UnknownEmployeeKeyException(veterinarianId);
+            throw new UnknownVeterinarianKeyException(veterinarianId);
         }
 
         return veterinarian.getSpeciesIds().contains(speciesId);
-    } catch (UnknownEmployeeKeyException e) {
+    } catch (UnknownVeterinarianKeyException e) {
         // Handle the exception by returning false
         return false;
     }
