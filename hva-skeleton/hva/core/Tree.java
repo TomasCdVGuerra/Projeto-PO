@@ -6,19 +6,19 @@ public class Tree extends HotelEntity {
     private SeasonState _seasonState;
     private int _seasonCount;
 
-    public Tree(String treeId, String name, int age, int baseDiff) {
-        super(treeId, name);
+    public Tree(String treeId, String name, Hotel hotel, int age, int baseDiff) {
+        super(treeId, name, hotel);
         this._age = age;
         this._baseDiff = baseDiff;
         this._seasonState = new SpringState(); // Initial state
         this._seasonCount = 0; // Initialize season counter
     }
 
-    public static Tree createTree(String treeId, String name, int age, int baseDiff, String type) {
+    public static Tree createTree(String treeId, String name, Hotel hotel, int age, int baseDiff, String type) {
         if (type.equals("CAD") || type.equals("CADUCA")) {
-            return new Deciduous(treeId, name, age, baseDiff);
+            return new Deciduous(treeId, name, hotel, age, baseDiff);
         } else if (type.equals("PER") || type.equals("PERENE")) {
-            return new Evergreen(treeId, name, age, baseDiff);
+            return new Evergreen(treeId, name, hotel, age, baseDiff);
         } else {
             throw new IllegalArgumentException("Invalid tree type: " + type);
         }

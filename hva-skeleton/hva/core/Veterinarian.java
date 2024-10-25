@@ -16,8 +16,8 @@ public class Veterinarian extends Employee {
      * @param id the unique identifier of the veterinarian
      * @param name the name of the veterinarian
      */
-    public Veterinarian(String id, String name) {
-        super(id, name);
+    public Veterinarian(String id, String name, Hotel hotel) {
+        super(id, name, hotel);
         _speciesIds = new ArrayList<>(); // Initialize speciesIds
     }
 

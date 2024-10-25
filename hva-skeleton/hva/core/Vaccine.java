@@ -17,8 +17,8 @@ public class Vaccine extends HotelEntity {
      * @param name the name of the vaccine
      * @param species the list of species that the vaccine is effective for
      */
-    public Vaccine(String id, String name, List<String> species) {
-        super(id, name);
+    public Vaccine(String id, String name, Hotel hotel, List<String> species) {
+        super(id, name, hotel);
         species.sort((s1, s2) -> s1.compareToIgnoreCase(s2));
         this._species = species;
     }

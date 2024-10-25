@@ -74,7 +74,7 @@ public class Hotel implements Serializable {
         throw new IllegalArgumentException("Habitat not found");
     }
 
-    Animal i = new Animal(animalId, name, speciesId, habitat);
+    Animal i = new Animal(animalId, name, this, speciesId, habitat);
     _animals.add(i);
 
     try {
@@ -100,7 +100,7 @@ public class Hotel implements Serializable {
         speciesExists=true;
     }
     if(speciesExists==false){
-    Species i = new Species(speciesId, name);
+    Species i = new Species(speciesId, name, this);
     _species.add(i);
     markAsChanged();
     }
@@ -132,9 +132,9 @@ public class Hotel implements Serializable {
   public void registerEmployee(String employeeId, String name, String empType) {
     Employee i = null;
     if (empType.equals("TRT")) {
-      i = new Zookeeper(employeeId, name);
+      i = new Zookeeper(employeeId, name, this);
     } else if (empType.equals("VET")) {
-      i = new Veterinarian(employeeId, name);
+      i = new Veterinarian(employeeId, name, this);
     }
     if (i != null) {
       _employees.add(i);
@@ -208,7 +208,7 @@ public class Hotel implements Serializable {
    */
   public void registerVaccine(String vaccineId, String name, String[] speciesIds) {
     List<String> species = Arrays.asList(speciesIds);
-    Vaccine i = new Vaccine(vaccineId, name, species);
+    Vaccine i = new Vaccine(vaccineId, name, this, species);
     _vaccines.add(i);
     markAsChanged();
   }
@@ -314,7 +314,7 @@ public boolean vacIsAuthorized(String vaccineId, String speciesId) {
    * @param baseDiff the base difficulty of the tree
    */
   public void createTree(String treeId, String name, String type, int age, int baseDiff) {
-    Tree i = Tree.createTree(treeId, name, age, baseDiff, type);
+    Tree i = Tree.createTree(treeId, name, this, age, baseDiff, type);
     _trees.add(i);
     markAsChanged();
   }
@@ -327,7 +327,7 @@ public boolean vacIsAuthorized(String vaccineId, String speciesId) {
    * @param area the area of the habitat
    */
   public void registerHabitat(String habitatId, String name, int area) {
-    Habitat i = new Habitat(habitatId, name, area);
+    Habitat i = new Habitat(habitatId, name, this, area);
     _habitats.add(i);
     markAsChanged();
   }
