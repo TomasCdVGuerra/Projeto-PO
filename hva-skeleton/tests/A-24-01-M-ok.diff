@@ -1,12 +1,12 @@
 *** tests/A-24-01-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-24-01-M-ok.outhyp	Fri Oct 25 17:32:45 2024
+--- tests/A-24-01-M-ok.outhyp	Fri Oct 25 18:03:50 2024
 ***************
-*** 16,34 ****
+*** 16,29 ****
   3 - Actos médicos de um veterinário
   4 - Vacinações com problemas
   0 - Sair
 ! Escolha uma opção: Identificador único do funcionário: Actos médicos de um veterinário: Operação inválida: O veterinário 'vet22' não existe.
-! Consultas
+  Consultas
   1 - Animais de um habitat
   2 - Actos médicos num animal
   3 - Actos médicos de um veterinário
@@ -16,29 +16,18 @@
   1 - Animais de um habitat
   2 - Actos médicos num animal
   3 - Actos médicos de um veterinário
-  4 - Vacinações com problemas
-  0 - Sair
-  Escolha uma opção: Menu Principal
-  1 - Criar ficheiro
-  2 - Abrir ficheiro
---- 16,35 ----
+--- 16,29 ----
   3 - Actos médicos de um veterinário
   4 - Vacinações com problemas
   0 - Sair
-! Escolha uma opção: Consultas
+! Escolha uma opção: Identficador do veterinário a ministrar a vacina: Actos médicos de um veterinário: Operação inválida: O funcionário 'vet22' não existe.
+  Consultas
   1 - Animais de um habitat
   2 - Actos médicos num animal
   3 - Actos médicos de um veterinário
   4 - Vacinações com problemas
   0 - Sair
-! Escolha uma opção: Número inválido!
-! Escolha uma opção: Consultas
+! Escolha uma opção: Identficador do veterinário a ministrar a vacina: Consultas
   1 - Animais de um habitat
   2 - Actos médicos num animal
   3 - Actos médicos de um veterinário
-  4 - Vacinações com problemas
-  0 - Sair
-+ Escolha uma opção: Número inválido!
-  Escolha uma opção: Menu Principal
-  1 - Criar ficheiro
-  2 - Abrir ficheiro

@@ -4,7 +4,6 @@ import hva.app.animal.Prompt;
 import hva.app.exception.UnknownAnimalKeyException;
 import hva.core.Hotel;
 import pt.tecnico.uilib.menus.Command;
-import pt.tecnico.uilib.menus.CommandException;
 
 /**
  * Show all medical acts applied to a given animal.
@@ -17,7 +16,7 @@ class DoShowMedicalActsOnAnimal extends Command<Hotel> {
   }
 
   @Override
-  protected void execute() throws CommandException {
+  protected void execute() throws UnknownAnimalKeyException {
     String animalId = stringField("animalId");
     try {
       _receiver.getAnimal(animalId); // Check if animal exists
