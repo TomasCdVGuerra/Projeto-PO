@@ -23,5 +23,6 @@ class DoAdvanceSeason extends Command<HotelManager> {
         tree.incrementSeason();
       }
     }
+    _display.popup(hotel.advanceSeason());
   }
 }

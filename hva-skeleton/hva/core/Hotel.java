@@ -27,7 +27,7 @@ public class Hotel implements Serializable {
   private final List<Tree> _trees;
   private final List<Habitat> _habitats;
   private final List<String[]> _vaxHistory;
-  private final String _season;
+  private String _season;
   private boolean _hasUnsavedChanges = false;
 
   /**
@@ -52,6 +52,25 @@ public class Hotel implements Serializable {
    */
   public String getSeason() {
     return _season;
+  }
+
+  public int advanceSeason(){
+    switch (_season) {
+      case "Spring":
+          _season = "Summer";
+          return 1;
+      case "Summer":
+          _season = "Fall";
+          return 2;
+      case "Fall":
+          _season = "Winter";
+          return 3;
+      case "Winter":
+          _season = "Spring";
+          return 0;
+      default:
+          throw new IllegalArgumentException("Unknown season: " + _season);
+  }
   }
 
   /**
