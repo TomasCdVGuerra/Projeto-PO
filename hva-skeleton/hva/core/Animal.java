@@ -8,7 +8,6 @@ public class Animal extends HotelEntity {
     private final String _species;
     private Habitat _habitat;
     private String _healthHistory;
-    private double _satisfaction;
 
     /**
      * Constructs an Animal.
@@ -104,8 +103,11 @@ public class Animal extends HotelEntity {
 
     private int getSuitability() {
         Adequation adequation = _habitat.getAdequationForSpecies(this._species);
-        return adequation.getAdequationValue().getValue();
+    if (adequation == null) {
+        throw new NullPointerException();
     }
+    return adequation.getAdequationValue().getValue();
+}
 
     public void changeHabitat(Habitat newHabitat) {
         if (this._habitat != null) {

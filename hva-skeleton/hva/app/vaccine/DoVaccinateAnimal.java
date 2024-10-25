@@ -28,11 +28,10 @@ class DoVaccinateAnimal extends Command<Hotel> {
         throw new VeterinarianNotAuthorizedException(veterinarianId, _receiver.getAnimal(animalId).getSpecies());
       
       else if(!_receiver.vacIsAuthorized(vaccineId, _receiver.getAnimal(animalId).getSpecies()))
-        _display.popup(Message.wrongVaccine(vaccineId, _receiver.getAnimal(animalId).getSpecies()));
+        _display.popup(Message.wrongVaccine(vaccineId, animalId));
       
       else{
       _receiver.vaccinateAnimal(animalId, vaccineId, veterinarianId);
-      _display.popup("Vacinação realizada com sucesso.");
     }
     }catch (UnknownAnimalKeyException e) {
       throw new UnknownAnimalKeyException(animalId);
