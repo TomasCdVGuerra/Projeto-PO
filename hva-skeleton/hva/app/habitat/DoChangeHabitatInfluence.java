@@ -23,7 +23,7 @@ class DoChangeHabitatInfluence extends Command<Hotel> {
   }
   
   @Override
-protected void execute() {
+  protected void execute() {
     String habitatId = stringField("habitatId");
     String speciesId = stringField("speciesId");
     String influenceStr = optionField("influence");
@@ -46,7 +46,7 @@ protected void execute() {
         Adequation adequation = new Adequation(species, influence);
         habitat.setAdequationForSpecies(speciesId, adequation);
 
-        _display.popup("Influence of species " + speciesId + " on habitat " + habitatId + " set to " + influenceStr);
+        _display.popup("Alterar influência de habitat sobre espécie: Influence of species " + speciesId + " on habitat " + habitatId + " set to " + influenceStr);
 
     } catch (UnknownHabitatKeyException e) {
         _display.popup("Operação inválida: O habitat '" + habitatId + "' não existe.");
@@ -55,5 +55,5 @@ protected void execute() {
     } catch (IllegalArgumentException e) {
         _display.popup(e.getMessage());
     }
-}
+  }
 }
