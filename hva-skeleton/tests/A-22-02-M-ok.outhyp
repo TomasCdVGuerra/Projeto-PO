@@ -22,7 +22,8 @@ Escolha uma opção: Please provide the habitat ID:Consultas
 3 - Actos médicos de um veterinário
 4 - Vacinações com problemas
 0 - Sair
-Escolha uma opção: Please provide the habitat ID:Consultas
+Escolha uma opção: Please provide the habitat ID:ANIMAL|A1|Nome 1|E1|VOID|H1
+Consultas
 1 - Animais de um habitat
 2 - Actos médicos num animal
 3 - Actos médicos de um veterinário

@@ -1,5 +1,6 @@
 package hva.core;
 
+import hva.app.exception.UnknownHabitatKeyException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -59,6 +60,7 @@ public class Zookeeper extends Employee {
         _habitatsManaged.add(id);
     }
 
+
     /**
      * Calculates the satisfaction level of the zookeeper.
      *
@@ -69,27 +71,22 @@ public class Zookeeper extends Employee {
     public int calculateSatisfaction(Map<String, Habitat> habitats, Map<String, Integer> habitatZookeeperCount) {
         int satisfaction = 300;
         for (String habitatId : _habitatsManaged) {
-            Habitat habitat = habitats.get(habitatId);
-            if (habitat != null) {
-                System.out.println("area"+habitat.getArea());
-                System.out.println("popelation"+ habitat.getPopulation());
-                System.out.println("listanimals"+ habitat.getAnimals());
-                int workInHabitat = habitat.getArea() + 3 * habitat.getPopulation();
-                for (Tree tree : habitat.getTrees()) {
-                    if (tree != null) {
-                        workInHabitat += tree.getCleaningEffort();
+            try {
+                Habitat habitat = _hotel.getHabitat(habitatId); // Use the instance of Hotel to call getHabitat
+                if (habitat != null) {
+                    int workInHabitat = habitat.getArea() + 3 * habitat.getPopulation();
+                    for (Tree tree : habitat.getTrees()) {
+                        if (tree != null) {
+                            workInHabitat += tree.getCleaningEffort();
+                        }
                     }
-                    System.out.println("Tree cleaning effort: " + tree.getCleaningEffort());
-                    System.out.println("Work in habitat: " + workInHabitat);
+                    int zookeeperCount = habitatZookeeperCount.getOrDefault(habitatId, 1);
+                    satisfaction -= workInHabitat / zookeeperCount;
                 }
-                int zookeeperCount = habitatZookeeperCount.getOrDefault(habitatId, 1);
-                satisfaction -= workInHabitat / zookeeperCount;
-                System.out.println("Work in habitat: " + workInHabitat);
-                System.out.println("Zookeeper count: " + zookeeperCount);
-                System.out.println("Satisfaction: " + satisfaction);
+            } catch (UnknownHabitatKeyException e) {
+                System.err.println("Unknown habitat ID: " + habitatId);
             }
         }
-        System.out.println("final"+satisfaction);
         return satisfaction;
     }
 

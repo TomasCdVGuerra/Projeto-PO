@@ -210,4 +210,13 @@ public class Habitat extends HotelEntity {
         // Implement the logic to calculate adequacy
         return 1.0; // Placeholder value
       }
+
+      public static Habitat getHabitatById(String habitatId, List<Habitat> habitats) {
+        for (Habitat habitat : habitats) {
+            if (habitat.getId().equals(habitatId)) {
+                return habitat;
+            }
+        }
+        return null; // or throw an exception if not found
+    }
 }

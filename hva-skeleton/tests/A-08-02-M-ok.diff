@@ -1,5 +1,5 @@
 *** tests/A-08-02-M-ok.out	Fri Oct 18 19:27:35 2024
---- tests/A-08-02-M-ok.outhyp	Fri Oct 25 19:16:10 2024
+--- tests/A-08-02-M-ok.outhyp	Fri Oct 25 19:54:34 2024
 ***************
 *** 10,16 ****
   9 - Gestão de vacinas
@@ -13,7 +13,7 @@
   9 - Gestão de vacinas
   10 - Consultas
   0 - Sair
-! Escolha uma opção: 9223372036854775807
+! Escolha uma opção: 108
   Menu Principal
   1 - Criar ficheiro
   2 - Abrir ficheiro

@@ -12,7 +12,7 @@ public abstract class HotelEntity implements Serializable {
     private static final long serialVersionUID = 202407081733L;
     private String _id;
     private String _name;
-    private Hotel _hotel;
+    public Hotel _hotel;
 
     /**
      * Constructs a HotelEntity with the specified ID and name.
