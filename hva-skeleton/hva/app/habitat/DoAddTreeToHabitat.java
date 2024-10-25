@@ -25,27 +25,27 @@ class DoAddTreeToHabitat extends Command<Hotel> {
   
   @Override
   protected void execute() throws CommandException {
+    // Ensure all fields are parsed
     String idHabitat = stringField("idHabitat");
-
-    try {
-      Habitat habitat =_receiver.getHabitat(idHabitat);
-    } catch (UnknownHabitatKeyException e) {
-      throw new UnknownHabitatKeyException(idHabitat);
-    }
-
     String idTree = stringField("idTree");
-
-    for(Tree i : _receiver.getTrees(idHabitat)){
-      if(i.getId().equals(idTree))
-        throw new DuplicateTreeKeyException(idTree);
-    }
-
     String name = stringField("nomeArvore");
     int age = integerField("ageTree");
     int baseDiff = integerField("baseDiff");
     String type = stringField("typeTree");
 
-    _receiver.createTree(idTree,name,type, age, baseDiff);
-    _receiver.addTreeToHabitat(idHabitat,idTree);
+    try {
+      Habitat habitat = _receiver.getHabitat(idHabitat);
+    } catch (UnknownHabitatKeyException e) {
+      throw new UnknownHabitatKeyException(idHabitat);
+    }
+
+    for (Tree i : _receiver.getTrees(idHabitat)) {
+      if (i.getId().equals(idTree)) {
+        throw new DuplicateTreeKeyException(idTree);
+      }
+    }
+
+    _receiver.createTree(idTree, name, type, age, baseDiff);
+    _receiver.addTreeToHabitat(idHabitat, idTree);
   }
 }
