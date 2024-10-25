@@ -70,7 +70,9 @@ Escolha uma opção: Consultas
 3 - Actos médicos de um veterinário
 4 - Vacinações com problemas
 0 - Sair
-Escolha uma opção: Consultas
+Escolha uma opção: Error processing record: Vac3, Vet1, E1. Error: O animal 'E1' não existe.
+Error processing record: Vac3, Vet1, E1. Error: O animal 'E1' não existe.
+Consultas
 1 - Animais de um habitat
 2 - Actos médicos num animal
 3 - Actos médicos de um veterinário
@@ -137,7 +139,9 @@ Escolha uma opção: Consultas
 3 - Actos médicos de um veterinário
 4 - Vacinações com problemas
 0 - Sair
-Escolha uma opção: Consultas
+Escolha uma opção: Error processing record: Vac3, Vet1, E1. Error: O animal 'E1' não existe.
+Error processing record: Vac3, Vet1, E1. Error: O animal 'E1' não existe.
+Consultas
 1 - Animais de um habitat
 2 - Actos médicos num animal
 3 - Actos médicos de um veterinário
