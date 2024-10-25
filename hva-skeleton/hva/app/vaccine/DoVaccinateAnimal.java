@@ -24,8 +24,11 @@ class DoVaccinateAnimal extends Command<Hotel> {
     String animalId = stringField("animalId");
 
     try {
-      if (!_receiver.isAuthorized(veterinarianId, _receiver.getAnimal(animalId).getSpecies())) {
+      if (!_receiver.vetIsAuthorized(veterinarianId, _receiver.getAnimal(animalId).getSpecies())) {
         throw new VeterinarianNotAuthorizedException(veterinarianId, _receiver.getAnimal(animalId).getSpecies());
+      }
+      else if(!_receiver.vacIsAuthorized(vaccineId, _receiver.getAnimal(animalId).getSpecies())){
+        System.out.println(hva.app.vaccine.Message.wrongVaccine(vaccineId, animalId));
       }
       _receiver.vaccinateAnimal(animalId, vaccineId, veterinarianId);
       _display.popup("Vacinação realizada com sucesso.");

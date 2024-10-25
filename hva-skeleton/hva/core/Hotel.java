@@ -222,7 +222,7 @@ public class Hotel implements Serializable {
    * @return true if authorized, false otherwise
    * @throws UnknownEmployeeKeyException if the veterinarian ID is not found
    */
-  public boolean isAuthorized(String veterinarianId, String speciesId) {
+  public boolean vetIsAuthorized(String veterinarianId, String speciesId) {
     try {
         Veterinarian veterinarian = null;
 
@@ -242,6 +242,28 @@ public class Hotel implements Serializable {
         // Handle the exception by returning false
         return false;
     }
+}
+
+public boolean vacIsAuthorized(String vaccineId, String speciesId) {
+  try {
+      Vaccine vaccine = null;
+
+      for (Vaccine v : _vaccines) {
+          if (v.getId().equals(vaccineId)) {
+              vaccine = v;
+              break;
+          }
+      }
+
+      if (vaccine == null) {
+          throw new UnknownVaccineKeyException(vaccineId);
+      }
+
+      return vaccine.getSpecies().contains(speciesId);
+  } catch (UnknownVaccineKeyException e) {
+      // Handle the exception by returning false
+      return false;
+  }
 }
 
   /**
